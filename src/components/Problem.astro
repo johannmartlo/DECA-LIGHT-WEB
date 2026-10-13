@@ -1,0 +1,153 @@
+---
+// Problem.astro - Sección «El problema»: El desfase entre preparación y transporte
+---
+
+<section id="el-problema" class="problem-section" aria-labelledby="problem-title">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-kicker">EL RETO OPERATIVO EN ALMACÉN</span>
+      <h2 id="problem-title" class="section-title">
+        El desfase entre la preparación en muelle y los datos del transporte
+      </h2>
+      <p class="section-subtitle">
+        En un almacén hortofrutícola, el ritmo de carga no siempre coincide con la recepción de datos externos. Esta desconexión genera fricciones administrativas evitables.
+      </p>
+    </div>
+
+    <div class="problem-grid">
+      <!-- Columna 1 -->
+      <article class="problem-card">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <h3 class="problem-card-title">Esperas por datos externos</h3>
+        <p class="problem-card-text">
+          La mercancía está pesada, confeccionada y lista con su albarán de salida en el sistema de gestión, pero la preparación del DECA queda bloqueada hasta que el transportista comunica la matrícula del vehículo.
+        </p>
+      </article>
+
+      <!-- Columna 2 -->
+      <article class="problem-card">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <h3 class="problem-card-title">Canales dispersos de recepción</h3>
+        <p class="problem-card-text">
+          Las matrículas y confirmaciones llegan de forma fragmentada: correos, llamadas o mensajes instantáneos. El personal administrativo debe rastrear y asociar manualmente cada dato al albarán correspondiente.
+        </p>
+      </article>
+
+      <!-- Columna 3 -->
+      <article class="problem-card">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <h3 class="problem-card-title">Concentración al cierre de jornada</h3>
+        <p class="problem-card-text">
+          La dependencia de información que llega a última hora acumula expediciones pendientes al final del turno, generando tensión en muelle cuando varios camiones coinciden para la salida.
+        </p>
+      </article>
+    </div>
+
+    <!-- Cierre reflexivo de sección -->
+    <div class="problem-conclusion">
+      <blockquote class="conclusion-quote">
+        «El reto no es únicamente generar un documento. Es coordinar la información de la expedición con los datos del transporte que llegan después.»
+      </blockquote>
+      <p class="conclusion-disclaimer">
+        * Observaciones basadas en la operativa habitual comunicada por empresas del sector; frecuencia y tiempos medios sujetos a validación métrica en fase piloto.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .problem-section {
+    padding-block: var(--space-12);
+    background-color: var(--color-bg-surface);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .section-intro {
+    max-width: 720px;
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-10);
+  }
+
+  .problem-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding-top: var(--space-4);
+    border-top: 2px solid var(--color-border-subtle);
+  }
+
+  .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-bg-surface-subtle);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    color: var(--color-brand-primary);
+  }
+
+  .problem-card-title {
+    font-size: 1.1875rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .problem-card-text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .problem-conclusion {
+    background-color: var(--color-bg-surface-subtle);
+    border: 1px solid var(--color-border-subtle);
+    border-left: 4px solid var(--color-brand-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+  }
+
+  .conclusion-quote {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: 1.5;
+    margin-bottom: var(--space-2);
+  }
+
+  .conclusion-disclaimer {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  @media (min-width: 768px) {
+    .problem-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .problem-section {
+      padding-block: var(--space-16);
+    }
+  }
+</style>

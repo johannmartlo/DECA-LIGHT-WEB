@@ -1,0 +1,230 @@
+---
+// Header.astro - Barra de navegación accesible para DECA Light
+---
+
+<header class="site-header">
+  <div class="container header-container">
+    <div class="brand-group">
+      <a href="/" class="brand-link" aria-label="DECA Light - Inicio">
+        <span class="brand-name">DECA Light</span>
+      </a>
+      <span class="badge badge-amber brand-badge" aria-label="Estado del proyecto: Proyecto en desarrollo">
+        <span class="badge-dot" aria-hidden="true"></span>
+        <span>PILOTO</span>
+      </span>
+    </div>
+
+    <!-- Botón hamburguesa accesible en móvil -->
+    <button
+      type="button"
+      id="menu-toggle"
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="main-nav"
+      aria-label="Abrir menú de navegación"
+    >
+      <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Navegación principal -->
+    <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a href="#el-problema" class="nav-link">El problema</a></li>
+        <li><a href="#como-funciona" class="nav-link">Cómo funciona</a></li>
+        <li><a href="#piloto" class="nav-link">Programa piloto</a></li>
+        <li><a href="#faq" class="nav-link">Preguntas frecuentes</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#piloto" class="btn btn-primary btn-cta">Me interesa el piloto</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 64px;
+    padding-block: var(--space-2);
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .brand-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    text-decoration: none;
+  }
+
+  .brand-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+  }
+
+  .brand-badge {
+    font-size: 0.6875rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    cursor: pointer;
+  }
+
+  .menu-toggle .icon-close {
+    display: none;
+  }
+
+  .menu-toggle[aria-expanded="true"] .icon-menu {
+    display: none;
+  }
+
+  .menu-toggle[aria-expanded="true"] .icon-close {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .main-nav.is-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg-surface);
+    border-bottom: 1px solid var(--color-border-subtle);
+    padding: var(--space-6) var(--space-5);
+    box-shadow: var(--shadow-elevated);
+    gap: var(--space-4);
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: var(--space-1);
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: var(--space-3);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-md);
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .nav-link:hover {
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-surface-subtle);
+    text-decoration: none;
+  }
+
+  .btn-cta {
+    width: 100%;
+  }
+
+  /* Escritorio */
+  @media (min-width: 1024px) {
+    .menu-toggle {
+      display: none;
+    }
+
+    .main-nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: static;
+      background: transparent;
+      padding: 0;
+      box-shadow: none;
+      border-bottom: none;
+      gap: var(--space-6);
+    }
+
+    .nav-list {
+      flex-direction: row;
+      gap: var(--space-2);
+    }
+
+    .btn-cta {
+      width: auto;
+      font-size: 0.875rem;
+      padding: var(--space-2) var(--space-4);
+    }
+  }
+</style>
+
+<script>
+  // Control interactivo accesible del menú móvil (sin frameworks)
+  const toggleBtn = document.getElementById('menu-toggle');
+  const mainNav = document.getElementById('main-nav');
+
+  if (toggleBtn && mainNav) {
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+      toggleBtn.setAttribute('aria-label', isExpanded ? 'Abrir menú de navegación' : 'Cerrar menú de navegación');
+      mainNav.classList.toggle('is-open');
+    });
+
+    // Cerrar al pulsar un enlace en móvil
+    mainNav.querySelectorAll('.nav-link, .btn').forEach((link) => {
+      link.addEventListener('click', () => {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.setAttribute('aria-label', 'Abrir menú de navegación');
+        mainNav.classList.remove('is-open');
+      });
+    });
+
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mainNav.classList.contains('is-open')) {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.setAttribute('aria-label', 'Abrir menú de navegación');
+        mainNav.classList.remove('is-open');
+        toggleBtn.focus();
+      }
+    });
+  }
+</script>

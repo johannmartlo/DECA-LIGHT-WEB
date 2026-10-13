@@ -1,0 +1,178 @@
+---
+// Footer.astro - Pie de página transparente y accesible
+---
+
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-top">
+      <!-- Columna 1: Marca y alcance -->
+      <div class="footer-col brand-col">
+        <span class="footer-brand">DECA Light</span>
+        <p class="footer-desc">
+          Proyecto SaaS en desarrollo enfocado en la coordinación documental de expediciones para almacenes y comercializadoras hortofrutícolas.
+        </p>
+        <div class="footer-badge-wrap">
+          <span class="badge badge-neutral">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span>Versión de maquetación preliminar</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Columna 2: Navegación de secciones -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Navegación</h3>
+        <ul class="footer-links">
+          <li><a href="#el-problema">El problema</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#piloto">Programa piloto</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 3: Información de estado del proyecto -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Estado y contacto</h3>
+        <p class="footer-status-text">
+          Dominio titular: <code>decalight.es</code>
+        </p>
+        <p class="footer-status-text">
+          Canales de contacto y buzón corporativo en proceso de configuración técnica y validación legal.
+        </p>
+      </div>
+    </div>
+
+    <!-- Fila inferior de derechos y enlaces legales -->
+    <div class="footer-bottom">
+      <p class="copyright">
+        © 2026 DECA Light. Todos los derechos reservados.
+      </p>
+      <ul class="legal-links">
+        <li><span class="legal-placeholder">Aviso legal (En redacción)</span></li>
+        <li><span class="legal-placeholder">Política de privacidad (En redacción)</span></li>
+        <li><span class="legal-placeholder">Cookies</span></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-bg-surface);
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-8);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-bottom: var(--space-10);
+  }
+
+  .brand-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer-brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .footer-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 42ch;
+  }
+
+  .footer-badge-wrap {
+    margin-top: var(--space-1);
+  }
+
+  .footer-col-title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .footer-links a {
+    display: inline-flex;
+    align-items: center;
+    padding-block: var(--space-1);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-brand-primary);
+    text-decoration: underline;
+  }
+
+  .footer-status-text {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-2);
+  }
+
+  .footer-status-text code {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    background-color: var(--color-bg-surface-subtle);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-primary);
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border-subtle);
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .legal-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .legal-placeholder {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  @media (min-width: 768px) {
+    .footer-top {
+      grid-template-columns: 2.2fr 1fr 1.6fr;
+      gap: var(--space-12);
+    }
+
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+</style>

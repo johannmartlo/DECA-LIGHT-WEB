@@ -1,0 +1,516 @@
+---
+// Hero.astro - Sección principal con diagrama conceptual adaptativo (horizontal en desktop, vertical en móvil)
+---
+
+<section class="hero-section" aria-labelledby="hero-title">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <div class="hero-badge-wrap">
+        <span class="badge badge-amber hero-badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <!-- En pantallas estrechas (<420px) muestra versión corta para evitar compresión -->
+          <span class="badge-text-full">PROYECTO EN DESARROLLO · DOCUMENTACIÓN DE EXPEDICIONES</span>
+          <span class="badge-text-short">PROYECTO EN DESARROLLO</span>
+        </span>
+      </div>
+
+      <h1 id="hero-title" class="hero-title">
+        La gestión documental de tus expediciones, más sencilla
+      </h1>
+
+      <p class="hero-description">
+        DECA Light está en desarrollo para ayudar a los almacenes hortofrutícolas a organizar la información de sus expediciones y simplificar las tareas administrativas relacionadas con su documentación.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#piloto" class="btn btn-primary btn-hero-primary">
+          <!-- CTA adaptable: corto en pantallas <420px, completo en pantallas medianas y grandes -->
+          <span class="cta-text-full">Mostrar interés en el programa piloto</span>
+          <span class="cta-text-short">Me interesa el piloto</span>
+        </a>
+        <a href="#como-funciona" class="btn btn-secondary btn-hero-secondary">
+          Cómo funciona
+        </a>
+      </div>
+
+      <p class="hero-note">
+        Estamos contrastando el proceso con profesionales del sector antes de abrir una prueba operativa.
+      </p>
+    </div>
+
+    <!-- Diagrama conceptual adaptativo (unificado bajo una única etiqueta accesible) -->
+    <div
+      class="hero-visual"
+      role="region"
+      aria-label="Diagrama del flujo conceptual: 1. Preparación de carga y albarán. 2. Recepción posterior de datos del transporte. 3. Capa de coordinación DECA Light. 4. Documentación organizada para validación."
+    >
+      <div class="diagram-card">
+        <div class="diagram-header">
+          <span class="diagram-tag">ESQUEMA DE COORDINACIÓN OPERATIVA</span>
+          <span class="diagram-status">Flujo documental entre muelle y transporte</span>
+        </div>
+
+        <!-- VARIANTE ESCRITORIO (>=768px): SVG horizontal nativo -->
+        <div class="diagram-desktop" aria-hidden="true">
+          <div class="svg-container">
+            <svg viewBox="0 0 760 210" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
+              <!-- Conexiones -->
+              <path d="M 180 80 L 260 80" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="4 4" />
+              <path d="M 370 80 L 450 80" stroke="#CBD5E1" stroke-width="2" />
+              <path d="M 560 80 L 640 80" stroke="#CBD5E1" stroke-width="2" />
+
+              <!-- Flechas -->
+              <polygon points="260,76 268,80 260,84" fill="#64748B" />
+              <polygon points="450,76 458,80 450,84" fill="#047857" />
+              <polygon points="640,76 648,80 640,84" fill="#047857" />
+
+              <!-- Nodo 1: Sistema de gestión del almacén -->
+              <g transform="translate(10, 30)">
+                <rect width="170" height="100" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+                <rect x="12" y="14" width="24" height="24" rx="4" fill="#F1F5F9" />
+                <text x="24" y="30" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">1</text>
+                <text x="44" y="24" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#0F172A">Sistema de gestión</text>
+                <text x="44" y="36" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#0F172A">del almacén</text>
+                <text x="14" y="58" font-family="-apple-system, sans-serif" font-size="10.5" fill="#475569">Preparación de carga</text>
+                <text x="14" y="74" font-family="-apple-system, sans-serif" font-size="10.5" fill="#475569">y albarán de salida</text>
+                <rect x="10" y="92" width="150" height="18" rx="3" fill="#F8FAFC" />
+                <text x="85" y="104" font-family="ui-monospace, monospace" font-size="8.5" fill="#64748B" text-anchor="middle">Sistemas de gestión habituales</text>
+              </g>
+
+              <!-- Nodo 2: Recepción posterior de datos del transporte -->
+              <g transform="translate(200, 30)">
+                <rect width="170" height="100" rx="8" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5" />
+                <rect x="12" y="14" width="24" height="24" rx="4" fill="#FEF3C7" />
+                <text x="24" y="30" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#92400E" text-anchor="middle">2</text>
+                <text x="44" y="24" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#92400E">Datos del</text>
+                <text x="44" y="36" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#92400E">transporte</text>
+                <text x="14" y="58" font-family="-apple-system, sans-serif" font-size="10.5" fill="#78350F">Recepción posterior</text>
+                <text x="14" y="74" font-family="-apple-system, sans-serif" font-size="10.5" fill="#78350F">por varios canales</text>
+                <rect x="14" y="92" width="142" height="18" rx="3" fill="#FEF3C7" />
+                <text x="85" y="105" font-family="ui-monospace, monospace" font-size="8.5" fill="#92400E" text-anchor="middle">Matrícula pendiente</text>
+              </g>
+
+              <!-- Nodo 3: Capa de coordinación DECA Light -->
+              <g transform="translate(390, 20)">
+                <rect width="170" height="120" rx="8" fill="#FFFFFF" stroke="#047857" stroke-width="2" />
+                <rect x="12" y="14" width="24" height="24" rx="4" fill="#ECFDF5" />
+                <text x="24" y="30" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#047857" text-anchor="middle">3</text>
+                <text x="44" y="30" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" fill="#047857">DECA Light</text>
+                <text x="14" y="58" font-family="-apple-system, sans-serif" font-size="11" fill="#0F172A" font-weight="600">Capa de coordinación</text>
+                <text x="14" y="76" font-family="-apple-system, sans-serif" font-size="11" fill="#475569">Asocia por núm. albarán</text>
+                <text x="14" y="94" font-family="-apple-system, sans-serif" font-size="11" fill="#475569">Identifica pendientes</text>
+                <rect x="14" y="108" width="142" height="18" rx="3" fill="#ECFDF5" />
+                <text x="85" y="121" font-family="ui-monospace, monospace" font-size="9" fill="#047857" text-anchor="middle">Validación documental</text>
+              </g>
+
+              <!-- Nodo 4: Documentación organizada para validación -->
+              <g transform="translate(580, 30)">
+                <rect width="170" height="100" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+                <rect x="12" y="14" width="24" height="24" rx="4" fill="#F1F5F9" />
+                <text x="24" y="30" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">4</text>
+                <text x="44" y="24" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#0F172A">Documentación</text>
+                <text x="44" y="36" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#0F172A">organizada</text>
+                <text x="14" y="58" font-family="-apple-system, sans-serif" font-size="10.5" fill="#475569">Documentos listos</text>
+                <text x="14" y="74" font-family="-apple-system, sans-serif" font-size="10.5" fill="#475569">para validación final</text>
+                <rect x="14" y="92" width="142" height="18" rx="3" fill="#F8FAFC" />
+                <text x="85" y="105" font-family="ui-monospace, monospace" font-size="8.5" fill="#64748B" text-anchor="middle">Validación y salida</text>
+              </g>
+
+              <!-- Leyenda inferior -->
+              <text x="380" y="195" font-family="-apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">
+                Esquema de coordinación: prepara anticipadamente lo que se conoce y mantiene bajo control los datos pendientes.
+              </text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- VARIANTE MÓVIL (<768px): Disposición vertical continua (sin scroll horizontal) -->
+        <div class="diagram-mobile" aria-hidden="true">
+          <div class="mobile-flow-list">
+            <!-- Fase 1 -->
+            <div class="flow-card">
+              <div class="flow-card-head">
+                <span class="flow-step-num">1</span>
+                <span class="flow-step-title">Sistema de gestión del almacén</span>
+              </div>
+              <p class="flow-card-desc">Preparación de carga y albarán en los sistemas habituales</p>
+              <span class="flow-card-tag">Preparación de carga y albarán</span>
+            </div>
+
+            <!-- Flecha conector -->
+            <div class="flow-connector">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </div>
+
+            <!-- Fase 2 (El desfase) -->
+            <div class="flow-card flow-card-amber">
+              <div class="flow-card-head">
+                <span class="flow-step-num flow-step-amber">2</span>
+                <span class="flow-step-title text-amber">Datos del transporte</span>
+              </div>
+              <p class="flow-card-desc text-amber-dark">Recepción posterior de datos del transporte por canales dispersos</p>
+              <span class="flow-card-tag tag-amber">Matrícula y vehículo pendiente</span>
+            </div>
+
+            <!-- Flecha conector -->
+            <div class="flow-connector">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </div>
+
+            <!-- Fase 3 (DECA Light) -->
+            <div class="flow-card flow-card-green">
+              <div class="flow-card-head">
+                <span class="flow-step-num flow-step-green">3</span>
+                <span class="flow-step-title text-green">Capa de coordinación DECA Light</span>
+              </div>
+              <p class="flow-card-desc">Asocia por número de albarán e identifica información pendiente</p>
+              <span class="flow-card-tag tag-green">Coordinación documental</span>
+            </div>
+
+            <!-- Flecha conector -->
+            <div class="flow-connector">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </div>
+
+            <!-- Fase 4 (Salida) -->
+            <div class="flow-card">
+              <div class="flow-card-head">
+                <span class="flow-step-num">4</span>
+                <span class="flow-step-title">Documentación organizada</span>
+              </div>
+              <p class="flow-card-desc">Documentación organizada para validación y emisión final</p>
+              <span class="flow-card-tag">Validación y salida</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="diagram-footer-note">
+          Representación conceptual del flujo objetivo en desarrollo. No implica integración operativa verificada con sistemas de terceros.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-12);
+    background-color: var(--color-bg-canvas);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .hero-content {
+    max-width: 720px;
+  }
+
+  .hero-badge-wrap {
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-badge {
+    white-space: normal;
+    text-align: left;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .badge-text-short {
+    display: inline;
+  }
+
+  .badge-text-full {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-description {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    max-width: 620px;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .btn-hero-primary {
+    width: 100%;
+  }
+
+  .cta-text-short {
+    display: inline;
+  }
+
+  .cta-text-full {
+    display: none;
+  }
+
+  .btn-hero-secondary {
+    width: 100%;
+  }
+
+  .hero-note {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  /* Tarjeta contenedora del diagrama */
+  .hero-visual {
+    width: 100%;
+  }
+
+  .diagram-card {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .diagram-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .diagram-tag {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-brand-primary);
+  }
+
+  .diagram-status {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* Control de visibilidad de variantes */
+  .diagram-desktop {
+    display: none;
+  }
+
+  .diagram-mobile {
+    display: block;
+  }
+
+  /* Flujo vertical móvil */
+  .mobile-flow-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .flow-card {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .flow-card-amber {
+    background-color: #FFFBEB;
+    border-color: #FCD34D;
+  }
+
+  .flow-card-green {
+    background-color: #FFFFFF;
+    border: 2px solid var(--color-brand-primary);
+  }
+
+  .flow-card-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .flow-step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-bg-surface-subtle);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .flow-step-amber {
+    background-color: #FEF3C7;
+    color: #92400E;
+  }
+
+  .flow-step-green {
+    background-color: #ECFDF5;
+    color: var(--color-brand-primary);
+  }
+
+  .flow-step-title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .text-amber {
+    color: #92400E;
+  }
+
+  .text-amber-dark {
+    color: #78350F;
+  }
+
+  .text-green {
+    color: var(--color-brand-primary);
+  }
+
+  .flow-card-desc {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  .flow-card-tag {
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background-color: var(--color-bg-surface-subtle);
+    color: var(--color-text-muted);
+    margin-top: var(--space-1);
+  }
+
+  .tag-amber {
+    background-color: #FEF3C7;
+    color: #92400E;
+  }
+
+  .tag-green {
+    background-color: #ECFDF5;
+    color: var(--color-brand-primary);
+    font-weight: 600;
+  }
+
+  .flow-connector {
+    display: flex;
+    justify-content: center;
+    padding-block: 2px;
+  }
+
+  .diagram-footer-note {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: var(--space-3);
+    font-style: italic;
+  }
+
+  /* Dispositivos medianos y grandes (>=420px y >=768px) */
+  @media (min-width: 420px) {
+    .badge-text-short {
+      display: none;
+    }
+
+    .badge-text-full {
+      display: inline;
+    }
+
+    .cta-text-short {
+      display: none;
+    }
+
+    .cta-text-full {
+      display: inline;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 2.625rem;
+    }
+
+    .hero-actions {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .btn-hero-primary, .btn-hero-secondary {
+      width: auto;
+    }
+
+    .diagram-header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Mostrar SVG en escritorio y ocultar pila móvil */
+    .diagram-mobile {
+      display: none;
+    }
+
+    .diagram-desktop {
+      display: block;
+    }
+
+    .svg-container {
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: var(--space-2);
+    }
+
+    .flow-svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-section {
+      padding-top: var(--space-12);
+      padding-bottom: var(--space-16);
+    }
+
+    .hero-title {
+      font-size: 3.25rem;
+    }
+  }
+</style>

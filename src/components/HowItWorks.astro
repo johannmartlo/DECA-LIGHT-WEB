@@ -1,0 +1,349 @@
+---
+// HowItWorks.astro - Sección «Cómo funciona»: Flujo objetivo y objetivos de simplificación
+---
+
+<section id="como-funciona" class="how-it-works-section" aria-labelledby="how-it-works-title">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-kicker">Capa de coordinación documental</span>
+      <h2 id="how-it-works-title" class="section-title">
+        Cómo debería funcionar el flujo de expedición
+      </h2>
+      <p class="section-subtitle">
+        DECA Light se proyecta como una capa ágil sobre el sistema de gestión habitual de la central hortofrutícola. No pretende sustituir al sistema de gestión actual ni obligar a cambiar los sistemas existentes.
+      </p>
+    </div>
+
+    <div class="disclaimer-banner">
+      <span class="badge badge-amber">
+        <span class="badge-dot" aria-hidden="true"></span>
+        <span>OBJETIVO EN DESARROLLO</span>
+      </span>
+      <p class="disclaimer-text">
+        Flujo de trabajo en fase de especificación y programación; las capacidades y vías de integración concretas están sujetas a validación técnica en planta.
+      </p>
+    </div>
+
+    <!-- Flujo continuo progresivo (Timeline de proceso 01–07) -->
+    <div class="timeline-wrapper">
+      <ol class="steps-timeline" aria-label="Flujo de proceso continuo de expedición">
+        <li class="timeline-step">
+          <div class="step-indicator" aria-hidden="true">
+            <span class="step-node">01</span>
+          </div>
+          <div class="step-body">
+            <h3 class="step-title">Preparar la documentación disponible</h3>
+            <p class="step-text">El almacén prepara el pedido, pesa la mercancía y genera el albarán en su sistema de gestión como hace habitualmente.</p>
+          </div>
+        </li>
+
+        <li class="timeline-step">
+          <div class="step-indicator" aria-hidden="true">
+            <span class="step-node">02</span>
+          </div>
+          <div class="step-body">
+            <h3 class="step-title">Reunir o importar los documentos</h3>
+            <p class="step-text">Incorporación de cartas de porte, albaranes o datos asociados de la carga en un único entorno de trabajo.</p>
+          </div>
+        </li>
+
+        <li class="timeline-step">
+          <div class="step-indicator" aria-hidden="true">
+            <span class="step-node">03</span>
+          </div>
+          <div class="step-body">
+            <h3 class="step-title">Relacionar por número de albarán</h3>
+            <p class="step-text">Asociación de la documentación de salida con la orden correcta para evitar cruces indebidos de expediciones.</p>
+          </div>
+        </li>
+
+        <li class="timeline-step">
+          <div class="step-indicator" aria-hidden="true">
+            <span class="step-node">04</span>
+          </div>
+          <div class="step-body">
+            <h3 class="step-title">Identificar datos pendientes</h3>
+            <p class="step-text">Visibilidad clara e inmediata de qué cargas tienen la documentación completa y cuáles están esperando matrícula.</p>
+          </div>
+        </li>
+
+        <li class="timeline-step">
+          <div class="step-indicator" aria-hidden="true">
+            <span class="step-node">05</span>
+          </div>
+          <div class="step-body">
+            <h3 class="step-title">Incorporar datos confirmados</h3>
+            <p class="step-text">Asignación ágil de la matrícula del vehículo conforme el transportista la comunica, de forma individual o en lote.</p>
+          </div>
+        </li>
+
+        <li class="timeline-step">
+          <div class="step-indicator" aria-hidden="true">
+            <span class="step-node">06</span>
+          </div>
+          <div class="step-body">
+            <h3 class="step-title">Validar antes de completar el DECA</h3>
+            <p class="step-text">Comprobación de coherencia documental con revisión humana para asegurar que no falten datos obligatorios.</p>
+          </div>
+        </li>
+
+        <li class="timeline-step timeline-step-final">
+          <div class="step-indicator" aria-hidden="true">
+            <span class="step-node step-node-final">07</span>
+          </div>
+          <div class="step-body">
+            <h3 class="step-title">Conservar historial y versiones</h3>
+            <p class="step-text">Registro ordenado y trazable de los documentos generados para facilitar consultas posteriores o auditorías.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Qué queremos simplificar (Objetivos prudentes) -->
+    <div class="goals-box">
+      <h3 class="goals-title">Qué queremos simplificar con este enfoque</h3>
+      <p class="goals-intro">Objetivos que guían el desarrollo de la herramienta, sin promesas de resultados prematuros:</p>
+      <ul class="goals-list">
+        <li>
+          <svg class="goal-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span><strong>Visibilidad continua:</strong> Saber en todo momento qué expediciones siguen pendientes de matrícula.</span>
+        </li>
+        <li>
+          <svg class="goal-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span><strong>Menos búsquedas manuales:</strong> Evitar rastrear papeles, correos y chats para encontrar la matrícula de una carga.</span>
+        </li>
+        <li>
+          <svg class="goal-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span><strong>Detección temprana:</strong> Identificar datos que faltan antes de que el chófer se presente en la báscula.</span>
+        </li>
+        <li>
+          <svg class="goal-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span><strong>Criterio humano:</strong> Mantener siempre la decisión del responsable de muelle cuando existan discrepancias o dudas.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-it-works-section {
+    padding-block: var(--space-12);
+    background-color: var(--color-bg-canvas);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .section-intro {
+    max-width: 720px;
+  }
+
+  .disclaimer-banner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    background-color: var(--color-bg-surface);
+    border: 1px solid #FCD34D;
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .disclaimer-text {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Flujo continuo progresivo (Timeline) */
+  .timeline-wrapper {
+    position: relative;
+    margin-bottom: var(--space-10);
+  }
+
+  .steps-timeline {
+    list-style: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Carril conector vertical continuo */
+  .steps-timeline::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    bottom: 24px;
+    left: 19px; /* Centrado con el círculo de 40px */
+    width: 2px;
+    background-color: var(--color-border-strong);
+    z-index: 0;
+  }
+
+  .timeline-step {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding-bottom: var(--space-6);
+    z-index: 1;
+  }
+
+  .timeline-step:last-child {
+    padding-bottom: 0;
+  }
+
+  .step-indicator {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .step-node {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-bg-canvas);
+    border: 2px solid var(--color-brand-primary);
+    color: var(--color-brand-primary);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 700;
+    box-shadow: 0 0 0 4px var(--color-bg-canvas);
+  }
+
+  .step-node-final {
+    background-color: var(--color-brand-primary);
+    color: #FFFFFF;
+    border-color: var(--color-brand-primary);
+  }
+
+  .step-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-top: 6px;
+    flex: 1;
+  }
+
+  .step-title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: 1.35;
+  }
+
+  .step-text {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  /* Cuadro de metas */
+  .goals-box {
+    background-color: var(--color-bg-surface-subtle);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+  }
+
+  .goals-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .goals-intro {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-4);
+  }
+
+  .goals-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .goals-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .goal-check {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .goals-list strong {
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 768px) {
+    .disclaimer-banner {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .how-it-works-section {
+      padding-block: var(--space-16);
+    }
+
+    .steps-timeline::before {
+      top: 22px;
+      bottom: 26px;
+      left: 21px;
+    }
+
+    .timeline-step {
+      gap: var(--space-6);
+      padding-bottom: var(--space-7);
+    }
+
+    .step-node {
+      width: 44px;
+      height: 44px;
+      font-size: 0.9375rem;
+    }
+
+    .step-body {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: var(--space-6);
+      align-items: baseline;
+      padding-top: 8px;
+      border-bottom: 1px solid var(--color-border-subtle);
+      padding-bottom: var(--space-6);
+    }
+
+    .timeline-step:last-child .step-body {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .step-title {
+      font-size: 1.125rem;
+    }
+
+    .goals-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .step-body {
+      grid-template-columns: 320px 1fr;
+      gap: var(--space-8);
+    }
+  }
+</style>

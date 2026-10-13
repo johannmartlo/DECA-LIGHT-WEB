@@ -1,0 +1,240 @@
+---
+// Pilot.astro - Sección «Programa piloto» y formulario visual inactivo
+---
+
+<section id="piloto" class="pilot-section" aria-labelledby="pilot-title">
+  <div class="container container-narrow">
+    <div class="section-intro text-center">
+      <span class="section-kicker">PROGRAMA PILOTO Y VALIDACIÓN</span>
+      <h2 id="pilot-title" class="section-title">
+        Mostrar interés en el programa piloto
+      </h2>
+      <p class="section-subtitle">
+        Estamos hablando con almacenes hortofrutícolas para conocer sus procesos documentales y definir una prueba acotada. En esta fase recogemos interés y contrastamos necesidades; el acceso operativo se valorará cuando el producto esté preparado.
+      </p>
+    </div>
+
+    <!-- Formulario visual inactivo (según bloqueos de seguridad y privacidad) -->
+    <div class="form-wrapper">
+      <!-- Bloque de contexto sobrio y directo -->
+      <div class="pilot-context-notice" role="status">
+        <p class="context-text">
+          El proyecto está en desarrollo. En esta fase buscamos conocer los procesos documentales de los almacenes hortofrutícolas y valorar posibles pruebas futuras. El formulario mostrado es una referencia visual y todavía no permite enviar datos.
+        </p>
+      </div>
+
+      <form class="pilot-form" aria-label="Formulario de contacto para el programa piloto (Actualmente inactivo)" onsubmit="return false;">
+        <!-- Campo 1: Nombre -->
+        <div class="form-group">
+          <label for="nombre" class="form-label">
+            Nombre y apellidos <span class="required" aria-hidden="true">*</span>
+          </label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            class="form-input"
+            placeholder="Ej. Carmen García"
+            disabled
+            aria-disabled="true"
+          />
+        </div>
+
+        <!-- Campo 2: Correo -->
+        <div class="form-group">
+          <label for="email" class="form-label">
+            Correo electrónico de contacto <span class="required" aria-hidden="true">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            placeholder="ejemplo@almacenhortofruticola.es"
+            disabled
+            aria-disabled="true"
+          />
+        </div>
+
+        <!-- Campo 3: Empresa o almacén -->
+        <div class="form-group">
+          <label for="empresa" class="form-label">
+            Empresa o almacén <span class="required" aria-hidden="true">*</span>
+          </label>
+          <input
+            type="text"
+            id="empresa"
+            name="empresa"
+            class="form-input"
+            placeholder="Nombre de la central o comercializadora"
+            disabled
+            aria-disabled="true"
+          />
+        </div>
+
+        <!-- Campo 4: Volumen aproximado -->
+        <div class="form-group">
+          <label for="volumen" class="form-label">
+            Volumen aproximado de expediciones diarias <span class="required" aria-hidden="true">*</span>
+          </label>
+          <select id="volumen" name="volumen" class="form-select" disabled aria-disabled="true">
+            <option value="" selected>Selecciona un rango aproximado</option>
+            <option value="1-5">1–5 expediciones / día</option>
+            <option value="6-15">6–15 expediciones / día</option>
+            <option value="mas-15">Más de 15 expediciones / día</option>
+            <option value="no-se">No lo sé / Variable por campaña</option>
+          </select>
+        </div>
+
+        <!-- Casilla de privacidad -->
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              id="privacidad"
+              name="privacidad"
+              class="form-checkbox"
+              disabled
+              aria-disabled="true"
+            />
+            <span class="checkbox-text">
+              He leído y acepto la información de privacidad relativa al tratamiento de datos para la evaluación técnica del piloto (texto legal pendiente de publicación oficial).
+            </span>
+          </label>
+        </div>
+
+        <!-- Botón de envío inactivo -->
+        <div class="form-action">
+          <button
+            type="button"
+            class="btn btn-primary btn-submit"
+            disabled
+            aria-disabled="true"
+            title="Formulario temporalmente inactivo hasta habilitar la infraestructura segura"
+          >
+            Mostrar interés en el programa piloto
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pilot-section {
+    padding-block: var(--space-12);
+    background-color: var(--color-bg-surface);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-center .section-subtitle {
+    margin-inline: auto;
+  }
+
+  .form-wrapper {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-6);
+  }
+
+  .pilot-context-notice {
+    background-color: var(--color-bg-surface-subtle);
+    border: 1px solid var(--color-border-subtle);
+    border-left: 3px solid var(--color-accent-amber);
+    border-radius: var(--radius-md);
+    padding: var(--space-4) var(--space-5);
+    margin-bottom: var(--space-6);
+  }
+
+  .context-text {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  .pilot-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .required {
+    color: var(--color-accent-amber-text);
+  }
+
+  .form-input, .form-select {
+    width: 100%;
+    min-height: 44px;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    background-color: var(--color-bg-surface-subtle);
+    font-family: inherit;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+  }
+
+  .checkbox-group {
+    margin-top: var(--space-2);
+  }
+
+  .checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    cursor: not-allowed;
+  }
+
+  .form-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    cursor: not-allowed;
+  }
+
+  .checkbox-text {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .form-action {
+    margin-top: var(--space-3);
+  }
+
+  .btn-submit {
+    width: 100%;
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+
+  @media (min-width: 768px) {
+    .pilot-section {
+      padding-block: var(--space-16);
+    }
+
+    .form-wrapper {
+      padding: var(--space-8);
+    }
+  }
+</style>

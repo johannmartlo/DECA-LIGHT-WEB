@@ -1,0 +1,182 @@
+---
+// Faq.astro - Sección «Preguntas frecuentes» con semántica nativa accesible
+---
+
+<section id="faq" class="faq-section" aria-labelledby="faq-title">
+  <div class="container container-narrow">
+    <div class="section-intro">
+      <span class="section-kicker">RESOLUCIÓN DE DUDAS FRECUENTES</span>
+      <h2 id="faq-title" class="section-title">
+        Preguntas frecuentes
+      </h2>
+      <p class="section-subtitle">
+        Respuestas claras y directas sobre el alcance del proyecto, el estado de desarrollo y el enfoque del programa piloto.
+      </p>
+    </div>
+
+    <div class="faq-list">
+      <!-- FAQ 1 -->
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="question-text">¿DECA Light sustituye a nuestro sistema de gestión actual?</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            No es su objetivo. DECA Light se está diseñando como una capa de coordinación documental sobre las herramientas de gestión habituales de la central. Su finalidad es ayudar a organizar la documentación de las expediciones sin plantear la sustitución de los sistemas existentes. Las posibilidades concretas de intercambio de información están pendientes de validación técnica.
+          </p>
+        </div>
+      </details>
+
+      <!-- FAQ 2 -->
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="question-text">¿Está disponible para utilizarlo hoy?</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            No. DECA Light se encuentra en fase de desarrollo activo. En este momento estamos contrastando las necesidades operativas y el flujo de trabajo con profesionales y almacenes del sector; no se ofrece acceso operativo generalizado.
+          </p>
+        </div>
+      </details>
+
+      <!-- FAQ 3 -->
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="question-text">¿Qué documentos contempla el proyecto?</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            La arquitectura de referencia contempla cartas de porte, CMR, albaranes de salida y datos de transporte asociados. Las capacidades de importación y extracción documental deben validarse técnicamente antes de presentarlas como funciones disponibles.
+          </p>
+        </div>
+      </details>
+
+      <!-- FAQ 4 -->
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="question-text">¿Con qué sistemas y plataformas de transporte se integra?</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            No debe afirmarse una integración operativa confirmada con plataformas específicas. La compatibilidad y las vías de intercambio con los sistemas de gestión y plataformas de transporte (mediante ficheros estructurados, exportaciones o API) forman parte de los estudios de viabilidad técnica que se analizarán en el marco del proyecto.
+          </p>
+        </div>
+      </details>
+
+      <!-- FAQ 5 -->
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="question-text">¿Cómo puedo participar en el programa piloto?</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            El primer paso es concertar una conversación técnica para conocer vuestro circuito de expedición y el volumen de cargas. Esta toma de contacto no supone compromiso de contratación ni obligación comercial alguna.
+          </p>
+        </div>
+      </details>
+
+      <!-- FAQ 6 -->
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="question-text">¿Cuánto cuesta participar en el piloto?</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="faq-answer">
+          <p>
+            Las condiciones comerciales de la futura fase de prueba no están cerradas ni publicadas. Se acordarán individualmente con las empresas seleccionadas antes de realizar cualquier prueba operativa en planta.
+          </p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding-block: var(--space-12);
+    background-color: var(--color-bg-canvas);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .faq-item {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-md);
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+    padding: var(--space-4) var(--space-5);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .question-text {
+    padding-right: var(--space-4);
+  }
+
+  .faq-chevron {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+    transition: transform var(--transition-fast);
+  }
+
+  .faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+    color: var(--color-brand-primary);
+  }
+
+  .faq-answer {
+    padding: 0 var(--space-5) var(--space-5) var(--space-5);
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: var(--space-4);
+  }
+
+  .faq-answer p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  @media (min-width: 768px) {
+    .faq-section {
+      padding-block: var(--space-16);
+    }
+  }
+</style>
