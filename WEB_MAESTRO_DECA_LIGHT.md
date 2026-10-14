@@ -1,530 +1,330 @@
-# DECA Light — Documento maestro de la web
+# DECA Light — Documento Maestro de la Web Comercial
 
-**Versión:** 0.1  
-**Fecha:** 13 de octubre de 2026  
-**Estado:** Borrador de referencia comercial y de diseño  
-**Uso:** Fuente de verdad para diseñar y construir la web pública de DECA Light  
-**Importante:** Este documento no autoriza cambios en el código de la aplicación SaaS ni implica que las funcionalidades descritas como objetivo estén ya disponibles.
-
----
-
-## 1. Propósito del documento
-
-Centralizar en un único documento las decisiones comerciales, el posicionamiento, el contenido y las restricciones de la web de DECA Light.
-
-Este archivo guía el trabajo de diseño y construcción de la web pública. No sustituye la arquitectura técnica de la aplicación ni debe utilizarse para modificar el producto SaaS sin instrucciones específicas.
-
-### Reglas de trabajo
-
-1. No modificar el código de la aplicación SaaS.
-2. No desplegar la web ni publicar contenidos sin aprobación expresa.
-3. No presentar como disponibles funcionalidades que no hayan sido verificadas en la aplicación.
-4. Diferenciar siempre hechos conocidos, hipótesis por validar y funcionalidades futuras.
-5. No inventar clientes, testimonios, métricas, integraciones, precios, plazos de lanzamiento ni resultados.
-6. Mantener una identidad visual premium, sobria, moderna y accesible.
-7. Si una decisión comercial o técnica no está confirmada, señalarla como pendiente en vez de resolverla por suposición.
+**Versión:** 1.0.0  
+**Fecha de consolidación:** 14 de octubre de 2026  
+**Estado:** Documento normativo de referencia de producto, narrativa y arquitectura  
+**Uso:** Fuente de verdad canónica para el diseño, contenido y construcción de la web comercial de DECA Light  
+**Documentos vinculados:** [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) (v3.0.0), [`COMPONENT_LIBRARY.md`](COMPONENT_LIBRARY.md) (v1.0.0), [`MOTION_GUIDELINES.md`](MOTION_GUIDELINES.md) (v1.0.0)  
+**Restricción permanente:** Este documento no autoriza modificaciones en el código de la aplicación SaaS subyacente ni presupone la disponibilidad operativa de funcionalidades catalogadas como en desarrollo o hipótesis.
 
 ---
 
-## 2. Producto y posicionamiento
+## 1. Propósito y Marco de Gobernanza
 
-### 2.1 Qué es DECA Light
+### 1.1 Objetivo del documento
+Centralizar de forma vinculante la definición comercial, el posicionamiento estratégico, la narrativa editorial, la arquitectura de contenidos y los límites de honestidad tecnológica de la web pública de **DECA Light**.
 
-DECA Light es un proyecto SaaS B2B orientado a almacenes hortofrutícolas y empresas comercializadoras que necesitan coordinar la documentación de sus expediciones y preparar el DECA a partir de la información disponible, incluso cuando los datos del vehículo llegan más tarde.
+Este archivo actúa como el contrato maestro para cualquier diseñador, director de arte, redactor o ingeniero de software que intervenga en la plataforma comercial. Resuelve ambigüedades, previene desviaciones de producto y garantiza la máxima coherencia entre la realidad operativa y la comunicación externa.
 
-La propuesta es actuar como una **capa de coordinación documental sobre el ERP**, no como sustituto de Hispatec ni como un ERP nuevo.
-
-### 2.2 Posicionamiento principal
-
-**Coordinación documental de expediciones para almacenes hortofrutícolas.**
-
-La propuesta no debe reducirse a «generar un PDF». El problema que se quiere resolver es la coordinación entre la documentación de expedición que prepara el almacén y los datos del transporte que comunica posteriormente el transportista.
-
-### 2.3 Lema aprobado provisionalmente
-
-> La gestión documental de tus expediciones, más sencilla.
-
-Mantener esta frase como lema principal salvo decisión comercial posterior.
-
-### 2.4 Texto base para el hero
-
-> DECA Light está en desarrollo para ayudar a los almacenes hortofrutícolas a organizar la información de sus expediciones y simplificar las tareas administrativas relacionadas con su documentación.
-
-Este texto debe dejar claro el estado de desarrollo. No sustituirlo por promesas de ahorro, eliminación de errores o automatización total sin evidencia verificable.
-
-### 2.5 Público objetivo inicial
-
-- Almacenes hortofrutícolas.
-- Empresas comercializadoras de frutas y hortalizas.
-- Personal administrativo que prepara la documentación de las expediciones.
-- Responsables de administración, logística u operaciones.
-- Empresas que trabajan con Hispatec u otros procedimientos documentales, sin presuponer que exista integración técnica disponible.
-
-### 2.6 Problema central
-
-El proceso habitual descrito es:
-
-1. El departamento comercial recibe o emite el pedido.
-2. El almacén prepara y pesa la mercancía.
-3. Se generan el albarán y la documentación de expedición en el sistema habitual, con Hispatec como referencia.
-4. La matrícula y otros datos del transporte pueden llegar más tarde por parte de la empresa transportista.
-5. La preparación del DECA queda pendiente hasta disponer de la información necesaria para continuar el flujo habitual.
-6. El personal administrativo debe asociar la información recibida con la expedición correcta y completar el procedimiento.
-
-Esto crea una dependencia temporal entre el trabajo del almacén y la recepción de datos externos. Puede concentrar trabajo al final de la jornada y requerir búsquedas entre documentos, albaranes y comunicaciones.
-
-**Distinción importante:** la espera de la matrícula está descrita por el usuario como un problema operativo real. La frecuencia, duración media y coste administrativo exactos todavía deben medirse.
+### 1.2 Reglas fundamentales de gobernanza
+1. **Inviolabilidad del software SaaS:** No tocar, modificar ni refactorizar repositorios, bases de datos o servicios de la aplicación SaaS desde el proyecto web.
+2. **Despliegue bajo autorización:** Prohibido desplegar la web, alterar zonas DNS de DonDominio o publicar cambios en producción sin aprobación humana expresa y trazable.
+3. **Principio de honestidad comercial:** Prohibido anunciar como operativas funciones que se encuentren en fase de investigación, diseño o desarrollo. Distinguir siempre entre:
+   - **Hechos comprobados:** Realidad contrastada en almacenes hortofrutícolas.
+   - **Capacidades en desarrollo:** Funciones programadas en la hoja de ruta técnica pero no finalizadas.
+   - **Hipótesis por validar:** Suposiciones operativas o de negocio sujetas a entrevistas de campo.
+4. **Tolerancia cero a la ficción de marketing:** No inventar logotipos de clientes, citas testimoniales, métricas de ahorro inventadas, acuerdos de integración con terceros (Hispatec, TransFollow) ni garantías de cumplimiento normativo absoluto.
+5. **Calidad estética e integridad técnica:** Mantener una identidad visual B2B sobria, editorial y premium, rechazando recursos de plantilla genérica, animaciones intrusivas o degradaciones de accesibilidad.
 
 ---
 
-## 3. Hechos, hipótesis y funciones futuras
+## 2. Producto, Posicionamiento y Contexto Sectorial
 
-### 3.1 Hechos comunicados sobre la operativa
+### 2.1 Definición técnica y conceptual de DECA Light
+DECA Light es una solución SaaS B2B en fase de desarrollo concebida como una **capa ligera de coordinación documental de expediciones** para almacenes hortofrutícolas y empresas comercializadoras agrícolas.
 
-- El departamento comercial emite los pedidos.
-- El personal administrativo prepara la documentación.
-- Los datos del transporte, incluidas las matrículas, llegan después y por varios canales.
-- Las matrículas pueden recibirse individualmente o en grupos.
-- Se asocian a la documentación mediante el número de albarán o pedido.
-- El bloqueo descrito afecta principalmente a la preparación del DECA; el resto de la documentación de expedición suele estar preparado.
-- El volumen conjunto estimado en las dos empresas de referencia es de 31–60 expediciones diarias. Esta cifra es una estimación inicial, no una métrica auditada.
-- Según la información disponible, Hispatec tiene conectado el DECA con la documentación de expedición. El comportamiento técnico exacto debe confirmarse.
+```
+┌────────────────────────────────────────────────────────┐
+│               CAPA EXISTENTE EN EL ALMACÉN              │
+│       ERP Agropecuario (ej. Hispatec) / Básculas       │
+│        (Albaranes, pesajes, pedidos comerciales)       │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│           DECA LIGHT (CAPA DE COORDINACIÓN)            │
+│  Centralización documental · Detección de asincronía   │
+│   Emparejamiento por albarán · Preparación anticipada  │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│             FLUJO DE SALIDA DE EXPEDICIÓN              │
+│   Documento DECA listo para revisión humana y firma    │
+└────────────────────────────────────────────────────────┘
+```
 
-### 3.2 Hipótesis que deben validarse
+**Lo que DECA Light ES:**
+- Una herramienta complementaria que ayuda al personal administrativo a preparar la información disponible de cada carga y asociarla de manera estructurada con los datos de transporte en cuanto son comunicados.
+- Un entorno de control visual sobre las expediciones en curso para evitar dispersión documental y saturación al final de la jornada.
 
-- Que preparar anticipadamente la información disponible puede reducir la acumulación de tareas.
-- Que centralizar documentos y datos de transporte puede reducir búsquedas y cambios de contexto.
-- Que la conciliación por número de albarán puede reducir asociaciones manuales erróneas.
-- Que el volumen de trabajo y el beneficio potencial justifican una herramienta independiente.
-- Que existe una vía técnica viable para completar el proceso sin duplicar datos ni romper el flujo de Hispatec.
+**Lo que DECA Light NO ES (y no debe comunicarse nunca como tal):**
+- **NO es un ERP:** No gestiona facturación, contabilidad, nóminas ni pedidos comerciales.
+- **NO es un sustituto de Hispatec:** Respeta y se apoya en los sistemas centrales de gestión del almacén.
+- **NO es un SGA/WMS:** No gestiona ubicaciones físicas en cámara, inventario de palés ni preparación de pedidos internos.
+- **NO es un TMS de flotas:** No optimiza rutas de camiones ni gestiona contratos con transportistas.
+- **NO es un autómata legal ciego:** No emite documentación oficial sin verificación previa del personal autorizado.
 
-No publicar estas hipótesis como resultados demostrados.
+### 2.2 El problema operativo central: La asincronía en el muelle
+En el sector hortofrutícola, la expedición de productos perecederos está sujeta a un **desfase temporal crítico** entre dos flujos de trabajo independientes:
 
-### 3.3 Capacidades objetivo descritas en la arquitectura
+1. **Flujo interno del almacén (Síncrono y controlado):**
+   - El departamento comercial confirma el pedido.
+   - El almacén selecciona el producto, confecciona los palés y realiza el pesaje en báscula.
+   - El personal administrativo emite el albarán de salida y la documentación base en su ERP.
+   - *Estado en este punto:* La mercancía está lista para carga física, pero administrativamente incompleta para viajar.
 
-Las siguientes son capacidades previstas o definidas como objetivo. Su disponibilidad real debe comprobarse antes de anunciarlas como funcionalidades operativas:
+2. **Flujo del transporte externo (Asíncrono y fragmentado):**
+   - Las empresas de transporte asignan vehículos y remolques en función de sus rotaciones logísticas.
+   - Los datos críticos (matrícula del tractor, matrícula del remolque, nombre del conductor, DNI/identificación) llegan con horas de desfase respecto a la preparación de la carga.
+   - Estos datos llegan a través de canales dispersos: mensajes de WhatsApp, llamadas telefónicas, correos electrónicos con PDFs adjuntos o albaranes manuscritos a la llegada del chófer al muelle.
 
-- Importación documental de cartas de porte y CMR, individualmente o por lotes.
-- Extracción de datos documentales.
-- Conciliación de documentos mediante el número de albarán.
-- Control de expediciones pendientes de matrícula.
-- Identificación de datos ausentes, dudosos, duplicados o inconsistentes.
-- Asignación de datos confirmados del transporte.
-- Validación previa a la generación del DECA.
-- Generación y consulta de documentos, con historial y control de versiones.
-- Agrupación de expediciones por transportista cuando existan datos suficientes.
+3. **El punto de fricción:**
+   - La emisión del documento obligatorio (DECA y carta de porte/CMR asociada) no puede cerrarse sin las matrículas del transporte.
+   - Los administrativos deben retener expediciones en su cabeza o en notas adhesivas, buscar manualmente entre correos y mensajes a última hora de la tarde, e interrumpir su ritmo para completar los documentos cuando los camiones ya están presionando en la báscula de salida.
 
-### 3.4 Integraciones
+### 2.3 Los cuatro documentos de expedición hortofrutícola
+Para mantener el rigor editorial y técnico, la web debe referenciar con exactitud los documentos reales del sector:
 
-La integración directa con Hispatec mediante CSV, Excel o API es una posibilidad de evolución, no una capacidad confirmada. La vía de entrada definida inicialmente es la importación documental. No afirmar que existe una integración con Hispatec o TransFollow hasta que se haya verificado y autorizado su comunicación comercial.
+| Documento | Función Operativa | Datos Clave que Contiene | Momento de Disponibilidad |
+|---|---|---|---|
+| **Albarán de entrega** | Acredita la salida física de mercancía del almacén. | Nº albarán, bultos, kg netos/brutos, variedad, cliente de destino. | Inmediato tras confección y pesaje en almacén. |
+| **Carta de Porte (Nacional)** | Contrato de transporte terrestre en territorio español (LOTT). | Cargador, transportista, destinatario, peso, instrucciones de transporte. | Albarán listo; datos de vehículo pendientes del transportista. |
+| **CMR (Internacional)** | Convenio relativo al contrato de transporte internacional de mercancías por carretera. | Remitente, destinatario, lugares de carga/entrega, precintos, reservas. | Preparado por almacén; formalizado con conductor extranjero. |
+| **DECA** | Documento de Control y Acompañamiento en el transporte de productos agrarios y pesqueros. | Origen agrario, trazabilidad, datos del transportista y **matrículas**. | **Bloqueado hasta la recepción de la matrícula y conductor.** |
 
-### 3.5 Funciones fuera del objetivo inicial
-
-DECA Light no debe presentarse como:
-
-- Un ERP.
-- Un sistema de gestión de almacén o existencias.
-- Una plataforma de facturación o contabilidad.
-- Un TMS completo de planificación de rutas y flotas.
-- Un sistema que inventa datos o genera documentación sin las validaciones necesarias.
-- Una garantía de cumplimiento legal por el mero hecho de generar un documento.
-
----
-
-## 4. Propuesta de valor
-
-### Mensaje central
-
-**Preparar antes lo que ya se conoce y mantener bajo control lo que depende de la información del transporte.**
-
-La web puede explicar que el proyecto pretende ayudar a organizar la documentación disponible, identificar lo que falta y coordinar el trabajo pendiente hasta poder completar el DECA.
-
-### Beneficios potenciales que deben formularse con prudencia
-
-- Más visibilidad sobre las expediciones pendientes.
-- Menos búsquedas manuales entre documentos y comunicaciones.
-- Menos repetición de tareas cuando la información ya está disponible.
-- Mayor control de referencias, datos incompletos y documentos duplicados.
-- Un proceso más ordenado para el personal administrativo.
-
-No afirmar que DECA Light ya consigue estos resultados ni cuantificarlos hasta que existan pruebas suficientes.
-
-### Evitar estas promesas
-
-No utilizar sin evidencia y aprobación:
-
-- «Elimina los errores».
-- «Acaba con los retrasos».
-- «Generación instantánea».
-- «Automatización completa».
-- «Integración directa con Hispatec».
-- «Ahorra X horas o X %».
-- «Cumplimiento legal garantizado».
-- «Sin interrumpir la salida de camiones».
-- Garantías de disponibilidad, soporte inmediato o fechas de lanzamiento.
+### 2.4 Lema y directrices de posicionamiento
+- **Lema principal aprobado:**  
+  > *La gestión documental de tus expediciones, más sencilla.*
+- **Sublema / Kicker superior de posicionamiento:**  
+  > `PROYECTO EN DESARROLLO · COORDINACIÓN DOCUMENTAL DE EXPEDICIONES`
+- **Tono de voz comercial:**
+  - Sobrio, riguroso, empático con la tensión del muelle agrícola y respetuoso con los procedimientos tradicionales.
+  - Rechazo frontal de la hipérbole tecnológica ("revolución cuántica", "magia de IA", "disrupción").
+  - Vocabulario sectorial preciso: *almacén hortofrutícola, muelle de carga, expedición, albarán, báscula, carta de porte, CMR, DECA, transportista, matrícula*.
 
 ---
 
-## 5. Objetivo comercial de la web
+## 3. Límites de Honestidad y Declaraciones Prohibidas
 
-La web inicial no debe funcionar como una página de compra de un producto listo para producción.
+Para preservar la credibilidad de DECA Light ante directores de operaciones y gerentes de cooperativas agrícolas, la web debe respetar estrictamente los siguientes límites:
 
-Su objetivo es:
+### 3.1 Lo que SÍ se puede afirmar
+- "DECA Light está en fase de desarrollo y validación con profesionales del sector hortofrutícola."
+- "El objetivo del proyecto es estructurar la documentación disponible para que la llegada de la matrícula no colapse la operativa."
+- "Diseñado para actuar como una capa complementaria sobre los sistemas de gestión habituales."
+- "Mantiene la verificación humana como principio central en cada decisión documental."
+- "Buscamos almacenes colaboradores para contrastar necesidades en entrevistas y diseñar un programa piloto futuro."
 
-1. Explicar el problema que aborda DECA Light.
-2. Presentar la propuesta de coordinación documental.
-3. Dejar claro que el producto está en desarrollo.
-4. Captar empresas interesadas en participar en entrevistas y en valorar un posible piloto futuro.
-5. Ayudar a validar el problema, el flujo de trabajo y la disposición de las empresas a probar una solución.
-
-### CTA principal
-
-**Mostrar interés en el programa piloto**
-
-Alternativa más corta para botones estrechos:
-
-**Me interesa el piloto**
-
-El CTA debe llevar a la sección del formulario identificada como `#piloto`. No implementar modal inicialmente.
-
-No usar «Contratar», «Empezar ahora», «Probar gratis» o mensajes que sugieran acceso inmediato al software.
-
-### Estado del programa piloto
-
-Hipótesis comercial inicial, aún no contractual:
-
-- Dos o tres empresas candidatas.
-- Posible prueba operativa de un mes.
-- Posible ausencia de coste de licencia durante la prueba para empresas seleccionadas.
-- Acompañamiento acordado individualmente.
-- Inicio operativo solo cuando la aplicación esté preparada y las validaciones técnicas y de seguridad hayan sido superadas.
-
-La fase inmediata es de entrevistas y demostraciones conceptuales, sin acceso operativo ni tratamiento de documentación real sensible. No presentar las condiciones anteriores como oferta definitiva.
+### 3.2 Declaraciones terminantemente PROHIBIDAS
+| Declaración Prohibida | Razón de la Prohibición | Formulación Aceptada de Reemplazo |
+|---|---|---|
+| *"Automatización total del proceso"* | No existe automatización sin revisión en documentos legales de transporte. | *"Organización estructurada y preparación anticipada de los datos disponibles."* |
+| *"Cero errores garantizados"* | La calidad del dato depende de las comunicaciones de terceros y revisión humana. | *"Detección de incoherencias y validación previa antes de la emisión."* |
+| *"Generación instantánea con un clic"* | Minimiza falsamente la complejidad de la verificación documental. | *"Agiliza la emisión al concentrar los datos previamente validados."* |
+| *"Integración nativa con Hispatec / ERP"* | No existe integración técnica validada por contrato; es un objetivo de estudio. | *"Diseñado para convivir con los procedimientos y sistemas habituales del almacén."* |
+| *"Ahorra un 80% del tiempo de expedición"* | No existen métricas estadísticas auditadas en producción real. | *"Orientado a reducir las búsquedas manuales y la sobrecarga al final de la jornada."* |
+| *"Cumplimiento legal 100% blindado"* | La responsabilidad legal del transporte recae en el cargador y transportista según la LOTT. | *"Facilita la incorporación de los datos exigidos por la normativa de transporte."* |
+| *"Comienza a utilizarlo hoy gratis"* | El software no está abierto a producción comercial libre ni autoservicio. | *"Solicita participar en las entrevistas de validación y programa piloto."* |
 
 ---
 
-## 6. Estructura propuesta de la página
+## 4. Arquitectura de la Landing Page (Sección por Sección)
 
-### 6.1 Cabecera
+La web comercial de DECA Light se estructura en una sola página fluida, modular y orientada a la pedagogía del producto. A continuación se define la especificación canónica de cada sección:
 
-- Marca tipográfica DECA Light.
-- Navegación breve: El problema, Cómo funciona, Programa piloto, Preguntas frecuentes.
-- Indicador discreto de estado: «Proyecto en desarrollo».
-- CTA: «Mostrar interés en el programa piloto» (versión corta: «Me interesa el piloto»).
-- Cabecera adaptable a móvil, con navegación accesible.
+```
+┌──────────────────────────────────────────────────────────────────┐
+│ HEADER: Marca · Nav (Problema, Flujo, Piloto, FAQ) · Status · CTA │
+├──────────────────────────────────────────────────────────────────┤
+│ HERO: Kicker · H1 Lema · P Desarrollo · CTA Piloto · SVG Flujo   │
+├──────────────────────────────────────────────────────────────────┤
+│ PROBLEM: Editorial 2 cols · Kicker · H2 · P · 3 Fricciones · Banner│
+├──────────────────────────────────────────────────────────────────┤
+│ HOW IT WORKS: 3 Fases (Preparar · Coordinar · Completar)         │
+│               Blueprints · Pipeline Nodes · Human Checklists     │
+├──────────────────────────────────────────────────────────────────┤
+│ PILOT: Captación entrevistas · Formulario honesto · Advertencias │
+├──────────────────────────────────────────────────────────────────┤
+│ FAQ: Acordeón accesible · 6 Preguntas normativas de producto     │
+├──────────────────────────────────────────────────────────────────┤
+│ FOOTER: Marca · Disclaimer legal · Contacto real · Copyright     │
+└──────────────────────────────────────────────────────────────────┘
+```
 
-Evitar una barra de navegación excesivamente larga.
+### 4.1 Header (`src/components/Header.astro`)
+- **Propósito:** Identificación de marca inmediata, navegación accesible y llamada a la acción siempre disponible.
+- **Elementos anatómicos:**
+  - **Identificador de marca:** Logotipo tipográfico `DECA Light` con enlace ancla a inicio (`#`). Tipografía Inter semibold con acento sutil en `Light`.
+  - **Navegación principal:** Lista semántica `<nav>` con 4 anclas: *El problema* (`#problema`), *Cómo funciona* (`#como-funciona`), *Programa piloto* (`#piloto`), *Preguntas frecuentes* (`#faq`).
+  - **Status Badge:** Componente `StatusBadge` con dot pulsante ámbar y texto: `En desarrollo`. Comunica de inmediato el estado del proyecto.
+  - **CTA de cabecera:** Enlace botón a `#piloto` con texto: `Me interesa el piloto` (versión compacta).
+- **Responsive:** En móvil (<768px), la navegación de enlaces se oculta o condensa; el identificador de marca y el CTA de cabecera se mantienen accesibles respetando el área táctil mínima de 44×44px.
 
-### 6.2 Hero
+### 4.2 Hero (`src/components/Hero.astro`)
+- **Propósito:** Declarar el posicionamiento en los primeros 3 segundos y modelar visualmente la convergencia del flujo documental.
+- **Elementos anatómicos:**
+  - **Kicker superior:** `PROYECTO EN DESARROLLO · DOCUMENTACIÓN DE EXPEDICIONES` estilizado con tracking amplio y acento esmeralda.
+  - **Titular H1:** *La gestión documental de tus expediciones, más sencilla.*
+  - **Párrafo de posicionamiento:** *DECA Light está en desarrollo para ayudar a los almacenes hortofrutícolas a organizar la información de sus expediciones y simplificar las tareas administrativas relacionadas con su documentación.*
+  - **Acción principal:** Botón primario esmeralda con enlace a `#piloto`: *Mostrar interés en el programa piloto*.
+  - **Micro-copia de honestidad:** *Estamos contrastando el proceso con profesionales del sector antes de abrir una prueba operativa.*
+  - **Diagrama de proceso convergente (ProcessDiagram):**
+    - Columna izquierda: Bloque "Almacén" (Albarán, Pesaje, Bultos listos).
+    - Columna central: Bloque "Transporte" (Matrícula y Conductor con estado ámbar "Pendiente").
+    - Centro de convergencia: Nodo DECA Light que procesa la unión.
+    - Columna derecha: Bloque de salida con documento "DECA Validado" en verde esmeralda.
+    - En móvil (<768px): El diagrama SVG conmuta a una representación vertical lineal clara y legible.
 
-**Etiqueta superior:**  
-PROYECTO EN DESARROLLO · DOCUMENTACIÓN DE EXPEDICIONES
+### 4.3 Sección «El problema» (`src/components/Problem.astro`)
+- **Propósito:** Demostrar conocimiento profundo de la realidad del almacén agrícola, conectando emocional y técnicamente con los dolores del administrativo.
+- **Estructura editorial:**
+  - **Columna izquierda (Contexto y tesis):**
+    - Kicker: `EL CUELLO DE BOTELLA OPERATIVO`
+    - H2 de gran tamaño: *El reto no es generar un PDF. Es coordinar datos que no llegan a la vez.*
+    - Párrafo de apoyo: Explica cómo el almacén tiene todo listo para salir, pero el proceso administrativo queda encallado esperando información externa.
+  - **Columna derecha (Las tres fricciones documentales):**
+    1. **Fricción 01 · Desfase temporal:** La mercancía está en el muelle, el albarán emitido, pero el transportista no asigna la matrícula hasta horas más tarde.
+    2. **Fricción 02 · Canales dispersos:** Las matrículas llegan por WhatsApp, correos no estructurados o llamadas directas al personal de báscula.
+    3. **Fricción 03 · Cuello de botella vespertino:** Las expediciones pendientes se acumulan al final del turno, exigiendo cotejos manuales bajo la presión de salida de camiones.
+  - **Banner inferior de conclusión:**
+    - Superficie en Plano 1 con acento esmeralda (`#047857`) y mensaje de cierre: *DECA Light no inventa un nuevo ERP. Actúa como el puente que sostiene la información hasta que la expedición puede completarse.*
 
-**H1:**  
-La gestión documental de tus expediciones, más sencilla.
+### 4.4 Sección «Cómo funciona» (`src/components/HowItWorks.astro`)
+- **Propósito:** Mostrar la solución propuesta como un proceso ordenado en 3 macro-fases, transparente y centrado en el control humano.
+- **Estructura por macro-fases:**
+  1. **Fase 01 · Preparar lo conocido (El almacén adelanta su trabajo):**
+     - Explicación de cómo se toman los albaranes y órdenes de carga existentes en el ERP o sistema de pesaje.
+     - Componente visual `DocumentBlueprint` mostrando el albarán con datos de cliente, producto y kilos confirmados.
+     - Indicador `PipelineTrack` conectando con el nodo siguiente.
+  2. **Fase 02 · Coordinar lo pendiente (Entrada asíncrona del transporte):**
+     - Llegada del dato de transporte (matrícula/chófer) y emparejamiento con el albarán correspondiente mediante coincidencia de referencias.
+     - Componente visual de tarjeta de conciliación con estado de alerta ámbar mientras los datos no están confirmados.
+  3. **Fase 03 · Completar y archivar (Validación previa y generación):**
+     - Lista de comprobación humana (`HumanChecklist`): *Trazabilidad de origen verificada*, *Datos de transporte completos*, *Pesaje oficial cuadrado*.
+     - Generación del documento DECA estructurado, trazable y listo para su custodia o envío.
+     - Nota de advertencia técnica: *Flujo conceptual en desarrollo; las funciones reales y capacidades de importación están sujetas a validación técnica en planta.*
 
-**Texto:**  
-DECA Light está en desarrollo para ayudar a los almacenes hortofrutícolas a organizar la información de sus expediciones y simplificar las tareas administrativas relacionadas con su documentación.
+### 4.5 Sección «Programa piloto» (`src/components/Pilot.astro`)
+- **Propósito:** Punto de conversión de la landing. Invitar a almacenes y cooperativas a colaborar en entrevistas de descubrimiento sin inducir a error sobre disponibilidad inmediata.
+- **Elementos anatómicos:**
+  - Encabezado pedagógico: *Buscamos almacenes hortofrutícolas para validar DECA Light sobre el terreno.*
+  - Texto explicativo: Aclara que no se trata de una prueba de software descargable ni de una suscripción de autoservicio, sino de conversaciones estructuradas con el equipo de producto.
+  - **Formulario de captación `#piloto`:**
+    - Campo 1: *Nombre y apellidos* (obligatorio).
+    - Campo 2: *Correo electrónico corporativo* (obligatorio, tipo email).
+    - Campo 3: *Nombre del almacén o cooperativa* (obligatorio).
+    - Campo 4: *Volumen orientativo de expediciones diarias* (selector: `1–5`, `6–15`, `Más de 15`, `No estoy seguro`).
+    - Campo 5: *Casilla obligatoria de consentimiento informado y privacidad*.
+    - Botón de envío: `Solicitar participar en la validación`.
+  - **Límites técnicos y legales actuales del formulario:**
+    - Actualmente, el formulario opera en modo de **captación controlada**. No existe backend en producción activo ni almacenamiento de bases de datos conectado.
+    - Prohibido simular un envío exitoso ficticio con pantallas de agradecimiento que confundan al usuario.
+    - No solicitar en esta fase documentos confidenciales de expedición, CIFs ni datos bancarios.
 
-**CTA:**  
-Mostrar interés en el programa piloto
+### 4.6 Sección «Preguntas frecuentes» (`src/components/Faq.astro`)
+- **Propósito:** Resolver objeciones técnicas y comerciales clave mediante un acordeón accesible nativo con animación WAAPI fluida sin dependencias.
+- **Las 6 preguntas normativas de producto:**
+  1. *¿DECA Light sustituye a Hispatec o al sistema de gestión de mi almacén?*  
+     **Respuesta:** No. DECA Light no es un ERP ni pretende sustituirlo. Su diseño está orientado a actuar como una capa de coordinación documental que complemente al software existente, organizando los datos de transporte que el ERP aún no tiene.
+  2. *¿Está el software disponible para utilizarse hoy mismo en mi empresa?*  
+     **Respuesta:** No. DECA Light se encuentra en fase activa de desarrollo y diseño conceptual. Actualmente estamos realizando entrevistas de validación con profesionales del sector para asegurar que la herramienta responda a problemas reales antes de abrir una prueba operativa en planta.
+  3. *¿Qué documentación contempla el sistema en su alcance objetivo?*  
+     **Respuesta:** El alcance prioritario abarca el DECA (Documento de Control y Acompañamiento) y su documentación asociada: albaranes de salida hortofrutícolas, cartas de porte nacionales y CMR internacionales de transporte por carretera.
+  4. *¿Existe actualmente integración directa confirmada con Hispatec o TransFollow?*  
+     **Respuesta:** No. Cualquier integración técnica mediante API, intercambio de archivos o sincronización de bases de datos se encuentra en fase de estudio preliminar y requiere validaciones técnicas y comerciales previas. La primera vía de trabajo se basa en la importación y lectura de documentos.
+  5. *¿Qué implica participar en el programa de validación o piloto?*  
+     **Respuesta:** Supone participar en sesiones breves de entrevista para compartir cómo gestionáis actualmente las expediciones y contrastar las pantallas y flujos propuestos. No exige instalación técnica, compromiso de compra ni alteración de vuestro trabajo diario.
+  6. *¿Tendrá coste participar en las pruebas piloto?*  
+     **Respuesta:** Las condiciones comerciales definitivas no están cerradas. Los almacenes que colaboren en el diseño inicial y validen los primeros prototipos operativos contarán con condiciones preferentes y acuerdos individualizados acordados previamente.
 
-**Nota breve:**  
-Estamos contrastando el proceso con profesionales del sector antes de abrir una prueba operativa.
-
-El hero puede incorporar un diagrama conceptual de una expedición y sus documentos. Si se muestra una interfaz, debe identificarse claramente como conceptual; no fingir que es una captura real del producto.
-
-### 6.3 Sección «El problema»
-
-Explicar el desfase entre dos procesos:
-
-- El almacén recibe pedidos, prepara cargas, pesa producto y genera albaranes y documentos de expedición.
-- La empresa transportista confirma posteriormente el vehículo y comunica la matrícula.
-- El DECA queda pendiente hasta disponer de la información necesaria.
-
-Mensaje de cierre:
-
-> El reto no es únicamente generar un documento. Es coordinar la información de la expedición con los datos del transporte que llegan después.
-
-No presentar como medidos los tiempos de espera ni la frecuencia de incidencias.
-
-### 6.4 Sección «Cómo debería funcionar»
-
-Representar el flujo objetivo como una secuencia conceptual:
-
-1. Preparar la documentación disponible.
-2. Importar o reunir los documentos necesarios.
-3. Relacionar la información con su albarán.
-4. Identificar datos pendientes o dudosos.
-5. Incorporar los datos confirmados del transporte.
-6. Validar la información antes de completar el DECA.
-7. Conservar el documento y su historial.
-
-Incluir una nota: «Flujo objetivo en desarrollo; las funciones y vías de integración están sujetas a validación técnica».
-
-### 6.5 Sección «Qué queremos simplificar»
-
-Presentar como objetivos, no resultados garantizados:
-
-- Saber qué expediciones siguen pendientes.
-- Reducir la búsqueda manual de documentos.
-- Identificar datos que faltan.
-- Relacionar la documentación con su albarán.
-- Evitar repetir información ya disponible.
-- Mantener la revisión humana cuando los datos sean ambiguos.
-
-### 6.6 Sección «Programa piloto»
-
-Explicar que se está preparando una fase de validación con un número reducido de almacenes.
-
-Texto recomendado:
-
-> Estamos hablando con almacenes hortofrutícolas para conocer sus procesos documentales y definir una prueba acotada. En esta fase recogemos interés y validamos necesidades; el acceso operativo se valorará cuando el producto esté preparado.
-
-No prometer gratuidad, duración, fechas, disponibilidad ni condiciones de soporte como definitivas.
-
-### 6.7 Preguntas frecuentes
-
-**¿DECA Light sustituye a Hispatec?**  
-No es el objetivo. El proyecto está concebido como una capa de coordinación documental sobre el sistema de gestión habitual. Las vías de integración concretas están pendientes de validación.
-
-**¿Está disponible para utilizarlo hoy?**  
-DECA Light está en desarrollo. En esta fase se está validando el problema y la propuesta con profesionales del sector; no se ofrece todavía acceso operativo general.
-
-**¿Qué documentos contempla?**  
-La arquitectura de referencia contempla cartas de porte, CMR, albaranes y datos de transporte relacionados. Las capacidades de importación y tratamiento deben validarse antes de presentarlas como disponibles.
-
-**¿Se integra con Hispatec?**  
-No debe afirmarse una integración operativa confirmada. La compatibilidad y las posibles vías de intercambio están pendientes de análisis técnico.
-
-**¿Cómo puedo participar?**  
-Puedes mostrar tu interés mediante el formulario. El contacto servirá inicialmente para conocer tu proceso y valorar una posible participación futura; no supone compromiso de contratación.
-
-**¿Cuánto cuesta el piloto?**  
-Las condiciones todavía no están cerradas. Se definirán con las empresas seleccionadas antes de cualquier prueba operativa.
-
-### 6.8 Formulario de interés `#piloto`
-
-Mantenerlo corto para facilitar el envío.
-
-Campos recomendados:
-
-1. Nombre.
-2. Correo electrónico de contacto.
-3. Empresa o almacén.
-4. Volumen aproximado de expediciones diarias: `1–5`, `6–15`, `Más de 15`, `No lo sé`.
-5. Casilla de aceptación del aviso de privacidad, redactada y revisada antes de publicar.
-
-No solicitar teléfono, matrícula, documentos de expedición ni otros datos sensibles en el primer contacto, salvo que exista una razón clara y se haya definido el tratamiento correspondiente.
-
-No construir el envío del formulario hasta decidir y verificar el mecanismo de recepción, almacenamiento, seguridad y gestión de solicitudes. No simular un envío exitoso ni dejar el botón sin funcionalidad.
-
-### 6.9 Pie de página
-
-Incluir solo información real y confirmada:
-
-- Identidad del responsable del sitio.
-- Correo de contacto real, una vez configurado.
-- Aviso legal.
-- Política de privacidad.
-- Política de cookies, si procede.
-- Condiciones de uso, si procede.
-
-No publicar direcciones de correo no creadas, horarios de atención inventados, datos empresariales no confirmados ni textos legales genéricos como si hubieran sido revisados por un profesional.
+### 4.7 Pie de página (`src/components/Footer.astro`)
+- **Propósito:** Cierre institucional, salvaguarda de cumplimiento normativo y contacto corporativo.
+- **Elementos anatómicos:**
+  - Identidad: Logotipo tipográfico `DECA Light` y descriptor *Coordinación documental para expediciones hortofrutícolas*.
+  - Enlaces de navegación rápida a las secciones de la página.
+  - Enlaces normativos legales: *Aviso Legal*, *Política de Privacidad*, *Política de Cookies* (con indicación de texto preliminar en desarrollo).
+  - Aviso legal preceptivo: *DECA Light es un proyecto en desarrollo. Las denominaciones de terceros mencionadas pertenecen a sus respectivos titulares y se citan exclusivamente con fines de compatibilidad operativa y contexto sectorial.*
+  - Correo de contacto real verificado. (No inventar correos ficticios).
+  - Copyright: `© 2026 DECA Light. Todos los derechos reservados.`
 
 ---
 
-## 7. Identidad visual
+## 5. Dinámica Inter-Secciones y Flujo Narrativo
 
-> La especificación detallada de tokens CSS, contrastes matemáticos, anatomía de componentes y estados se encuentra normada en [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md). Este apartado resume los principios rectores.
+La experiencia de lectura en la landing page está concebida como un **embudo narrativo deductivo** donde cada sección prepara y valida la siguiente:
 
-### 7.1 Dirección de diseño
+```
+[HERO]              SÍNTESIS RÁPIDA: Plantea la promesa (coordinar documentos y transporte)
+       │
+       ▼ (Scroll)
+[PROBLEM]           DIAGNÓSTICO REALISTA: Demuestra empatía con el caos de la tarde y la asincronía
+       │
+       ▼ (Scroll)
+[HOW IT WORKS]      MÉTODO EN 3 PASOS: Resuelve el problema con orden, blueprints y verificación humana
+       │
+       ▼ (Scroll)
+[PILOT]             LLAMADA A LA ACCIÓN: Invita a participar en la construcción del producto
+       │
+       ▼ (Scroll)
+[FAQ]               RESOLUCIÓN DE DUDAS: Neutraliza objeciones técnicas de integración y plazos
+       │
+       ▼ (Scroll)
+[FOOTER]            SOLVENCIA LEGAL: Cierra con rigor institucional y transparencia
+```
 
-- SaaS B2B premium.
-- Sobrio, claro, moderno y profesional.
-- Inspiración general en webs SaaS de logística y documentación, sin copiar textos, diseños ni recursos de competidores.
-- Evitar estética de plantilla genérica, exceso de tarjetas, gradientes decorativos o efectos innecesarios.
-- La jerarquía visual debe explicar el proceso y transmitir confianza.
-
-### 7.2 Paleta base aprobada provisionalmente
-
-| Uso | Color |
-|---|---|
-| Fondo principal | `#F8FAFC` |
-| Superficies y tarjetas | `#FFFFFF` |
-| Texto principal | `#0F172A` |
-| Texto secundario | `#475569` |
-| Color de marca principal | `#047857` |
-| Hover de marca | `#065F46` |
-| Anillo de foco | `#0284C7` |
-| Fondo de aviso ámbar | `#FEF3C7` |
-| Texto sobre aviso ámbar | `#92400E` |
-
-Usar el ámbar solo para avisos o estados de atención. No usar texto blanco sobre fondo ámbar.
-
-Comprobar el contraste de todas las combinaciones reales antes de declarar conformidad con WCAG.
-
-### 7.3 Tipografía
-
-Recomendación: Inter, autoalojada en WOFF2, con licencia SIL Open Font License comprobada y solo los pesos necesarios (400, 500, 600, 700). Si no se incorpora la fuente, utilizar una pila de fuentes del sistema. No descargar ni añadir dependencias sin aprobación.
-
-### 7.4 Imágenes, diagramas y movimiento
-
-- Priorizar diagramas propios en SVG o CSS para explicar el proceso documental.
-- Usar fotografías sectoriales solo si son relevantes, de calidad y con licencia o autorización adecuada.
-- No inventar logotipos de clientes, testimonios ni capturas reales.
-- Si se usan maquetas de interfaz, etiquetarlas como «Concepto visual» o «Propuesta en desarrollo».
-- Animaciones discretas, con propósito informativo y sin perjudicar la lectura.
-- Respetar `prefers-reduced-motion`.
-- No incorporar vídeo automáticamente; solo si aporta información y no perjudica el rendimiento.
+- **Del Hero al Problema:** El Hero muestra el diagrama conceptual de cómo convergen almacén y transporte. Al hacer scroll, la sección Problem detalla por qué esa convergencia hoy es dolorosa y genera fricción.
+- **Del Problema a Cómo Funciona:** Tras constatar el desfase temporal, How It Works desglosa el protocolo de 3 pasos para mitigar el caos: preparar anticipadamente lo conocido, recibir de forma estructurada lo pendiente y validar antes de emitir.
+- **De Cómo Funciona al Piloto:** Una vez que el visitante comprende el mecanismo, se le ofrece la oportunidad de contrastarlo con su propia casuística mediante el formulario del piloto.
+- **Del Piloto a las FAQs:** Para quienes tienen dudas razonables sobre su ERP existente o la disponibilidad del software, las FAQs ofrecen respuestas directas y transparentes sin rodeos comerciales.
 
 ---
 
-## 8. Requisitos técnicos y de calidad de la web
+## 6. Matriz de Estado de Capacidades del Producto
 
-> Para la matriz de breakpoints, prevención de desbordamientos sin parches globales de `overflow-x: clip`, objetivos táctiles (>=44x44px) y pautas de accesibilidad e interacción, consultar la especificación técnica en [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md).
+Para asegurar que todo el equipo distinga la realidad de los objetivos de diseño, se establece la siguiente matriz normativa:
 
-### 8.1 Arquitectura
-
-- Proyecto de web separado del repositorio de la aplicación SaaS.
-- Astro con salida estática y TypeScript estricto, según la base actual del proyecto.
-- JavaScript de cliente mínimo y justificado.
-- No añadir dependencias por comodidad si la plataforma puede resolverlo de forma nativa.
-- No cambiar versiones, configuración o dependencias sin explicar la razón y revisar el impacto.
-
-### 8.2 Responsive
-
-Probar como mínimo estas anchuras:
-
-- 320 px
-- 375 px
-- 390 px
-- 768 px
-- 1024 px
-- 1440 px
-
-Requisitos:
-
-- Sin desbordamiento horizontal no intencionado.
-- Texto legible y jerarquía clara en móvil.
-- Objetivos táctiles aproximadamente de 44 × 44 px cuando sea viable.
-- Diagramas adaptables o con una alternativa legible en móvil.
-- Formularios utilizables con teclado y lectores de pantalla.
-
-No corregir desbordamientos aplicando `overflow-x: clip` global como parche sin encontrar la causa.
-
-### 8.3 Accesibilidad
-
-- Estructura semántica y encabezados en orden lógico.
-- Navegación por teclado y foco visible.
-- Etiquetas asociadas a todos los campos.
-- Errores del formulario explicados de manera comprensible.
-- Contraste comprobado.
-- Texto alternativo útil para imágenes informativas.
-- Controles accesibles y estado comprensible sin depender solo del color.
-- Respeto a la preferencia de movimiento reducido.
-
-No afirmar cumplimiento WCAG sin realizar pruebas.
-
-### 8.4 Rendimiento
-
-- Imágenes optimizadas y con dimensiones adecuadas.
-- Carga diferida de imágenes que no sean críticas.
-- Vídeo solo bajo demanda, si se incorpora.
-- Evitar librerías de animación pesadas.
-- Evitar JavaScript de cliente innecesario.
-- Comprobar los resultados de build y las métricas de rendimiento antes de publicar.
-
-### 8.5 SEO
-
-- Título y descripción específicos.
-- Un H1 principal.
-- URL canónica y metadatos sociales cuando proceda.
-- Sitemap y robots configurados de forma coherente con el estado del sitio.
-- Contenido original en español, dirigido a almacenes hortofrutícolas.
-- No crear páginas artificiales ni afirmar autoridad, clientes o resultados que no existen.
-- No indexar páginas de pruebas o contenido incompleto.
+| Capacidad del Sistema | Clasificación | Estado Técnico / Comercial | Tratamiento en la Web |
+|---|---|---|---|
+| **Estructuración del problema de asincronía** | **HECHO COMPROBADO** | Validado mediante trabajo de campo con empresas agrícolas. | Argumentario central en Hero y Problem. |
+| **Flujo de 3 fases (Preparar · Coordinar · Completar)** | **CONCEPTO APROBADO** | Arquitectura conceptual cerrada y diagramada. | Base visual de HowItWorks. |
+| **Importación y extracción de PDFs (Albarán, CMR)** | **EN DESARROLLO** | Algoritmos de extracción y mapeo en construcción en SaaS. | Explicado como capacidad objetivo; no prometer OCR infalible. |
+| **Conciliación automática por nº de albarán** | **EN DESARROLLO** | Lógica de correlación en prototipado backend. | Presentado como flujo previsto sujeto a confirmación de datos. |
+| **Panel visual de expediciones pendientes de matrícula** | **EN DESARROLLO** | Interfaz en diseño en Figma / prototipos preliminares. | Representado conceptualmente mediante maquetas sobrias. |
+| **Integración directa bidireccional con Hispatec** | **HIPÓTESIS POR VALIDAR**| No iniciada contractualmente ni desarrollada técnicamente. | **Prohibido afirmar disponibilidad**. Mencionar como estudio técnico. |
+| **Intercambio electrónico con TransFollow (e-CMR)** | **HIPÓTESIS POR VALIDAR**| Exploración técnica preliminar de estándares. | No anunciar como funcionalidad existente. |
+| **Generación automática certificada de DECA oficial** | **EN DESARROLLO** | Mapeo de plantilla oficial según normativa autonómica. | Destacar la verificación y validación humana obligatoria. |
+| **Prueba operativa con acceso multi-usuario en planta** | **HIPÓTESIS POR VALIDAR**| Condicionada a la superación de pruebas de seguridad y estrés. | Formular como objetivo del programa piloto futuro. |
 
 ---
 
-## 9. Privacidad, seguridad y publicación
+## 7. Directrices de Identidad Visual y Experiencia
 
-Antes de publicar el formulario:
+> Las definiciones normativas de tokens, curvas de movimiento, contrastes matemáticos y componentes están recogidas en sus respectivos documentos dedicados:
+> - [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)
+> - [`COMPONENT_LIBRARY.md`](COMPONENT_LIBRARY.md)
+> - [`MOTION_GUIDELINES.md`](MOTION_GUIDELINES.md)
 
-- Definir quién es el responsable del tratamiento.
-- Identificar qué datos se recogen y para qué.
-- Determinar dónde se almacenan y quién puede acceder.
-- Definir la base jurídica, información de privacidad, conservación y atención de derechos con asesoramiento adecuado.
-- Revisar la necesidad de consentimiento separado para comunicaciones comerciales.
-- Probar el envío, la gestión de errores y el acceso a los datos.
-- No recopilar documentación real de expediciones mediante el formulario de marketing.
-
-No activar analítica no esencial ni cookies que requieran consentimiento hasta implementar los mecanismos apropiados.
-
-El dominio `decalight.es` ya fue adquirido en DonDominio. No volver a comprarlo. No se ha confirmado la contratación de hosting ni la creación de cuentas de correo. No asumir que existe `info@decalight.com` ni publicar esa dirección sin verificarla.
-
-No desplegar ni realizar cambios DNS hasta contar con aprobación expresa y verificar el entorno de alojamiento.
+### 7.1 Síntesis de los principios visuales
+1. **Luz, pulcritud y sobriedad:** Fondo dominante `#F8FAFC`, superficies `#FFFFFF` con micro-bordes de 1px (`#E2E8F0`). Ausencia de fondos negros masivos o modos oscuros no justificados en el flujo comercial.
+2. **Jerarquía tipográfica editorial:** Inter con escala modular fija, titulares oscuros `#0F172A` de alto impacto y cuerpos de lectura `#475569` que superan cómodamente el contraste WCAG AAA/AA.
+3. **Acento funcional inteligente:**
+   - Verde esmeralda (`#047857`) exclusivo para identidad de marca, éxito verificado, botones primarios y confirmación documental.
+   - Ámbar (`#FEF3C7` con texto `#92400E`) reservado para estados asíncronos pendientes y atención operativa.
+   - Azul cielo (`#0284C7`) dedicado a anillos de foco de teclado (`:focus-visible`).
+4. **Profundidad arquitectónica sutil:** Sistema de 3 planos (Plano 0 Canvas, Plano 1 Tarjetas, Plano 2 Flotantes) con elevaciones máximas de 2px en interacción. **Prohibido el uso de transformaciones 3D, giros en perspectiva o efectos de cristal translúcido pesado (heavy glassmorphism)**.
 
 ---
 
-## 10. Instrucciones para Antigravity
+## 8. Criterios de Aceptación y Checklist de Publicación
 
-Usar este documento como fuente de verdad para el contenido y las decisiones de la web pública.
+Antes de que cualquier versión de la web de DECA Light sea considerada lista para despliegue público, debe superar la siguiente lista de verificación:
 
-### Antes de modificar archivos
-
-1. Revisar el repositorio `DECA-LIGHT-WEB` y el documento `DESIGN_SYSTEM.md` si está disponible.
-2. Identificar contradicciones entre los documentos y señalarlas antes de aplicar cambios.
-3. No tocar ningún repositorio, carpeta, credencial o código de la aplicación SaaS.
-4. No cambiar código, instalar fuentes o dependencias ni hacer commits/push sin la instrucción específica de la fase correspondiente.
-5. No publicar ni desplegar.
-
-### Al preparar la implementación
-
-1. Proponer primero un plan de archivos y secciones.
-2. Utilizar el contenido aprobado y mantener visibles las etiquetas de «en desarrollo» donde corresponda.
-3. No inventar funcionalidades, integraciones, testimonios, clientes, métricas, precios o compromisos.
-4. Si una función no está confirmada, expresarla como objetivo del proyecto o dejarla pendiente.
-5. Mantener los formularios sin falsa funcionalidad: no simular envíos.
-6. Aplicar los requisitos responsive, accesibilidad, SEO y rendimiento de este documento.
-7. Al terminar cada fase, informar de los archivos cambiados, comprobaciones ejecutadas, decisiones pendientes y cualquier desviación de este documento.
-
-### Regla de aceptación
-
-Una fase no se considera terminada solo porque el sitio compile. Debe cumplir el alcance acordado, mostrar contenido comercial veraz, funcionar en móvil y teclado, no tener errores evidentes y no introducir cambios fuera de la web pública.
-
----
-
-## 11. Decisiones y bloqueos pendientes antes de publicar
-
-Los siguientes bloqueos deben resolverse de forma explícita antes de cualquier despliegue o puesta en producción:
-
-1. **[Bloqueo Formulario]:** No construir backend ni simular envíos hasta definir almacenamiento seguro, privacidad y destinatario de los contactos.
-2. **[Bloqueo Privacidad y Legal]:** Redactar y validar con asesoramiento profesional el aviso legal, política de privacidad y condiciones de tratamiento.
-3. **[Bloqueo Condiciones del Piloto]:** No prometer condiciones definitivas (plazas, gratuidad, fechas, acceso operativo ni soporte técnico garantizado).
-4. **[Bloqueo Infraestructura y Dominio]:** Dominio `decalight.es` adquirido en DonDominio. Hosting y cuentas de correo pendientes de contratación. No desplegar ni cambiar DNS.
-5. **[Bloqueo Integraciones]:** Ninguna integración con Hispatec o TransFollow está confirmada; son estudios técnicos preliminares.
-6. **[Bloqueo Tipografía y Recursos]:** No instalar dependencias ni descargar archivos de fuentes (Inter WOFF2) hasta la fase autorizada.
-7. **[Bloqueo Publicación General]:** Ninguna puesta en producción sin aprobación humana expresa.
-
-### Lista de comprobación de tareas pendientes
-- [ ] Revisar y aprobar el contenido final de cada vista.
-- [ ] Confirmar qué funciones están realmente implementadas y cuáles son solo objetivo.
-- [ ] Resolver mecanismo real de recepción del formulario.
-- [ ] Configurar y confirmar correo corporativo de contacto.
-- [ ] Revisar y publicar aviso legal y privacidad definitivos.
-- [ ] Decidir si se utilizarán fotografías externas y verificar licencias comerciales.
-- [ ] Verificar licencia y archivos WOFF2 de Inter antes de integrarlos.
-- [ ] Ejecutar pruebas en matriz responsive (320px – 1440px), accesibilidad (A11y), build y rendimiento.
-- [ ] Configurar hosting definitivo, HTTPS y DNS en DonDominio tras aprobación.
-- [ ] Obtener aprobación expresa final antes del despliegue público.
-
----
-
-## 12. Resumen ejecutivo
-
-DECA Light es un proyecto en desarrollo que busca ayudar a los almacenes hortofrutícolas a coordinar la documentación de sus expediciones, especialmente cuando la información del vehículo llega después de que el almacén haya preparado sus documentos.
-
-La web debe explicar este problema de forma concreta, presentar la propuesta de coordinación documental, recoger interés de empresas que quieran participar en la validación y mantener una separación clara entre las capacidades objetivo y las funciones efectivamente disponibles.
-
-La prioridad inmediata es la validación comercial con las dos empresas de referencia, seguida de una definición precisa del piloto. La web apoyará ese proceso; no debe prometer un servicio operativo antes de que el producto y sus controles de seguridad estén preparados.
+- [ ] **Auditoría de textos:** Ninguna sección promete "automatización total", "cero errores" ni "integración con Hispatec garantizada".
+- [ ] **Badge de desarrollo visible:** El Header y el Hero muestran inequívocamente la etiqueta de *Proyecto en desarrollo*.
+- [ ] **Formulario seguro y no engañoso:** El formulario de `#piloto` cuenta con aviso de privacidad y no simula falsas operaciones de backend.
+- [ ] **Matriz responsive superada:** Comprobación sin desbordamientos horizontales ni textos solapados en: 320px, 375px, 390px, 768px, 1024px y 1440px.
+- [ ] **Accesibilidad certificada:** Todos los elementos interactivos alcanzan al menos 44×44px de área táctil, el foco por teclado es nítido y la navegación no depende exclusivamente del color.
+- [ ] **Modo No-JS y movimiento reducido:** Con JavaScript desactivado o con `prefers-reduced-motion: reduce`, todo el contenido es visible y comprensible de inmediato.
+- [ ] **Verificación de build estático:** `npm run build` compila con cero advertencias y cero errores en TypeScript estricto.
+- [ ] **Autorización expresa:** Aprobación por escrito del responsable del proyecto antes de conectar el dominio o cambiar registros DNS.
