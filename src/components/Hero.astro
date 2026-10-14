@@ -1,36 +1,27 @@
 ---
-// Hero.astro - Sección principal con diagrama conceptual adaptativo (horizontal en desktop, vertical en móvil)
+// Hero.astro - Hero V2 «Flujo Convergente».
+// Dos fuentes de información (almacén y transporte) convergen en DECA Light
+// (capa de coordinación documental) y desembocan en documentación preparada para revisión.
+// Dos SVG propios: composición convergente para >=640px y flujo vertical para móvil.
+// Ambos son decorativos (aria-hidden); el contenido esencial se ofrece una sola vez en la lista accesible.
 ---
 
 <section class="hero-section" aria-labelledby="hero-title">
   <div class="container hero-container">
     <div class="hero-content">
-      <div class="hero-badge-wrap">
-        <span class="badge badge-amber hero-badge">
-          <span class="badge-dot" aria-hidden="true"></span>
-          <!-- En pantallas estrechas (<420px) muestra versión corta para evitar compresión -->
-          <span class="badge-text-full">PROYECTO EN DESARROLLO · DOCUMENTACIÓN DE EXPEDICIONES</span>
-          <span class="badge-text-short">PROYECTO EN DESARROLLO</span>
-        </span>
-      </div>
+      <p class="hero-eyebrow">Coordinación documental de expediciones</p>
 
       <h1 id="hero-title" class="hero-title">
-        La gestión documental de tus expediciones, más sencilla
+        Coordina la documentación de tus expediciones sin esperas innecesarias.
       </h1>
 
       <p class="hero-description">
-        DECA Light está en desarrollo para ayudar a los almacenes hortofrutícolas a organizar la información de sus expediciones y simplificar las tareas administrativas relacionadas con su documentación.
+        DECA Light se está desarrollando para ayudar a los almacenes hortofrutícolas a organizar la documentación de las cargas y los datos del transporte, incluso cuando la información llega en momentos diferentes.
       </p>
 
       <div class="hero-actions">
-        <a href="#piloto" class="btn btn-primary btn-hero-primary">
-          <!-- CTA adaptable: corto en pantallas <420px, completo en pantallas medianas y grandes -->
-          <span class="cta-text-full">Mostrar interés en el programa piloto</span>
-          <span class="cta-text-short">Me interesa el piloto</span>
-        </a>
-        <a href="#como-funciona" class="btn btn-secondary btn-hero-secondary">
-          Cómo funciona
-        </a>
+        <a href="#piloto" class="btn btn-primary hero-btn">Me interesa el piloto</a>
+        <a href="#como-funciona" class="btn btn-secondary hero-btn">Descubrir cómo funciona</a>
       </div>
 
       <p class="hero-note">
@@ -38,166 +29,136 @@
       </p>
     </div>
 
-    <!-- Diagrama conceptual adaptativo (unificado bajo una única etiqueta accesible) -->
-    <div
-      class="hero-visual"
-      role="region"
-      aria-label="Diagrama del flujo conceptual: 1. Preparación de carga y albarán. 2. Recepción posterior de datos del transporte. 3. Capa de coordinación DECA Light. 4. Documentación organizada para validación."
+    <figure
+      class="flow-figure"
+      aria-label="Diagrama conceptual: la información del almacén y la del transporte convergen en DECA Light"
     >
-      <div class="diagram-card">
-        <div class="diagram-header">
-          <span class="diagram-tag">ESQUEMA DE COORDINACIÓN OPERATIVA</span>
-          <span class="diagram-status">Flujo documental entre muelle y transporte</span>
-        </div>
+      <!-- Alternativa accesible única (los dos SVG visuales están ocultos a lectores de pantalla) -->
+      <ol class="visually-hidden">
+        <li>Entrada 1: datos del almacén (carga y albarán).</li>
+        <li>Entrada 2: datos del transporte (vehículo y matrícula), que pueden estar pendientes de confirmación.</li>
+        <li>Ambas entradas convergen en DECA Light, una capa de coordinación documental.</li>
+        <li>Resultado previsto: documentación preparada para revisión.</li>
+      </ol>
 
-        <!-- VARIANTE ESCRITORIO (>=768px): SVG horizontal nativo -->
-        <div class="diagram-desktop" aria-hidden="true">
-          <div class="svg-container">
-            <svg viewBox="0 0 760 210" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
-              <!-- Conexiones -->
-              <path d="M 180 80 L 260 80" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="4 4" />
-              <path d="M 370 80 L 450 80" stroke="#CBD5E1" stroke-width="2" />
-              <path d="M 560 80 L 640 80" stroke="#CBD5E1" stroke-width="2" />
+      <!-- VARIANTE ESCRITORIO / TABLET (>=640px): convergencia en forma de embudo -->
+      <svg
+        class="flow-svg flow-svg--desktop"
+        viewBox="0 0 520 408"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <!-- Conectores -->
+        <path d="M120 104 C120 152 260 142 260 188" stroke="#64748B" stroke-width="1.75" stroke-linecap="round" />
+        <path d="M400 104 C400 152 260 142 260 188" stroke="#92400E" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="4 4" />
+        <path d="M260 292 V334" stroke="#047857" stroke-width="1.75" stroke-linecap="round" />
+        <path d="M254 328 L260 334 L266 328" stroke="#047857" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
 
-              <!-- Flechas -->
-              <polygon points="260,76 268,80 260,84" fill="#64748B" />
-              <polygon points="450,76 458,80 450,84" fill="#047857" />
-              <polygon points="640,76 648,80 640,84" fill="#047857" />
+        <!-- Entrada A: datos del almacén -->
+        <rect x="0.75" y="12.75" width="238.5" height="90.5" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+        <g transform="translate(14 46)" stroke="#475569" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 3h11l5 5v17H6z" />
+          <path d="M17 3v5h5" />
+          <path d="M10 14h8M10 18h8M10 22h5" />
+        </g>
+        <text x="52" y="60" font-size="15" font-weight="700" fill="#0F172A">Datos del almacén</text>
+        <text x="52" y="82" font-size="14" fill="#475569">Carga · Albarán</text>
 
-              <!-- Nodo 1: Sistema de gestión del almacén -->
-              <g transform="translate(10, 30)">
-                <rect width="170" height="100" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
-                <rect x="12" y="14" width="24" height="24" rx="4" fill="#F1F5F9" />
-                <text x="24" y="30" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">1</text>
-                <text x="44" y="24" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#0F172A">Sistema de gestión</text>
-                <text x="44" y="36" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#0F172A">del almacén</text>
-                <text x="14" y="58" font-family="-apple-system, sans-serif" font-size="10.5" fill="#475569">Preparación de carga</text>
-                <text x="14" y="74" font-family="-apple-system, sans-serif" font-size="10.5" fill="#475569">y albarán de salida</text>
-                <rect x="10" y="92" width="150" height="18" rx="3" fill="#F8FAFC" />
-                <text x="85" y="104" font-family="ui-monospace, monospace" font-size="8.5" fill="#64748B" text-anchor="middle">Sistemas de gestión habituales</text>
-              </g>
+        <!-- Entrada B: datos del transporte (posiblemente pendientes de confirmación) -->
+        <rect x="280.75" y="12.75" width="238.5" height="90.5" rx="8" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5" />
+        <rect x="296" y="1" width="156" height="22" rx="11" fill="#FEF3C7" stroke="#FCD34D" />
+        <text x="374" y="16" font-size="12.5" font-weight="600" fill="#92400E" text-anchor="middle">Puede estar pendiente</text>
+        <g transform="translate(294 46)" stroke="#92400E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9h14v12H3z" />
+          <path d="M17 13h5l3.5 4v4H17" />
+          <circle cx="8" cy="22.5" r="2.5" fill="#FFFBEB" />
+          <circle cx="21" cy="22.5" r="2.5" fill="#FFFBEB" />
+        </g>
+        <text x="332" y="60" font-size="15" font-weight="700" fill="#0F172A">Datos del transporte</text>
+        <text x="332" y="82" font-size="14" fill="#475569">Vehículo · Matrícula</text>
 
-              <!-- Nodo 2: Recepción posterior de datos del transporte -->
-              <g transform="translate(200, 30)">
-                <rect width="170" height="100" rx="8" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5" />
-                <rect x="12" y="14" width="24" height="24" rx="4" fill="#FEF3C7" />
-                <text x="24" y="30" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#92400E" text-anchor="middle">2</text>
-                <text x="44" y="24" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#92400E">Datos del</text>
-                <text x="44" y="36" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#92400E">transporte</text>
-                <text x="14" y="58" font-family="-apple-system, sans-serif" font-size="10.5" fill="#78350F">Recepción posterior</text>
-                <text x="14" y="74" font-family="-apple-system, sans-serif" font-size="10.5" fill="#78350F">por varios canales</text>
-                <rect x="14" y="92" width="142" height="18" rx="3" fill="#FEF3C7" />
-                <text x="85" y="105" font-family="ui-monospace, monospace" font-size="8.5" fill="#92400E" text-anchor="middle">Matrícula pendiente</text>
-              </g>
+        <!-- Nodo central: DECA Light -->
+        <rect x="100" y="188" width="320" height="104" rx="10" fill="#047857" />
+        <text x="260" y="236" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">DECA Light</text>
+        <text x="260" y="262" font-size="14" fill="#FFFFFF" text-anchor="middle">Capa de coordinación documental</text>
+        <!-- Punto de convergencia -->
+        <circle cx="260" cy="188" r="5.5" fill="#047857" stroke="#FFFFFF" stroke-width="2.5" />
 
-              <!-- Nodo 3: Capa de coordinación DECA Light -->
-              <g transform="translate(390, 20)">
-                <rect width="170" height="120" rx="8" fill="#FFFFFF" stroke="#047857" stroke-width="2" />
-                <rect x="12" y="14" width="24" height="24" rx="4" fill="#ECFDF5" />
-                <text x="24" y="30" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#047857" text-anchor="middle">3</text>
-                <text x="44" y="30" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" fill="#047857">DECA Light</text>
-                <text x="14" y="58" font-family="-apple-system, sans-serif" font-size="11" fill="#0F172A" font-weight="600">Capa de coordinación</text>
-                <text x="14" y="76" font-family="-apple-system, sans-serif" font-size="11" fill="#475569">Asocia por núm. albarán</text>
-                <text x="14" y="94" font-family="-apple-system, sans-serif" font-size="11" fill="#475569">Identifica pendientes</text>
-                <rect x="14" y="108" width="142" height="18" rx="3" fill="#ECFDF5" />
-                <text x="85" y="121" font-family="ui-monospace, monospace" font-size="9" fill="#047857" text-anchor="middle">Validación documental</text>
-              </g>
+        <!-- Salida: resultado previsto -->
+        <rect x="60.75" y="338.75" width="398.5" height="62.5" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5" stroke-dasharray="5 4" />
+        <g transform="translate(80 356)" stroke="#047857" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 3h11l5 5v17H6z" />
+          <path d="M17 3v5h5" />
+          <path d="M10 14h8M10 18h8M10 22h5" />
+        </g>
+        <text x="120" y="375" font-size="15.5" font-weight="600" fill="#0F172A">Documentación preparada para revisión</text>
+      </svg>
 
-              <!-- Nodo 4: Documentación organizada para validación -->
-              <g transform="translate(580, 30)">
-                <rect width="170" height="100" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
-                <rect x="12" y="14" width="24" height="24" rx="4" fill="#F1F5F9" />
-                <text x="24" y="30" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">4</text>
-                <text x="44" y="24" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#0F172A">Documentación</text>
-                <text x="44" y="36" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#0F172A">organizada</text>
-                <text x="14" y="58" font-family="-apple-system, sans-serif" font-size="10.5" fill="#475569">Documentos listos</text>
-                <text x="14" y="74" font-family="-apple-system, sans-serif" font-size="10.5" fill="#475569">para validación final</text>
-                <rect x="14" y="92" width="142" height="18" rx="3" fill="#F8FAFC" />
-                <text x="85" y="105" font-family="ui-monospace, monospace" font-size="8.5" fill="#64748B" text-anchor="middle">Validación y salida</text>
-              </g>
+      <!-- VARIANTE MÓVIL (<640px): flujo vertical. Los bloques se escalonan (almacén a la derecha, transporte a la izquierda)
+           para que cada conector salga de su base y baje por un canal libre, sin atravesar ni rodear cajas.
+           Ambos conectores se unen en un punto central sobre DECA Light y un único conector entra en el nodo. -->
+      <svg
+        class="flow-svg flow-svg--mobile"
+        viewBox="0 0 280 432"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <!-- Conectores: salida desde la base de cada bloque, codos simétricos hacia el punto de convergencia (140, 216) -->
+        <path d="M262 80 V206 Q262 216 252 216 H140" stroke="#64748B" stroke-width="1.75" stroke-linecap="round" />
+        <path d="M18 188 V206 Q18 216 28 216 H140" stroke="#92400E" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="4 4" />
+        <path d="M140 216 V250" stroke="#047857" stroke-width="1.75" stroke-linecap="round" />
+        <path d="M140 318 V354" stroke="#047857" stroke-width="1.75" stroke-linecap="round" />
+        <path d="M134 348 L140 354 L146 348" stroke="#047857" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
 
-              <!-- Leyenda inferior -->
-              <text x="380" y="195" font-family="-apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">
-                Esquema de coordinación: prepara anticipadamente lo que se conoce y mantiene bajo control los datos pendientes.
-              </text>
-            </svg>
-          </div>
-        </div>
+        <!-- Entrada A: datos del almacén -->
+        <rect x="36.75" y="8.75" width="242.5" height="70.5" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+        <g transform="translate(48 30)" stroke="#475569" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 3h11l5 5v17H6z" />
+          <path d="M17 3v5h5" />
+          <path d="M10 14h8M10 18h8M10 22h5" />
+        </g>
+        <text x="86" y="40" font-size="15" font-weight="700" fill="#0F172A">Datos del almacén</text>
+        <text x="86" y="61" font-size="13" fill="#475569">Carga · Albarán</text>
 
-        <!-- VARIANTE MÓVIL (<768px): Disposición vertical continua (sin scroll horizontal) -->
-        <div class="diagram-mobile" aria-hidden="true">
-          <div class="mobile-flow-list">
-            <!-- Fase 1 -->
-            <div class="flow-card">
-              <div class="flow-card-head">
-                <span class="flow-step-num">1</span>
-                <span class="flow-step-title">Sistema de gestión del almacén</span>
-              </div>
-              <p class="flow-card-desc">Preparación de carga y albarán en los sistemas habituales</p>
-              <span class="flow-card-tag">Preparación de carga y albarán</span>
-            </div>
+        <!-- Entrada B: datos del transporte (posiblemente pendientes de confirmación) -->
+        <rect x="0.75" y="116.75" width="242.5" height="70.5" rx="8" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5" />
+        <rect x="16" y="105" width="150" height="22" rx="11" fill="#FEF3C7" stroke="#FCD34D" />
+        <text x="91" y="120" font-size="12" font-weight="600" fill="#92400E" text-anchor="middle">Puede estar pendiente</text>
+        <g transform="translate(12 142)" stroke="#92400E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9h14v12H3z" />
+          <path d="M17 13h5l3.5 4v4H17" />
+          <circle cx="8" cy="22.5" r="2.5" fill="#FFFBEB" />
+          <circle cx="21" cy="22.5" r="2.5" fill="#FFFBEB" />
+        </g>
+        <text x="50" y="152" font-size="15" font-weight="700" fill="#0F172A">Datos del transporte</text>
+        <text x="50" y="173" font-size="13" fill="#475569">Vehículo · Matrícula</text>
 
-            <!-- Flecha conector -->
-            <div class="flow-connector">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 19 5 12"></polyline>
-              </svg>
-            </div>
+        <!-- Nodo central: DECA Light -->
+        <rect x="0" y="250" width="280" height="68" rx="10" fill="#047857" />
+        <text x="140" y="279" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">DECA Light</text>
+        <text x="140" y="301" font-size="13" fill="#FFFFFF" text-anchor="middle">Capa de coordinación documental</text>
+        <!-- Punto de convergencia -->
+        <circle cx="140" cy="216" r="5.5" fill="#047857" stroke="#FFFFFF" stroke-width="2.5" />
 
-            <!-- Fase 2 (El desfase) -->
-            <div class="flow-card flow-card-amber">
-              <div class="flow-card-head">
-                <span class="flow-step-num flow-step-amber">2</span>
-                <span class="flow-step-title text-amber">Datos del transporte</span>
-              </div>
-              <p class="flow-card-desc text-amber-dark">Recepción posterior de datos del transporte por canales dispersos</p>
-              <span class="flow-card-tag tag-amber">Matrícula y vehículo pendiente</span>
-            </div>
+        <!-- Salida: resultado previsto -->
+        <rect x="0.75" y="358.75" width="278.5" height="66.5" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5" stroke-dasharray="5 4" />
+        <g transform="translate(12 378)" stroke="#047857" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 3h11l5 5v17H6z" />
+          <path d="M17 3v5h5" />
+          <path d="M10 14h8M10 18h8M10 22h5" />
+        </g>
+        <text x="50" y="388" font-size="14.5" font-weight="600" fill="#0F172A">Documentación preparada</text>
+        <text x="50" y="407" font-size="14.5" font-weight="600" fill="#0F172A">para revisión</text>
+      </svg>
 
-            <!-- Flecha conector -->
-            <div class="flow-connector">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 19 5 12"></polyline>
-              </svg>
-            </div>
-
-            <!-- Fase 3 (DECA Light) -->
-            <div class="flow-card flow-card-green">
-              <div class="flow-card-head">
-                <span class="flow-step-num flow-step-green">3</span>
-                <span class="flow-step-title text-green">Capa de coordinación DECA Light</span>
-              </div>
-              <p class="flow-card-desc">Asocia por número de albarán e identifica información pendiente</p>
-              <span class="flow-card-tag tag-green">Coordinación documental</span>
-            </div>
-
-            <!-- Flecha conector -->
-            <div class="flow-connector">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 19 5 12"></polyline>
-              </svg>
-            </div>
-
-            <!-- Fase 4 (Salida) -->
-            <div class="flow-card">
-              <div class="flow-card-head">
-                <span class="flow-step-num">4</span>
-                <span class="flow-step-title">Documentación organizada</span>
-              </div>
-              <p class="flow-card-desc">Documentación organizada para validación y emisión final</p>
-              <span class="flow-card-tag">Validación y salida</span>
-            </div>
-          </div>
-        </div>
-
-        <p class="diagram-footer-note">
-          Representación conceptual del flujo objetivo en desarrollo. No implica integración operativa verificada con sistemas de terceros.
-        </p>
-      </div>
-    </div>
+      <figcaption class="flow-note">
+        Representación conceptual del flujo objetivo en desarrollo. No implica integraciones técnicas operativas verificadas.
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -210,307 +171,180 @@
   }
 
   .hero-container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-8);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-10);
   }
 
+  /* ---- Columna de texto ---- */
   .hero-content {
-    max-width: 720px;
+    max-width: 640px;
   }
 
-  .hero-badge-wrap {
-    margin-bottom: var(--space-4);
-  }
-
-  .hero-badge {
-    white-space: normal;
-    text-align: left;
-    display: inline-flex;
+  .hero-eyebrow {
+    display: flex;
     align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: var(--color-brand-primary);
   }
 
-  .badge-text-short {
-    display: inline;
-  }
-
-  .badge-text-full {
-    display: none;
+  .hero-eyebrow::before {
+    content: "";
+    flex: none;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-brand-primary);
   }
 
   .hero-title {
-    font-size: 2.25rem;
-    font-weight: 800;
-    line-height: 1.12;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.15;
     letter-spacing: -0.025em;
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-4);
+    overflow-wrap: break-word;
+    text-wrap: balance;
+    margin-bottom: var(--space-5);
   }
 
   .hero-description {
     font-size: 1.0625rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-    max-width: 620px;
-    margin-bottom: var(--space-6);
+    line-height: 1.65;
+    max-width: 58ch;
+    margin-bottom: var(--space-8);
   }
 
   .hero-actions {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: var(--space-3);
-    margin-bottom: var(--space-4);
   }
 
-  .btn-hero-primary {
-    width: 100%;
-  }
-
-  .cta-text-short {
-    display: inline;
-  }
-
-  .cta-text-full {
-    display: none;
-  }
-
-  .btn-hero-secondary {
-    width: 100%;
+  .hero-btn {
+    flex: 1 1 100%;
   }
 
   .hero-note {
+    margin-top: var(--space-5);
+    max-width: 52ch;
     font-size: 0.875rem;
-    color: var(--color-text-muted);
     line-height: 1.5;
-  }
-
-  /* Tarjeta contenedora del diagrama */
-  .hero-visual {
-    width: 100%;
-  }
-
-  .diagram-card {
-    background-color: var(--color-bg-surface);
-    border: 1px solid var(--color-border-strong);
-    border-radius: var(--radius-lg);
-    padding: var(--space-5) var(--space-6);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .diagram-header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    margin-bottom: var(--space-4);
-    padding-bottom: var(--space-3);
-    border-bottom: 1px solid var(--color-border-subtle);
-  }
-
-  .diagram-tag {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--color-brand-primary);
-  }
-
-  .diagram-status {
-    font-size: 0.8125rem;
     color: var(--color-text-secondary);
   }
 
-  /* Control de visibilidad de variantes */
-  .diagram-desktop {
+  /* ---- Diagrama ---- */
+  .flow-figure {
+    margin: 0;
+    min-width: 0;
+  }
+
+  .flow-svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .flow-svg--mobile {
+    max-width: 360px;
+  }
+
+  .flow-svg--desktop {
     display: none;
   }
 
-  .diagram-mobile {
-    display: block;
-  }
-
-  /* Flujo vertical móvil */
-  .mobile-flow-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .flow-card {
-    background-color: var(--color-bg-surface);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: var(--radius-md);
-    padding: var(--space-3) var(--space-4);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-  }
-
-  .flow-card-amber {
-    background-color: #FFFBEB;
-    border-color: #FCD34D;
-  }
-
-  .flow-card-green {
-    background-color: #FFFFFF;
-    border: 2px solid var(--color-brand-primary);
-  }
-
-  .flow-card-head {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-  }
-
-  .flow-step-num {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
-    border-radius: var(--radius-sm);
-    background-color: var(--color-bg-surface-subtle);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-  }
-
-  .flow-step-amber {
-    background-color: #FEF3C7;
-    color: #92400E;
-  }
-
-  .flow-step-green {
-    background-color: #ECFDF5;
-    color: var(--color-brand-primary);
-  }
-
-  .flow-step-title {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-  }
-
-  .text-amber {
-    color: #92400E;
-  }
-
-  .text-amber-dark {
-    color: #78350F;
-  }
-
-  .text-green {
-    color: var(--color-brand-primary);
-  }
-
-  .flow-card-desc {
+  .flow-note {
+    margin-top: var(--space-4);
+    max-width: 52ch;
     font-size: 0.8125rem;
+    line-height: 1.5;
     color: var(--color-text-secondary);
-    line-height: 1.4;
   }
 
-  .flow-card-tag {
-    align-self: flex-start;
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    padding: 2px 6px;
-    border-radius: 3px;
-    background-color: var(--color-bg-surface-subtle);
-    color: var(--color-text-muted);
-    margin-top: var(--space-1);
+  /* Texto solo para lectores de pantalla */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
-  .tag-amber {
-    background-color: #FEF3C7;
-    color: #92400E;
-  }
-
-  .tag-green {
-    background-color: #ECFDF5;
-    color: var(--color-brand-primary);
-    font-weight: 600;
-  }
-
-  .flow-connector {
-    display: flex;
-    justify-content: center;
-    padding-block: 2px;
-  }
-
-  .diagram-footer-note {
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
-    text-align: center;
-    margin-top: var(--space-3);
-    font-style: italic;
-  }
-
-  /* Dispositivos medianos y grandes (>=420px y >=768px) */
-  @media (min-width: 420px) {
-    .badge-text-short {
-      display: none;
-    }
-
-    .badge-text-full {
-      display: inline;
-    }
-
-    .cta-text-short {
-      display: none;
-    }
-
-    .cta-text-full {
-      display: inline;
-    }
-  }
-
-  @media (min-width: 768px) {
+  /* ---- Breakpoints ---- */
+  @media (min-width: 480px) {
     .hero-title {
-      font-size: 2.625rem;
+      font-size: 2.25rem;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .hero-btn {
+      flex: 0 0 auto;
     }
 
-    .hero-actions {
-      flex-direction: row;
-      align-items: center;
+    /* Panel que enmarca el diagrama convergente */
+    .flow-figure {
+      padding: var(--space-6);
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
     }
 
-    .btn-hero-primary, .btn-hero-secondary {
-      width: auto;
-    }
-
-    .diagram-header {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Mostrar SVG en escritorio y ocultar pila móvil */
-    .diagram-mobile {
+    .flow-svg--mobile {
       display: none;
     }
 
-    .diagram-desktop {
+    .flow-svg--desktop {
       display: block;
+      max-width: 560px;
+      margin-inline: auto;
     }
 
-    .svg-container {
-      width: 100%;
-      overflow-x: auto;
-      padding-bottom: var(--space-2);
-    }
-
-    .flow-svg {
-      width: 100%;
-      height: auto;
+    .flow-note {
+      margin-inline: auto;
+      max-width: 560px;
     }
   }
 
   @media (min-width: 1024px) {
     .hero-section {
-      padding-top: var(--space-12);
-      padding-bottom: var(--space-16);
+      padding-top: var(--space-16);
+      padding-bottom: var(--space-20);
+    }
+
+    .hero-container {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: var(--space-12);
+      align-items: center;
     }
 
     .hero-title {
-      font-size: 3.25rem;
+      font-size: 2.25rem;
+    }
+
+    .flow-figure {
+      padding: var(--space-4);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .hero-container {
+      gap: var(--space-16);
+    }
+
+    .hero-title {
+      font-size: 2.75rem;
+    }
+
+    .flow-figure {
+      padding: var(--space-6);
     }
   }
 </style>
