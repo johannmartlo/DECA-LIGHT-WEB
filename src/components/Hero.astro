@@ -9,7 +9,7 @@
 <section class="hero-section" aria-labelledby="hero-title">
   <div class="container hero-container">
     <div class="hero-content">
-      <p class="hero-eyebrow">Coordinación documental de expediciones</p>
+      <p class="section-kicker">Coordinación documental de expediciones</p>
 
       <h1 id="hero-title" class="hero-title">
         Coordina la documentación de tus expediciones sin esperas innecesarias.
@@ -50,11 +50,17 @@
         aria-hidden="true"
         focusable="false"
       >
-        <!-- Conectores -->
+        <!-- Conectores base (estáticos) -->
         <path d="M120 104 C120 152 260 142 260 188" stroke="#64748B" stroke-width="1.75" stroke-linecap="round" />
         <path d="M400 104 C400 152 260 142 260 188" stroke="#92400E" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="4 4" />
         <path d="M260 292 V334" stroke="#047857" stroke-width="1.75" stroke-linecap="round" />
         <path d="M254 328 L260 334 L266 328" stroke="#047857" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+
+        <!-- Pulsos animados superpuestos (>=640px) -->
+        <path class="flow-pulse flow-pulse--warehouse" d="M120 104 C120 152 260 142 260 188" stroke="#2563EB" stroke-width="2.25" stroke-linecap="round" />
+        <path class="flow-pulse flow-pulse--transport" d="M400 104 C400 152 260 142 260 188" stroke="#D97706" stroke-width="2.25" stroke-linecap="round" />
+        <path class="flow-pulse flow-pulse--output" d="M260 292 V334" stroke="#059669" stroke-width="2.25" stroke-linecap="round" />
+        <path class="flow-pulse flow-pulse--arrow" d="M254 328 L260 334 L266 328" stroke="#059669" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
 
         <!-- Entrada A: datos del almacén -->
         <rect x="0.75" y="12.75" width="238.5" height="90.5" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
@@ -79,12 +85,23 @@
         <text x="332" y="60" font-size="15" font-weight="700" fill="#0F172A">Datos del transporte</text>
         <text x="332" y="82" font-size="14" fill="#475569">Vehículo · Matrícula</text>
 
+        <!-- Resplandor radial verde sutil detrás del nodo central -->
+        <defs>
+          <radialGradient id="hero-node-glow-desktop" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#10B981" stop-opacity="0.22" />
+            <stop offset="45%" stop-color="#047857" stop-opacity="0.10" />
+            <stop offset="100%" stop-color="#047857" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <ellipse cx="260" cy="240" rx="195" ry="85" fill="url(#hero-node-glow-desktop)" />
+
         <!-- Nodo central: DECA Light -->
         <rect x="100" y="188" width="320" height="104" rx="10" fill="#047857" />
         <text x="260" y="236" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">DECA Light</text>
         <text x="260" y="262" font-size="14" fill="#FFFFFF" text-anchor="middle">Capa de coordinación documental</text>
         <!-- Punto de convergencia -->
         <circle cx="260" cy="188" r="5.5" fill="#047857" stroke="#FFFFFF" stroke-width="2.5" />
+        <circle class="flow-node-highlight" cx="260" cy="188" r="5.5" fill="#10B981" stroke="#FFFFFF" stroke-width="2.5" />
 
         <!-- Salida: resultado previsto -->
         <rect x="60.75" y="338.75" width="398.5" height="62.5" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5" stroke-dasharray="5 4" />
@@ -137,6 +154,16 @@
         <text x="50" y="152" font-size="15" font-weight="700" fill="#0F172A">Datos del transporte</text>
         <text x="50" y="173" font-size="13" fill="#475569">Vehículo · Matrícula</text>
 
+        <!-- Resplandor radial verde sutil detrás del nodo central -->
+        <defs>
+          <radialGradient id="hero-node-glow-mobile" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#10B981" stop-opacity="0.22" />
+            <stop offset="45%" stop-color="#047857" stop-opacity="0.10" />
+            <stop offset="100%" stop-color="#047857" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <ellipse cx="140" cy="284" rx="165" ry="58" fill="url(#hero-node-glow-mobile)" />
+
         <!-- Nodo central: DECA Light -->
         <rect x="0" y="250" width="280" height="68" rx="10" fill="#047857" />
         <text x="140" y="279" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">DECA Light</text>
@@ -181,27 +208,6 @@
     max-width: 640px;
   }
 
-  .hero-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    margin-bottom: var(--space-4);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    line-height: 1.4;
-    text-transform: uppercase;
-    color: var(--color-brand-primary);
-  }
-
-  .hero-eyebrow::before {
-    content: "";
-    flex: none;
-    width: 24px;
-    height: 2px;
-    background-color: var(--color-brand-primary);
-  }
-
   .hero-title {
     font-size: 1.875rem;
     font-weight: 700;
@@ -241,6 +247,17 @@
   .flow-figure {
     margin: 0;
     min-width: 0;
+    padding: var(--space-3);
+    background-color: var(--color-bg-surface);
+    border: 1px solid rgba(226, 232, 240, 0.85);
+    border-radius: var(--radius-lg);
+    box-shadow:
+      0 1px 3px 0 rgba(15, 23, 42, 0.03),
+      0 6px 16px -2px rgba(15, 23, 42, 0.04),
+      0 20px 28px -6px rgba(15, 23, 42, 0.05);
+    background-image: radial-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px);
+    background-size: 18px 18px;
+    background-position: -9px -9px;
   }
 
   .flow-svg {
@@ -250,14 +267,24 @@
 
   .flow-svg--mobile {
     max-width: 360px;
+    margin-inline: auto;
   }
 
   .flow-svg--desktop {
     display: none;
   }
 
+  /* Elementos animados del flujo convergente (ocultos por defecto y en móvil) */
+  .flow-pulse,
+  .flow-node-highlight {
+    pointer-events: none;
+    opacity: 0;
+  }
+
   .flow-note {
     margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border-subtle);
     max-width: 52ch;
     font-size: 0.8125rem;
     line-height: 1.5;
@@ -282,6 +309,10 @@
     .hero-title {
       font-size: 2.25rem;
     }
+
+    .flow-figure {
+      padding: var(--space-4);
+    }
   }
 
   @media (min-width: 640px) {
@@ -292,9 +323,6 @@
     /* Panel que enmarca el diagrama convergente */
     .flow-figure {
       padding: var(--space-6);
-      background-color: var(--color-bg-surface);
-      border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-lg);
     }
 
     .flow-svg--mobile {
@@ -310,6 +338,33 @@
     .flow-note {
       margin-inline: auto;
       max-width: 560px;
+    }
+
+    /* ---- Animación sutil de flujo convergente (ciclo 5.5s) ---- */
+    .flow-pulse--warehouse {
+      stroke-dasharray: 40 180;
+      stroke-dashoffset: 40;
+      animation: pulse-warehouse 5.5s linear infinite;
+    }
+
+    .flow-pulse--transport {
+      stroke-dasharray: 40 180;
+      stroke-dashoffset: 40;
+      animation: pulse-transport 5.5s linear infinite;
+    }
+
+    .flow-node-highlight {
+      animation: highlight-node 5.5s linear infinite;
+    }
+
+    .flow-pulse--output {
+      stroke-dasharray: 16 50;
+      stroke-dashoffset: 16;
+      animation: pulse-output 5.5s linear infinite;
+    }
+
+    .flow-pulse--arrow {
+      animation: pulse-arrow 5.5s linear infinite;
     }
   }
 
@@ -345,6 +400,125 @@
 
     .flow-figure {
       padding: var(--space-6);
+    }
+  }
+
+  /* ---- Keyframes del ciclo convergente continuo (5.5s) ---- */
+  @keyframes pulse-warehouse {
+    0% {
+      stroke-dashoffset: 40;
+      opacity: 0;
+      animation-timing-function: ease-out;
+    }
+    1% {
+      stroke-dashoffset: 40;
+      opacity: 1;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    21.8% {
+      stroke-dashoffset: -174;
+      opacity: 1;
+      animation-timing-function: ease-in;
+    }
+    22.5%,
+    100% {
+      stroke-dashoffset: -174;
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-transport {
+    0%,
+    14% {
+      stroke-dashoffset: 40;
+      opacity: 0;
+      animation-timing-function: ease-out;
+    }
+    14.5% {
+      stroke-dashoffset: 40;
+      opacity: 0;
+      animation-timing-function: ease-out;
+    }
+    15.5% {
+      stroke-dashoffset: 40;
+      opacity: 1;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    36.4% {
+      stroke-dashoffset: -174;
+      opacity: 1;
+      animation-timing-function: ease-in;
+    }
+    37.2%,
+    100% {
+      stroke-dashoffset: -174;
+      opacity: 0;
+    }
+  }
+
+  @keyframes highlight-node {
+    0%,
+    36.3% {
+      opacity: 0;
+      animation-timing-function: ease-out;
+    }
+    40% {
+      opacity: 0.9;
+      animation-timing-function: ease-in;
+    }
+    43.6%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-output {
+    0%,
+    43.5% {
+      stroke-dashoffset: 16;
+      opacity: 0;
+      animation-timing-function: ease-out;
+    }
+    44.5% {
+      stroke-dashoffset: 16;
+      opacity: 1;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    54.5% {
+      stroke-dashoffset: -42;
+      opacity: 1;
+      animation-timing-function: ease-in;
+    }
+    55.5%,
+    100% {
+      stroke-dashoffset: -42;
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-arrow {
+    0%,
+    54.5% {
+      opacity: 0;
+      animation-timing-function: ease-out;
+    }
+    56% {
+      opacity: 1;
+      animation-timing-function: ease-in;
+    }
+    58.2%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* Movimiento reducido: desactiva animaciones y preserva el diagrama estático */
+  @media (prefers-reduced-motion: reduce) {
+    .flow-pulse,
+    .flow-node-highlight {
+      animation: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
     }
   }
 </style>

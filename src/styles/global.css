@@ -38,7 +38,7 @@
 
   /* Contenedores */
   --container-max: 1200px;
-  --container-narrow: 760px;
+  --container-narrow: 720px;
 
   /* Radios de Esquina */
   --radius-sm: 4px;
@@ -127,6 +127,11 @@ img, svg {
   top: var(--space-4);
 }
 
+/* Margen de desplazamiento accesible para el anclaje de contenido principal */
+#contenido-principal {
+  scroll-margin-top: 5.5rem;
+}
+
 /* Contenedores de diseño */
 .container {
   width: 100%;
@@ -156,13 +161,28 @@ img, svg {
 
 /* Kickers / Etiquetas de sección */
 .section-kicker {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
   text-transform: uppercase;
   color: var(--color-brand-primary);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.section-kicker::before {
+  content: "";
+  flex: none;
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-brand-primary);
+}
+
+.text-center .section-kicker::before {
+  display: none;
 }
 
 .section-title {

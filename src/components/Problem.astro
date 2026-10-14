@@ -1,153 +1,226 @@
 ---
 // Problem.astro - Sección «El problema»: El desfase entre preparación y transporte
+// Dirección de arte: Split-Flow Editorial asimétrico (Desktop) / Cascada vertical limpia (Mobile)
+// Enfoque: Transición editorial reflexiva entre el Hero (diagrama) y Cómo funciona (timeline).
 ---
 
 <section id="el-problema" class="problem-section" aria-labelledby="problem-title">
+
   <div class="container">
-    <div class="section-intro">
-      <span class="section-kicker">EL RETO OPERATIVO EN ALMACÉN</span>
-      <h2 id="problem-title" class="section-title">
-        El desfase entre la preparación en muelle y los datos del transporte
-      </h2>
-      <p class="section-subtitle">
-        En un almacén hortofrutícola, el ritmo de carga no siempre coincide con la recepción de datos externos. Esta desconexión genera fricciones administrativas evitables.
-      </p>
+    <div class="problem-layout">
+      <!-- Columna izquierda: Tesis y contexto (Sticky en desktop) -->
+      <header class="problem-intro">
+        <span class="section-kicker">EL RETO OPERATIVO EN MUELLE</span>
+        <h2 id="problem-title" class="problem-title">
+          La carga puede estar lista antes que los datos del transporte.
+        </h2>
+        <p class="problem-subtitle">
+          La preparación de la mercancía y la recepción de la información del vehículo no siempre avanzan al mismo ritmo. Cuando los datos llegan después, el equipo administrativo debe reunirlos y relacionarlos con la expedición correspondiente.
+        </p>
+      </header>
+
+      <!-- Columna derecha: Tres momentos de fricción operativa (Editorial abierto) -->
+      <div class="problem-frictions" role="list">
+        <!-- Fricción 01 -->
+        <article class="friction-item" role="listitem">
+          <div class="friction-meta">
+            <span class="friction-index">01 — DESFASE TEMPORAL</span>
+          </div>
+          <h3 class="friction-title">La mercancía está preparada, pero falta información</h3>
+          <p class="friction-description">
+            Los palés pueden estar pesados y listos para cargar mientras se espera la matrícula o la confirmación del transportista.
+          </p>
+        </article>
+
+        <!-- Fricción 02 -->
+        <article class="friction-item" role="listitem">
+          <div class="friction-meta">
+            <span class="friction-index">02 — CANALES DISPERSOS</span>
+          </div>
+          <h3 class="friction-title">Los datos llegan por distintas vías</h3>
+          <p class="friction-description">
+            Matrículas y confirmaciones pueden recibirse por teléfono, correo o mensajería, lo que obliga a reunir la información.
+          </p>
+        </article>
+
+        <!-- Fricción 03 -->
+        <article class="friction-item" role="listitem">
+          <div class="friction-meta">
+            <span class="friction-index">03 — PRESIÓN ADMINISTRATIVA</span>
+          </div>
+          <h3 class="friction-title">La información debe cuadrar antes de la salida</h3>
+          <p class="friction-description">
+            El equipo necesita relacionar los datos del vehículo con la documentación de la carga y revisar que todo corresponda a la expedición correcta.
+          </p>
+        </article>
+      </div>
     </div>
 
-    <div class="problem-grid">
-      <!-- Columna 1 -->
-      <article class="problem-card">
-        <div class="card-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 16 14"></polyline>
-          </svg>
-        </div>
-        <h3 class="problem-card-title">Esperas por datos externos</h3>
-        <p class="problem-card-text">
-          La mercancía está pesada, confeccionada y lista con su albarán de salida en el sistema de gestión, pero la preparación del DECA queda bloqueada hasta que el transportista comunica la matrícula del vehículo.
+    <!-- Cierre editorial: Pull-Quote destacada -->
+    <aside class="problem-quote-wrap" aria-label="Reflexión sobre el reto operativo">
+      <blockquote class="problem-quote">
+        <p class="quote-text">
+          El reto no es únicamente generar un documento. Es coordinar la información de la expedición con los datos del transporte que llegan después.
         </p>
-      </article>
-
-      <!-- Columna 2 -->
-      <article class="problem-card">
-        <div class="card-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-        </div>
-        <h3 class="problem-card-title">Canales dispersos de recepción</h3>
-        <p class="problem-card-text">
-          Las matrículas y confirmaciones llegan de forma fragmentada: correos, llamadas o mensajes instantáneos. El personal administrativo debe rastrear y asociar manualmente cada dato al albarán correspondiente.
-        </p>
-      </article>
-
-      <!-- Columna 3 -->
-      <article class="problem-card">
-        <div class="card-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-          </svg>
-        </div>
-        <h3 class="problem-card-title">Concentración al cierre de jornada</h3>
-        <p class="problem-card-text">
-          La dependencia de información que llega a última hora acumula expediciones pendientes al final del turno, generando tensión en muelle cuando varios camiones coinciden para la salida.
-        </p>
-      </article>
-    </div>
-
-    <!-- Cierre reflexivo de sección -->
-    <div class="problem-conclusion">
-      <blockquote class="conclusion-quote">
-        «El reto no es únicamente generar un documento. Es coordinar la información de la expedición con los datos del transporte que llegan después.»
+        <footer class="quote-clarification">
+          El enfoque de DECA Light: abordar el punto de encuentro operativo entre el almacén y el transporte.
+        </footer>
       </blockquote>
-      <p class="conclusion-disclaimer">
-        * Observaciones basadas en la operativa habitual comunicada por empresas del sector; frecuencia y tiempos medios sujetos a validación métrica en fase piloto.
-      </p>
-    </div>
+    </aside>
   </div>
 </section>
 
 <style>
   .problem-section {
+    position: relative;
     padding-block: var(--space-12);
     background-color: var(--color-bg-surface);
     border-bottom: 1px solid var(--color-border-subtle);
+    scroll-margin-top: 5.5rem;
   }
 
-  .section-intro {
-    max-width: 720px;
-  }
-
-  .problem-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-    margin-bottom: var(--space-10);
-  }
-
-  .problem-card {
+  /* ---- Layout Principal ---- */
+  .problem-layout {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
-    padding-top: var(--space-4);
-    border-top: 2px solid var(--color-border-subtle);
+    gap: var(--space-10);
   }
 
-  .card-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    background-color: var(--color-bg-surface-subtle);
-    border: 1px solid var(--color-border-strong);
-    border-radius: var(--radius-md);
-    color: var(--color-brand-primary);
+  /* ---- Columna Izquierda: Intro y Contexto ---- */
+  .problem-intro {
+    max-width: 580px;
   }
 
-  .problem-card-title {
-    font-size: 1.1875rem;
+  .problem-title {
+    font-size: 1.75rem;
     font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
     color: var(--color-text-primary);
+    overflow-wrap: break-word;
+    text-wrap: balance;
+    margin: 0 0 var(--space-4);
   }
 
-  .problem-card-text {
-    font-size: 0.9375rem;
-    line-height: 1.6;
+  .problem-subtitle {
+    font-size: 1rem;
+    line-height: 1.65;
     color: var(--color-text-secondary);
+    margin: 0;
+    max-width: 54ch;
   }
 
-  .problem-conclusion {
-    background-color: var(--color-bg-surface-subtle);
-    border: 1px solid var(--color-border-subtle);
-    border-left: 4px solid var(--color-brand-primary);
-    border-radius: var(--radius-md);
-    padding: var(--space-6);
+  /* ---- Columna Derecha: Lista Editorial Abierta ---- */
+  .problem-frictions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
-  .conclusion-quote {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    line-height: 1.5;
+  .friction-item {
+    display: flex;
+    flex-direction: column;
+    padding-block: var(--space-6);
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .friction-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .friction-meta {
     margin-bottom: var(--space-2);
   }
 
-  .conclusion-disclaimer {
-    font-size: 0.8125rem;
+  .friction-index {
+    display: inline-block;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--color-text-muted);
-    font-style: italic;
   }
 
-  @media (min-width: 768px) {
-    .problem-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  .friction-title {
+    font-size: 1.1875rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+    margin: 0 0 var(--space-2);
+  }
 
+  .friction-description {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+    max-width: 58ch;
+  }
+
+  /* ---- Cierre Editorial: Pull-Quote ---- */
+  .problem-quote-wrap {
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .problem-quote {
+    margin: 0;
+    padding-left: var(--space-6);
+    border-left: 3px solid var(--color-brand-primary);
+    max-width: 820px;
+  }
+
+  .quote-text {
+    font-size: 1.1875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-3);
+  }
+
+  .quote-clarification {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  /* ---- Adaptación Responsive Desktop (>= 1024px) ---- */
+  @media (min-width: 1024px) {
     .problem-section {
       padding-block: var(--space-16);
+    }
+
+    .problem-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: var(--space-12) var(--space-16);
+      align-items: start;
+    }
+
+    .problem-title {
+      font-size: 2.125rem;
+    }
+
+    .friction-item:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .quote-text {
+      font-size: 1.3125rem;
+    }
+  }
+
+  /* Sticky seguro: solo en desktop con altura de viewport suficiente para evitar recortes */
+  @media (min-width: 1024px) and (min-height: 600px) {
+    .problem-intro {
+      position: sticky;
+      top: calc(64px + var(--space-8));
     }
   }
 </style>
