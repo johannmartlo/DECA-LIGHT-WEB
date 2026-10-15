@@ -1,579 +1,1165 @@
 ---
-// Hero.astro - Hero V2 «Flujo Convergente».
-// Dos fuentes de información (almacén y transporte) convergen en DECA Light
-// (capa de coordinación documental) y desembocan en documentación preparada para revisión.
-// Dos SVG propios: composición convergente para >=640px y flujo vertical para móvil.
-// Ambos son decorativos (aria-hidden); el contenido esencial se ofrece una sola vez en la lista accesible.
+// src/components/Hero.astro - Hero de DECA Light con Animaciones de Alta Fidelidad Stitch
 ---
 
 <section class="hero-section" aria-labelledby="hero-title">
-  <!--
-    Puerta de mejora progresiva para la entrada del Hero.
-    Se ejecuta de forma síncrona antes de que se analice el contenido del Hero, por lo que no hay parpadeo.
-    Sin JavaScript, sin soporte de animaciones CSS o con movimiento reducido, la clase no se añade
-    y todo el contenido se muestra visible desde el primer render.
-  -->
-  <script is:inline>
-    (function () {
-      var root = document.documentElement;
-      var motionOk = window.matchMedia && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
-      var cssOk = window.CSS && CSS.supports && CSS.supports('animation-name', 'hero-enter');
-      if (!motionOk || !cssOk) return;
-      root.classList.add('hero-motion');
-      // Red de seguridad: al retirar la clase el contenido vuelve a su estado visible por defecto,
-      // idéntico al estado final de la animación, por lo que no produce saltos.
-      window.setTimeout(function () { root.classList.remove('hero-motion'); }, 1500);
-    })();
-  </script>
   <div class="container hero-container">
+    <!-- Columna Izquierda: Editorial y Llamadas a la Acción -->
     <div class="hero-content">
-      <p class="section-kicker hero-reveal">Coordinación documental de expediciones</p>
-
-      <h1 id="hero-title" class="hero-title hero-reveal">
-        Coordina la documentación de tus expediciones sin esperas innecesarias.
-      </h1>
-
-      <p class="hero-description hero-reveal hero-reveal--step-1">
-        DECA Light se está desarrollando para ayudar a los almacenes hortofrutícolas a organizar la documentación de las cargas y los datos del transporte, incluso cuando la información llega en momentos diferentes.
-      </p>
-
-      <div class="hero-actions hero-reveal hero-reveal--step-2">
-        <a href="#piloto" class="btn btn-primary hero-btn">Me interesa el piloto</a>
-        <a href="#como-funciona" class="btn btn-secondary hero-btn">Descubrir cómo funciona</a>
+      <div class="kicker-wrap">
+        <span class="kicker-line" aria-hidden="true"></span>
+        <span class="kicker-text">COORDINACIÓN DOCUMENTAL DE EXPEDICIONES</span>
       </div>
 
-      <p class="hero-note hero-reveal hero-reveal--step-2">
-        Estamos contrastando el proceso con profesionales del sector antes de abrir una prueba operativa.
+      <h1 id="hero-title" class="hero-title">
+        Coordina la <br class="hero-title-break" />
+        documentación de <br class="hero-title-break" />
+        tus expediciones sin <br class="hero-title-break" />
+        esperas innecesarias.
+      </h1>
+
+      <p class="hero-description">
+        DECA Light coordina la documentación de las expediciones y organiza la información del almacén y del transporte, incluso cuando los datos llegan en momentos diferentes.
       </p>
+
+      <div class="hero-actions">
+        <a href="#piloto" class="btn btn-primary hero-btn-primary">
+          <span>Contactar</span>
+          <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="#como-funciona" class="btn btn-secondary hero-btn-secondary">
+          Descubrir cómo funciona
+        </a>
+      </div>
     </div>
 
-    <figure
-      class="flow-figure hero-reveal hero-reveal--step-3"
-      aria-label="Diagrama conceptual: la información del almacén y la del transporte convergen en DECA Light"
-    >
-      <!-- Alternativa accesible única (los dos SVG visuales están ocultos a lectores de pantalla) -->
-      <ol class="visually-hidden">
-        <li>Entrada 1: datos del almacén (carga y albarán).</li>
-        <li>Entrada 2: datos del transporte (vehículo y matrícula), que pueden estar pendientes de confirmación.</li>
-        <li>Ambas entradas convergen en DECA Light, una capa de coordinación documental.</li>
-        <li>Resultado previsto: documentación preparada para revisión.</li>
-      </ol>
+    <!-- Columna Derecha: Diagrama de Convergencia (3 Niveles) -->
+    <div class="hero-diagram" aria-label="Diagrama conceptual del flujo documental convergente de DECA Light">
+      <!-- Fila 1: Grid de Tarjetas Superiores (Almacén y Transporte) -->
+      <div class="diagram-top-grid">
+        <!-- Tarjeta Izquierda: Datos del almacén (Flotación suave A) -->
+        <article class="diagram-card card-warehouse animate-float-a">
+          <header class="card-header">
+            <div class="icon-box icon-box-green" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <div class="card-title-group">
+              <h2 class="card-title">Datos del almacén</h2>
+              <p class="card-subtitle">Carga · Albarán</p>
+            </div>
+          </header>
 
-      <!-- VARIANTE ESCRITORIO / TABLET (>=640px): convergencia en forma de embudo -->
-      <svg
-        class="flow-svg flow-svg--desktop"
-        viewBox="0 0 520 408"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <!-- Conectores base (estáticos) -->
-        <path d="M120 104 C120 152 260 142 260 188" stroke="#64748B" stroke-width="1.75" stroke-linecap="round" />
-        <path d="M400 104 C400 152 260 142 260 188" stroke="#92400E" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="4 4" />
-        <path d="M260 292 V334" stroke="#047857" stroke-width="1.75" stroke-linecap="round" />
-        <path d="M254 328 L260 334 L266 328" stroke="#047857" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+          <div class="inner-ticket-card">
+            <div class="ticket-header">
+              <div class="ticket-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </div>
+              <div class="ticket-info">
+                <span class="ticket-name">Albarán de expedición</span>
+                <span class="ticket-id">EXP-2026-1047</span>
+              </div>
+            </div>
 
-        <!-- Pulsos animados superpuestos (>=640px) -->
-        <path class="flow-pulse flow-pulse--warehouse" d="M120 104 C120 152 260 142 260 188" stroke="#2563EB" stroke-width="2.25" stroke-linecap="round" />
-        <path class="flow-pulse flow-pulse--transport" d="M400 104 C400 152 260 142 260 188" stroke="#D97706" stroke-width="2.25" stroke-linecap="round" />
-        <path class="flow-pulse flow-pulse--output" d="M260 292 V334" stroke="#059669" stroke-width="2.25" stroke-linecap="round" />
-        <path class="flow-pulse flow-pulse--arrow" d="M254 328 L260 334 L266 328" stroke="#059669" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- Líneas decorativas esqueleto -->
+            <div class="skeleton-group" aria-hidden="true">
+              <div class="skeleton-line line-wide"></div>
+              <div class="skeleton-line line-narrow"></div>
+            </div>
 
-        <!-- Entrada A: datos del almacén -->
-        <rect x="0.75" y="12.75" width="238.5" height="90.5" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
-        <g transform="translate(14 46)" stroke="#475569" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 3h11l5 5v17H6z" />
-          <path d="M17 3v5h5" />
-          <path d="M10 14h8M10 18h8M10 22h5" />
-        </g>
-        <text x="52" y="60" font-size="15" font-weight="700" fill="#0F172A">Datos del almacén</text>
-        <text x="52" y="82" font-size="14" fill="#475569">Carga · Albarán</text>
+            <div class="ticket-footer">
+              <div class="ticket-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                <span>12 cajas</span>
+              </div>
+              <div class="ticket-tag">
+                <span class="bullet-dot" aria-hidden="true">○</span>
+                <span>Naranjas</span>
+              </div>
+              <div class="ticket-check" aria-hidden="true">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </article>
 
-        <!-- Entrada B: datos del transporte (posiblemente pendientes de confirmación) -->
-        <rect x="280.75" y="12.75" width="238.5" height="90.5" rx="8" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5" />
-        <rect x="296" y="1" width="156" height="22" rx="11" fill="#FEF3C7" stroke="#FCD34D" />
-        <text x="374" y="16" font-size="12.5" font-weight="600" fill="#92400E" text-anchor="middle">Puede estar pendiente</text>
-        <g transform="translate(294 46)" stroke="#92400E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 9h14v12H3z" />
-          <path d="M17 13h5l3.5 4v4H17" />
-          <circle cx="8" cy="22.5" r="2.5" fill="#FFFBEB" />
-          <circle cx="21" cy="22.5" r="2.5" fill="#FFFBEB" />
-        </g>
-        <text x="332" y="60" font-size="15" font-weight="700" fill="#0F172A">Datos del transporte</text>
-        <text x="332" y="82" font-size="14" fill="#475569">Vehículo · Matrícula</text>
+        <!-- Tarjeta Derecha: Datos del transporte (Flotación suave B con desfase) -->
+        <div class="transport-column">
+          <article class="diagram-card card-transport animate-float-b">
+            <span class="floating-pending-pill" aria-label="Estado operativo">Puede estar pendiente</span>
 
-        <!-- Resplandor radial verde sutil detrás del nodo central -->
-        <defs>
-          <radialGradient id="hero-node-glow-desktop" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#10B981" stop-opacity="0.22" />
-            <stop offset="45%" stop-color="#047857" stop-opacity="0.10" />
-            <stop offset="100%" stop-color="#047857" stop-opacity="0" />
-          </radialGradient>
-        </defs>
-        <ellipse cx="260" cy="240" rx="195" ry="85" fill="url(#hero-node-glow-desktop)" />
+            <header class="card-header">
+              <div class="icon-box icon-box-amber" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="3" width="15" height="13"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+              </div>
+              <div class="card-title-group">
+                <h2 class="card-title">Datos del transporte</h2>
+                <p class="card-subtitle">Vehículo · Matrícula</p>
+              </div>
+            </header>
 
-        <!-- Nodo central: DECA Light -->
-        <rect x="100" y="188" width="320" height="104" rx="10" fill="#047857" />
-        <text x="260" y="236" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">DECA Light</text>
-        <text x="260" y="262" font-size="14" fill="#FFFFFF" text-anchor="middle">Capa de coordinación documental</text>
-        <!-- Punto de convergencia -->
-        <circle cx="260" cy="188" r="5.5" fill="#047857" stroke="#FFFFFF" stroke-width="2.5" />
-        <circle class="flow-node-highlight" cx="260" cy="188" r="5.5" fill="#10B981" stroke="#FFFFFF" stroke-width="2.5" />
+            <div class="inner-spec-card">
+              <div class="spec-row">
+                <span class="spec-label">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="1" y="3" width="15" height="13"></rect>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                  </svg>
+                  Vehículo
+                </span>
+                <span class="spec-value">Tráiler</span>
+              </div>
 
-        <!-- Salida: resultado previsto -->
-        <rect x="60.75" y="338.75" width="398.5" height="62.5" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5" stroke-dasharray="5 4" />
-        <g transform="translate(80 356)" stroke="#047857" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 3h11l5 5v17H6z" />
-          <path d="M17 3v5h5" />
-          <path d="M10 14h8M10 18h8M10 22h5" />
-        </g>
-        <text x="120" y="375" font-size="15.5" font-weight="600" fill="#0F172A">Documentación preparada para revisión</text>
-      </svg>
+              <div class="spec-row">
+                <span class="spec-label">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                    <line x1="2" y1="10" x2="22" y2="10"></line>
+                  </svg>
+                  Matrícula
+                </span>
+                <span class="badge-pending pulse-amber">Pendiente</span>
+              </div>
 
-      <!-- VARIANTE MÓVIL (<640px): flujo vertical. Los bloques se escalonan (almacén a la derecha, transporte a la izquierda)
-           para que cada conector salga de su base y baje por un canal libre, sin atravesar ni rodear cajas.
-           Ambos conectores se unen en un punto central sobre DECA Light y un único conector entra en el nodo. -->
-      <svg
-        class="flow-svg flow-svg--mobile"
-        viewBox="0 0 280 432"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <!-- Conectores: salida desde la base de cada bloque, codos simétricos hacia el punto de convergencia (140, 216) -->
-        <path d="M262 80 V206 Q262 216 252 216 H140" stroke="#64748B" stroke-width="1.75" stroke-linecap="round" />
-        <path d="M18 188 V206 Q18 216 28 216 H140" stroke="#92400E" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="4 4" />
-        <path d="M140 216 V250" stroke="#047857" stroke-width="1.75" stroke-linecap="round" />
-        <path d="M140 318 V354" stroke="#047857" stroke-width="1.75" stroke-linecap="round" />
-        <path d="M134 348 L140 354 L146 348" stroke="#047857" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+              <div class="spec-row">
+                <span class="spec-label">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  Transportista
+                </span>
+                <span class="skeleton-line line-narrow mini-skel" aria-hidden="true"></span>
+              </div>
+            </div>
+          </article>
 
-        <!-- Entrada A: datos del almacén -->
-        <rect x="36.75" y="8.75" width="242.5" height="70.5" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
-        <g transform="translate(48 30)" stroke="#475569" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 3h11l5 5v17H6z" />
-          <path d="M17 3v5h5" />
-          <path d="M10 14h8M10 18h8M10 22h5" />
-        </g>
-        <text x="86" y="40" font-size="15" font-weight="700" fill="#0F172A">Datos del almacén</text>
-        <text x="86" y="61" font-size="13" fill="#475569">Carga · Albarán</text>
+          <!-- Píldora inferior flotante con aviso de asincronía (Flotación suave C) -->
+          <div class="floating-info-pill animate-float-c" role="note">
+            <span class="pill-clock-icon" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </span>
+            <span>La información del transporte puede llegar en otro momento.</span>
+          </div>
+        </div>
+      </div>
 
-        <!-- Entrada B: datos del transporte (posiblemente pendientes de confirmación) -->
-        <rect x="0.75" y="116.75" width="242.5" height="70.5" rx="8" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5" />
-        <rect x="16" y="105" width="150" height="22" rx="11" fill="#FEF3C7" stroke="#FCD34D" />
-        <text x="91" y="120" font-size="12" font-weight="600" fill="#92400E" text-anchor="middle">Puede estar pendiente</text>
-        <g transform="translate(12 142)" stroke="#92400E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 9h14v12H3z" />
-          <path d="M17 13h5l3.5 4v4H17" />
-          <circle cx="8" cy="22.5" r="2.5" fill="#FFFBEB" />
-          <circle cx="21" cy="22.5" r="2.5" fill="#FFFBEB" />
-        </g>
-        <text x="50" y="152" font-size="15" font-weight="700" fill="#0F172A">Datos del transporte</text>
-        <text x="50" y="173" font-size="13" fill="#475569">Vehículo · Matrícula</text>
+      <!-- Nivel 2: Conectores SVG Curvos hacia el Nodo Central con Flujo Fluido Stitch -->
+      <div class="diagram-connectors" aria-hidden="true">
+        <svg viewBox="0 0 580 84" fill="none" class="connectors-svg connector-line-glow" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="greenLineGrad" x1="140" y1="0" x2="290" y2="76" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#059669" stop-opacity="0.9" />
+              <stop offset="100%" stop-color="#047857" />
+            </linearGradient>
+            <linearGradient id="amberLineGrad" x1="450" y1="0" x2="290" y2="76" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#d97706" stop-opacity="0.9" />
+              <stop offset="100%" stop-color="#047857" />
+            </linearGradient>
+          </defs>
 
-        <!-- Resplandor radial verde sutil detrás del nodo central -->
-        <defs>
-          <radialGradient id="hero-node-glow-mobile" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#10B981" stop-opacity="0.22" />
-            <stop offset="45%" stop-color="#047857" stop-opacity="0.10" />
-            <stop offset="100%" stop-color="#047857" stop-opacity="0" />
-          </radialGradient>
-        </defs>
-        <ellipse cx="140" cy="284" rx="165" ry="58" fill="url(#hero-node-glow-mobile)" />
+          <!-- Rama izquierda: base estática + trazado dinámico animado (dashMove 1.6s) -->
+          <path d="M 140 0 C 140 52, 290 36, 290 76" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+          <path class="flow-line-green" d="M 140 0 C 140 52, 290 36, 290 76" stroke="url(#greenLineGrad)" stroke-width="2.5" stroke-linecap="round" />
+          <circle cx="140" cy="2" fill="#047857" r="4.5" />
 
-        <!-- Nodo central: DECA Light -->
-        <rect x="0" y="250" width="280" height="68" rx="10" fill="#047857" />
-        <text x="140" y="279" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">DECA Light</text>
-        <text x="140" y="301" font-size="13" fill="#FFFFFF" text-anchor="middle">Capa de coordinación documental</text>
-        <!-- Punto de convergencia -->
-        <circle cx="140" cy="216" r="5.5" fill="#047857" stroke="#FFFFFF" stroke-width="2.5" />
+          <!-- Rama derecha: base estática + trazado dinámico animado (dashMove 2.2s) -->
+          <path d="M 450 0 C 450 52, 290 36, 290 76" stroke="#fed7aa" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+          <path class="flow-line-amber" d="M 450 0 C 450 52, 290 36, 290 76" stroke="url(#amberLineGrad)" stroke-width="2.5" stroke-linecap="round" />
+          <circle cx="450" cy="2" fill="#d97706" r="4.5" />
 
-        <!-- Salida: resultado previsto -->
-        <rect x="0.75" y="358.75" width="278.5" height="66.5" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5" stroke-dasharray="5 4" />
-        <g transform="translate(12 378)" stroke="#047857" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 3h11l5 5v17H6z" />
-          <path d="M17 3v5h5" />
-          <path d="M10 14h8M10 18h8M10 22h5" />
-        </g>
-        <text x="50" y="388" font-size="14.5" font-weight="600" fill="#0F172A">Documentación preparada</text>
-        <text x="50" y="407" font-size="14.5" font-weight="600" fill="#0F172A">para revisión</text>
-      </svg>
+          <!-- Nodo central de unión en el borde superior de DECA Light -->
+          <circle cx="290" cy="76" fill="#047857" r="5" stroke="#ffffff" stroke-width="2" />
+        </svg>
+      </div>
 
-      <figcaption class="flow-note">
-        Representación conceptual del flujo objetivo en desarrollo. No implica integraciones técnicas operativas verificadas.
-      </figcaption>
-    </figure>
+      <!-- Nivel 3: Bloque Central DECA Light -->
+      <div class="central-hub-wrap">
+        <div class="central-hub-card">
+          <div class="hub-icon-wrap" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <path d="M9 13h6"></path>
+              <path d="M9 17h4"></path>
+            </svg>
+          </div>
+          <div class="hub-texts">
+            <h3 class="hub-title">DECA Light</h3>
+            <p class="hub-subtitle">Capa de coordinación documental</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conector vertical hacia la salida con flujo animado -->
+      <div class="output-connector" aria-hidden="true">
+        <svg width="14" height="38" viewBox="0 0 14 38" fill="none">
+          <defs>
+            <linearGradient id="downLineGrad" x1="7" y1="0" x2="7" y2="28" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#047857" />
+              <stop offset="100%" stop-color="#059669" />
+            </linearGradient>
+          </defs>
+          <line x1="7" y1="0" x2="7" y2="28" stroke="#e2e8f0" stroke-width="2" stroke-linecap="round" />
+          <line class="flow-line-down" x1="7" y1="0" x2="7" y2="28" stroke="url(#downLineGrad)" stroke-width="2.5" stroke-linecap="round" />
+          <polygon points="7,36 2,26 12,26" fill="#047857" />
+        </svg>
+      </div>
+
+      <!-- Nivel 4: Panel Inferior de Documentación Preparada -->
+      <article class="output-card">
+        <header class="output-header">
+          <div class="output-icon-green" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <h2 class="output-title">Documentación preparada para revisión</h2>
+        </header>
+
+        <div class="output-body">
+          <!-- Columna izquierda: 3 documentos -->
+          <ul class="doc-list" role="list">
+            <li class="doc-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span class="doc-label">Expedición</span>
+              <span class="doc-code">EXP-2026-1047</span>
+            </li>
+            <li class="doc-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span class="doc-label">Albarán</span>
+              <span class="doc-code">ALB-2026-1047</span>
+            </li>
+            <li class="doc-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span class="doc-label">Ficha de transporte</span>
+              <span class="doc-code">TR-2026-1047</span>
+            </li>
+          </ul>
+
+          <!-- Columna derecha: Subtarjeta de confirmación con Shimmer Stitch -->
+          <div class="ready-subcard shimmer-green">
+            <div class="ready-badge-row">
+              <span class="ready-check-icon" aria-hidden="true">✓</span>
+              <span class="ready-text">Lista para revisión</span>
+            </div>
+            <div class="ready-skeleton" aria-hidden="true">
+              <div class="ready-skel-line" style="width: 82%;"></div>
+              <div class="ready-skel-line" style="width: 55%;"></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
 <style>
   .hero-section {
-    padding-top: var(--space-8);
-    padding-bottom: var(--space-12);
-    background-color: var(--color-bg-canvas);
-    border-bottom: 1px solid var(--color-border-subtle);
+    position: relative;
+    min-height: calc(100vh - 76px);
+    padding-top: 6.25rem;
+    padding-bottom: 6.5rem;
+    background-color: #ffffff;
+    background-image:
+      radial-gradient(ellipse 720px 580px at 78% 46%, rgba(209, 250, 229, 0.55) 0%, rgba(240, 253, 244, 0.28) 50%, transparent 80%),
+      radial-gradient(circle 450px at 15% 20%, rgba(241, 245, 249, 0.7) 0%, transparent 70%);
+    border-bottom: 1px solid var(--border-subtle, #e2e8f0);
+    overflow: hidden;
   }
 
   .hero-container {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-10);
+    grid-template-columns: 1fr 1.08fr;
+    gap: 3.5rem;
+    align-items: center;
+    max-width: 1340px;
   }
 
-  /* ---- Columna de texto ---- */
+  /* ============================================================
+     COLUMNA IZQUIERDA: EDITORIAL
+     ============================================================ */
   .hero-content {
-    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .kicker-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .kicker-line {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-brand-primary, #047857);
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+
+  .kicker-text {
+    font-size: 0.78125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-brand-primary, #047857);
   }
 
   .hero-title {
-    font-size: 1.875rem;
-    font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: -0.025em;
-    overflow-wrap: break-word;
-    text-wrap: balance;
-    margin-bottom: var(--space-5);
+    font-size: clamp(2.35rem, 3.65vw, 3.35rem);
+    line-height: 1.14;
+    font-weight: 800;
+    color: var(--color-text-primary, #0f172a);
+    letter-spacing: -0.035em;
+    margin-bottom: 1.5rem;
+    max-width: 580px;
+  }
+
+  .hero-title-break {
+    display: inline;
   }
 
   .hero-description {
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     line-height: 1.65;
-    max-width: 58ch;
-    margin-bottom: var(--space-8);
+    color: var(--color-text-secondary, #475569);
+    margin-bottom: 2.25rem;
+    max-width: 52ch;
   }
 
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-3);
+    align-items: center;
+    gap: 1.125rem;
   }
 
-  .hero-btn {
-    flex: 1 1 100%;
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.65rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .hero-note {
-    margin-top: var(--space-5);
-    max-width: 52ch;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: var(--color-text-secondary);
+  .hero-btn-primary {
+    background-color: var(--color-brand-primary, #047857);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(4, 120, 87, 0.25);
+    border: 1px solid transparent;
+    border-radius: 9999px;
   }
 
-  /* ---- Diagrama ---- */
-  .flow-figure {
-    margin: 0;
-    min-width: 0;
-    padding: var(--space-3);
-    background-color: var(--color-bg-surface);
-    border: 1px solid rgba(226, 232, 240, 0.85);
-    border-radius: var(--radius-lg);
-    box-shadow:
-      0 1px 3px 0 rgba(15, 23, 42, 0.03),
-      0 6px 16px -2px rgba(15, 23, 42, 0.04),
-      0 20px 28px -6px rgba(15, 23, 42, 0.05);
-    background-image: radial-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px);
-    background-size: 18px 18px;
-    background-position: -9px -9px;
+  .hero-btn-primary:hover {
+    background-color: var(--color-brand-hover, #065f46);
+    box-shadow: 0 6px 20px rgba(4, 120, 87, 0.35);
+    transform: translateY(-1px);
+    text-decoration: none;
   }
 
-  .flow-svg {
+  .btn-arrow {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hero-btn-primary:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  .hero-btn-secondary {
+    background-color: #ffffff;
+    color: var(--color-text-primary, #0f172a);
+    border: 1px solid var(--border-subtle, #e2e8f0);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    border-radius: 0.5rem;
+  }
+
+  .hero-btn-secondary:hover {
+    background-color: var(--bg-muted, #f8fafc);
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  /* ============================================================
+     COLUMNA DERECHA: DIAGRAMA DE CONVERGENCIA
+     ============================================================ */
+  .hero-diagram {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: auto;
+    max-width: 585px;
+    margin-left: auto;
   }
 
-  .flow-svg--mobile {
-    max-width: 360px;
-    margin-inline: auto;
-  }
-
-  .flow-svg--desktop {
-    display: none;
-  }
-
-  /* Elementos animados del flujo convergente (ocultos por defecto y en móvil) */
-  .flow-pulse,
-  .flow-node-highlight {
-    pointer-events: none;
-    opacity: 0;
-  }
-
-  .flow-note {
-    margin-top: var(--space-4);
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--color-border-subtle);
-    max-width: 52ch;
-    font-size: 0.8125rem;
-    line-height: 1.5;
-    color: var(--color-text-secondary);
-  }
-
-  /* Texto solo para lectores de pantalla */
-  .visually-hidden {
+  /* Patrón sutil de puntos de fondo con máscara elíptica */
+  .hero-diagram::before {
+    content: "";
     position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    background-image: radial-gradient(#cbd5e1 1.4px, transparent 1.4px);
+    background-size: 22px 22px;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse at center, black 65%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 65%, transparent 100%);
   }
 
-  /* ---- Breakpoints ---- */
-  @media (min-width: 480px) {
+  .diagram-top-grid,
+  .diagram-connectors,
+  .central-hub-wrap,
+  .output-connector,
+  .output-card {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Fila 1: Grid de Tarjetas Superiores */
+  .diagram-top-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    align-items: start;
+  }
+
+  .diagram-card {
+    background-color: #ffffff;
+    border: 1px solid var(--border-subtle, #e2e8f0);
+    border-radius: 0.875rem;
+    padding: 1.25rem;
+    box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.06);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .diagram-card:hover {
+    box-shadow: 0 16px 32px -4px rgba(15, 23, 42, 0.1);
+  }
+
+  /* Tarjeta Almacén */
+  .card-warehouse {
+    border-color: #e2e8f0;
+  }
+
+  /* Tarjeta Transporte y Desfase */
+  .transport-column {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.65rem; /* Desfase vertical asincrónico */
+  }
+
+  .card-transport {
+    position: relative;
+    background: linear-gradient(180deg, #fffdf7 0%, #ffffff 50%);
+    border-color: #fde68a;
+    box-shadow: 0 8px 24px -4px rgba(245, 158, 11, 0.08);
+  }
+
+  .floating-pending-pill {
+    position: absolute;
+    top: -0.75rem;
+    right: 0.75rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #92400e;
+    background-color: #fef3c7;
+    border: 1px solid #fcd34d;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    box-shadow: 0 2px 5px rgba(245, 158, 11, 0.12);
+  }
+
+  /* Cabeceras de tarjetas */
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 0.5rem;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+
+  .icon-box-green {
+    background-color: #ecfdf5;
+    color: #047857;
+    border: 1px solid #d1fae5;
+  }
+
+  .icon-box-amber {
+    background-color: #fef3c7;
+    color: #d97706;
+    border: 1px solid #fde68a;
+  }
+
+  .card-title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .card-subtitle {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 0.15rem;
+    margin-bottom: 0;
+  }
+
+  /* Contenido interno: Ticket de Almacén */
+  .inner-ticket-card {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.625rem;
+    padding: 0.85rem;
+  }
+
+  .ticket-header {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .ticket-icon {
+    display: grid;
+    place-items: center;
+    color: #64748b;
+  }
+
+  .ticket-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .ticket-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #1e293b;
+  }
+
+  .ticket-id {
+    font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+    font-size: 0.6875rem;
+    color: #64748b;
+  }
+
+  .skeleton-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .skeleton-line {
+    height: 5px;
+    background-color: #e2e8f0;
+    border-radius: 3px;
+  }
+
+  .line-wide {
+    width: 85%;
+  }
+
+  .line-narrow {
+    width: 55%;
+  }
+
+  .ticket-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .ticket-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.71875rem;
+    font-weight: 500;
+    color: #475569;
+  }
+
+  .bullet-dot {
+    font-size: 0.6rem;
+    color: #64748b;
+  }
+
+  .ticket-check {
+    margin-left: auto;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background-color: #059669;
+    display: grid;
+    place-items: center;
+  }
+
+  /* Contenido interno: Especificaciones Transporte */
+  .inner-spec-card {
+    background-color: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 0.625rem;
+    padding: 0.75rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .spec-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+  }
+
+  .spec-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #64748b;
+  }
+
+  .spec-value {
+    color: #0f172a;
+    font-weight: 600;
+  }
+
+  .badge-pending {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    background-color: #fef3c7;
+    color: #b45309;
+    border: 1px solid #fcd34d;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    display: inline-block;
+  }
+
+  .mini-skel {
+    margin-bottom: 0;
+  }
+
+  /* Pastilla flotante debajo de Transporte */
+  .floating-info-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 0.75rem;
+    margin-left: auto;
+    background-color: #ffffff;
+    border: 1px solid #fed7aa;
+    border-radius: 999px;
+    padding: 0.45rem 0.95rem;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #92400e;
+    max-width: 98%;
+  }
+
+  .pill-clock-icon {
+    display: grid;
+    place-items: center;
+    color: #d97706;
+    flex-shrink: 0;
+  }
+
+  /* ============================================================
+     NIVEL 2: CONECTORES SVG
+     ============================================================ */
+  .diagram-connectors {
+    width: 100%;
+    height: 84px;
+    margin: -0.25rem 0;
+  }
+
+  .connectors-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .connector-line-glow {
+    filter: drop-shadow(0px 2px 6px rgba(4, 120, 87, 0.15));
+  }
+
+  /* ============================================================
+     NIVEL 3: NODO CENTRAL DECA LIGHT
+     ============================================================ */
+  .central-hub-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .central-hub-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+    border: 1px solid #065f46;
+    border-radius: 0.875rem;
+    padding: 0.95rem 1.8rem;
+    box-shadow: 0 12px 28px -4px rgba(4, 120, 87, 0.38);
+    color: #ffffff;
+    width: 384px;
+    height: 84px;
+    justify-content: flex-start;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .central-hub-card:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 18px 40px -6px rgba(4, 120, 87, 0.45);
+  }
+
+  .hub-icon-wrap {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+
+  .hub-texts {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .hub-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .hub-subtitle {
+    font-size: 0.8125rem;
+    color: #a7f3d0;
+    margin: 0.15rem 0 0 0;
+    font-weight: 500;
+  }
+
+  /* Conector vertical hacia la salida */
+  .output-connector {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 38px;
+    margin: 0.25rem 0;
+  }
+
+  /* ============================================================
+     NIVEL 4: TARJETA DE SALIDA
+     ============================================================ */
+  .output-card {
+    width: 100%;
+    max-width: 581px;
+    background-color: #ffffff;
+    border: 1px solid var(--border-subtle, #e2e8f0);
+    border-radius: 0.875rem;
+    padding: 1.4rem 1.75rem;
+    box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.06);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .output-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px -4px rgba(15, 23, 42, 0.1);
+  }
+
+  .output-header {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .output-icon-green {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+
+  .output-title {
+    font-size: 0.96875rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #0f172a);
+    margin: 0;
+  }
+
+  .output-body {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 1.35rem;
+    align-items: center;
+  }
+
+  .doc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .doc-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8125rem;
+  }
+
+  .doc-label {
+    color: #475569;
+  }
+
+  .doc-code {
+    font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+    color: #0f172a;
+    font-weight: 600;
+    font-size: 0.78125rem;
+    margin-left: auto;
+  }
+
+  .ready-subcard {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 0.625rem;
+    padding: 0.85rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: transform 0.2s ease;
+  }
+
+  .ready-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .ready-check-icon {
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #059669;
+    color: #ffffff;
+    font-size: 0.8125rem;
+    font-weight: 800;
+  }
+
+  .ready-text {
+    font-size: 0.84375rem;
+    font-weight: 700;
+    color: #065f46;
+  }
+
+  .ready-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .ready-skel-line {
+    height: 5px;
+    background-color: #bbf7d0;
+    border-radius: 3px;
+  }
+
+  /* ============================================================
+     ANIMACIONES STITCH: FLUJO SVG FLUIDO, FLOTACIÓN Y SHIMMER
+     ============================================================ */
+
+  /* 1. Trazados animados continuos SVG (dashMove) */
+  @keyframes dashMove {
+    to {
+      stroke-dashoffset: -32;
+    }
+  }
+
+  .flow-line-green {
+    stroke-dasharray: 6 6;
+    animation: dashMove 1.6s linear infinite;
+  }
+
+  .flow-line-amber {
+    stroke-dasharray: 6 6;
+    animation: dashMove 2.2s linear infinite;
+  }
+
+  .flow-line-down {
+    stroke-dasharray: 6 6;
+    animation: dashMove 1.4s linear infinite;
+  }
+
+  /* 2. Flotación suave y orgánica desfasada en tarjetas */
+  @keyframes floatGentleA {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes floatGentleB {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-7px);
+    }
+  }
+
+  @keyframes floatGentleC {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  .animate-float-a {
+    animation: floatGentleA 6s ease-in-out infinite;
+  }
+
+  .animate-float-b {
+    animation: floatGentleB 7s ease-in-out 1s infinite;
+  }
+
+  .animate-float-c {
+    animation: floatGentleC 5.5s ease-in-out 0.5s infinite;
+  }
+
+  /* Pausar flotación suave al hacer hover para facilitar lectura */
+  .animate-float-a:hover,
+  .animate-float-b:hover,
+  .animate-float-c:hover {
+    animation-play-state: paused;
+  }
+
+  /* 3. Pulso ámbar en badge de transporte (Pendiente) */
+  @keyframes pulseAmberSoft {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.25);
+    }
+    50% {
+      box-shadow: 0 0 0 5px rgba(217, 119, 6, 0);
+    }
+  }
+
+  .pulse-amber {
+    animation: pulseAmberSoft 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* 4. Shimmer sutil verde en tarjeta de documentación lista */
+  @keyframes shimmerGreenSoft {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(4, 120, 87, 0.25), inset 0 0 8px rgba(16, 185, 129, 0.08);
+    }
+    50% {
+      box-shadow: 0 0 0 6px rgba(4, 120, 87, 0), inset 0 0 14px rgba(16, 185, 129, 0.18);
+    }
+  }
+
+  .shimmer-green {
+    animation: shimmerGreenSoft 2.8s ease-in-out infinite;
+  }
+
+  /* ============================================================
+     RESPONSIVE DESIGN
+     ============================================================ */
+  @media (max-width: 1024px) {
+    .hero-container {
+      gap: 2.5rem;
+    }
+
     .hero-title {
       font-size: 2.25rem;
     }
-
-    .flow-figure {
-      padding: var(--space-4);
-    }
   }
 
-  @media (min-width: 640px) {
-    .hero-btn {
-      flex: 0 0 auto;
+  @media (max-width: 900px) {
+    .hero-section {
+      padding-top: 3rem;
+      padding-bottom: 4rem;
     }
 
-    /* Panel que enmarca el diagrama convergente */
-    .flow-figure {
-      padding: var(--space-6);
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
     }
 
-    .flow-svg--mobile {
+    .hero-content {
+      align-items: center;
+      text-align: center;
+      max-width: 620px;
+      margin-inline: auto;
+    }
+
+    .kicker-wrap {
+      justify-content: center;
+    }
+
+    .hero-title-break {
       display: none;
     }
 
-    .flow-svg--desktop {
-      display: block;
-      max-width: 560px;
+    .hero-description {
       margin-inline: auto;
     }
 
-    .flow-note {
+    .hero-actions {
+      justify-content: center;
+    }
+
+    .hero-diagram {
       margin-inline: auto;
-      max-width: 560px;
-    }
-
-    /* ---- Animación sutil de flujo convergente (ciclo 5.5s) ---- */
-    .flow-pulse--warehouse {
-      stroke-dasharray: 40 180;
-      stroke-dashoffset: 40;
-      animation: pulse-warehouse 5.5s linear infinite;
-    }
-
-    .flow-pulse--transport {
-      stroke-dasharray: 40 180;
-      stroke-dashoffset: 40;
-      animation: pulse-transport 5.5s linear infinite;
-    }
-
-    .flow-node-highlight {
-      animation: highlight-node 5.5s linear infinite;
-    }
-
-    .flow-pulse--output {
-      stroke-dasharray: 16 50;
-      stroke-dashoffset: 16;
-      animation: pulse-output 5.5s linear infinite;
-    }
-
-    .flow-pulse--arrow {
-      animation: pulse-arrow 5.5s linear infinite;
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (max-width: 580px) {
     .hero-section {
-      padding-top: var(--space-16);
-      padding-bottom: var(--space-20);
-    }
-
-    .hero-container {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-      gap: var(--space-12);
-      align-items: center;
+      padding-top: 2.25rem;
+      padding-bottom: 3.5rem;
     }
 
     .hero-title {
-      font-size: 2.25rem;
+      font-size: 1.85rem;
     }
 
-    .flow-figure {
-      padding: var(--space-4);
+    .diagram-top-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .transport-column {
+      margin-top: 0;
+    }
+
+    .diagram-connectors {
+      display: none;
+    }
+
+    .central-hub-wrap {
+      margin-top: 1rem;
+    }
+
+    .central-hub-card {
+      width: 100%;
+      min-width: unset;
+      justify-content: center;
+    }
+
+    .output-body {
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    /* Reducir flotaciones en pantallas táctiles pequeñas para estabilidad */
+    .animate-float-a,
+    .animate-float-b,
+    .animate-float-c {
+      animation: none !important;
     }
   }
 
-  @media (min-width: 1200px) {
-    .hero-container {
-      gap: var(--space-16);
-    }
-
-    .hero-title {
-      font-size: 2.75rem;
-    }
-
-    .flow-figure {
-      padding: var(--space-6);
-    }
-  }
-
-  /* ---- Keyframes del ciclo convergente continuo (5.5s) ---- */
-  @keyframes pulse-warehouse {
-    0% {
-      stroke-dashoffset: 40;
-      opacity: 0;
-      animation-timing-function: ease-out;
-    }
-    1% {
-      stroke-dashoffset: 40;
-      opacity: 1;
-      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    21.8% {
-      stroke-dashoffset: -174;
-      opacity: 1;
-      animation-timing-function: ease-in;
-    }
-    22.5%,
-    100% {
-      stroke-dashoffset: -174;
-      opacity: 0;
-    }
-  }
-
-  @keyframes pulse-transport {
-    0%,
-    14% {
-      stroke-dashoffset: 40;
-      opacity: 0;
-      animation-timing-function: ease-out;
-    }
-    14.5% {
-      stroke-dashoffset: 40;
-      opacity: 0;
-      animation-timing-function: ease-out;
-    }
-    15.5% {
-      stroke-dashoffset: 40;
-      opacity: 1;
-      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    36.4% {
-      stroke-dashoffset: -174;
-      opacity: 1;
-      animation-timing-function: ease-in;
-    }
-    37.2%,
-    100% {
-      stroke-dashoffset: -174;
-      opacity: 0;
-    }
-  }
-
-  @keyframes highlight-node {
-    0%,
-    36.3% {
-      opacity: 0;
-      animation-timing-function: ease-out;
-    }
-    40% {
-      opacity: 0.9;
-      animation-timing-function: ease-in;
-    }
-    43.6%,
-    100% {
-      opacity: 0;
-    }
-  }
-
-  @keyframes pulse-output {
-    0%,
-    43.5% {
-      stroke-dashoffset: 16;
-      opacity: 0;
-      animation-timing-function: ease-out;
-    }
-    44.5% {
-      stroke-dashoffset: 16;
-      opacity: 1;
-      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    54.5% {
-      stroke-dashoffset: -42;
-      opacity: 1;
-      animation-timing-function: ease-in;
-    }
-    55.5%,
-    100% {
-      stroke-dashoffset: -42;
-      opacity: 0;
-    }
-  }
-
-  @keyframes pulse-arrow {
-    0%,
-    54.5% {
-      opacity: 0;
-      animation-timing-function: ease-out;
-    }
-    56% {
-      opacity: 1;
-      animation-timing-function: ease-in;
-    }
-    58.2%,
-    100% {
-      opacity: 0;
-    }
-  }
-
-  /* ---- Entrada progresiva del Hero ----
-     Solo se activa si el script inline ha añadido .hero-motion a <html>.
-     Sin esa clase (sin JS, sin soporte o con movimiento reducido) no hay estado inicial oculto.
-     El kicker y el H1 arrancan sin retardo para no retener el titular; el resto se escalona 60 ms.
-     Se animan exclusivamente opacity y transform: sin recálculo de layout ni desplazamientos acumulativos. */
-  :global(html.hero-motion) .hero-reveal {
-    animation: hero-enter var(--duration-long) var(--ease-out) both;
-  }
-
-  :global(html.hero-motion) .hero-reveal--step-1 {
-    animation-delay: 60ms;
-  }
-
-  :global(html.hero-motion) .hero-reveal--step-2 {
-    animation-delay: 120ms;
-  }
-
-  :global(html.hero-motion) .hero-reveal--step-3 {
-    animation-delay: 180ms;
-  }
-
-  @keyframes hero-enter {
-    from {
-      opacity: 0;
-      transform: translate3d(0, 8px, 0);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  /* Movimiento reducido: desactiva animaciones y preserva el diagrama estático */
+  /* Accesibilidad: Respeto riguroso de movimiento reducido */
   @media (prefers-reduced-motion: reduce) {
-    .flow-pulse,
-    .flow-node-highlight {
-      animation: none !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
+    .diagram-card:hover,
+    .output-card:hover,
+    .hero-btn-primary:hover,
+    .central-hub-card:hover {
+      transform: none !important;
     }
 
-    /* Refuerzo por si la preferencia cambia con la página abierta: contenido siempre visible y quieto */
-    .hero-reveal {
+    .flow-line-green,
+    .flow-line-amber,
+    .flow-line-down,
+    .animate-float-a,
+    .animate-float-b,
+    .animate-float-c,
+    .pulse-amber,
+    .shimmer-green,
+    .btn-arrow {
       animation: none !important;
+      transform: none !important;
+      transition: none !important;
     }
   }
 </style>

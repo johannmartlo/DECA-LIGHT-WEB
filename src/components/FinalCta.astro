@@ -1,0 +1,203 @@
+---
+// src/components/FinalCta.astro - Bloque de Cierre Comercial de DECA Light
+// Adaptación del diseño de Stitch a Astro nativo sin Tailwind CDN
+---
+
+<section class="final-cta-section" aria-labelledby="final-cta-heading">
+  <!-- Resplandor ambiental suave -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <div class="container final-cta-container">
+    <div class="final-cta-card" data-reveal="card">
+      <!-- Tag / Pre-título con acentos laterales -->
+      <div class="final-cta-tag" aria-hidden="true">
+        <span class="tag-accent-rule"></span>
+        <span class="tag-text">DECA Light para almacenes hortofrutícolas</span>
+        <span class="tag-accent-rule"></span>
+      </div>
+
+      <!-- Titular principal aprobado -->
+      <h2 id="final-cta-heading" class="final-cta-title">
+        Organiza la documentación de tus expediciones
+      </h2>
+
+      <!-- Subtítulo prudente y realista -->
+      <p class="final-cta-subtitle">
+        Descubre cómo DECA Light busca ayudarte a coordinar la información documental de tu almacén, facilitando su comprobación ordenada antes de la expedición.
+      </p>
+
+      <!-- Botón de acción único y coherente con el destino real -->
+      <div class="final-cta-actions">
+        <a href="#piloto" class="btn-final-cta">
+          <span>Conocer el programa piloto</span>
+          <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cta-section {
+    position: relative;
+    width: 100%;
+    padding-top: clamp(4rem, 7vw, 6.5rem);
+    padding-bottom: clamp(4rem, 7vw, 6.5rem);
+    background: linear-gradient(180deg, #F8FAF9 0%, #F4F7F5 50%, #FFFFFF 100%);
+    overflow: hidden;
+  }
+
+  .ambient-glow {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(640px, 90vw);
+    height: 320px;
+    background: radial-gradient(ellipse at center, rgba(8, 84, 62, 0.07) 0%, rgba(16, 185, 129, 0.03) 50%, transparent 70%);
+    border-radius: 9999px;
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .final-cta-container {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+  }
+
+  .final-cta-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Tag pre-título */
+  .final-cta-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .tag-accent-rule {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #08543E;
+    border-radius: 2px;
+  }
+
+  @media (min-width: 640px) {
+    .tag-accent-rule {
+      width: 32px;
+    }
+  }
+
+  .tag-text {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #08543E;
+  }
+
+  @media (min-width: 640px) {
+    .tag-text {
+      font-size: 0.8125rem;
+    }
+  }
+
+  /* Titular */
+  .final-cta-title {
+    font-size: clamp(1.875rem, 3.8vw, 2.75rem);
+    font-weight: 800;
+    color: #0B251C;
+    letter-spacing: -0.025em;
+    line-height: 1.18;
+    margin-bottom: 1.25rem;
+    max-width: 22ch;
+  }
+
+  /* Subtítulo */
+  .final-cta-subtitle {
+    font-size: clamp(1rem, 1.35vw, 1.125rem);
+    color: #475569;
+    font-weight: 400;
+    line-height: 1.65;
+    max-width: 48ch;
+    margin-bottom: 2.25rem;
+  }
+
+  /* Acciones */
+  .final-cta-actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .btn-final-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 320px;
+    padding: 1rem 2rem;
+    min-height: 52px;
+    border-radius: 0.75rem;
+    background-color: #08543E;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 14px -2px rgba(8, 84, 62, 0.25), 0 2px 4px rgba(8, 84, 62, 0.15);
+    transition: background-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+    cursor: pointer;
+  }
+
+  @media (min-width: 640px) {
+    .btn-final-cta {
+      width: auto;
+      max-width: none;
+    }
+  }
+
+  .btn-arrow {
+    flex-shrink: 0;
+    transition: transform 150ms ease;
+  }
+
+  .btn-final-cta:hover {
+    background-color: #064030;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px -4px rgba(8, 84, 62, 0.35);
+  }
+
+  .btn-final-cta:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  .btn-final-cta:focus-visible {
+    outline: 2px solid #0284C7;
+    outline-offset: 3px;
+  }
+
+  .btn-final-cta:active {
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-final-cta,
+    .btn-arrow {
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+</style>

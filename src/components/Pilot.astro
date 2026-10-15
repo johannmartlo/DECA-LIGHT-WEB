@@ -1,241 +1,2173 @@
 ---
-// Pilot.astro - Sección «Programa piloto» y formulario visual inactivo
+// src/components/Pilot.astro - Sección 04 «Programa piloto» de DECA Light
+// Reconstrucción visual de alta fidelidad basada en Google Stitch y la referencia aprobada
 ---
 
-<section id="piloto" class="pilot-section" aria-labelledby="pilot-title">
-  <div class="container container-narrow">
-    <div class="section-intro text-center">
-      <span class="section-kicker">PROGRAMA PILOTO Y VALIDACIÓN</span>
-      <h2 id="pilot-title" class="section-title">
-        Mostrar interés en el programa piloto
-      </h2>
-      <p class="section-subtitle">
-        Estamos hablando con almacenes hortofrutícolas para conocer sus procesos documentales y definir una prueba acotada. En esta fase recogemos interés y contrastamos necesidades; el acceso operativo se valorará cuando el producto esté preparado.
-      </p>
+<section id="piloto" class="pilot-section" aria-labelledby="pilot-heading">
+  <!-- Ancla secundaria de compatibilidad -->
+  <div id="programa-piloto" class="anchor-target" aria-hidden="true"></div>
+
+  <!-- Luces ambientales sutiles de fondo -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-mid" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+
+  <div class="pilot-container">
+    <!-- ==============================================
+         BLOQUE 1: INTRODUCCIÓN Y CANVAS DE EXPEDICIÓN
+         ============================================== -->
+    <div class="pilot-hero-grid">
+      <!-- Columna Izquierda: Editorial y Propuesta de Valor -->
+      <div class="editorial-col" data-reveal="editorial">
+        <!-- Eyebrow Kicker -->
+        <div class="eyebrow-wrap">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span class="eyebrow-text">PROGRAMA PILOTO</span>
+        </div>
+
+        <!-- Titular Principal -->
+        <h2 id="pilot-heading" class="pilot-heading">
+          Llevemos DECA Light a la operativa real de tu almacén.
+        </h2>
+
+        <!-- Párrafo Descriptivo -->
+        <p class="pilot-description">
+          Queremos conocer cómo se coordina la documentación en tu empresa y explorar cómo DECA Light puede ayudarte a organizar la información de cada expedición.
+        </p>
+
+        <!-- Cuadrícula de 4 Puntos de Confianza -->
+        <div class="trust-grid" role="list" aria-label="Principios del programa piloto">
+          <!-- Item 1: Entorno real -->
+          <article class="trust-card group" role="listitem">
+            <div class="trust-icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 11l3 3L22 4"></path>
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+              </svg>
+            </div>
+            <div class="trust-content">
+              <h3 class="trust-title">Entorno real</h3>
+              <p class="trust-text">Pruebas con expediciones de almacén reales.</p>
+            </div>
+          </article>
+
+          <!-- Item 2: Escucha activa -->
+          <article class="trust-card group" role="listitem">
+            <div class="trust-icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                <path d="M8 9h8"></path>
+                <path d="M8 13h5"></path>
+              </svg>
+            </div>
+            <div class="trust-content">
+              <h3 class="trust-title">Escucha activa</h3>
+              <p class="trust-text">Feedback directo con los jefes de tráfico.</p>
+            </div>
+          </article>
+
+          <!-- Item 3: Mejora continua -->
+          <article class="trust-card group" role="listitem">
+            <div class="trust-icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+            <div class="trust-content">
+              <h3 class="trust-title">Mejora continua</h3>
+              <p class="trust-text">Ajustes según las incidencias del día a día.</p>
+            </div>
+          </article>
+
+          <!-- Item 4: Sector hortofrutícola -->
+          <article class="trust-card group" role="listitem">
+            <div class="trust-icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+            </div>
+            <div class="trust-content">
+              <h3 class="trust-title">Sector hortofrutícola</h3>
+              <p class="trust-text">Diseñado por y para empresas agrícolas.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Micro-barra informativa de estado sobria -->
+        <div class="status-microbar" role="status">
+          <span class="ping-indicator" aria-hidden="true">
+            <span class="ping-circle"></span>
+            <span class="ping-core"></span>
+          </span>
+          <span class="microbar-text">Fase actual: Contacto con almacenes y operadores del sector hortofrutícola</span>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Canvas Visual de Expedición y Formulario -->
+      <div class="visual-col" data-reveal="card">
+        <div class="canvas-container group-docs">
+          <!-- Silueta decorativa sutil de almacén en segundo plano -->
+          <div class="warehouse-silhouette" aria-hidden="true">
+            <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="silhouette-svg">
+              <path d="M0 180h400v60H0v-60z" fill="#08543E" fill-opacity="0.03" />
+              <rect x="40" y="80" width="120" height="100" rx="4" fill="#08543E" fill-opacity="0.04" />
+              <rect x="55" y="95" width="90" height="85" fill="#08543E" fill-opacity="0.03" />
+              <line x1="55" y1="110" x2="145" y2="110" stroke="#08543E" stroke-opacity="0.08" stroke-width="2" stroke-dasharray="4 4" />
+              <line x1="55" y1="130" x2="145" y2="130" stroke="#08543E" stroke-opacity="0.08" stroke-width="2" stroke-dasharray="4 4" />
+              <line x1="55" y1="150" x2="145" y2="150" stroke="#08543E" stroke-opacity="0.08" stroke-width="2" stroke-dasharray="4 4" />
+              <rect x="200" y="90" width="160" height="90" rx="6" fill="#08543E" fill-opacity="0.04" />
+              <rect x="330" y="120" width="40" height="60" rx="4" fill="#08543E" fill-opacity="0.05" />
+              <circle cx="240" cy="180" r="14" fill="#08543E" fill-opacity="0.09" />
+              <circle cx="310" cy="180" r="14" fill="#08543E" fill-opacity="0.09" />
+              <circle cx="355" cy="180" r="12" fill="#08543E" fill-opacity="0.09" />
+            </svg>
+          </div>
+
+          <!-- Nodos Superiores: Expedición & Tarjetas de Datos -->
+          <div class="nodes-top-row">
+            <!-- Nodo A: Tarjeta Principal Expedición -->
+            <div class="expedition-card">
+              <div class="expedition-header">
+                <div class="expedition-id-wrap">
+                  <div class="expedition-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16.5 9.4 7.55 4.24a1.78 1.78 0 0 0-2.5 1.55v12.42a1.78 1.78 0 0 0 2.5 1.55L16.5 14.6a1.78 1.78 0 0 0 0-3.2z"></path>
+                      <polyline points="3.29 7 12 12 20.71 7"></polyline>
+                      <line x1="12" y1="22" x2="12" y2="12"></line>
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="node-label">EXPEDICIÓN</span>
+                    <p class="node-code">EXP-2026-1047</p>
+                  </div>
+                </div>
+                <span class="status-pill status-amber">En preparación</span>
+              </div>
+
+              <div class="expedition-details">
+                <div class="detail-row">
+                  <span class="detail-label">Cajas</span>
+                  <span class="detail-value">120 uds</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Variedad</span>
+                  <span class="detail-value">Tomate Rama</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Destino</span>
+                  <span class="detail-value">Madrid (Merca)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nodo B: Stack de Micro-Tarjetas de Almacén y Transporte -->
+            <div class="micro-nodes-col">
+              <!-- Micro Card: Datos del Almacén -->
+              <div class="micro-node-card">
+                <div class="micro-node-left">
+                  <div class="micro-icon-box bg-emerald" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 21h18"></path>
+                      <path d="M5 21V7l8-4v18"></path>
+                      <path d="M19 21V11l-6-3"></path>
+                      <path d="M9 9h1"></path>
+                      <path d="M9 13h1"></path>
+                      <path d="M9 17h1"></path>
+                    </svg>
+                  </div>
+                  <div class="micro-node-info">
+                    <h4 class="micro-node-title">Datos del almacén</h4>
+                    <p class="micro-node-sub">Albaranes importados y cotejados</p>
+                  </div>
+                </div>
+                <div class="check-pill" aria-label="Completado">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Micro Card: Datos del Transporte -->
+              <div class="micro-node-card micro-node-transport">
+                <div class="transport-top">
+                  <div class="micro-node-left">
+                    <div class="micro-icon-box bg-amber" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="1" y="3" width="15" height="13"></rect>
+                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                        <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                        <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                      </svg>
+                    </div>
+                    <div class="micro-node-info">
+                      <h4 class="micro-node-title">Datos del transporte</h4>
+                      <p class="micro-node-sub">Tráiler frigorífico</p>
+                    </div>
+                  </div>
+                  <span class="badge-amber-pulse">Pendiente</span>
+                </div>
+                <div class="transport-bottom">
+                  <span class="transport-label">Matrícula tractora:</span>
+                  <span class="transport-val">--- Pendiente de chofer ---</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nivel Medio: Abanico Documental Físico y Digital -->
+          <div class="fanned-stack-area">
+            <!-- Trazo Conector SVG Continuo Animado -->
+            <svg class="flow-connector-svg" fill="none" viewBox="0 0 600 60" preserveAspectRatio="none" aria-hidden="true">
+              <path class="flow-dash-anim" d="M 80 15 Q 300 -10, 520 20" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"></path>
+            </svg>
+
+            <!-- Contenedor del Abanico Documental Con Protrusión Fiel a la Referencia -->
+            <div class="doc-stack-wrapper">
+              <!-- Hoja Trasera: CMR Internacional -->
+              <div class="doc-stack-item doc-sheet-back">
+                <div class="sheet-head">
+                  <span class="sheet-title">CMR INTERNACIONAL</span>
+                  <span class="sheet-num">#CMR-982</span>
+                </div>
+                <div class="sheet-lines" aria-hidden="true">
+                  <div class="sheet-line line-75"></div>
+                  <div class="sheet-line line-50"></div>
+                </div>
+                <span class="sheet-foot">Copia transportista</span>
+              </div>
+
+              <!-- Hoja Intermedia: Carta de Porte -->
+              <div class="doc-stack-item doc-sheet-mid">
+                <div class="sheet-head">
+                  <span class="sheet-title">CARTA DE PORTE</span>
+                  <span class="sheet-num">ES-ES-771</span>
+                </div>
+                <div class="sheet-lines" aria-hidden="true">
+                  <div class="sheet-line line-80"></div>
+                  <div class="sheet-line line-65"></div>
+                </div>
+                <span class="sheet-foot">Validado en muelle</span>
+              </div>
+
+              <!-- Hoja Frontal: DECA Light Expediente Centralizado -->
+              <div class="doc-stack-item doc-sheet-front">
+                <div class="sheet-head">
+                  <div class="brand-inline">
+                    <span class="brand-bold">DECA</span>
+                    <span class="brand-light">Light</span>
+                  </div>
+                  <span class="sheet-tag">ALBARÁN 4081</span>
+                </div>
+
+                <div class="sheet-body">
+                  <div class="sheet-lead">Expediente Centralizado</div>
+                  <div class="sheet-status">
+                    <span class="pulse-dot-green" aria-hidden="true"></span>
+                    <span>Documentación digital lista</span>
+                  </div>
+                </div>
+
+                <div class="progress-track" aria-hidden="true">
+                  <div class="shimmer-active progress-fill"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Badge Flotante de Validación con Shimmer -->
+            <div class="badge-shimmer validation-pill">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="pill-icon-green" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>Documentación lista para revisión y salida</span>
+            </div>
+          </div>
+
+          <!-- Parte Inferior: Formulario de Interés Ilustrativo -->
+          <div id="form-piloto" class="interest-form-card">
+            <div class="form-card-header">
+              <div class="mail-icon-box" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4 class="form-card-title">¿Quieres conocer DECA Light en tu almacén?</h4>
+                <p class="form-card-sub">Recogemos el interés de profesionales para coordinar el próximo despliegue.</p>
+              </div>
+            </div>
+
+            <form class="demo-form" id="pilot-interest-form" novalidate>
+              <div class="inputs-row">
+                <div class="input-field-wrap">
+                  <label for="company-name" class="input-label">Nombre de la empresa</label>
+                  <input
+                    type="text"
+                    id="company-name"
+                    name="company"
+                    class="form-text-input"
+                    placeholder="Ej. Frutas del Sureste S.L."
+                    required
+                  />
+                </div>
+
+                <div class="input-field-wrap">
+                  <label for="company-email" class="input-label">Correo electrónico</label>
+                  <input
+                    type="email"
+                    id="company-email"
+                    name="email"
+                    class="form-text-input"
+                    placeholder="responsable@almacen.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-btn-wrap">
+                <button type="submit" class="cta-button btn-submit-pilot">
+                  <span>Solicitar participación en el piloto</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow-icon" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </form>
+
+            <div id="feedback-note" class="feedback-notification hidden" role="status">
+              ¡Gracias! Nos pondremos en contacto contigo para evaluar el encaje operativo.
+            </div>
+
+            <p class="form-disclaimer">
+              Sin compromiso. Evaluaremos contigo el encaje operativo en tus instalaciones.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Formulario visual inactivo (según bloqueos de seguridad y privacidad) -->
-    <div class="form-wrapper">
-      <!-- Bloque de contexto sobrio y directo -->
-      <div class="pilot-context-notice" role="status">
-        <p class="context-text">
-          El proyecto está en desarrollo. En esta fase buscamos conocer los procesos documentales de los almacenes hortofrutícolas y valorar posibles pruebas futuras. El formulario mostrado es una referencia visual y todavía no permite enviar datos.
+    <!-- ==============================================
+         BLOQUE 2: METODOLOGÍA PRÁCTICA EN 3 PASOS
+         ============================================== -->
+    <div class="pilot-methodology-section" data-reveal="editorial">
+      <div class="methodology-header">
+        <div class="eyebrow-wrap">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span class="eyebrow-text">METODOLOGÍA PRÁCTICA</span>
+        </div>
+        <h3 class="methodology-title">
+          Cómo planteamos el piloto con tu equipo
+        </h3>
+        <p class="methodology-sub">
+          Un proceso estructurado, discreto y sin fricción para no interrumpir la operativa habitual de tus muelles de carga.
         </p>
       </div>
 
-      <form class="pilot-form" aria-label="Formulario de contacto para el programa piloto (Actualmente inactivo)" onsubmit="return false;">
-        <!-- Campo 1: Nombre -->
-        <div class="form-group">
-          <label for="nombre" class="form-label">
-            Nombre y apellidos <span class="required" aria-hidden="true">*</span>
-          </label>
-          <input
-            type="text"
-            id="nombre"
-            name="nombre"
-            class="form-input"
-            placeholder="Ej. Carmen García"
-            disabled
-            aria-disabled="true"
-          />
+      <div class="steps-grid" role="list" aria-label="Fases del piloto operativo">
+        <!-- Paso 01 -->
+        <article class="step-card group" role="listitem" data-reveal="card" data-reveal-delay="1">
+          <div class="step-top-content">
+            <div class="step-card-header">
+              <span class="step-num">01</span>
+              <div class="step-icon-box" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                  <path d="M12 6v6l3-3"></path>
+                </svg>
+              </div>
+            </div>
+            <h4 class="step-title">Conocemos tu operativa</h4>
+            <p class="step-desc">
+              Entendemos cómo gestionáis los albaranes, las cartas de porte, los datos del transporte y la documentación de las expediciones de cada salida.
+            </p>
+          </div>
+          <div class="step-footer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="footer-icon-green" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Sesión de 30 min sin compromiso</span>
+          </div>
+        </article>
+
+        <!-- Paso 02 -->
+        <article class="step-card group" role="listitem" data-reveal="card" data-reveal-delay="2">
+          <div class="step-top-content">
+            <div class="step-card-header">
+              <span class="step-num">02</span>
+              <div class="step-icon-box" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+              </div>
+            </div>
+            <h4 class="step-title">Analizamos el encaje</h4>
+            <p class="step-desc">
+              Identificamos los puntos en los que DECA Light podría aportar valor y qué aspectos específicos sería necesario comprobar durante el piloto.
+            </p>
+          </div>
+          <div class="step-footer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="footer-icon-green" aria-hidden="true">
+              <line x1="4" y1="21" x2="4" y2="14"></line>
+              <line x1="4" y1="10" x2="4" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12" y2="3"></line>
+              <line x1="20" y1="21" x2="20" y2="16"></line>
+              <line x1="20" y1="12" x2="20" y2="3"></line>
+              <line x1="1" y1="14" x2="7" y2="14"></line>
+              <line x1="9" y1="8" x2="15" y2="8"></line>
+              <line x1="17" y1="16" x2="23" y2="16"></line>
+            </svg>
+            <span>Detección de cuellos de botella</span>
+          </div>
+        </article>
+
+        <!-- Paso 03 -->
+        <article class="step-card group" role="listitem" data-reveal="card" data-reveal-delay="3">
+          <div class="step-top-content">
+            <div class="step-card-header">
+              <span class="step-num">03</span>
+              <div class="step-icon-box" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                  <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                </svg>
+              </div>
+            </div>
+            <h4 class="step-title">Exploramos los siguientes pasos</h4>
+            <p class="step-desc">
+              Concretamos una posible colaboración y las necesidades de la empresa antes de acordar cómo avanzar con el grupo piloto.
+            </p>
+          </div>
+          <div class="step-footer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="footer-icon-green" aria-hidden="true">
+              <path d="m11 17 2 2a1 1 0 0 0 1.42 0l4.58-4.58a1 1 0 0 0 0-1.42l-2-2"></path>
+              <path d="m3 11 4.58-4.58a1 1 0 0 1 1.42 0l2 2a1 1 0 0 1 0 1.42L6.42 14.42a1 1 0 0 1-1.42 0l-2-2a1 1 0 0 1 0-1.42z"></path>
+            </svg>
+            <span>Alineación técnica y operativa</span>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         BLOQUE 3: PERFIL DE EMPRESA (QUIÉN ENCAJA)
+         ============================================== -->
+    <div class="pilot-profile-section" data-reveal="card">
+      <div class="profile-card-container">
+        <div class="profile-intro">
+          <div class="eyebrow-wrap text-center">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-text">PERFIL DE EMPRESA</span>
+            <span class="eyebrow-line" aria-hidden="true"></span>
+          </div>
+          <h3 class="profile-heading">
+            Pensado para empresas que coordinan expediciones y documentación a diario.
+          </h3>
+          <p class="profile-subtitle">
+            Si tu operativa lidia con albaranes en papel, esperas de transportistas y comprobaciones manuales, el piloto de DECA Light está diseñado para ti.
+          </p>
         </div>
 
-        <!-- Campo 2: Correo -->
-        <div class="form-group">
-          <label for="email" class="form-label">
-            Correo electrónico de contacto <span class="required" aria-hidden="true">*</span>
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="form-input"
-            placeholder="ejemplo@almacenhortofruticola.es"
-            disabled
-            aria-disabled="true"
-          />
-        </div>
+        <div class="fit-cards-grid" role="list">
+          <!-- Fit Card 1 -->
+          <article class="fit-card group" role="listitem">
+            <div class="fit-icon-halo" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"></path>
+                <path d="M12 6v6l4 2"></path>
+                <path d="M7 16c2-2 4-2 5 0"></path>
+              </svg>
+            </div>
+            <h4 class="fit-card-title">Almacenes y comercializadoras</h4>
+            <p class="fit-card-text">
+              Especialistas en frutas, hortalizas y perecederos con volumen continuo de salidas nacionales e internacionales.
+            </p>
+          </article>
 
-        <!-- Campo 3: Empresa o almacén -->
-        <div class="form-group">
-          <label for="empresa" class="form-label">
-            Empresa o almacén <span class="required" aria-hidden="true">*</span>
-          </label>
-          <input
-            type="text"
-            id="empresa"
-            name="empresa"
-            class="form-input"
-            placeholder="Nombre de la central o comercializadora"
-            disabled
-            aria-disabled="true"
-          />
-        </div>
+          <!-- Fit Card 2 -->
+          <article class="fit-card group" role="listitem">
+            <div class="fit-icon-halo" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <circle cx="19" cy="5" r="2"></circle>
+                <circle cx="5" cy="5" r="2"></circle>
+                <circle cx="19" cy="19" r="2"></circle>
+                <circle cx="5" cy="19" r="2"></circle>
+                <line x1="7" y1="6" x2="10" y2="10"></line>
+                <line x1="17" y1="6" x2="14" y2="10"></line>
+                <line x1="7" y1="18" x2="10" y2="14"></line>
+                <line x1="17" y1="18" x2="14" y2="14"></line>
+              </svg>
+            </div>
+            <h4 class="fit-card-title">Múltiples fuentes de datos</h4>
+            <p class="fit-card-text">
+              Operativas donde la información de cada envío procede de ERPs, transportistas externos y personal de muelle.
+            </p>
+          </article>
 
-        <!-- Campo 4: Volumen aproximado -->
-        <div class="form-group">
-          <label for="volumen" class="form-label">
-            Volumen aproximado de expediciones diarias <span class="required" aria-hidden="true">*</span>
-          </label>
-          <select id="volumen" name="volumen" class="form-select" disabled aria-disabled="true">
-            <option value="" selected>Selecciona un rango aproximado</option>
-            <option value="1-5">1–5 expediciones / día</option>
-            <option value="6-15">6–15 expediciones / día</option>
-            <option value="mas-15">Más de 15 expediciones / día</option>
-            <option value="no-se">No lo sé / Variable por campaña</option>
-          </select>
+          <!-- Fit Card 3 -->
+          <article class="fit-card group" role="listitem">
+            <div class="fit-icon-halo" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4"></path>
+                <path d="M12 18v4"></path>
+                <path d="M4.93 4.93l2.83 2.83"></path>
+                <path d="M16.24 16.24l2.83 2.83"></path>
+                <path d="M2 12h4"></path>
+                <path d="M18 12h4"></path>
+                <path d="M4.93 19.07l2.83-2.83"></path>
+                <path d="M16.24 7.76l2.83-2.83"></path>
+              </svg>
+            </div>
+            <h4 class="fit-card-title">Reducción de tareas manuales</h4>
+            <p class="fit-card-text">
+              Equipos decididos a eliminar el extravío de albaranes, llamadas reiteradas y errores en la carga de matrículas.
+            </p>
+          </article>
         </div>
+      </div>
+    </div>
 
-        <!-- Casilla de privacidad -->
-        <div class="form-group checkbox-group">
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              id="privacidad"
-              name="privacidad"
-              class="form-checkbox"
-              disabled
-              aria-disabled="true"
-            />
-            <span class="checkbox-text">
-              He leído y acepto la información de privacidad relativa al tratamiento de datos para la evaluación técnica del piloto (texto legal pendiente de publicación oficial).
-            </span>
-          </label>
-        </div>
+    <!-- ==============================================
+         BLOQUE 4: PANEL FINAL OSCURO (CTA Y CONTACTO)
+         ============================================== -->
+    <div id="contacto" class="pilot-cta-section" data-reveal="card">
+      <div class="dark-cta-card">
+        <!-- Resplandores oscuros ambientales -->
+        <div class="dark-glow glow-emerald" aria-hidden="true"></div>
+        <div class="dark-glow glow-teal" aria-hidden="true"></div>
 
-        <!-- Botón de envío inactivo -->
-        <div class="form-action">
-          <button
-            type="button"
-            class="btn btn-primary btn-submit"
-            disabled
-            aria-disabled="true"
-            title="Formulario temporalmente inactivo hasta habilitar la infraestructura segura"
-          >
-            Mostrar interés en el programa piloto
-          </button>
+        <div class="dark-cta-content">
+          <!-- Pastilla Superior Sobria (Sin promesas de escasez artificial) -->
+          <div class="cta-pill-wrap">
+            <span class="cta-pulse-dot" aria-hidden="true"></span>
+            <span>Programa de validación y colaboración</span>
+          </div>
+
+          <!-- Titular Principal -->
+          <h3 class="dark-cta-heading">
+            ¿Te gustaría conocer DECA Light para tu empresa?
+          </h3>
+
+          <!-- Párrafo Descriptivo -->
+          <p class="dark-cta-desc">
+            Cuéntanos cómo trabajáis y valoraremos juntos si tiene sentido explorar un piloto en vuestras instalaciones. Sin ningún tipo de compromiso comercial.
+          </p>
+
+          <!-- Botones de Acción -->
+          <div class="cta-actions-group">
+            <a href="#form-piloto" class="cta-button btn-primary-dark">
+              <span>Me interesa el piloto</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a href="mailto:piloto@decalight.com?subject=Inter%C3%A9s%20en%20el%20programa%20piloto%20DECA%20Light" class="btn-secondary-dark">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="agent-icon" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>Hablar directamente con un especialista</span>
+            </a>
+          </div>
+
+          <!-- Puntos Clave de Confianza (Sober y veraces) -->
+          <div class="cta-checks-row" role="list">
+            <div class="check-item" role="listitem">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-green" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Sin compromiso comercial previo</span>
+            </div>
+
+            <div class="check-item" role="listitem">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-green" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Acompañamiento técnico presencial o remoto</span>
+            </div>
+
+            <div class="check-item" role="listitem">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-green" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Tratamiento confidencial de la información</span>
+            </div>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ==============================================
+     INTERACCIÓN Y FEEDBACK ILUSTRATIVO
+     ============================================== -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('pilot-interest-form') as HTMLFormElement | null;
+    const feedback = document.getElementById('feedback-note');
+
+    if (form && feedback) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Validación básica HTML5
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        // Simulación limpia de confirmación en cliente
+        feedback.classList.remove('hidden');
+        feedback.setAttribute('tabindex', '-1');
+        feedback.focus();
+        form.reset();
+
+        setTimeout(() => {
+          feedback.classList.add('hidden');
+        }, 6000);
+      });
+    }
+
+    // Efecto sutil de elevación en foco de inputs
+    const inputs = document.querySelectorAll<HTMLInputElement>('.form-text-input');
+    inputs.forEach((input) => {
+      input.addEventListener('focus', () => {
+        input.parentElement?.classList.add('input-focused');
+      });
+      input.addEventListener('blur', () => {
+        input.parentElement?.classList.remove('input-focused');
+      });
+    });
+  });
+</script>
+
 <style>
+  /* ==========================================================================
+     SECCIÓN 04: PROGRAMA PILOTO - ESTILOS ENCAPSULADOS DE ALTA FIDELIDAD
+     ========================================================================== */
+
   .pilot-section {
-    padding-block: var(--space-12);
-    background-color: var(--color-bg-surface);
-    border-bottom: 1px solid var(--color-border-subtle);
-    scroll-margin-top: 5.5rem;
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
-  .text-center .section-subtitle {
-    margin-inline: auto;
-  }
-
-  .form-wrapper {
-    background-color: var(--color-bg-surface);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    padding: var(--space-6);
-  }
-
-  .pilot-context-notice {
-    background-color: var(--color-bg-surface-subtle);
-    border: 1px solid var(--color-border-subtle);
-    border-left: 3px solid var(--color-accent-amber);
-    border-radius: var(--radius-md);
-    padding: var(--space-4) var(--space-5);
-    margin-bottom: var(--space-6);
-  }
-
-  .context-text {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-    line-height: 1.55;
-  }
-
-  .pilot-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .form-label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-  }
-
-  .required {
-    color: var(--color-accent-amber-text);
-  }
-
-  .form-input, .form-select {
+    position: relative;
     width: 100%;
-    min-height: 44px;
-    padding: var(--space-2) var(--space-3);
-    border: 1px solid var(--color-border-strong);
-    border-radius: var(--radius-md);
-    background-color: var(--color-bg-surface-subtle);
-    font-family: inherit;
-    font-size: 0.9375rem;
-    color: var(--color-text-muted);
-    cursor: not-allowed;
+    max-width: 100vw;
+    padding: 3.5rem 1.5rem 5rem;
+    background-color: transparent;
+    overflow: hidden;
   }
 
-  .checkbox-group {
-    margin-top: var(--space-2);
+  .anchor-target {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
   }
 
-  .checkbox-label {
+  /* Luces ambientales sutiles de fondo */
+  .ambient-glow {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+    max-width: 100%;
+  }
+
+  .glow-top {
+    top: -6rem;
+    left: 15%;
+    width: 24rem;
+    height: 24rem;
+    background: rgba(167, 243, 208, 0.22);
+  }
+
+  .glow-mid {
+    top: 45%;
+    right: 0;
+    width: 24rem;
+    height: 24rem;
+    background: rgba(254, 243, 199, 0.22);
+  }
+
+  .glow-bottom {
+    bottom: -6rem;
+    left: 2.5rem;
+    width: 20rem;
+    height: 20rem;
+    background: rgba(204, 251, 241, 0.22);
+  }
+
+  .pilot-container {
+    position: relative;
+    z-index: 1;
+    max-width: 80rem; /* ~1280px */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+  }
+
+  /* --------------------------------------------------------------------------
+     BLOQUE 1: HERO & EXPEDITION CANVAS
+     -------------------------------------------------------------------------- */
+     BLOQUE 1: HERO & EXPEDITION CANVAS
+     -------------------------------------------------------------------------- */
+  .pilot-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .pilot-hero-grid {
+      grid-template-columns: 5fr 7fr;
+      gap: 2.5rem;
+    }
+  }
+
+  /* Columna Editorial Izquierda */
+  .editorial-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .eyebrow-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .eyebrow-wrap.text-center {
+    justify-content: center;
+  }
+
+  .eyebrow-line {
+    width: 1.5rem;
+    height: 2px;
+    background-color: #08543E;
+    border-radius: 9999px;
+  }
+
+  .eyebrow-text {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #08543E;
+  }
+
+  .pilot-heading {
+    font-size: 2.125rem;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #0F172A;
+    margin-bottom: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .pilot-heading {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pilot-heading {
+      font-size: 2.75rem;
+    }
+  }
+
+  .pilot-description {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: #475569;
+    margin-bottom: 2rem;
+    max-width: 36rem;
+  }
+
+  /* Cuadrícula de 4 Badges */
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .trust-card {
     display: flex;
     align-items: flex-start;
-    gap: var(--space-3);
-    cursor: not-allowed;
+    gap: 0.875rem;
+    padding: 0.875rem 1rem;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.3s ease;
   }
 
-  .form-checkbox {
-    width: 20px;
-    height: 20px;
-    margin-top: 2px;
+  .trust-card:hover {
+    background-color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px -4px rgba(15, 23, 42, 0.08);
+  }
+
+  .trust-icon-box {
     flex-shrink: 0;
-    cursor: not-allowed;
+    width: 2.375rem;
+    height: 2.375rem;
+    border-radius: 0.75rem;
+    background-color: #ECFDF5;
+    color: #08543E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
   }
 
-  .checkbox-text {
-    font-size: 0.8125rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
+  .trust-card:hover .trust-icon-box {
+    transform: scale(1.08);
   }
 
-  .form-action {
-    margin-top: var(--space-3);
+  .trust-content {
+    display: flex;
+    flex-direction: column;
   }
 
-  .btn-submit {
+  .trust-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #0F172A;
+    line-height: 1.3;
+  }
+
+  .trust-text {
+    font-size: 0.75rem;
+    color: #64748B;
+    line-height: 1.4;
+    margin-top: 0.125rem;
+  }
+
+  /* Micro-barra de estado */
+  .status-microbar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background-color: rgba(236, 253, 245, 0.85);
+    border: 1px solid rgba(167, 243, 208, 0.8);
+    border-radius: 0.75rem;
+    color: #064E3B;
+    font-size: 0.75rem;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(8, 84, 62, 0.04);
+  }
+
+  .ping-indicator {
+    position: relative;
+    display: flex;
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+
+  .ping-circle {
+    position: absolute;
     width: 100%;
-    opacity: 0.65;
-    cursor: not-allowed;
+    height: 100%;
+    border-radius: 9999px;
+    background-color: #08543E;
+    opacity: 0.75;
+    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .ping-core {
+    position: relative;
+    display: inline-flex;
+    border-radius: 9999px;
+    width: 0.625rem;
+    height: 0.625rem;
+    background-color: #08543E;
+  }
+
+  @keyframes ping {
+    75%, 100% {
+      transform: scale(2.2);
+      opacity: 0;
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+     CANVAS INTERACTIVO DE EXPEDICIÓN (COLUMNA DERECHA)
+     -------------------------------------------------------------------------- */
+  .visual-col {
+    position: relative;
+    width: 100%;
+  }
+
+  .canvas-container {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(12px);
+    border: 1px solid #E2E8F0;
+    border-radius: 1.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .canvas-container {
+      padding: 2rem;
+    }
+  }
+
+  .warehouse-silhouette {
+    position: absolute;
+    right: -2rem;
+    bottom: -1rem;
+    width: 28rem;
+    height: 18rem;
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .canvas-container:hover .warehouse-silhouette {
+    transform: scale(1.04);
+  }
+
+  .silhouette-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Top Row: Nodos */
+  .nodes-top-row {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .nodes-top-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Tarjeta Expedición */
+  .expedition-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 1rem;
+    padding: 1rem 1.125rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  }
+
+  .expedition-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px -3px rgba(15, 23, 42, 0.08);
+  }
+
+  .expedition-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #F1F5F9;
+  }
+
+  .expedition-id-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  .expedition-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    background-color: #ECFDF5;
+    color: #08543E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .node-label {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #94A3B8;
+    text-transform: uppercase;
+  }
+
+  .node-code {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #1E293B;
+  }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+  }
+
+  .status-amber {
+    background-color: #FEF3C7;
+    color: #B45309;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+  }
+
+  .expedition-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+  }
+
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #64748B;
+  }
+
+  .detail-value {
+    font-weight: 600;
+    color: #1E293B;
+  }
+
+  /* Micro-Nodes Column */
+  .micro-nodes-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .micro-node-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 1rem;
+    padding: 0.875rem 1rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  }
+
+  .micro-node-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px -3px rgba(15, 23, 42, 0.08);
+  }
+
+  .micro-node-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .micro-icon-box {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .micro-icon-box.bg-emerald {
+    background-color: #ECFDF5;
+    color: #08543E;
+  }
+
+  .micro-icon-box.bg-amber {
+    background-color: #FEF3C7;
+    color: #B45309;
+  }
+
+  .micro-node-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .micro-node-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #1E293B;
+    line-height: 1.2;
+  }
+
+  .micro-node-sub {
+    font-size: 0.6875rem;
+    color: #64748B;
+    margin-top: 0.125rem;
+  }
+
+  .check-pill {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 9999px;
+    background-color: #08543E;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px rgba(8, 84, 62, 0.2);
+  }
+
+  .micro-node-transport {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .transport-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .transport-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.6875rem;
+    color: #475569;
+    padding-top: 0.25rem;
+    border-top: 1px dashed #F1F5F9;
+  }
+
+  .transport-val {
+    font-family: var(--font-mono, monospace);
+    color: #94A3B8;
+  }
+
+  /* Pulso Ámbar */
+  @keyframes amberPulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.25);
+    }
+    50% {
+      opacity: 0.85;
+      transform: scale(0.97);
+      box-shadow: 0 0 0 4px rgba(217, 119, 6, 0);
+    }
+  }
+
+  .badge-amber-pulse {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.625rem;
+    font-weight: 700;
+    background-color: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FCD34D;
+    animation: amberPulse 2.8s ease-in-out infinite;
+  }
+
+  /* --------------------------------------------------------------------------
+     NIVEL MEDIO: ABANICO DOCUMENTAL FÍSICO
+     -------------------------------------------------------------------------- */
+  .fanned-stack-area {
+    position: relative;
+    margin: 1.5rem 0;
+    padding: 1.5rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Conector Animado */
+  .flow-connector-svg {
+    position: absolute;
+    inset-inline: 0;
+    top: 0.25rem;
+    width: 100%;
+    height: 3.5rem;
+    overflow: visible;
+    pointer-events: none;
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .flow-connector-svg {
+      display: block;
+    }
+  }
+
+  @keyframes flowDash {
+    to {
+      stroke-dashoffset: -20;
+    }
+  }
+
+  .flow-dash-anim {
+    stroke-dasharray: 6 6;
+    animation: flowDash 1.2s linear infinite;
+    opacity: 0.6;
+  }
+
+  /* Document Stack Centerpiece con abanico protuberante */
+  .doc-stack-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 26rem;
+    height: 9.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .doc-stack-item {
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+    will-change: transform;
+  }
+
+  /* Hoja Trasera (CMR) */
+  .doc-sheet-back {
+    position: absolute;
+    width: 14rem;
+    height: 6.75rem;
+    background-color: rgba(255, 255, 255, 0.94);
+    border: 1px solid #E2E8F0;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.07);
+    transform: rotate(-8deg) translate(-3.25rem, -0.625rem);
+    padding: 0.625rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.5625rem;
+    color: #94A3B8;
+  }
+
+  /* Hoja Media (Carta de Porte) */
+  .doc-sheet-mid {
+    position: absolute;
+    width: 14rem;
+    height: 6.75rem;
+    background-color: rgba(255, 255, 255, 0.96);
+    border: 1px solid #E2E8F0;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 12px -2px rgba(15, 23, 42, 0.07);
+    transform: rotate(6deg) translate(3.25rem, 0.375rem);
+    padding: 0.625rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.5625rem;
+    color: #94A3B8;
+  }
+
+  /* Hoja Frontal (DECA Light) */
+  .doc-sheet-front {
+    position: relative;
+    z-index: 10;
+    width: 15rem;
+    height: 7.75rem;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 0.75rem;
+    box-shadow: 0 16px 28px -4px rgba(8, 84, 62, 0.12), 0 4px 8px -2px rgba(15, 23, 42, 0.04);
+    padding: 0.75rem 0.875rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Hover Abanico Dinámico */
+  .group-docs:hover .doc-sheet-back {
+    transform: rotate(-11deg) translate(-4rem, -0.875rem);
+  }
+  .group-docs:hover .doc-sheet-mid {
+    transform: rotate(8.5deg) translate(4rem, 0.5rem);
+  }
+  .group-docs:hover .doc-sheet-front {
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  @media (max-width: 480px) {
+    .doc-sheet-back {
+      width: 11.5rem;
+      transform: rotate(-6deg) translate(-2rem, -0.5rem);
+    }
+    .doc-sheet-mid {
+      width: 11.5rem;
+      transform: rotate(5deg) translate(2rem, 0.25rem);
+    }
+    .doc-sheet-front {
+      width: 13rem;
+    }
+    .group-docs:hover .doc-sheet-back {
+      transform: rotate(-8deg) translate(-2.5rem, -0.625rem);
+    }
+    .group-docs:hover .doc-sheet-mid {
+      transform: rotate(6.5deg) translate(2.5rem, 0.375rem);
+    }
+  }
+
+  .sheet-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sheet-title {
+    font-weight: 700;
+    color: #475569;
+  }
+
+  .sheet-num {
+    color: #94A3B8;
+  }
+
+  .sheet-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .sheet-line {
+    height: 0.375rem;
+    background-color: #E2E8F0;
+    border-radius: 9999px;
+  }
+
+  .line-75 { width: 75%; }
+  .line-50 { width: 50%; }
+  .line-80 { width: 80%; }
+  .line-65 { width: 65%; }
+
+  .sheet-foot {
+    font-size: 0.5625rem;
+    color: #94A3B8;
+  }
+
+  .brand-inline {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8125rem;
+  }
+
+  .brand-bold {
+    font-weight: 800;
+    color: #0F172A;
+  }
+
+  .brand-light {
+    font-weight: 600;
+    color: #08543E;
+  }
+
+  .sheet-tag {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.625rem;
+    font-weight: 700;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    background-color: #ECFDF5;
+    color: #08543E;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+  }
+
+  .sheet-lead {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #334155;
+  }
+
+  .sheet-status {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: 0.25rem;
+    font-size: 0.625rem;
+    color: #64748B;
+  }
+
+  .pulse-dot-green {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 9999px;
+    background-color: #10B981;
+    animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .progress-track {
+    width: 100%;
+    height: 0.375rem;
+    background-color: #F1F5F9;
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+
+  @keyframes shimmerBar {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 82%;
+    border-radius: 9999px;
+  }
+
+  .shimmer-active {
+    background: linear-gradient(90deg, #08543E 0%, #10B981 50%, #08543E 100%);
+    background-size: 200% 100%;
+    animation: shimmerBar 3.2s infinite linear;
+  }
+
+  /* Badge de Validación con Brillo (Badge Gleam) */
+  .validation-pill {
+    margin-top: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #ECFDF5;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+    box-shadow: 0 1px 3px rgba(8, 84, 62, 0.08);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #064E3B;
+  }
+
+  .pill-icon-green {
+    color: #08543E;
+  }
+
+  .badge-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .badge-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: skewX(-20deg);
+    animation: badgeGleam 4s infinite ease-in-out;
+  }
+
+  @keyframes badgeGleam {
+    0%, 60% { left: -120%; }
+    100% { left: 160%; }
+  }
+
+  /* --------------------------------------------------------------------------
+     PARTE INFERIOR: FORMULARIO DEMO DE INTERÉS
+     -------------------------------------------------------------------------- */
+  .interest-form-card {
+    position: relative;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid #E2E8F0;
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  }
+
+  .form-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .mail-icon-box {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.75rem;
+    background-color: #ECFDF5;
+    color: #08543E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .form-card-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #0F172A;
+    line-height: 1.25;
+  }
+
+  .form-card-sub {
+    font-size: 0.75rem;
+    color: #64748B;
+    margin-top: 0.125rem;
+  }
+
+  .demo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .inputs-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .inputs-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .input-field-wrap {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+  }
+
+  .input-field-wrap.input-focused {
+    transform: scale(1.01);
+  }
+
+  .input-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 0.25rem;
+  }
+
+  .form-text-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    border-radius: 0.75rem;
+    background-color: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    color: #0F172A;
+    transition: all 0.2s ease;
+  }
+
+  .form-text-input:focus {
+    background-color: #FFFFFF;
+    outline: none;
+    border-color: #08543E;
+    box-shadow: 0 0 0 3px rgba(8, 84, 62, 0.12);
+  }
+
+  .form-btn-wrap {
+    padding-top: 0.25rem;
+  }
+
+  /* Botón CTA con Sheen */
+  .cta-button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.65s ease;
+    pointer-events: none;
+  }
+
+  .cta-button:hover::after {
+    left: 170%;
+  }
+
+  .btn-submit-pilot {
+    width: 100%;
+    padding: 0.625rem 1rem;
+    border-radius: 0.75rem;
+    background-color: #08543E;
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 1px 2px rgba(8, 84, 62, 0.2);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-submit-pilot:hover {
+    background-color: #064231;
+    box-shadow: 0 6px 12px -2px rgba(8, 84, 62, 0.25);
+    transform: translateY(-1px);
+  }
+
+  .btn-submit-pilot:active {
+    transform: scale(0.99);
+  }
+
+  .btn-arrow-icon {
+    transition: transform 0.2s ease;
+  }
+
+  .btn-submit-pilot:hover .btn-arrow-icon {
+    transform: translateX(3px);
+  }
+
+  .feedback-notification {
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background-color: #ECFDF5;
+    border: 1px solid #A7F3D0;
+    border-radius: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #064E3B;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .form-disclaimer {
+    font-size: 0.625rem;
+    color: #94A3B8;
+    text-align: center;
+    margin-top: 0.625rem;
+    line-height: 1.4;
+  }
+
+  /* --------------------------------------------------------------------------
+     BLOQUE 2: METODOLOGÍA PRÁCTICA
+     -------------------------------------------------------------------------- */
+  .pilot-methodology-section {
+    width: 100%;
+    padding-top: 1rem;
+  }
+
+  .methodology-header {
+    max-width: 48rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .methodology-title {
+    font-size: 1.75rem;
+    line-height: 1.25;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #0F172A;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .methodology-title {
+      font-size: 2rem;
+    }
+  }
+
+  .methodology-sub {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: #475569;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   @media (min-width: 768px) {
-    .pilot-section {
-      padding-block: var(--space-16);
+    .steps-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .step-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+  }
+
+  .step-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px -4px rgba(8, 84, 62, 0.08), 0 6px 12px -2px rgba(15, 23, 42, 0.04);
+    border-color: rgba(8, 84, 62, 0.25);
+  }
+
+  .step-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
+
+  .step-num {
+    font-family: var(--font-mono, monospace);
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: #064E3B;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .step-card:hover .step-num {
+    color: #08543E;
+    transform: scale(1.05);
+  }
+
+  .step-icon-box {
+    width: 2.375rem;
+    height: 2.375rem;
+    border-radius: 0.875rem;
+    background-color: #ECFDF5;
+    color: #08543E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+  }
+
+  .step-card:hover .step-icon-box {
+    transform: scale(1.1) rotate(2deg);
+    background-color: #D1FAE5;
+  }
+
+  .step-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #0F172A;
+    margin-bottom: 0.625rem;
+  }
+
+  .step-desc {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: #475569;
+  }
+
+  .step-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #F1F5F9;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #64748B;
+  }
+
+  .footer-icon-green {
+    color: #08543E;
+    flex-shrink: 0;
+  }
+
+  /* --------------------------------------------------------------------------
+     BLOQUE 3: PERFIL DE EMPRESA
+     -------------------------------------------------------------------------- */
+  .pilot-profile-section {
+    width: 100%;
+  }
+
+  .profile-card-container {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, rgba(236, 253, 245, 0.4) 100%);
+    border: 1px solid #E2E8F0;
+    border-radius: 1.75rem;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  }
+
+  @media (min-width: 640px) {
+    .profile-card-container {
+      padding: 3rem 2.5rem;
+    }
+  }
+
+  .profile-intro {
+    text-align: center;
+    max-width: 44rem;
+    margin: 0 auto 2.5rem;
+  }
+
+  .profile-heading {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #0F172A;
+    margin-top: 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .profile-heading {
+      font-size: 1.875rem;
+    }
+  }
+
+  .profile-subtitle {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: #64748B;
+    margin-top: 0.625rem;
+  }
+
+  .fit-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .fit-cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .fit-card {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  }
+
+  .fit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px -4px rgba(15, 23, 42, 0.08);
+  }
+
+  .fit-icon-halo {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    background-color: #ECFDF5;
+    color: #08543E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+
+  .fit-card:hover .fit-icon-halo {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 8px rgba(8, 84, 62, 0.08);
+    background-color: #D1FAE5;
+  }
+
+  .fit-card-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #0F172A;
+    margin-bottom: 0.5rem;
+  }
+
+  .fit-card-text {
+    font-size: 0.75rem;
+    line-height: 1.55;
+    color: #475569;
+  }
+
+  /* --------------------------------------------------------------------------
+     BLOQUE 4: PANEL FINAL OSCURO (CTA Y CONTACTO)
+     -------------------------------------------------------------------------- */
+  .pilot-cta-section {
+    width: 100%;
+    padding-top: 0.5rem;
+  }
+
+  .dark-cta-card {
+    position: relative;
+    background-color: #0E1726;
+    border: 1px solid #1E293B;
+    border-radius: 1.75rem;
+    padding: 2rem 1.5rem;
+    color: #FFFFFF;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.35);
+  }
+
+  @media (min-width: 640px) {
+    .dark-cta-card {
+      padding: 3.5rem 3rem;
+    }
+  }
+
+  /* Luces oscuras decorativas */
+  .dark-glow {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .glow-emerald {
+    right: -4rem;
+    bottom: -4rem;
+    width: 24rem;
+    height: 24rem;
+    background: rgba(5, 150, 105, 0.22);
+  }
+
+  .glow-teal {
+    left: -4rem;
+    top: -4rem;
+    width: 20rem;
+    height: 20rem;
+    background: rgba(13, 148, 136, 0.15);
+  }
+
+  .dark-cta-content {
+    position: relative;
+    z-index: 10;
+    max-width: 48rem;
+  }
+
+  .cta-pill-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3125rem 0.875rem;
+    border-radius: 9999px;
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #6EE7B7;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-pulse-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: #34D399;
+    animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .dark-cta-heading {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .dark-cta-heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .dark-cta-heading {
+      font-size: 2.5rem;
+    }
+  }
+
+  .dark-cta-desc {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #CBD5E1;
+    margin-bottom: 2rem;
+    max-width: 40rem;
+  }
+
+  .cta-actions-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .cta-actions-group {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .btn-primary-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 0.75rem;
+    background-color: #08543E;
+    color: #FFFFFF;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-primary-dark:hover {
+    background-color: #064231;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -3px rgba(8, 84, 62, 0.35);
+  }
+
+  .btn-primary-dark:active {
+    transform: scale(0.98);
+  }
+
+  .btn-arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .btn-primary-dark:hover .btn-arrow {
+    transform: translateX(3px);
+  }
+
+  .btn-secondary-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #E2E8F0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary-dark:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+  }
+
+  .btn-secondary-dark:active {
+    transform: scale(0.98);
+  }
+
+  .agent-icon {
+    color: #34D399;
+  }
+
+  /* Checklist Final */
+  .cta-checks-row {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #1E293B;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+    font-size: 0.75rem;
+    color: #94A3B8;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .check-green {
+    color: #34D399;
+    flex-shrink: 0;
+  }
+
+  /* --------------------------------------------------------------------------
+     ACCESIBILIDAD: REDUCED MOTION
+     -------------------------------------------------------------------------- */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
     }
 
-    .form-wrapper {
-      padding: var(--space-8);
+    .badge-amber-pulse,
+    .flow-dash-anim,
+    .shimmer-active,
+    .badge-shimmer::after,
+    .ping-circle,
+    .cta-pulse-dot,
+    .pulse-dot-green {
+      animation: none !important;
     }
   }
 </style>

@@ -1,1426 +1,1593 @@
 ---
-// HowItWorks.astro - Sección «Cómo funciona»: Flujo objetivo en tres macro-fases con blueprints conceptuales y síntesis de valor
+// src/components/HowItWorks.astro - Sección «Cómo funciona» de DECA Light
+// Reconstrucción visual de alta fidelidad basada en Google Stitch y la referencia aprobada
 ---
 
 <section id="como-funciona" class="how-it-works-section" aria-labelledby="how-it-works-title">
-  <!--
-    Gestor de revelados al hacer scroll (Scroll Reveals - Fase 2A).
-    Idempotente: se ejecuta una sola vez aunque esté presente en varios componentes.
-    Anti-FOUC sincrónico: comprueba elementos ya visibles antes de activar la compuerta reveal-ready.
-  -->
-  <script is:inline>
-    (function () {
-      if (window.__decaRevealInit) return;
-      window.__decaRevealInit = true;
-
-      function initReveal() {
-        try {
-          var motionOk = window.matchMedia && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
-          var ioOk = 'IntersectionObserver' in window;
-          var cssOk = window.CSS && CSS.supports && CSS.supports('transform', 'translate3d(0, 0, 0)');
-
-          if (!motionOk || !ioOk || !cssOk) return;
-
-          var revealElements = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
-          if (revealElements.length === 0) return;
-
-          var pendingCount = 0;
-          var thresholdHeight = window.innerHeight * 0.92;
-
-          // Fase sincrónica anti-FOUC: revelar inmediatamente elementos en viewport o por encima del pliegue
-          for (var i = 0; i < revealElements.length; i++) {
-            var el = revealElements[i];
-            var rect = el.getBoundingClientRect();
-            if (rect.top < thresholdHeight) {
-              el.classList.add('is-revealed');
-            } else {
-              pendingCount++;
-            }
-          }
-
-          // Activar compuerta global en <html>
-          document.documentElement.classList.add('reveal-ready');
-
-          if (pendingCount === 0) return;
-
-          var observer = new IntersectionObserver(function (entries) {
-            for (var j = 0; j < entries.length; j++) {
-              var entry = entries[j];
-              if (entry.isIntersecting) {
-                entry.target.classList.add('is-revealed');
-                observer.unobserve(entry.target);
-                pendingCount--;
-                if (pendingCount <= 0) {
-                  observer.disconnect();
-                }
-              }
-            }
-          }, {
-            threshold: 0.12,
-            rootMargin: '0px 0px -8% 0px'
-          });
-
-          for (var k = 0; k < revealElements.length; k++) {
-            var item = revealElements[k];
-            if (!item.classList.contains('is-revealed')) {
-              observer.observe(item);
-            }
-          }
-        } catch (err) {
-          document.documentElement.classList.remove('reveal-ready');
-          var all = document.querySelectorAll('[data-reveal]');
-          for (var n = 0; n < all.length; n++) {
-            all[n].classList.add('is-revealed');
-          }
-        }
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initReveal, { once: true });
-      } else {
-        initReveal();
-      }
-    })();
-  </script>
-
-  <div class="container">
+  <div class="how-it-works-container">
+    <!-- ==============================================
+         ENCABEZADO EDITORIAL CENTRADO
+         ============================================== -->
     <header class="section-intro" data-reveal="editorial">
-      <span class="section-kicker">Flujo objetivo de trabajo</span>
-      <h2 id="how-it-works-title" class="section-title">
-        De la preparación de la carga a la documentación organizada.
-      </h2>
-      <p class="section-subtitle">
-        DECA Light se está desarrollando para coordinar los documentos de expedición y los datos del transporte, aunque lleguen en momentos diferentes.
-      </p>
-
-      <div class="disclaimer-inline">
-        <span class="badge badge-amber">
-          <span class="badge-dot" aria-hidden="true"></span>
-          <span>Proyecto en desarrollo</span>
-        </span>
-        <span class="disclaimer-note">
-          Flujo pendiente de validación operativa y técnica.
-        </span>
+      <div class="eyebrow-wrap">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span class="eyebrow-text">UN PROCESO SIMPLE Y CONTROLADO</span>
       </div>
+
+      <h2 id="how-it-works-title" class="section-title">
+        De la información dispersa <br class="br-desktop" />
+        a la documentación preparada
+      </h2>
+
+      <p class="section-description">
+        DECA Light coordina la información del almacén y del transporte, la organiza y te ayuda a preparar la documentación de cada expedición para su revisión.
+      </p>
     </header>
 
-    <!-- Tres macro-fases del flujo con narrativa editorial y blueprint conceptual -->
-    <div class="macro-phases-wrapper">
-      
-      <!-- FASE 1: ALMACÉN (Pasos 01–03) -->
-      <article class="macro-phase" aria-labelledby="phase-1-heading">
-        <div class="macro-phase-editorial" data-reveal="editorial">
-          <div class="macro-phase-badge">
-            <span class="phase-tag">Fase 1</span>
-            <span class="phase-category">Almacén</span>
+    <!-- ==============================================
+         FLUJO DE CUATRO PASOS (DIAGRAMA OPERATIVO)
+         ============================================== -->
+    <div class="flow-steps-grid" role="list" aria-label="Diagrama del proceso en 4 pasos">
+      <!-- --------------------------------------------
+           PASO 1: Recibimos la información
+           -------------------------------------------- -->
+      <article class="step-card group step-1 fanned-step-1" role="listitem" data-reveal="card" data-reveal-delay="1">
+        <!-- Encabezado del Paso -->
+        <div class="step-header">
+          <div class="step-badge-wrap">
+            <span class="step-badge" aria-hidden="true">1</span>
+            <div class="step-title-copy">
+              <h3 class="step-title">Recibimos la información</h3>
+              <p class="step-text">
+                Importa albaranes, cartas de porte, CMR o añade los datos manualmente.
+              </p>
+            </div>
           </div>
-          <h3 id="phase-1-heading" class="macro-phase-title">Preparación en origen</h3>
-          <p class="macro-phase-lead">
-            La documentación de la carga comienza en el almacén con la preparación física y el albarán habitual.
-          </p>
-
-          <ol class="phase-steps-list" start="1">
-            <li class="phase-step-item">
-              <span class="step-num" aria-hidden="true">01</span>
-              <div class="step-content">
-                <h4 class="step-title">Preparar la documentación</h4>
-                <p class="step-text">
-                  Preparar el pedido, pesar la mercancía y generar el albarán en el sistema habitual.
-                </p>
-              </div>
-            </li>
-            <li class="phase-step-item">
-              <span class="step-num" aria-hidden="true">02</span>
-              <div class="step-content">
-                <h4 class="step-title">Reunir los documentos</h4>
-                <p class="step-text">
-                  Agrupar albaranes, cartas de porte y documentación asociada a la carga.
-                </p>
-              </div>
-            </li>
-            <li class="phase-step-item">
-              <span class="step-num" aria-hidden="true">03</span>
-              <div class="step-content">
-                <h4 class="step-title">Relacionar por albarán</h4>
-                <p class="step-text">
-                  Vincular los documentos con la expedición correspondiente.
-                </p>
-              </div>
-            </li>
-          </ol>
         </div>
 
-        <div class="macro-phase-visual" data-reveal="blueprint" data-reveal-delay="1">
-          <figure class="blueprint-card" aria-label="Esquema conceptual: Relación entre expedición EXP-0842 y albarán ALB-0842">
-            <div class="blueprint-header">
-              <div class="blueprint-title-wrap">
-                <span class="blueprint-status-indicator" aria-hidden="true"></span>
-                <span class="blueprint-title">Registro documental de almacén</span>
-              </div>
-              <span class="blueprint-disclaimer">Esquema conceptual · Proyecto en desarrollo</span>
+        <!-- Visual / Mockup del Paso 1 -->
+        <div class="step-visual visual-step-1">
+          <!-- Pastillas de Formatos Ilustrativos (No funcionales) -->
+          <div class="source-pills-col" aria-label="Formatos ilustrativos admitidos">
+            <!-- Píldora PDF -->
+            <div class="format-pill pill-pdf" title="Ilustración: Importación PDF">
+              <svg class="pill-icon icon-pdf" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M7 3C5.9 3 5 3.9 5 5V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V8L14 3H7M14 4.5L17.5 8H14V4.5M10.8 11.5C11.3 12.3 11.9 13.5 12.2 14.5C11.6 14.9 10.8 15.6 10.3 16.4C10.2 16.6 10 17.5 9.7 17.8C9.5 18 9.2 18.2 8.9 18.2C8.5 18.2 8.2 17.9 8.2 17.5C8.2 16.8 8.9 15.2 10.2 13.7C10.4 12.9 10.6 12.1 10.8 11.5M15.8 13.9C16.4 13.9 17 14.2 17.2 14.7C17.2 15 17 15.3 16.7 15.4C16.2 15.6 15.4 15.1 14.9 14.6C15.2 14.2 15.5 14 15.8 13.9Z"></path>
+              </svg>
+              <span class="pill-label">PDF</span>
             </div>
 
-            <div class="blueprint-body">
-              <!-- Estructura vertical conectada: relación documental en origen -->
-              <div class="blueprint-pipeline" role="list">
-                
-                <!-- 1. Carga física completada -->
-                <div class="pipeline-node" role="listitem">
-                  <div class="node-track" aria-hidden="true">
-                    <span class="node-icon node-icon--complete">✓</span>
-                    <span class="node-stem"></span>
-                  </div>
-                  <div class="node-content">
-                    <div class="node-meta">
-                      <span class="node-label mono">1. CARGA FÍSICA</span>
-                      <span class="node-id mono">EXP-0842 <span class="id-tag">ejemplo</span></span>
-                    </div>
-                    <div class="node-title">Carga física completada</div>
-                    <p class="node-desc">Mercancía preparada y pesada en muelle de salida</p>
-                  </div>
-                </div>
+            <!-- Píldora CSV -->
+            <div class="format-pill pill-csv" title="Ilustración: Importación CSV">
+              <svg class="pill-icon icon-csv" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1 14.5c0 .8-.7 1.5-1.5 1.5h-5c-.8 0-1.5-.7-1.5-1.5v-3c0-.8.7-1.5 1.5-1.5h5c.8 0 1.5.7 1.5 1.5v3zM14 9V3.5L18.5 8H14v1z"></path>
+              </svg>
+              <span class="pill-label">CSV</span>
+            </div>
 
-                <!-- 2. Albarán emitido -->
-                <div class="pipeline-node" role="listitem">
-                  <div class="node-track" aria-hidden="true">
-                    <span class="node-icon node-icon--complete">✓</span>
-                    <span class="node-stem"></span>
-                  </div>
-                  <div class="node-content">
-                    <div class="node-meta">
-                      <span class="node-label mono">2. ALBARÁN EMITIDO</span>
-                      <span class="node-id mono">ALB-0842 <span class="id-tag">ejemplo</span></span>
-                    </div>
-                    <div class="node-title">Albarán de salida generado</div>
-                    <p class="node-desc">Documento emitido en el sistema de gestión habitual</p>
-                  </div>
-                </div>
+            <!-- Píldora Entrada Manual -->
+            <div class="format-pill pill-manual" title="Ilustración: Entrada manual">
+              <svg class="pill-icon icon-manual" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span class="pill-label-small">Entrada manual</span>
+            </div>
+          </div>
 
-                <!-- 3. Documentación asociada -->
-                <div class="pipeline-node" role="listitem">
-                  <div class="node-track" aria-hidden="true">
-                    <span class="node-icon node-icon--complete">✓</span>
-                    <span class="node-stem node-stem--dashed"></span>
-                  </div>
-                  <div class="node-content">
-                    <div class="node-meta">
-                      <span class="node-label mono">3. DOCUMENTACIÓN ASOCIADA</span>
-                      <span class="node-id mono">VÍNCULO <span class="id-tag">documental</span></span>
-                    </div>
-                    <div class="node-title">Documentación asociada reunida</div>
-                    <p class="node-desc">Albaranes, cartas de porte y anexos agrupados por albarán</p>
-                  </div>
-                </div>
+          <!-- Documentos en Abanico: CMR, Carta de Porte y Albarán -->
+          <div class="fanned-docs-wrap" aria-hidden="true">
+            <div class="doc-ghost card-cmr">CMR</div>
+            <div class="doc-ghost card-porte">Carta de porte</div>
 
-                <!-- 4. Continuación pendiente hacia transporte -->
-                <div class="pipeline-node pipeline-node--pending" role="listitem">
-                  <div class="node-track" aria-hidden="true">
-                    <span class="node-icon node-icon--pending">⋯</span>
-                  </div>
-                  <div class="node-content node-content--pending">
-                    <div class="node-meta">
-                      <span class="node-label node-label--pending mono">4. CONTINUACIÓN PENDIENTE</span>
-                      <span class="badge-anticipation">Hacia Fase 2</span>
-                    </div>
-                    <div class="node-title node-title--pending">Pendiente de datos del transporte</div>
-                    <p class="node-desc node-desc--pending">Espera de confirmación de vehículo y matrícula para continuar</p>
-                  </div>
-                </div>
-
+            <!-- Tarjeta Principal: Albarán -->
+            <div class="albaran-box">
+              <div class="albaran-box-header">
+                <h4 class="albaran-box-title">Albarán</h4>
+                <span class="status-ping-wrap">
+                  <span class="ping-circle"></span>
+                  <span class="ping-dot"></span>
+                </span>
               </div>
 
-              <!-- Metadatos de pie de blueprint -->
-              <div class="blueprint-meta-bar">
-                <span class="meta-item">
-                  <span class="meta-label">Estado de origen:</span>
-                  <span class="meta-value">Base documental lista</span>
-                </span>
-                <span class="meta-item">
-                  <span class="meta-label">Paso siguiente:</span>
-                  <span class="meta-value meta-value--amber">Datos del camión (Fase 2)</span>
-                </span>
+              <div class="albaran-skeleton-lines">
+                <span class="skel-line w-full"></span>
+                <span class="skel-line w-80"></span>
+              </div>
+
+              <div class="albaran-data-table">
+                <div class="table-top-row">
+                  <span class="exp-code">EXP-2026-1047</span>
+                  <span class="status-pill-progress">En curso</span>
+                </div>
+                <div class="data-pairs">
+                  <div class="data-pair">
+                    <span class="pair-label">Variedad</span>
+                    <span class="pair-val">Tomate Rama</span>
+                  </div>
+                  <div class="data-pair">
+                    <span class="pair-label">Cajas</span>
+                    <span class="pair-val">120</span>
+                  </div>
+                  <div class="data-pair">
+                    <span class="pair-label">Destino</span>
+                    <span class="pair-val">Madrid</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </figure>
+          </div>
+        </div>
+
+        <!-- Flecha de Conexión 1 -> 2 (Desktop/Tablet) -->
+        <div class="flow-arrow-wrap arrow-1-2" aria-hidden="true">
+          <svg class="flow-arrow-svg" viewBox="0 0 24 24" fill="none">
+            <path class="flow-dashed-path" d="M14 5l7 7m0 0l-7 7m7-7H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
         </div>
       </article>
 
-      <!-- FASE 2: TRANSPORTE (Pasos 04–05) -->
-      <article class="macro-phase" aria-labelledby="phase-2-heading">
-        <div class="macro-phase-editorial" data-reveal="editorial">
-          <div class="macro-phase-badge macro-phase-badge--amber">
-            <span class="phase-tag phase-tag--amber">Fase 2</span>
-            <span class="phase-category phase-category--amber">Transporte</span>
+      <!-- --------------------------------------------
+           PASO 2: Validamos y organizamos
+           -------------------------------------------- -->
+      <article class="step-card group step-2" role="listitem" data-reveal="card" data-reveal-delay="2">
+        <!-- Encabezado del Paso -->
+        <div class="step-header">
+          <div class="step-badge-wrap">
+            <span class="step-badge" aria-hidden="true">2</span>
+            <div class="step-title-copy">
+              <h3 class="step-title">Validamos y organizamos</h3>
+              <p class="step-text">
+                Revisamos los datos, detectamos incompletos y los organizamos por expedición.
+              </p>
+            </div>
           </div>
-          <h3 id="phase-2-heading" class="macro-phase-title">Desfase temporal del vehículo</h3>
-          <p class="macro-phase-lead">
-            Los datos del camión suelen confirmarse más tarde, sin que ello deba paralizar la preparación de la carga.
-          </p>
-
-          <ol class="phase-steps-list" start="4">
-            <li class="phase-step-item">
-              <span class="step-num step-num--amber" aria-hidden="true">04</span>
-              <div class="step-content">
-                <h4 class="step-title">Detectar datos pendientes</h4>
-                <p class="step-text">
-                  Identificar las cargas que todavía esperan la matrícula u otros datos del vehículo.
-                </p>
-              </div>
-            </li>
-            <li class="phase-step-item">
-              <span class="step-num step-num--amber" aria-hidden="true">05</span>
-              <div class="step-content">
-                <h4 class="step-title">Incorporar los datos recibidos</h4>
-                <p class="step-text">
-                  Añadir la información confirmada del transporte cuando esté disponible.
-                </p>
-              </div>
-            </li>
-          </ol>
         </div>
 
-        <div class="macro-phase-visual" data-reveal="blueprint" data-reveal-delay="1">
-          <figure class="blueprint-card blueprint-card--amber" aria-label="Esquema conceptual: Detección de matrícula pendiente para la expedición EXP-0842">
-            <div class="blueprint-header">
-              <div class="blueprint-title-wrap">
-                <span class="blueprint-status-indicator blueprint-status-indicator--amber" aria-hidden="true"></span>
-                <span class="blueprint-title">Control de asignación de transporte</span>
-              </div>
-              <span class="blueprint-disclaimer">Esquema conceptual · Proyecto en desarrollo</span>
+        <!-- Visual / Mockup del Paso 2: Validación de Datos -->
+        <div class="step-visual visual-step-2">
+          <div class="validation-card">
+            <div class="validation-card-header">
+              <h4 class="validation-heading">Validación de datos</h4>
+              <span class="count-tag">4/5 listos</span>
             </div>
 
-            <div class="blueprint-body">
-              <div class="blueprint-slot-group">
-                <div class="blueprint-meta-row">
-                  <span class="meta-label">Expedición asignada:</span>
-                  <span class="meta-value mono">EXP-0842</span>
-                </div>
+            <ul class="validation-list">
+              <li class="validation-item">
+                <span class="check-icon-circle">✓</span>
+                <span class="item-label">Albarán correcto</span>
+              </li>
+              <li class="validation-item">
+                <span class="check-icon-circle">✓</span>
+                <span class="item-label">Datos de carga</span>
+              </li>
+              <!-- Estado Pendiente Destacado con Pulso Ámbar -->
+              <li class="validation-item item-pending">
+                <span class="pending-icon-circle">!</span>
+                <span class="item-label text-amber">Matrícula pendiente</span>
+              </li>
+              <li class="validation-item">
+                <span class="check-icon-circle">✓</span>
+                <span class="item-label">Transportista identificado</span>
+              </li>
+              <li class="validation-item">
+                <span class="check-icon-circle">✓</span>
+                <span class="item-label">Destino correcto</span>
+              </li>
+            </ul>
 
-                <!-- Campo con estado pendiente destacado en ámbar -->
-                <div class="blueprint-field-pending">
-                  <div class="pending-field-header">
-                    <span class="pending-field-label">MATRÍCULA DEL VEHÍCULO</span>
-                    <span class="badge badge-amber pending-badge">
-                      <span class="badge-dot" aria-hidden="true"></span>
-                      <span>Pendiente de recibir</span>
-                    </span>
-                  </div>
-                  <div class="pending-field-box">
-                    <span class="pending-placeholder mono">— Matrícula pendiente de confirmación —</span>
-                    <span class="pending-hint">La carga no se detiene a la espera del vehículo</span>
-                  </div>
-                </div>
-
-                <!-- Asignación posterior -->
-                <div class="blueprint-subsequent-slot">
-                  <span class="subsequent-label">Incorporación al confirmar:</span>
-                  <span class="subsequent-value">El dato se asocia a la expedición en cuanto se recibe comunicación</span>
-                </div>
-              </div>
-
-              <div class="blueprint-meta-bar">
-                <span class="meta-item">
-                  <span class="meta-label">Estado de expedición:</span>
-                  <span class="meta-value meta-value--amber">Espera activa de datos</span>
-                </span>
-                <span class="meta-item">
-                  <span class="meta-label">Documentación base:</span>
-                  <span class="meta-value">Lista en almacén</span>
-                </span>
-              </div>
+            <!-- Cuadro de Aviso Ámbar: Asincronía del Transporte -->
+            <div class="pending-callout-box" role="note">
+              <svg class="clock-spin-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <p class="pending-callout-text">
+                La información del transporte puede llegar en otro momento.
+              </p>
             </div>
-          </figure>
+          </div>
+        </div>
+
+        <!-- Flecha de Conexión 2 -> 3 (Desktop/Tablet) -->
+        <div class="flow-arrow-wrap arrow-2-3" aria-hidden="true">
+          <svg class="flow-arrow-svg" viewBox="0 0 24 24" fill="none">
+            <path class="flow-dashed-path" d="M14 5l7 7m0 0l-7 7m7-7H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
         </div>
       </article>
 
-      <!-- FASE 3: COORDINACIÓN (Pasos 06–07) -->
-      <article class="macro-phase macro-phase--last" aria-labelledby="phase-3-heading">
-        <div class="macro-phase-editorial" data-reveal="editorial">
-          <div class="macro-phase-badge macro-phase-badge--green">
-            <span class="phase-tag phase-tag--green">Fase 3</span>
-            <span class="phase-category phase-category--green">Coordinación</span>
+      <!-- --------------------------------------------
+           PASO 3: Coordinamos la documentación
+           -------------------------------------------- -->
+      <article class="step-card group step-3" role="listitem" data-reveal="card" data-reveal-delay="3">
+        <!-- Encabezado del Paso -->
+        <div class="step-header">
+          <div class="step-badge-wrap">
+            <span class="step-badge" aria-hidden="true">3</span>
+            <div class="step-title-copy">
+              <h3 class="step-title">Coordinamos la documentación</h3>
+              <p class="step-text">
+                Relacionamos la información y preparamos la documentación correspondiente a cada expedición.
+              </p>
+            </div>
           </div>
-          <h3 id="phase-3-heading" class="macro-phase-title">Supervisión humana y registro</h3>
-          <p class="macro-phase-lead">
-            Cotejo final de la documentación consolidada y conservación del historial para consultas posteriores.
-          </p>
-
-          <ol class="phase-steps-list" start="6">
-            <li class="phase-step-item">
-              <span class="step-num step-num--green" aria-hidden="true">06</span>
-              <div class="step-content">
-                <h4 class="step-title">Revisar antes de preparar el DECA</h4>
-                <p class="step-text">
-                  Comprobar que los datos necesarios están completos mediante revisión humana.
-                </p>
-              </div>
-            </li>
-            <li class="phase-step-item">
-              <span class="step-num step-num--solid" aria-hidden="true">07</span>
-              <div class="step-content">
-                <h4 class="step-title">Conservar el historial</h4>
-                <p class="step-text">
-                  Facilitar consultas posteriores con un registro ordenado de la documentación.
-                </p>
-              </div>
-            </li>
-          </ol>
         </div>
 
-        <div class="macro-phase-visual" data-reveal="blueprint" data-reveal-delay="1">
-          <figure class="blueprint-card blueprint-card--green" aria-label="Esquema conceptual: Cotejo de documentación consolidada y supervisión humana previa">
-            <div class="blueprint-header">
-              <div class="blueprint-title-wrap">
-                <span class="blueprint-status-indicator blueprint-status-indicator--green" aria-hidden="true"></span>
-                <span class="blueprint-title">Cotejo y preparación para revisión</span>
+        <!-- Visual / Mockup del Paso 3: Nodo Central DECA Light -->
+        <div class="step-visual visual-step-3">
+          <div class="hub-coordination-card">
+            <!-- Emblema Central DECA Light con Halo de Respiración -->
+            <div class="hub-header">
+              <div class="hub-emblem animate-hub-breath" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="3" width="16" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"></rect>
+                  <path d="M8 8h8M8 12h5m-5 4h8" stroke-linecap="round"></path>
+                </svg>
               </div>
-              <span class="blueprint-disclaimer">Esquema conceptual · Proyecto en desarrollo</span>
+              <h4 class="hub-brand-name">DECA Light</h4>
+              <p class="hub-sublabel">Coordinación documental</p>
             </div>
 
-            <div class="blueprint-body">
-              <!-- Checklist de verificación conceptual -->
-              <div class="blueprint-check-list">
-                <div class="check-item">
-                  <span class="check-icon" aria-hidden="true">✓</span>
-                  <div class="check-texts">
-                    <span class="check-name">Documentación de almacén y albarán</span>
-                    <span class="check-detail mono">ALB-0842 vinculada a EXP-0842</span>
-                  </div>
+            <!-- Filas de Estados Documentales -->
+            <div class="hub-status-rows">
+              <div class="hub-row">
+                <div class="hub-row-label">
+                  <span class="hub-row-icon icon-green" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M3 10h18M3 14h18M5 18h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                  </span>
+                  <span>Datos del almacén</span>
                 </div>
-
-                <div class="check-item">
-                  <span class="check-icon" aria-hidden="true">✓</span>
-                  <div class="check-texts">
-                    <span class="check-name">Datos del transporte incorporados</span>
-                    <span class="check-detail">Información del vehículo recibida</span>
-                  </div>
-                </div>
-
-                <div class="check-item check-item--human">
-                  <span class="check-icon check-icon--human" aria-hidden="true">⊙</span>
-                  <div class="check-texts">
-                    <span class="check-name">Supervisión humana</span>
-                    <span class="check-detail">Validación del responsable previa a la emisión</span>
-                  </div>
-                  <span class="check-badge">Paso de control</span>
-                </div>
+                <span class="check-icon-circle">✓</span>
               </div>
 
-              <!-- Resultado conceptual -->
-              <div class="blueprint-result-banner">
-                <span class="result-kicker">Resultado conceptual</span>
-                <span class="result-title">Documentación preparada para revisión</span>
+              <div class="hub-row">
+                <div class="hub-row-label">
+                  <span class="hub-row-icon icon-amber" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                      <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8h4l3 4v4a1 1 0 01-1 1h-1" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                  <span>Datos del transporte</span>
+                </div>
+                <span class="pending-icon-circle">!</span>
               </div>
 
-              <!-- Referencia al historial -->
-              <div class="blueprint-history-row">
-                <span class="history-label">Referencia de archivo:</span>
-                <span class="history-value mono">HIST-2026/0842 · Registro ordenado para consulta</span>
+              <div class="hub-row">
+                <div class="hub-row-label">
+                  <span class="hub-row-icon icon-blue" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                  <span>Generación de documentos</span>
+                </div>
+                <span class="check-icon-circle">✓</span>
+              </div>
+
+              <div class="hub-row">
+                <div class="hub-row-label">
+                  <span class="hub-row-icon icon-emerald" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                  <span>Preparado para revisión</span>
+                </div>
+                <span class="check-icon-circle">✓</span>
               </div>
             </div>
-          </figure>
+          </div>
+        </div>
+
+        <!-- Flecha de Conexión 3 -> 4 (Desktop/Tablet) -->
+        <div class="flow-arrow-wrap arrow-3-4" aria-hidden="true">
+          <svg class="flow-arrow-svg" viewBox="0 0 24 24" fill="none">
+            <path class="flow-dashed-path" d="M14 5l7 7m0 0l-7 7m7-7H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
         </div>
       </article>
 
+      <!-- --------------------------------------------
+           PASO 4: Documentación lista para revisión
+           -------------------------------------------- -->
+      <article class="step-card group step-4 fanned-step-4" role="listitem" data-reveal="card" data-reveal-delay="4">
+        <!-- Encabezado del Paso -->
+        <div class="step-header">
+          <div class="step-badge-wrap">
+            <span class="step-badge" aria-hidden="true">4</span>
+            <div class="step-title-copy">
+              <h3 class="step-title">Documentación lista para revisión</h3>
+              <p class="step-text">
+                Obtén el DECA y la documentación asociada organizada y lista para su revisión.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual / Mockup del Paso 4: DECA y Documentos Generados -->
+        <div class="step-visual visual-step-4">
+          <!-- Documentos en Abanico Superiores -->
+          <div class="fanned-top-docs" aria-hidden="true">
+            <div class="doc-ghost card-porte-4">Carta de porte</div>
+            <div class="doc-ghost card-cmr-4">CMR</div>
+          </div>
+
+          <!-- Tarjeta DECA Generada -->
+          <div class="deca-output-card">
+            <div class="deca-card-top">
+              <span class="deca-brand-title">DECA</span>
+              <span class="badge-generated">Generado</span>
+            </div>
+
+            <!-- Líneas de Previsualización Documental -->
+            <div class="deca-skeleton-lines" aria-hidden="true">
+              <span class="skel-line w-full"></span>
+              <span class="skel-line w-90"></span>
+              <span class="skel-line w-80"></span>
+              <span class="skel-line w-75"></span>
+            </div>
+
+            <!-- Faja de Estado: Preparado para revisión con Shimmer -->
+            <div class="ready-approval-ribbon">
+              <div class="ribbon-check-row">
+                <span class="ribbon-check-icon">✓</span>
+                <span class="ribbon-text">Documentación preparada para revisión</span>
+              </div>
+              <div class="shimmer-progress-track" aria-hidden="true">
+                <div class="shimmer-progress-fill animate-shimmer"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
 
-    <!-- Síntesis editorial refinada (4 bloques con borde izquierdo en verde corporativo) -->
-    <section class="synthesis-section" aria-labelledby="synthesis-title">
-      <header class="synthesis-header">
-        <h3 id="synthesis-title" class="synthesis-title">
-          ¿Qué busca simplificar?
-        </h3>
-      </header>
+    <!-- ==============================================
+         FRANJA INFERIOR: CUATRO BENEFICIOS OPERATIVOS
+         ============================================== -->
+    <footer class="benefits-section" aria-label="Beneficios operativos" data-reveal="card">
+      <div class="benefits-grid">
+        <!-- Beneficio 1: Menos esperas -->
+        <div class="benefit-item group">
+          <div class="benefit-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="benefit-copy">
+            <h4 class="benefit-title">Menos esperas</h4>
+            <p class="benefit-text">
+              Organiza la información aunque llegue en momentos diferentes.
+            </p>
+          </div>
+        </div>
 
-      <div class="synthesis-grid">
-        <article class="synthesis-item">
-          <h4 class="synthesis-label">Control de expediciones pendientes</h4>
-          <p class="synthesis-text">
-            Identificar las cargas que esperan datos del transporte.
-          </p>
-        </article>
+        <!-- Beneficio 2: Menos errores -->
+        <div class="benefit-item group">
+          <div class="benefit-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <div class="benefit-copy">
+            <h4 class="benefit-title">Menos errores</h4>
+            <p class="benefit-text">
+              Detecta datos incompletos y dobles comprobaciones.
+            </p>
+          </div>
+        </div>
 
-        <article class="synthesis-item">
-          <h4 class="synthesis-label">Menor dispersión operativa</h4>
-          <p class="synthesis-text">
-            Reducir la búsqueda de matrículas y confirmaciones en diferentes canales.
-          </p>
-        </article>
+        <!-- Beneficio 3: Más control -->
+        <div class="benefit-item group">
+          <div class="benefit-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <div class="benefit-copy">
+            <h4 class="benefit-title">Más control</h4>
+            <p class="benefit-text">
+              Toda la documentación de cada expedición en un único lugar.
+            </p>
+          </div>
+        </div>
 
-        <article class="synthesis-item">
-          <h4 class="synthesis-label">Anticipación en muelle</h4>
-          <p class="synthesis-text">
-            Detectar información ausente antes de la carga, cuando sea posible.
-          </p>
-        </article>
-
-        <article class="synthesis-item">
-          <h4 class="synthesis-label">Supervisión humana</h4>
-          <p class="synthesis-text">
-            Mantener la revisión y el criterio del responsable ante dudas o discrepancias.
-          </p>
-        </article>
+        <!-- Beneficio 4: Proceso claro y trazable -->
+        <div class="benefit-item group">
+          <div class="benefit-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <div class="benefit-copy">
+            <h4 class="benefit-title">Proceso claro y trazable</h4>
+            <p class="benefit-text">
+              Listo para su revisión y consulta cuando lo necesites.
+            </p>
+          </div>
+        </div>
       </div>
-    </section>
+    </footer>
   </div>
 </section>
 
 <style>
+  /* ==========================================================================
+     SECCIÓN «CÓMO FUNCIONA» - ESTILOS NATIVOS SCOPED DE ALTA FIDELIDAD
+     ========================================================================== */
+
   .how-it-works-section {
-    padding-block: var(--space-12);
-    background-color: var(--color-bg-canvas);
-    border-bottom: 1px solid var(--color-border-subtle);
-    scroll-margin-top: 5.5rem;
-  }
-
-  .section-intro {
-    max-width: 760px;
-    margin-bottom: var(--space-10);
-  }
-
-  .disclaimer-inline {
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-3);
-    margin-top: var(--space-4);
-  }
-
-  .disclaimer-note {
-    font-size: 0.8125rem;
-    color: var(--color-text-muted);
-    line-height: 1.45;
-  }
-
-  /* ---- Envoltorio de Macro-fases ---- */
-  .macro-phases-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-12);
-    margin-bottom: var(--space-16);
-  }
-
-  .macro-phase {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-    padding-bottom: var(--space-10);
-    border-bottom: 1px solid var(--color-border-subtle);
-  }
-
-  .macro-phase--last {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  /* ---- Columna Editorial (Narrativa y pasos) ---- */
-  .macro-phase-editorial {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-  }
-
-  .macro-phase-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    margin-bottom: var(--space-2);
-  }
-
-  .phase-tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 2px var(--space-2);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background-color: var(--color-bg-surface-subtle);
-    color: var(--color-text-secondary);
-    border: 1px solid var(--color-border-strong);
-    border-radius: var(--radius-sm);
-  }
-
-  .phase-tag--amber {
-    background-color: var(--color-accent-amber-subtle);
-    color: var(--color-accent-amber-text);
-    border-color: #FCD34D;
-  }
-
-  .phase-tag--green {
-    background-color: rgba(4, 120, 87, 0.08);
-    color: var(--color-brand-primary);
-    border-color: rgba(4, 120, 87, 0.25);
-  }
-
-  .phase-category {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .phase-category--amber {
-    color: var(--color-accent-amber-text);
-  }
-
-  .phase-category--green {
-    color: var(--color-brand-primary);
-  }
-
-  .macro-phase-title {
-    font-size: 1.375rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    line-height: 1.25;
-    letter-spacing: -0.02em;
-    margin-bottom: var(--space-2);
-  }
-
-  .macro-phase-lead {
-    font-size: 0.9375rem;
-    color: var(--color-text-secondary);
-    line-height: 1.55;
-    margin-bottom: var(--space-6);
-  }
-
-  /* Lista de pasos con carril vertical */
-  .phase-steps-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-  }
-
-  .phase-steps-list::before {
-    content: '';
-    position: absolute;
-    left: 17px;
-    top: 18px;
-    bottom: 18px;
-    width: 2px;
-    background-color: var(--color-border-subtle);
-    z-index: 0;
-  }
-
-  .phase-step-item {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-4);
-    z-index: 1;
-  }
-
-  .step-num {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-full);
-    background-color: var(--color-bg-canvas);
-    border: 2px solid var(--color-border-strong);
-    color: var(--color-text-primary);
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    flex-shrink: 0;
-    box-shadow: 0 0 0 4px var(--color-bg-canvas);
-  }
-
-  .step-num--amber {
-    background-color: var(--color-accent-amber-subtle);
-    border-color: #FCD34D;
-    color: var(--color-accent-amber-text);
-  }
-
-  .step-num--green {
-    background-color: var(--color-bg-surface);
-    border-color: var(--color-brand-primary);
-    color: var(--color-brand-primary);
-  }
-
-  .step-num--solid {
-    background-color: var(--color-brand-primary);
-    border-color: var(--color-brand-primary);
-    color: #FFFFFF;
-  }
-
-  .step-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding-top: 2px;
-    min-width: 0;
-    flex: 1;
-  }
-
-  .step-title {
-    font-size: 1.0625rem;
-    font-weight: 600;
-    line-height: 1.35;
-    color: var(--color-text-primary);
-    margin: 0;
-  }
-
-  .step-text {
-    font-size: 0.9375rem;
-    color: var(--color-text-secondary);
-    line-height: 1.5;
-    margin: 0;
-  }
-
-  /* ---- Microinterfaces Blueprint (Columna Visual) ---- */
-  .macro-phase-visual {
-    min-width: 0;
-  }
-
-  .blueprint-card {
-    margin: 0;
-    background-color: var(--color-bg-surface);
-    border: 1px solid rgba(226, 232, 240, 0.85);
-    border-radius: var(--radius-lg);
-    box-shadow:
-      0 1px 3px 0 rgba(15, 23, 42, 0.03),
-      0 4px 12px -2px rgba(15, 23, 42, 0.04);
-    display: flex;
-    flex-direction: column;
+    padding-top: 5rem;
+    padding-bottom: 5.5rem;
+    background-color: #f8fafc;
+    background-image:
+      radial-gradient(circle at 50% 180px, rgba(167, 243, 208, 0.35) 0%, rgba(240, 253, 244, 0.15) 45%, rgba(248, 250, 252, 0) 75%);
+    background-attachment: scroll;
+    border-bottom: 1px solid var(--border-subtle, #e2e8f0);
+    scroll-margin-top: 5rem;
     overflow: hidden;
   }
 
-  .blueprint-header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-3) var(--space-4);
-    background-color: var(--color-bg-surface-subtle);
-    border-bottom: 1px solid var(--color-border-subtle);
-  }
-
-  .blueprint-title-wrap {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-  }
-
-  .blueprint-status-indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: var(--radius-full);
-    background-color: var(--color-text-muted);
-    flex-shrink: 0;
-  }
-
-  .blueprint-status-indicator--amber {
-    background-color: var(--color-accent-amber);
-  }
-
-  .blueprint-status-indicator--green {
-    background-color: var(--color-brand-primary);
-  }
-
-  .blueprint-title {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    letter-spacing: 0.02em;
-  }
-
-  .blueprint-disclaimer {
-    font-size: 0.6875rem;
-    color: var(--color-text-muted);
-    font-style: italic;
-  }
-
-  .blueprint-body {
-    padding: var(--space-5);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-
-  /* Blueprint 1: Estructura vertical conectada (Pipeline documental) */
-  .blueprint-pipeline {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-
-  .pipeline-node {
-    display: flex;
-    align-items: stretch;
-    gap: var(--space-3);
-    position: relative;
-    min-width: 0;
-  }
-
-  .node-track {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 22px;
-    flex-shrink: 0;
-  }
-
-  .node-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: var(--radius-full);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    flex-shrink: 0;
-    z-index: 2;
-  }
-
-  .node-icon--complete {
-    background-color: var(--color-brand-primary);
-    color: #FFFFFF;
-  }
-
-  .node-icon--pending {
-    background-color: var(--color-accent-amber-subtle);
-    border: 1.5px dashed var(--color-accent-amber);
-    color: var(--color-accent-amber-text);
-    font-size: 0.75rem;
-  }
-
-  .node-stem {
-    flex: 1;
-    width: 2px;
-    min-height: 14px;
-    background-color: var(--color-border-strong);
-    margin-block: 2px;
-  }
-
-  .node-stem--dashed {
-    background-color: transparent;
-    border-left: 2px dashed #FCD34D;
-    width: 0;
-  }
-
-  .node-content {
-    flex: 1;
-    min-width: 0;
-    padding: var(--space-2) var(--space-3);
-    background-color: var(--color-bg-canvas);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: var(--radius-md);
-    margin-bottom: var(--space-3);
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .node-content--pending {
-    background-color: var(--color-accent-amber-subtle);
-    border: 1.5px dashed #FCD34D;
-    margin-bottom: 0;
-  }
-
-  .node-meta {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-2);
-  }
-
-  .node-label {
-    font-size: 0.625rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
-  }
-
-  .node-label--pending {
-    color: var(--color-accent-amber-text);
-  }
-
-  .node-id {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .id-tag {
-    font-size: 0.5625rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    padding: 1px 4px;
-    background-color: var(--color-bg-surface-subtle);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: var(--radius-sm);
-    color: var(--color-text-muted);
-  }
-
-  .badge-anticipation {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 1px 6px;
-    background-color: #FEF3C7;
-    border: 1px solid #FCD34D;
-    border-radius: var(--radius-full);
-    color: var(--color-accent-amber-text);
-  }
-
-  .node-title {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    line-height: 1.35;
-  }
-
-  .node-title--pending {
-    color: var(--color-accent-amber-text);
-  }
-
-  .node-desc {
-    font-size: 0.75rem;
-    color: var(--color-text-secondary);
-    line-height: 1.4;
-    margin: 0;
-  }
-
-  .node-desc--pending {
-    color: var(--color-accent-amber-text);
-    opacity: 0.9;
-  }
-
-  /* Blueprint 2: Transporte Ámbar */
-  .blueprint-slot-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-
-  .blueprint-meta-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8125rem;
-    padding-bottom: var(--space-2);
-    border-bottom: 1px solid var(--color-border-subtle);
-  }
-
-  .blueprint-field-pending {
-    padding: var(--space-4);
-    background-color: var(--color-accent-amber-subtle);
-    border: 1.5px dashed #FCD34D;
-    border-radius: var(--radius-md);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .pending-field-header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-2);
-  }
-
-  .pending-field-label {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    color: var(--color-accent-amber-text);
-    letter-spacing: 0.05em;
-  }
-
-  .pending-field-box {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .pending-placeholder {
-    font-family: var(--font-mono);
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: var(--color-accent-amber-text);
-  }
-
-  .pending-hint {
-    font-size: 0.8125rem;
-    color: var(--color-accent-amber-text);
-    opacity: 0.9;
-    line-height: 1.4;
-  }
-
-  .blueprint-subsequent-slot {
-    padding: var(--space-3);
-    background-color: var(--color-bg-canvas);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: var(--radius-md);
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .subsequent-label {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--color-text-muted);
-  }
-
-  .subsequent-value {
-    font-size: 0.8125rem;
-    color: var(--color-text-secondary);
-    line-height: 1.4;
-  }
-
-  .meta-value--amber {
-    color: var(--color-accent-amber-text);
-    font-weight: 600;
-  }
-
-  /* Blueprint 3: Coordinación */
-  .blueprint-check-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .check-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-2) var(--space-3);
-    background-color: var(--color-bg-canvas);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: var(--radius-md);
-    font-size: 0.8125rem;
-  }
-
-  .check-item--human {
-    background-color: #F0FDF4;
-    border-color: rgba(4, 120, 87, 0.35);
-  }
-
-  .check-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: var(--radius-full);
-    background-color: var(--color-brand-primary);
-    color: #FFFFFF;
-    font-size: 0.75rem;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .check-icon--human {
-    background-color: transparent;
-    border: 2px solid var(--color-brand-primary);
-    color: var(--color-brand-primary);
-  }
-
-  .check-texts {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-width: 0;
-  }
-
-  .check-name {
-    font-weight: 600;
-    color: var(--color-text-primary);
-    line-height: 1.35;
-  }
-
-  .check-detail {
-    font-size: 0.75rem;
-    color: var(--color-text-secondary);
-  }
-
-  .check-badge {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--color-brand-primary);
-    background-color: rgba(4, 120, 87, 0.1);
-    padding: 2px 8px;
-    border-radius: var(--radius-full);
-    white-space: nowrap;
-  }
-
-  .blueprint-result-banner {
-    padding: var(--space-3) var(--space-4);
-    background-color: var(--color-brand-primary);
-    border-radius: var(--radius-md);
-    color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    text-align: center;
-  }
-
-  .result-kicker {
-    font-size: 0.6875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    opacity: 0.9;
-    font-weight: 600;
-  }
-
-  .result-title {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-  }
-
-  .blueprint-history-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-2);
-    padding-top: var(--space-2);
-    border-top: 1px solid var(--color-border-subtle);
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
-  }
-
-  .history-label {
-    color: var(--color-text-muted);
-  }
-
-  .history-value {
-    color: var(--color-text-secondary);
-    font-weight: 500;
-  }
-
-  /* Barras de metadatos inferiores comunes */
-  .blueprint-meta-bar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-3);
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--color-border-subtle);
-    font-size: 0.8125rem;
-  }
-
-  .meta-item {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-  }
-
-  .meta-label {
-    color: var(--color-text-muted);
-    font-size: 0.75rem;
-  }
-
-  .meta-value {
-    color: var(--color-text-primary);
-    font-weight: 500;
-    font-size: 0.8125rem;
-  }
-
-  .mono {
-    font-family: var(--font-mono);
-  }
-
-  /* ---- Síntesis editorial (4 bloques) ---- */
-  .synthesis-section {
-    padding-top: var(--space-10);
-    border-top: 1px solid var(--color-border-subtle);
-  }
-
-  .synthesis-header {
-    max-width: 680px;
-    margin-bottom: var(--space-6);
-  }
-
-  .synthesis-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    letter-spacing: -0.01em;
-  }
-
-  .synthesis-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-
-  .synthesis-item {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    border-left: 2px solid var(--color-brand-primary);
-    padding-left: var(--space-4);
-    padding-block: var(--space-1);
-  }
-
-  .synthesis-label {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    line-height: 1.4;
-  }
-
-  .synthesis-text {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-    line-height: 1.5;
-  }
-
-  /* ---- Breakpoints Responsive ---- */
-  @media (min-width: 768px) {
-    .how-it-works-section {
-      padding-block: var(--space-16);
-    }
-
-    .section-intro {
-      margin-bottom: var(--space-12);
-    }
-
-    .macro-phases-wrapper {
-      gap: var(--space-16);
-      margin-bottom: var(--space-20);
-    }
-
-    .macro-phase {
-      gap: var(--space-8);
-      padding-bottom: var(--space-12);
-    }
-
-    .macro-phase-title {
-      font-size: 1.5rem;
-    }
-
-    .synthesis-section {
-      padding-top: var(--space-12);
-    }
-
-    .synthesis-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-8) var(--space-10);
-    }
-
-    .synthesis-title {
-      font-size: 1.375rem;
+  .how-it-works-container {
+    width: 100%;
+    max-width: 1400px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 640px) {
+    .how-it-works-container {
+      padding-inline: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
-    .macro-phase {
-      display: grid;
-      grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
-      gap: var(--space-12);
-      align-items: start;
-    }
-
-    .macro-phase-editorial {
-      padding-right: var(--space-2);
-    }
-
-    .blueprint-card {
-      position: sticky;
-      top: 104px; /* Flota suavemente al leer los pasos de la fase */
+    .how-it-works-container {
+      padding-inline: 2rem;
     }
   }
 
   /* ==========================================================================
-     Secuencias de Movimiento Coordinado en Blueprints (Bloque A - Fase 2B)
-     Solo se animan cuando el contenedor visual padre ha alcanzado .is-revealed.
-     Se ejecutan una única vez, sin reiniciarse en scrolls sucesivos.
+     ENCABEZADO EDITORIAL CENTRADO
      ========================================================================== */
 
-  /* Blueprint 1: Pipeline documental progresivo */
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node {
-    animation: blueprint-node-in 320ms var(--ease-out) both;
+  .section-intro {
+    max-width: 52rem;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: 3.5rem;
   }
 
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(1) {
-    animation-delay: 60ms;
-  }
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(2) {
-    animation-delay: 160ms;
-  }
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(3) {
-    animation-delay: 260ms;
-  }
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(4) {
-    animation-delay: 360ms;
+  @media (min-width: 1024px) {
+    .section-intro {
+      margin-bottom: 4.5rem;
+    }
   }
 
-  /* Conexiones verticales que se dibujan hacia abajo */
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .node-stem {
-    transform-origin: top center;
-    animation: blueprint-stem-grow 280ms var(--ease-out) both;
-  }
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(1) .node-stem {
-    animation-delay: 120ms;
-  }
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(2) .node-stem {
-    animation-delay: 220ms;
-  }
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(3) .node-stem {
-    animation-delay: 320ms;
+  .eyebrow-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.875rem;
+    cursor: default;
   }
 
-  /* Estado pendiente en Blueprint 1: actividad suave en icono y badge */
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node--pending .node-icon--pending {
-    animation: calm-pulse 3s ease-in-out infinite;
-    animation-delay: 500ms;
+  .eyebrow-line {
+    width: 1.5rem;
+    height: 2.5px;
+    background-color: #08543E;
+    border-radius: 9999px;
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Blueprint 2: Control de asignación de transporte */
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .blueprint-field-pending {
-    animation: blueprint-field-highlight 400ms var(--ease-out) both;
-    animation-delay: 140ms;
-  }
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .blueprint-subsequent-slot {
-    animation: blueprint-node-in 300ms var(--ease-out) both;
-    animation-delay: 260ms;
-  }
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .blueprint-field-pending .badge-dot {
-    animation: calm-pulse 2.4s ease-in-out infinite;
-    animation-delay: 400ms;
+  .eyebrow-wrap:hover .eyebrow-line {
+    width: 2.25rem;
   }
 
-  /* Blueprint 3: Checklist de cotejo y banner de resultado */
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .check-item {
-    animation: blueprint-node-in 280ms var(--ease-out) both;
-  }
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .check-item:nth-child(1) {
-    animation-delay: 80ms;
-  }
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .check-item:nth-child(2) {
-    animation-delay: 180ms;
-  }
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .check-item:nth-child(3) {
-    animation-delay: 280ms;
+  .eyebrow-text {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #08543E;
   }
 
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .blueprint-result-banner {
-    animation: blueprint-banner-in 340ms var(--ease-out) both;
-    animation-delay: 360ms;
+  @media (min-width: 640px) {
+    .eyebrow-text {
+      font-size: 0.8125rem;
+    }
   }
 
-  :global(html.reveal-ready) .macro-phase-visual.is-revealed .blueprint-history-row {
-    animation: blueprint-node-in 260ms var(--ease-out) both;
-    animation-delay: 440ms;
+  .section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: #0f172a;
+    margin: 0 0 1rem 0;
+    word-break: break-word;
   }
 
-  /* Keyframes de entrada coordinada de blueprints */
-  @keyframes blueprint-node-in {
-    from {
+  @media (min-width: 640px) {
+    .section-title {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-title {
+      font-size: 3rem;
+      line-height: 1.18;
+    }
+  }
+
+  .br-desktop {
+    display: none;
+  }
+  @media (min-width: 640px) {
+    .br-desktop {
+      display: inline;
+    }
+  }
+
+  .section-description {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #475569;
+    max-width: 42rem;
+    margin-inline: auto;
+    margin-block: 0;
+    word-break: break-word;
+  }
+
+  @media (min-width: 640px) {
+    .section-description {
+      font-size: 1.125rem;
+    }
+  }
+
+  /* ==========================================================================
+     GRID DE 4 PASOS
+     ========================================================================== */
+
+  .flow-steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 4.5rem;
+    align-items: stretch;
+  }
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .flow-steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem 1.75rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .flow-steps-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .flow-steps-grid {
+      gap: 2rem;
+    }
+  }
+
+  /* ==========================================================================
+     TARJETAS DE PASO
+     ========================================================================== */
+
+  .step-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    cursor: default;
+  }
+
+  /* Encabezado del Paso: Número + Título + Descripción */
+  .step-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .step-badge-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .step-badge {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    background-color: #e6f4ea;
+    color: #08543e;
+    font-size: 0.875rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .step-card:hover .step-badge {
+    background-color: #08543e;
+    color: #ffffff;
+    box-shadow: 0 4px 8px -2px rgba(8, 84, 62, 0.25);
+  }
+
+  .step-title-copy {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .step-title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.3;
+    margin: 0;
+    transition: color 0.2s ease;
+    word-break: break-word;
+  }
+
+  @media (min-width: 1280px) {
+    .step-title {
+      font-size: 1rem;
+    }
+  }
+
+  .step-card:hover .step-title {
+    color: #08543e;
+  }
+
+  .step-text {
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: #64748b;
+    margin: 0.25rem 0 0 0;
+    word-break: break-word;
+  }
+
+  @media (min-width: 640px) {
+    .step-text {
+      font-size: 0.8125rem;
+    }
+  }
+
+  /* Contenedores Visuales */
+  .step-visual {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  /* ==========================================================================
+     FLECHAS DE FLUJO DISCONTINUO (CONECTOR ANIMADO STITCH)
+     ========================================================================== */
+
+  .flow-arrow-wrap {
+    display: none;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    z-index: 20;
+    pointer-events: none;
+    color: #059669;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
+  }
+
+  @media (min-width: 1024px) {
+    .flow-arrow-wrap {
+      display: flex;
+      align-items: center;
+      right: -1rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .flow-arrow-wrap {
+      right: -1.25rem;
+    }
+  }
+
+  .flow-arrow-svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .flow-dashed-path {
+    stroke-dasharray: 4 3;
+    animation: dashTravel 1.2s linear infinite;
+  }
+
+  @keyframes dashTravel {
+    to {
+      stroke-dashoffset: -20;
+    }
+  }
+
+  /* ==========================================================================
+     VISUAL PASO 1: Píldoras de formato + Documento Albarán en Abanico
+     ========================================================================== */
+
+  .visual-step-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  /* Pastillas de Formato */
+  .source-pills-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 10;
+    flex-shrink: 0;
+  }
+
+  .format-pill {
+    background-color: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 0.75rem;
+    width: 3.25rem;
+    height: 3.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    user-select: none;
+  }
+
+  .format-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  }
+
+  .pill-pdf:hover {
+    border-color: #fca5a5;
+  }
+  .pill-csv:hover {
+    border-color: #6ee7b7;
+  }
+  .pill-manual:hover {
+    border-color: #34d399;
+  }
+
+  .icon-pdf {
+    color: #ef4444;
+    transition: transform 0.2s ease;
+  }
+  .pill-pdf:hover .icon-pdf {
+    transform: scale(1.1);
+  }
+
+  .icon-csv {
+    color: #059669;
+    transition: transform 0.2s ease;
+  }
+  .pill-csv:hover .icon-csv {
+    transform: scale(1.1);
+  }
+
+  .icon-manual {
+    color: #047857;
+    transition: transform 0.2s ease;
+  }
+  .pill-manual:hover .icon-manual {
+    transform: scale(1.1);
+  }
+
+  .pill-label {
+    font-size: 0.5625rem;
+    font-weight: 700;
+    color: #334155;
+    letter-spacing: 0.04em;
+    margin-top: 0.15rem;
+  }
+
+  .pill-label-small {
+    font-size: 0.46875rem;
+    font-weight: 700;
+    color: #334155;
+    text-align: center;
+    line-height: 1.1;
+    margin-top: 0.1rem;
+  }
+
+  /* Documentos Abanicados */
+  .fanned-docs-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 12.5rem;
+  }
+
+  .doc-ghost {
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 0.625rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    font-size: 0.625rem;
+    font-weight: 600;
+    user-select: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card-cmr {
+    top: -0.875rem;
+    left: -0.625rem;
+    width: 100%;
+    color: #94a3b8;
+    transform: rotate(-3deg);
+  }
+
+  .fanned-step-1:hover .card-cmr {
+    transform: translate(-8px, -4px) rotate(-6deg);
+  }
+
+  .card-porte {
+    top: -0.45rem;
+    right: 0.25rem;
+    width: 100%;
+    color: #64748b;
+    transform: rotate(2deg);
+  }
+
+  .fanned-step-1:hover .card-porte {
+    transform: translate(6px, -3px) rotate(5deg);
+  }
+
+  /* Tarjeta Albarán */
+  .albaran-box {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 1rem;
+    padding: 0.875rem;
+    box-shadow: 0 10px 25px -5px rgba(8, 84, 62, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .step-1:hover .albaran-box {
+    box-shadow: 0 20px 30px -10px rgba(8, 84, 62, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-3px);
+  }
+
+  .albaran-box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 0.375rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .albaran-box-title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+  }
+
+  .status-ping-wrap {
+    position: relative;
+    display: flex;
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  .ping-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    background-color: #34d399;
+    opacity: 0.75;
+    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes ping {
+    75%, 100% {
+      transform: scale(2);
       opacity: 0;
-      transform: translateY(6px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
     }
   }
 
-  @keyframes blueprint-stem-grow {
-    from {
-      transform: scaleY(0);
-      opacity: 0.3;
-    }
-    to {
-      transform: scaleY(1);
-      opacity: 1;
+  .ping-dot {
+    position: relative;
+    display: inline-flex;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: #10b981;
+  }
+
+  .albaran-skeleton-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .skel-line {
+    display: block;
+    height: 5px;
+    background-color: #f1f5f9;
+    border-radius: 9999px;
+  }
+
+  .w-full { width: 100%; }
+  .w-90 { width: 90%; }
+  .w-80 { width: 80%; }
+  .w-75 { width: 75%; }
+
+  .albaran-data-table {
+    background-color: rgba(248, 250, 252, 0.85);
+    border: 1px solid #f1f5f9;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 0.625rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .albaran-box:hover .albaran-data-table {
+    background-color: #f0fdf4;
+  }
+
+  .table-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.5625rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.35rem;
+  }
+
+  .status-pill-progress {
+    font-size: 0.5rem;
+    font-weight: 600;
+    color: #047857;
+    background-color: #d1fae5;
+    padding: 0.1rem 0.375rem;
+    border-radius: 0.25rem;
+  }
+
+  .data-pairs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    color: #64748b;
+  }
+
+  .data-pair {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .pair-val {
+    font-weight: 600;
+    color: #1e293b;
+  }
+
+  /* ==========================================================================
+     VISUAL PASO 2: Validación de Datos + Cuadro de Aviso Ámbar
+     ========================================================================== */
+
+  .visual-step-2 {
+    width: 100%;
+  }
+
+  .validation-card {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 1rem;
+    padding: 0.875rem;
+    box-shadow: 0 10px 25px -5px rgba(8, 84, 62, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media (min-width: 640px) {
+    .validation-card {
+      padding: 1rem;
     }
   }
 
-  @keyframes blueprint-field-highlight {
-    from {
-      opacity: 0;
-      transform: translateY(8px);
-      border-color: var(--color-border-subtle);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-      border-color: #FCD34D;
+  .step-2:hover .validation-card {
+    box-shadow: 0 20px 30px -10px rgba(8, 84, 62, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-3px);
+  }
+
+  .validation-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .validation-heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .validation-heading {
+      font-size: 0.8125rem;
     }
   }
 
-  @keyframes blueprint-banner-in {
-    from {
-      opacity: 0;
-      transform: translateY(8px) scale(0.98);
+  .count-tag {
+    font-size: 0.5625rem;
+    font-weight: 500;
+    color: #94a3b8;
+  }
+
+  .validation-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.6875rem;
+  }
+
+  .validation-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #334155;
+    padding: 0.2rem 0.3rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.15s ease;
+  }
+
+  .validation-item:hover {
+    background-color: #f8fafc;
+  }
+
+  .item-pending {
+    background-color: rgba(254, 243, 199, 0.7);
+    border: 1px solid rgba(251, 191, 36, 0.6);
+  }
+
+  .check-icon-circle {
+    width: 0.95rem;
+    height: 0.95rem;
+    border-radius: 9999px;
+    background-color: #10b981;
+    color: #ffffff;
+    font-size: 0.5625rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+  }
+
+  .validation-item:hover .check-icon-circle {
+    transform: scale(1.1);
+  }
+
+  .pending-icon-circle {
+    width: 0.95rem;
+    height: 0.95rem;
+    border-radius: 9999px;
+    background-color: #fbbf24;
+    color: #ffffff;
+    font-size: 0.5625rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    animation: amberPulseMini 2s infinite;
+  }
+
+  @keyframes amberPulseMini {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+  }
+
+  .text-amber {
+    color: #b45309;
+    font-weight: 600;
+  }
+
+  /* Cuadro de Aviso Ámbar */
+  .pending-callout-box {
+    margin-top: 0.75rem;
+    background-color: rgba(254, 243, 199, 0.85);
+    border: 1px solid rgba(251, 191, 36, 0.8);
+    border-radius: 0.625rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #92400e;
+    animation: warmPulse 2.8s ease-in-out infinite;
+  }
+
+  @keyframes warmPulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.25);
+      border-color: rgba(251, 191, 36, 0.7);
     }
-    to {
-      opacity: 1;
-      transform: none;
+    50% {
+      box-shadow: 0 0 0 4px rgba(245, 158, 11, 0);
+      border-color: rgba(245, 158, 11, 0.9);
     }
   }
 
-  /* Bloque B: Profundidad interactiva controlada (Hover sutil en escritorio) */
-  @media (hover: hover) and (pointer: fine) {
-    .blueprint-card {
-      transition:
-        box-shadow var(--duration-medium, 200ms) var(--ease-out),
-        border-color var(--duration-medium, 200ms) var(--ease-out),
-        transform var(--duration-medium, 200ms) var(--ease-out);
-    }
+  .clock-spin-icon {
+    color: #d97706;
+    flex-shrink: 0;
+    animation: slowSpin 12s linear infinite;
+  }
 
-    .blueprint-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(4, 120, 87, 0.25);
-      box-shadow:
-        0 4px 6px -1px rgba(15, 23, 42, 0.04),
-        0 10px 20px -3px rgba(15, 23, 42, 0.06);
-    }
+  @keyframes slowSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
 
-    .blueprint-card--amber:hover {
-      border-color: rgba(245, 158, 11, 0.35);
-    }
+  .pending-callout-text {
+    font-size: 0.625rem;
+    line-height: 1.25;
+    margin: 0;
+    font-weight: 500;
+  }
 
-    .blueprint-card--green:hover {
-      border-color: rgba(4, 120, 87, 0.35);
+  /* ==========================================================================
+     VISUAL PASO 3: Nodo Central DECA Light
+     ========================================================================== */
+
+  .visual-step-3 {
+    width: 100%;
+  }
+
+  .hub-coordination-card {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 1rem;
+    padding: 0.875rem;
+    box-shadow: 0 10px 25px -5px rgba(8, 84, 62, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media (min-width: 640px) {
+    .hub-coordination-card {
+      padding: 1rem;
     }
   }
 
-  /* Movimiento reducido en blueprints */
+  .step-3:hover .hub-coordination-card {
+    box-shadow: 0 20px 30px -10px rgba(8, 84, 62, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-3px);
+  }
+
+  .hub-header {
+    text-align: center;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .hub-emblem {
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-inline: auto;
+    margin-bottom: 0.25rem;
+    border-radius: 0.625rem;
+    background-color: #ecfdf5;
+    color: #08543e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: hubBreath 3s ease-in-out infinite;
+  }
+
+  @keyframes hubBreath {
+    0%, 100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 2px rgba(8, 84, 62, 0.15));
+    }
+    50% {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4));
+    }
+  }
+
+  .hub-brand-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+  }
+
+  .hub-sublabel {
+    font-size: 0.5625rem;
+    font-weight: 500;
+    color: #94a3b8;
+    margin: 0.1rem 0 0 0;
+  }
+
+  .hub-status-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.6875rem;
+  }
+
+  .hub-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.2rem 0.3rem;
+    border-radius: 0.375rem;
+    color: #334155;
+    transition: background-color 0.15s ease;
+  }
+
+  .hub-row:hover {
+    background-color: #f8fafc;
+  }
+
+  .hub-row-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .hub-row-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-green { color: #047857; }
+  .icon-amber { color: #f59e0b; }
+  .icon-blue { color: #3b82f6; }
+  .icon-emerald { color: #059669; }
+
+  /* ==========================================================================
+     VISUAL PASO 4: DECA Preparado para Revisión + Abanico Superior
+     ========================================================================== */
+
+  .visual-step-4 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .fanned-top-docs {
+    position: relative;
+    width: 100%;
+    max-width: 13rem;
+    margin-inline: auto;
+    margin-bottom: -0.5rem;
+    cursor: default;
+  }
+
+  .card-porte-4 {
+    top: -1.25rem;
+    left: 0;
+    width: 9rem;
+    transform: rotate(-3deg);
+    color: #475569;
+  }
+
+  .fanned-step-4:hover .card-porte-4 {
+    transform: translate(-5px, -2px) rotate(-5deg);
+  }
+
+  .card-cmr-4 {
+    top: -1.4rem;
+    right: 0;
+    width: 8rem;
+    transform: rotate(4deg);
+    color: #475569;
+    text-align: right;
+  }
+
+  .fanned-step-4:hover .card-cmr-4 {
+    transform: translate(5px, -3px) rotate(6deg);
+  }
+
+  .deca-output-card {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 1rem;
+    padding: 0.875rem;
+    box-shadow: 0 10px 25px -5px rgba(8, 84, 62, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media (min-width: 640px) {
+    .deca-output-card {
+      padding: 1rem;
+    }
+  }
+
+  .step-4:hover .deca-output-card {
+    box-shadow: 0 20px 30px -10px rgba(8, 84, 62, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-3px);
+  }
+
+  .deca-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .deca-brand-title {
+    font-size: 1.0625rem;
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    color: #0f172a;
+  }
+
+  .badge-generated {
+    font-size: 0.5625rem;
+    font-weight: 600;
+    background-color: #d1fae5;
+    color: #065f46;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+  }
+
+  .deca-skeleton-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Faja Verde de Aprobación */
+  .ready-approval-ribbon {
+    background-color: rgba(236, 253, 245, 0.85);
+    border: 1px solid rgba(167, 243, 208, 0.9);
+    border-radius: 0.625rem;
+    padding: 0.55rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .deca-output-card:hover .ready-approval-ribbon {
+    background-color: #ecfdf5;
+  }
+
+  .ribbon-check-row {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .ribbon-check-icon {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 9999px;
+    background-color: #059669;
+    color: #ffffff;
+    font-size: 0.625rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease;
+  }
+
+  .step-4:hover .ribbon-check-icon {
+    transform: scale(1.1);
+  }
+
+  .ribbon-text {
+    font-size: 0.625rem;
+    font-weight: 700;
+    color: #064e3b;
+    line-height: 1.25;
+  }
+
+  /* Barra de Progreso Shimmer */
+  .shimmer-progress-track {
+    margin-top: 0.45rem;
+    height: 5px;
+    width: 100%;
+    background-color: rgba(167, 243, 208, 0.6);
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+
+  .shimmer-progress-fill {
+    height: 100%;
+    width: 66%;
+    background-color: #059669;
+    border-radius: 9999px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animate-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+    animation: shimmerMove 2s infinite ease-in-out;
+  }
+
+  @keyframes shimmerMove {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* ==========================================================================
+     FRANJA INFERIOR: CUATRO BENEFICIOS OPERATIVOS
+     ========================================================================== */
+
+  .benefits-section {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(226, 232, 240, 0.8);
+  }
+
+  @media (min-width: 1024px) {
+    .benefits-section {
+      padding-top: 2.5rem;
+    }
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .benefits-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem;
+    }
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    padding: 0.625rem;
+    border-radius: 1rem;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.25s ease,
+                box-shadow 0.25s ease;
+    cursor: default;
+  }
+
+  .benefit-item:hover {
+    background-color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px -5px rgba(8, 84, 62, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  }
+
+  .benefit-icon-box {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #047857;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .benefit-item:hover .benefit-icon-box {
+    background-color: #e6f4ea;
+    border-color: #10b981;
+    transform: scale(1.08);
+  }
+
+  .benefit-copy {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .benefit-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.25rem 0;
+    transition: color 0.2s ease;
+  }
+
+  .benefit-item:hover .benefit-title {
+    color: #08543e;
+  }
+
+  .benefit-text {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: #64748b;
+    margin: 0;
+    word-break: break-word;
+  }
+
+  /* ==========================================================================
+     ACCESIBILIDAD Y PREFERS-REDUCED-MOTION
+     ========================================================================== */
+
   @media (prefers-reduced-motion: reduce) {
-    .pipeline-node,
-    .node-stem,
-    .blueprint-field-pending,
-    .blueprint-subsequent-slot,
-    .check-item,
-    .blueprint-result-banner,
-    .blueprint-history-row,
-    .blueprint-field-pending .badge-dot,
-    .pipeline-node--pending .node-icon--pending {
+    .eyebrow-line,
+    .step-badge,
+    .format-pill,
+    .icon-pdf,
+    .icon-csv,
+    .icon-manual,
+    .doc-ghost,
+    .card-cmr,
+    .card-porte,
+    .card-cmr-4,
+    .card-porte-4,
+    .albaran-box,
+    .validation-card,
+    .hub-coordination-card,
+    .deca-output-card,
+    .flow-dashed-path,
+    .ping-circle,
+    .pending-icon-circle,
+    .pending-callout-box,
+    .clock-spin-icon,
+    .hub-emblem,
+    .animate-shimmer::after,
+    .benefit-item,
+    .benefit-icon-box {
       animation: none !important;
-      transform: none !important;
-      opacity: 1 !important;
       transition: none !important;
-    }
-
-    .blueprint-card:hover {
       transform: none !important;
     }
   }

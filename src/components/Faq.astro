@@ -1,321 +1,1290 @@
 ---
-// Faq.astro - Sección «Preguntas frecuentes» con semántica nativa accesible
+// src/components/Faq.astro - Sección «Preguntas frecuentes» de DECA Light
+// Reconstrucción visual de alta fidelidad basada en Google Stitch y la referencia aprobada
 ---
 
-<section id="faq" class="faq-section" aria-labelledby="faq-title">
-  <div class="container container-narrow">
-    <div class="section-intro">
-      <span class="section-kicker">RESOLUCIÓN DE DUDAS FRECUENTES</span>
-      <h2 id="faq-title" class="section-title">
-        Preguntas frecuentes
-      </h2>
-      <p class="section-subtitle">
-        Respuestas claras y directas sobre el alcance del proyecto, el estado de desarrollo y el enfoque del programa piloto.
-      </p>
-    </div>
+<section id="faq" class="faq-section" aria-labelledby="faq-heading">
+  <!-- Anclas de navegación compatibles -->
+  <div id="preguntas-frecuentes" class="anchor-target" aria-hidden="true"></div>
 
-    <div class="faq-list">
-      <!-- FAQ 1 -->
-      <details class="faq-item">
-        <summary class="faq-question">
-          <span class="question-text">¿DECA Light sustituye a nuestro sistema de gestión actual?</span>
-          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="faq-answer">
-          <p>
-            No es su objetivo. DECA Light se está diseñando como una capa de coordinación documental sobre las herramientas de gestión habituales de la central. Su finalidad es ayudar a organizar la documentación de las expediciones sin plantear la sustitución de los sistemas existentes. Las posibilidades concretas de intercambio de información están pendientes de validación técnica.
+  <!-- Trama sutil decorativa de fondo -->
+  <div class="bg-pattern-dots" aria-hidden="true"></div>
+
+  <div class="faq-container">
+    <!-- Grid Principal: Columna Visual Izquierda + Acordeón Derecho -->
+    <div class="faq-main-grid">
+      <!-- ==============================================
+           COLUMNA IZQUIERDA: EDITORIAL Y MOCKUP ESQUEMÁTICO
+           ============================================== -->
+      <aside class="faq-editorial-col" data-reveal="editorial">
+        <!-- Encabezado Editorial -->
+        <div class="editorial-header">
+          <div class="eyebrow-wrap">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-text">PREGUNTAS FRECUENTES</span>
+          </div>
+
+          <h2 id="faq-heading" class="faq-heading">
+            Resolvemos tus dudas<br />
+            antes de dar el<br />
+            siguiente paso.
+          </h2>
+
+          <p class="faq-description">
+            Conoce qué propone DECA Light, para qué tipo de operativa está pensado y cómo valorar si encaja con tu empresa.
           </p>
         </div>
-      </details>
 
-      <!-- FAQ 2 -->
-      <details class="faq-item">
-        <summary class="faq-question">
-          <span class="question-text">¿Está disponible para utilizarlo hoy?</span>
-          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="faq-answer">
-          <p>
-            No. DECA Light se encuentra en fase de desarrollo activo. En este momento estamos contrastando las necesidades operativas y el flujo de trabajo con profesionales y almacenes del sector; no se ofrece acceso operativo generalizado.
-          </p>
-        </div>
-      </details>
+        <!-- Ilustración Esquemática Conceptual del Flujo Documental -->
+        <div class="mockup-wrapper" aria-label="Esquema ilustrativo del flujo documental de expedición">
+          <div class="mockup-container group-mockup">
+            <!-- Barra Superior: Estado Ilustrativo y Chip Shimmer -->
+            <div class="mockup-top-bar">
+              <div class="beacon-wrap">
+                <span class="beacon-indicator" aria-hidden="true">
+                  <span class="beacon-ping"></span>
+                  <span class="beacon-core"></span>
+                </span>
+                <span class="beacon-text">FLUJO DOCUMENTAL ACTIVO</span>
+              </div>
 
-      <!-- FAQ 3 -->
-      <details class="faq-item">
-        <summary class="faq-question">
-          <span class="question-text">¿Qué documentos contempla el proyecto?</span>
-          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="faq-answer">
-          <p>
-            La arquitectura de referencia contempla cartas de porte, CMR, albaranes de salida y datos de transporte asociados. Las capacidades de importación y extracción documental deben validarse técnicamente antes de presentarlas como funciones disponibles.
-          </p>
-        </div>
-      </details>
+              <span class="shimmer-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shimmer-check" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Estructura preparada</span>
+              </span>
+            </div>
 
-      <!-- FAQ 4 -->
-      <details class="faq-item">
-        <summary class="faq-question">
-          <span class="question-text">¿Con qué sistemas y plataformas de transporte se integra?</span>
-          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="faq-answer">
-          <p>
-            No debe afirmarse una integración operativa confirmada con plataformas específicas. La compatibilidad y las vías de intercambio con los sistemas de gestión y plataformas de transporte (mediante ficheros estructurados, exportaciones o API) forman parte de los estudios de viabilidad técnica que se analizarán en el marco del proyecto.
-          </p>
-        </div>
-      </details>
+            <!-- Abanico Documental Superpuesto -->
+            <div class="fanned-docs-stage" aria-hidden="true">
+              <!-- Hoja Trasera Derecha: CMR Internacional -->
+              <div class="doc-sheet sheet-cmr">
+                <div class="sheet-header">
+                  <span class="sheet-name">CMR Internacional</span>
+                  <span class="sheet-code">e-CMR #441</span>
+                </div>
+                <div class="sheet-lines">
+                  <div class="sheet-bar bar-85"></div>
+                  <div class="sheet-bar bar-65"></div>
+                  <div class="sheet-bar bar-75"></div>
+                </div>
+                <div class="sheet-footer">
+                  <span>Tránsito Int.</span>
+                  <span class="sheet-status-green">Validado</span>
+                </div>
+              </div>
 
-      <!-- FAQ 5 -->
-      <details class="faq-item">
-        <summary class="faq-question">
-          <span class="question-text">¿Cómo puedo participar en el programa piloto?</span>
-          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="faq-answer">
-          <p>
-            El primer paso es concertar una conversación técnica para conocer vuestro circuito de expedición y el volumen de cargas. Esta toma de contacto no supone compromiso de contratación ni obligación comercial alguna.
-          </p>
-        </div>
-      </details>
+              <!-- Hoja Intermedia Izquierda: Carta de Porte -->
+              <div class="doc-sheet sheet-cp">
+                <div class="sheet-header">
+                  <span class="sheet-name">Carta de porte nacional</span>
+                  <span class="sheet-code">CP-902</span>
+                </div>
+                <div class="sheet-lines">
+                  <div class="sheet-bar bar-100"></div>
+                  <div class="sheet-bar bar-80"></div>
+                  <div class="sheet-bar bar-60"></div>
+                </div>
+                <div class="sheet-footer">
+                  <span>Porteador asignado</span>
+                  <span class="sheet-status-dark">OK</span>
+                </div>
+              </div>
 
-      <!-- FAQ 6 -->
-      <details class="faq-item">
-        <summary class="faq-question">
-          <span class="question-text">¿Cuánto cuesta participar en el piloto?</span>
-          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="faq-answer">
-          <p>
-            Las condiciones comerciales de la futura fase de prueba no están cerradas ni publicadas. Se acordarán individualmente con las empresas seleccionadas antes de realizar cualquier prueba operativa en planta.
-          </p>
+              <!-- Hoja Frontal: Albarán Hortofrutícola -->
+              <div class="doc-sheet sheet-albaran">
+                <div class="sheet-header">
+                  <span class="sheet-name-brand">Albarán EXP-2026-1047</span>
+                  <span class="sheet-badge-horto">Hortofrutícola</span>
+                </div>
+                <div class="sheet-meta-rows">
+                  <div class="meta-row">
+                    <span>Origen:</span>
+                    <span class="meta-val">Muelle Carga 02</span>
+                  </div>
+                  <div class="meta-row">
+                    <span>Destino:</span>
+                    <span class="meta-val-bold">Mercamadrid</span>
+                  </div>
+                  <div class="meta-row">
+                    <span>Carga:</span>
+                    <span class="meta-val-green">Tomate Rama • 120 cajas</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ficha Central: Expedición Consolidada -->
+            <div class="consolidated-card">
+              <div class="consolidated-head">
+                <span class="consolidated-label">Expedición consolidada:</span>
+                <span class="consolidated-id">EXP-2026-1047</span>
+              </div>
+
+              <div class="consolidated-grid">
+                <div class="info-block">
+                  <span class="info-label">Origen &amp; Destino</span>
+                  <p class="info-val">Muelle 02 → Mercamadrid</p>
+                </div>
+                <div class="info-block">
+                  <span class="info-label">Desglose de carga</span>
+                  <p class="info-val">Tomate Rama (120 caj.)</p>
+                </div>
+              </div>
+
+              <div class="consolidated-foot">
+                <div class="date-chip">
+                  <span class="dot-green-tiny" aria-hidden="true"></span>
+                  <span>Fecha: 15/10/2026</span>
+                </div>
+                <span class="tag-linked">
+                  ✓ Documentación vinculada
+                </span>
+              </div>
+            </div>
+
+            <!-- Chip Inferior de Valor Unificado -->
+            <div class="unification-banner">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="banner-icon-green" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>Coordinación y visualización unificada de la documentación de expedición</span>
+            </div>
+          </div>
         </div>
-      </details>
+      </aside>
+
+      <!-- ==============================================
+           COLUMNA DERECHA: ACORDEÓN CON LAS 8 PREGUNTAS
+           ============================================== -->
+      <div class="faq-accordion-col" role="region" aria-label="Lista de preguntas frecuentes">
+        <div class="accordion-list" id="faq-accordion" data-reveal="card">
+          <!-- --------------------------------------------
+               PREGUNTA 01 (Abierta por defecto)
+               -------------------------------------------- -->
+          <article class="accordion-item" data-open="true">
+            <div class="accordion-accent-bar" aria-hidden="true"></div>
+            <h3>
+              <button
+                type="button"
+                id="faq-btn-1"
+                class="faq-toggle"
+                aria-expanded="true"
+                aria-controls="faq-ans-1"
+              >
+                <div class="toggle-left">
+                  <span class="faq-num">01</span>
+                  <span class="faq-title">¿Qué es DECA Light?</span>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </h3>
+            <div
+              id="faq-ans-1"
+              class="accordion-content"
+              role="region"
+              aria-labelledby="faq-btn-1"
+            >
+              <div class="accordion-inner">
+                <div class="answer-body">
+                  DECA Light es una solución digital orientada a facilitar la coordinación de la documentación de transporte y la información asociada a las expediciones en empresas hortofrutícolas.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------
+               PREGUNTA 02
+               -------------------------------------------- -->
+          <article class="accordion-item" data-open="false">
+            <div class="accordion-accent-bar" aria-hidden="true"></div>
+            <h3>
+              <button
+                type="button"
+                id="faq-btn-2"
+                class="faq-toggle"
+                aria-expanded="false"
+                aria-controls="faq-ans-2"
+              >
+                <div class="toggle-left">
+                  <span class="faq-num">02</span>
+                  <span class="faq-title">¿Qué problema busca resolver?</span>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </h3>
+            <div
+              id="faq-ans-2"
+              class="accordion-content"
+              role="region"
+              aria-labelledby="faq-btn-2"
+            >
+              <div class="accordion-inner">
+                <div class="answer-body">
+                  Busca ayudar a organizar la información documental de las expediciones y reducir la fricción derivada de gestionar datos y documentos procedentes de distintas fuentes y personas.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------
+               PREGUNTA 03
+               -------------------------------------------- -->
+          <article class="accordion-item" data-open="false">
+            <div class="accordion-accent-bar" aria-hidden="true"></div>
+            <h3>
+              <button
+                type="button"
+                id="faq-btn-3"
+                class="faq-toggle"
+                aria-expanded="false"
+                aria-controls="faq-ans-3"
+              >
+                <div class="toggle-left">
+                  <span class="faq-num">03</span>
+                  <span class="faq-title">¿Para qué tipo de empresas está pensado?</span>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </h3>
+            <div
+              id="faq-ans-3"
+              class="accordion-content"
+              role="region"
+              aria-labelledby="faq-btn-3"
+            >
+              <div class="accordion-inner">
+                <div class="answer-body">
+                  Está orientado principalmente a almacenes y comercializadoras hortofrutícolas que coordinan expediciones de forma habitual y necesitan organizar la información relacionada con sus documentos de transporte.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------
+               PREGUNTA 04
+               -------------------------------------------- -->
+          <article class="accordion-item" data-open="false">
+            <div class="accordion-accent-bar" aria-hidden="true"></div>
+            <h3>
+              <button
+                type="button"
+                id="faq-btn-4"
+                class="faq-toggle"
+                aria-expanded="false"
+                aria-controls="faq-ans-4"
+              >
+                <div class="toggle-left">
+                  <span class="faq-num">04</span>
+                  <span class="faq-title">¿Qué documentación contempla?</span>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </h3>
+            <div
+              id="faq-ans-4"
+              class="accordion-content"
+              role="region"
+              aria-labelledby="faq-btn-4"
+            >
+              <div class="accordion-inner">
+                <div class="answer-body">
+                  El proyecto contempla trabajar con documentación como albaranes, cartas de porte y CMR. El alcance efectivo de cada flujo debe confirmarse según las funcionalidades disponibles en la versión evaluada.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------
+               PREGUNTA 05
+               -------------------------------------------- -->
+          <article class="accordion-item" data-open="false">
+            <div class="accordion-accent-bar" aria-hidden="true"></div>
+            <h3>
+              <button
+                type="button"
+                id="faq-btn-5"
+                class="faq-toggle"
+                aria-expanded="false"
+                aria-controls="faq-ans-5"
+              >
+                <div class="toggle-left">
+                  <span class="faq-num">05</span>
+                  <span class="faq-title">¿DECA Light sustituye a nuestro ERP?</span>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </h3>
+            <div
+              id="faq-ans-5"
+              class="accordion-content"
+              role="region"
+              aria-labelledby="faq-btn-5"
+            >
+              <div class="accordion-inner">
+                <div class="answer-body">
+                  DECA Light está concebido como una herramienta de apoyo a la coordinación documental, no como un sustituto general del ERP. El encaje con los sistemas y procesos existentes debe estudiarse para cada caso.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------
+               PREGUNTA 06
+               -------------------------------------------- -->
+          <article class="accordion-item" data-open="false">
+            <div class="accordion-accent-bar" aria-hidden="true"></div>
+            <h3>
+              <button
+                type="button"
+                id="faq-btn-6"
+                class="faq-toggle"
+                aria-expanded="false"
+                aria-controls="faq-ans-6"
+              >
+                <div class="toggle-left">
+                  <span class="faq-num">06</span>
+                  <span class="faq-title">¿Cómo podemos saber si encaja con nuestra operativa?</span>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </h3>
+            <div
+              id="faq-ans-6"
+              class="accordion-content"
+              role="region"
+              aria-labelledby="faq-btn-6"
+            >
+              <div class="accordion-inner">
+                <div class="answer-body">
+                  El primer paso es conocer cómo gestionáis actualmente las expediciones, qué información utilizáis y dónde aparecen las principales dificultades. A partir de ahí podremos valorar si tiene sentido explorar una posible participación en el programa piloto.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------
+               PREGUNTA 07
+               -------------------------------------------- -->
+          <article class="accordion-item" data-open="false">
+            <div class="accordion-accent-bar" aria-hidden="true"></div>
+            <h3>
+              <button
+                type="button"
+                id="faq-btn-7"
+                class="faq-toggle"
+                aria-expanded="false"
+                aria-controls="faq-ans-7"
+              >
+                <div class="toggle-left">
+                  <span class="faq-num">07</span>
+                  <span class="faq-title">¿Es necesario cambiar nuestro proceso de trabajo?</span>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </h3>
+            <div
+              id="faq-ans-7"
+              class="accordion-content"
+              role="region"
+              aria-labelledby="faq-btn-7"
+            >
+              <div class="accordion-inner">
+                <div class="answer-body">
+                  El objetivo es estudiar cómo encaja DECA Light en la operativa existente. Cualquier adaptación necesaria debe valorarse según los procesos, las necesidades y las capacidades reales de la solución.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------
+               PREGUNTA 08
+               -------------------------------------------- -->
+          <article class="accordion-item" data-open="false">
+            <div class="accordion-accent-bar" aria-hidden="true"></div>
+            <h3>
+              <button
+                type="button"
+                id="faq-btn-8"
+                class="faq-toggle"
+                aria-expanded="false"
+                aria-controls="faq-ans-8"
+              >
+                <div class="toggle-left">
+                  <span class="faq-num">08</span>
+                  <span class="faq-title">¿Cómo puedo solicitar información sobre el programa piloto?</span>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </h3>
+            <div
+              id="faq-ans-8"
+              class="accordion-content"
+              role="region"
+              aria-labelledby="faq-btn-8"
+            >
+              <div class="accordion-inner">
+                <div class="answer-body">
+                  Puedes expresar tu interés mediante la llamada a la acción de la sección «Programa piloto». El siguiente paso será conocer las necesidades de tu empresa y valorar conjuntamente si tiene sentido continuar.
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
   </div>
-
-  <!-- Script de animación fluida para detalles FAQ (Bloque C) -->
-  <script is:inline>
-    (function () {
-      if (typeof window === 'undefined') return;
-
-      function initFaqAccordion() {
-        var items = document.querySelectorAll('.faq-item');
-        items.forEach(function (details) {
-          var summary = details.querySelector('.faq-question');
-          var answer = details.querySelector('.faq-answer');
-          if (!summary || !answer) return;
-
-          var animation = null;
-          var isClosing = false;
-          var isExpanding = false;
-
-          summary.addEventListener('click', function (e) {
-            var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (reduced || !details.animate) return; // Fallback nativo instantáneo si prefiere reduced motion o no hay WAAPI
-
-            e.preventDefault();
-            details.style.overflow = 'hidden';
-
-            if (isClosing || !details.open) {
-              openAccordion();
-            } else if (isExpanding || details.open) {
-              shrinkAccordion();
-            }
-          });
-
-          function shrinkAccordion() {
-            isClosing = true;
-            var startHeight = details.offsetHeight + 'px';
-            var endHeight = summary.offsetHeight + 'px';
-
-            if (animation) animation.cancel();
-
-            animation = details.animate({
-              height: [startHeight, endHeight]
-            }, {
-              duration: 220,
-              easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
-            });
-
-            answer.animate({
-              opacity: [1, 0],
-              transform: ['none', 'translateY(-4px)']
-            }, {
-              duration: 180,
-              easing: 'ease'
-            });
-
-            animation.onfinish = function () {
-              details.open = false;
-              onFinish();
-            };
-            animation.oncancel = function () {
-              isClosing = false;
-            };
-          }
-
-          function openAccordion() {
-            details.style.height = details.offsetHeight + 'px';
-            details.open = true;
-
-            window.requestAnimationFrame(function () {
-              isExpanding = true;
-              var startHeight = details.offsetHeight + 'px';
-              var endHeight = (summary.offsetHeight + answer.offsetHeight) + 'px';
-
-              if (animation) animation.cancel();
-
-              animation = details.animate({
-                height: [startHeight, endHeight]
-              }, {
-                duration: 260,
-                easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
-              });
-
-              answer.animate({
-                opacity: [0, 1],
-                transform: ['translateY(-4px)', 'none']
-              }, {
-                duration: 260,
-                easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
-              });
-
-              animation.onfinish = function () {
-                onFinish();
-              };
-              animation.oncancel = function () {
-                isExpanding = false;
-              };
-            });
-          }
-
-          function onFinish() {
-            animation = null;
-            isClosing = false;
-            isExpanding = false;
-            details.style.height = '';
-            details.style.overflow = '';
-          }
-        });
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initFaqAccordion, { once: true });
-      } else {
-        initFaqAccordion();
-      }
-    })();
-  </script>
 </section>
 
+<!-- ==============================================
+     INTERACCIÓN DEL ACORDEÓN ACCESIBLE
+     ============================================== -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const accordion = document.getElementById('faq-accordion');
+    if (!accordion) return;
+
+    const items = accordion.querySelectorAll<HTMLElement>('.accordion-item');
+
+    items.forEach((item) => {
+      const toggleBtn = item.querySelector<HTMLButtonElement>('.faq-toggle');
+      if (!toggleBtn) return;
+
+      toggleBtn.addEventListener('click', () => {
+        const isOpen = item.getAttribute('data-open') === 'true';
+
+        // Cerrar todos los acordeones para mantener orden visual limpio
+        items.forEach((other) => {
+          if (other !== item) {
+            other.setAttribute('data-open', 'false');
+            const otherBtn = other.querySelector<HTMLButtonElement>('.faq-toggle');
+            if (otherBtn) {
+              otherBtn.setAttribute('aria-expanded', 'false');
+            }
+          }
+        });
+
+        // Alternar el acordeón pulsado
+        const nextState = !isOpen;
+        item.setAttribute('data-open', nextState ? 'true' : 'false');
+        toggleBtn.setAttribute('aria-expanded', nextState ? 'true' : 'false');
+      });
+    });
+  });
+</script>
+
 <style>
+  /* ==========================================================================
+     SECCIÓN 05: PREGUNTAS FRECUENTES (FAQ) - ESTILOS ENCAPSULADOS
+     ========================================================================== */
+
   .faq-section {
-    padding-block: var(--space-12);
-    background-color: var(--color-bg-canvas);
-    border-bottom: 1px solid var(--color-border-subtle);
-    scroll-margin-top: 5.5rem;
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    padding: 3.5rem 1.5rem 5rem;
+    background-color: #F8FAFC;
+    overflow: hidden;
   }
 
-  .faq-list {
+  @media (max-width: 640px) {
+    .faq-section {
+      padding: 3rem 1rem 4rem;
+    }
+  }
+
+  .anchor-target {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+  }
+
+  /* Trama geométrica sutil de puntos de fondo */
+  .bg-pattern-dots {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: radial-gradient(#08543E 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.035;
+  }
+
+  .faq-container {
+    position: relative;
+    z-index: 1;
+    max-width: 80rem; /* 1280px */
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: 4rem;
   }
 
-  .faq-item {
-    background-color: var(--color-bg-surface);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: var(--radius-md);
-    padding: 0;
+  /* --------------------------------------------------------------------------
+     ANIMACIONES DE ENTRADA ESCALONADA
+     -------------------------------------------------------------------------- */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-stagger-1 {
+    animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+  }
+  .animate-stagger-2 {
+    animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+  }
+  .animate-stagger-3 {
+    animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+  }
+
+  /* --------------------------------------------------------------------------
+     GRID PRINCIPAL (5 COLS IZQ / 7 COLS DER)
+     -------------------------------------------------------------------------- */
+  .faq-main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .faq-main-grid {
+      grid-template-columns: 5fr 7fr;
+      gap: 3.5rem;
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+     COLUMNA IZQUIERDA: EDITORIAL
+     -------------------------------------------------------------------------- */
+  .faq-editorial-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+
+  .editorial-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .eyebrow-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .eyebrow-line {
+    width: 1.5rem;
+    height: 2px;
+    background-color: #08543E;
+    border-radius: 9999px;
+  }
+
+  .eyebrow-text {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #08543E;
+  }
+
+  .faq-heading {
+    font-size: 2.125rem;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #0F172A;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .faq-heading {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .faq-heading {
+      font-size: 2.625rem;
+    }
+  }
+
+  .faq-description {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: #475569;
+    max-width: 28rem;
+  }
+
+  /* --------------------------------------------------------------------------
+     MOCKUP ESQUEMÁTICO ILUSTRATIVO
+     -------------------------------------------------------------------------- */
+  .mockup-wrapper {
+    width: 100%;
+    max-width: 29rem;
+    padding-top: 0.5rem;
+  }
+
+  .mockup-container {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.85) 100%);
+    border: 1px solid #E2E8F0;
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    box-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.05), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+    backdrop-filter: blur(8px);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   }
 
-  .faq-item:hover {
-    border-color: var(--color-border-strong);
+  @media (max-width: 640px) {
+    .mockup-container {
+      padding: 1rem;
+    }
   }
 
-  .faq-item[open] {
-    border-color: rgba(4, 120, 87, 0.3);
-    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04);
+  .mockup-container:hover {
+    border-color: #A7F3D0;
+    box-shadow: 0 20px 35px -5px rgba(8, 84, 62, 0.08), 0 8px 16px -6px rgba(15, 23, 42, 0.04);
   }
 
-  .faq-question {
+  /* Barra Superior */
+  .mockup-top-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 48px;
-    padding: var(--space-4) var(--space-5);
-    font-size: 1rem;
+    padding-bottom: 0.875rem;
+    border-bottom: 1px solid #F1F5F9;
+  }
+
+  .beacon-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .beacon-indicator {
+    position: relative;
+    display: flex;
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+
+  .beacon-ping {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    background-color: #34D399;
+    opacity: 0.75;
+    animation: pulseRing 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .beacon-core {
+    position: relative;
+    display: inline-flex;
+    border-radius: 9999px;
+    width: 0.625rem;
+    height: 0.625rem;
+    background-color: #10B981;
+  }
+
+  @keyframes pulseRing {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+  }
+
+  .beacon-text {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.6875rem;
     font-weight: 600;
-    color: var(--color-text-primary);
-    cursor: pointer;
-    list-style: none;
+    letter-spacing: 0.05em;
+    color: #475569;
+    text-transform: uppercase;
+  }
+
+  /* Shimmer Badge */
+  .shimmer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #08543E;
+    border: 1px solid #A7F3D0;
+    padding: 0.2rem 0.625rem;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, #E8F5EE 0%, #D1FAE5 50%, #E8F5EE 100%);
+    background-size: 200% 100%;
+    animation: shimmer 4.5s ease-in-out infinite;
+  }
+
+  .shimmer-check {
+    color: #08543E;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Abanico Documental */
+  .fanned-docs-stage {
+    position: relative;
+    height: 12rem;
+    margin: 1rem 0;
     user-select: none;
-    transition: background-color var(--transition-fast);
+    overflow: hidden;
   }
 
-  .faq-question::-webkit-details-marker {
-    display: none;
+  .doc-sheet {
+    border-radius: 0.75rem;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
   }
 
-  .faq-question:hover {
-    background-color: var(--color-bg-surface-subtle);
+  /* Sheet CMR (Atrás Derecha) */
+  .sheet-cmr {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.25rem;
+    width: 14rem;
+    height: 8.75rem;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+    transform: rotate(5deg);
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.6875rem;
+    color: #94A3B8;
   }
 
-  .faq-question:focus-visible {
-    outline: 2px solid var(--color-focus-ring);
-    outline-offset: -2px;
+  .mockup-container:hover .sheet-cmr {
+    transform: translate(6px, -4px) rotate(8.5deg);
   }
 
-  .question-text {
-    padding-right: var(--space-4);
+  /* Sheet Carta de Porte (Medio Izquierda) */
+  .sheet-cp {
+    position: absolute;
+    left: 1.5rem;
+    top: 0.75rem;
+    width: 14rem;
+    height: 8.75rem;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.06);
+    transform: rotate(-3deg);
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.6875rem;
+    color: #64748B;
   }
 
-  .faq-chevron {
+  .mockup-container:hover .sheet-cp {
+    transform: translate(-4px, -4px) rotate(-5.5deg);
+  }
+
+  /* Sheet Albarán (Frente) */
+  .sheet-albaran {
+    position: absolute;
+    left: 0.25rem;
+    top: 1.75rem;
+    width: 16.5rem;
+    height: 9.5rem;
+    background-color: #FFFFFF;
+    border: 1px solid #A7F3D0;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 18px -3px rgba(8, 84, 62, 0.1);
+    padding: 0.875rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 5;
+  }
+
+  .mockup-container:hover .sheet-albaran {
+    transform: translate(0, -6px) scale(1.02);
+    box-shadow: 0 14px 26px -4px rgba(8, 84, 62, 0.15);
+  }
+
+  @media (max-width: 640px) {
+    .fanned-docs-stage {
+      height: 10.5rem;
+    }
+    .sheet-albaran {
+      width: 14.5rem;
+      left: 0;
+      top: 1.5rem;
+    }
+    .sheet-cmr {
+      width: 12.5rem;
+      right: 0;
+      transform: rotate(4deg);
+    }
+    .sheet-cp {
+      width: 12.5rem;
+      left: 0.5rem;
+      transform: rotate(-2deg);
+    }
+  }
+
+  .sheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.375rem;
+    border-bottom: 1px solid #F1F5F9;
+  }
+
+  .sheet-name {
+    font-weight: 700;
+    color: #0F172A;
+    font-size: 0.6875rem;
+  }
+
+  .sheet-name-brand {
+    font-weight: 700;
+    color: #08543E;
+    font-size: 0.6875rem;
+    white-space: nowrap;
+  }
+
+  .sheet-code {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.625rem;
+    color: #94A3B8;
+  }
+
+  .sheet-badge-horto {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.625rem;
+    color: #065F46;
+    background-color: #E8F5EE;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+  }
+
+  .sheet-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .sheet-bar {
+    height: 0.375rem;
+    background-color: #F1F5F9;
+    border-radius: 9999px;
+  }
+
+  .bar-100 { width: 100%; }
+  .bar-85 { width: 85%; }
+  .bar-80 { width: 80%; }
+  .bar-75 { width: 75%; }
+  .bar-65 { width: 65%; }
+  .bar-60 { width: 60%; }
+
+  .sheet-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.375rem;
+    border-top: 1px dashed #E2E8F0;
+    font-size: 0.625rem;
+  }
+
+  .sheet-status-green {
+    font-family: var(--font-mono, monospace);
+    color: #047857;
+    font-weight: 600;
+  }
+
+  .sheet-status-dark {
+    font-family: var(--font-mono, monospace);
+    color: #1E293B;
+    font-weight: 600;
+  }
+
+  .sheet-meta-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.6875rem;
+  }
+
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    color: #64748B;
+  }
+
+  .meta-val {
+    font-weight: 500;
+    color: #0F172A;
+  }
+
+  .meta-val-bold {
+    font-weight: 600;
+    color: #0F172A;
+  }
+
+  .meta-val-green {
+    font-family: var(--font-mono, monospace);
+    color: #08543E;
+    font-weight: 600;
+  }
+
+  /* Ficha Central Consolidada */
+  .consolidated-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 0.875rem;
+    padding: 0.875rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .mockup-container:hover .consolidated-card {
+    border-color: #CBD5E1;
+  }
+
+  .consolidated-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+  }
+
+  .consolidated-label {
+    font-weight: 500;
+    color: #64748B;
+  }
+
+  .consolidated-id {
+    font-family: var(--font-mono, monospace);
+    font-weight: 700;
+    color: #0F172A;
+  }
+
+  .consolidated-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    padding-top: 0.25rem;
+    border-top: 1px solid #F1F5F9;
+  }
+
+  .info-block {
+    background-color: #F8FAFC;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .info-label {
+    font-size: 0.625rem;
+    color: #94A3B8;
+  }
+
+  .info-val {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #0F172A;
+    margin-top: 0.125rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .consolidated-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.25rem;
+    font-size: 0.6875rem;
+  }
+
+  .date-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: #64748B;
+  }
+
+  .dot-green-tiny {
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 9999px;
+    background-color: #08543E;
+  }
+
+  .tag-linked {
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: #065F46;
+    background-color: #ECFDF5;
+    border: 1px solid #A7F3D0;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.375rem;
+  }
+
+  /* Banner Inferior */
+  .unification-banner {
+    margin-top: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #08543E;
+    background-color: #E8F5EE;
+    border: 1px solid #A7F3D0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.35;
+    transition: transform 0.2s ease;
+  }
+
+  .mockup-container:hover .unification-banner {
+    transform: translateY(-1px);
+  }
+
+  .banner-icon-green {
+    color: #08543E;
     flex-shrink: 0;
-    color: var(--color-text-muted);
-    transition: transform var(--duration-normal, 200ms) var(--ease-out), color var(--duration-normal, 200ms) var(--ease-out);
   }
 
-  .faq-question:hover .faq-chevron {
-    color: var(--color-text-primary);
+  /* --------------------------------------------------------------------------
+     COLUMNA DERECHA: ACORDEÓN DE 8 PREGUNTAS
+     -------------------------------------------------------------------------- */
+  .faq-accordion-col {
+    width: 100%;
+    max-width: 100%;
   }
 
-  .faq-item[open] .faq-chevron {
-    transform: rotate(180deg);
-    color: var(--color-brand-primary);
+  .accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
-  .faq-answer {
-    padding: 0 var(--space-5) var(--space-5) var(--space-5);
-    border-top: 1px solid var(--color-border-subtle);
-    padding-top: var(--space-4);
+  .accordion-item {
+    position: relative;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 0.875rem;
+    overflow: hidden;
+    transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
   }
 
-  .faq-answer p {
+  .accordion-item:hover {
+    border-color: #CBD5E1;
+  }
+
+  /* Barra de acento lateral activa */
+  .accordion-accent-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #08543E;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  /* Estado Abierto */
+  .accordion-item[data-open="true"] {
+    background-color: #FAFFFC;
+    border-color: #A7F3D0;
+    box-shadow: 0 4px 20px -2px rgba(8, 84, 62, 0.06);
+  }
+
+  .accordion-item[data-open="true"] .accordion-accent-bar {
+    opacity: 1;
+  }
+
+  .faq-toggle {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 1rem;
+    font-family: inherit;
+    transition: background-color 0.15s ease;
+  }
+
+  .faq-toggle:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px #08543E;
+  }
+
+  .toggle-left {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  .faq-num {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #475569;
+    background-color: #F1F5F9;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .accordion-item[data-open="true"] .faq-num {
+    color: #08543E;
+    background-color: #E8F5EE;
+  }
+
+  .faq-title {
     font-size: 0.9375rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #0F172A;
+    transition: color 0.2s ease;
   }
 
-  @media (min-width: 768px) {
-    .faq-section {
-      padding-block: var(--space-16);
+  @media (min-width: 640px) {
+    .faq-title {
+      font-size: 1rem;
+    }
+  }
+
+  .accordion-chevron {
+    color: #94A3B8;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+  }
+
+  .accordion-item[data-open="true"] .accordion-chevron {
+    transform: rotate(180deg);
+    color: #08543E;
+  }
+
+  /* Transición fluida de altura mediante CSS Grid */
+  .accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .accordion-item[data-open="true"] .accordion-content {
+    grid-template-rows: 1fr;
+  }
+
+  .accordion-inner {
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 240ms cubic-bezier(0.16, 1, 0.3, 1), transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .accordion-item[data-open="true"] .accordion-inner {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 60ms;
+  }
+
+  .answer-body {
+    padding: 0.25rem 1.25rem 1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #334155;
+    border-top: 1px solid rgba(241, 245, 249, 0.9);
+  }
+
+  @media (min-width: 640px) {
+    .answer-body {
+      font-size: 0.90625rem;
+      padding-left: 4.125rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+     ACCESIBILIDAD: PREFERS-REDUCED-MOTION
+     -------------------------------------------------------------------------- */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    .beacon-ping,
+    .shimmer-badge {
+      animation: none !important;
+    }
+
+    .accordion-content,
+    .accordion-inner,
+    .accordion-chevron {
+      transition: none !important;
     }
   }
 </style>

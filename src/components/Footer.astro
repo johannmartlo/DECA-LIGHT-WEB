@@ -1,178 +1,378 @@
 ---
-// Footer.astro - Pie de página transparente y accesible
+// src/components/Footer.astro - Footer Corporativo de DECA Light (Cuatro columnas, verde oscuro)
 ---
 
-<footer class="site-footer">
+<footer class="site-footer" aria-label="Pie de página corporativo">
   <div class="container footer-container">
     <div class="footer-top">
       <!-- Columna 1: Marca y alcance -->
       <div class="footer-col brand-col">
-        <span class="footer-brand">DECA Light</span>
+        <a href="/" class="footer-brand-link" aria-label="DECA Light - Inicio">
+          <span class="brand-deca">DECA</span>
+          <span class="brand-light">Light</span>
+        </a>
         <p class="footer-desc">
-          Proyecto SaaS en desarrollo enfocado en la coordinación documental de expediciones para almacenes y comercializadoras hortofrutícolas.
+          Coordinación documental para almacenes hortofrutícolas.
         </p>
         <div class="footer-badge-wrap">
-          <span class="badge badge-neutral">
-            <span class="badge-dot" aria-hidden="true"></span>
-            <span>Versión de maquetación preliminar</span>
+          <span class="footer-status-pill">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Proyecto en desarrollo · Programa piloto</span>
           </span>
         </div>
       </div>
 
-      <!-- Columna 2: Navegación de secciones -->
+      <!-- Columna 2: Producto (Navegación de secciones) -->
       <div class="footer-col">
-        <h3 class="footer-col-title">Navegación</h3>
+        <h3 class="footer-col-title">Producto</h3>
         <ul class="footer-links">
-          <li><a href="#el-problema">El problema</a></li>
-          <li><a href="#como-funciona">Cómo funciona</a></li>
-          <li><a href="#piloto">Programa piloto</a></li>
-          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="#el-problema" class="footer-link">El problema</a></li>
+          <li><a href="#como-funciona" class="footer-link">Cómo funciona</a></li>
+          <li><a href="#piloto" class="footer-link">Programa piloto</a></li>
+          <li><a href="#faq" class="footer-link">Preguntas frecuentes</a></li>
         </ul>
       </div>
 
-      <!-- Columna 3: Información de estado del proyecto -->
+      <!-- Columna 3: Información Legal -->
       <div class="footer-col">
-        <h3 class="footer-col-title">Estado y contacto</h3>
-        <p class="footer-status-text">
-          Dominio titular: <code>decalight.es</code>
-        </p>
-        <p class="footer-status-text">
-          Canales de contacto y buzón corporativo en proceso de configuración técnica y validación legal.
-        </p>
+        <h3 class="footer-col-title">Legal</h3>
+        <ul class="footer-links">
+          <li>
+            <a href="#piloto" class="footer-link" title="Aviso legal en proceso de validación jurídica para el lanzamiento">
+              Aviso legal
+            </a>
+          </li>
+          <li>
+            <a href="#piloto" class="footer-link" title="Política de privacidad en redacción conforme al RGPD">
+              Política de privacidad
+            </a>
+          </li>
+          <li>
+            <a href="#piloto" class="footer-link" title="Política de cookies para el lanzamiento comercial">
+              Política de cookies
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Contacto y canales -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Contacto</h3>
+        <div class="footer-contact-block">
+          <a href="#piloto" class="footer-contact-link" aria-label="Contactar con el equipo a través del formulario del programa piloto">
+            <span class="contact-icon-box" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+            </span>
+            <span>Contactar con el equipo</span>
+          </a>
+
+          <!-- Iconos de canales (Canales oficiales en configuración técnica para el lanzamiento) -->
+          <div class="footer-social-row" aria-label="Canales de contacto institucional">
+            <a
+              href="#piloto"
+              class="footer-social-btn"
+              aria-label="Perfil institucional de LinkedIn (En proceso de alta para el lanzamiento)"
+              title="LinkedIn institucional en configuración para el lanzamiento"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+              </svg>
+            </a>
+            <a
+              href="#piloto"
+              class="footer-social-btn"
+              aria-label="Buzón de correo electrónico (En proceso de configuración técnica)"
+              title="Buzón corporativo en configuración para el lanzamiento"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Fila inferior de derechos y enlaces legales -->
+    <!-- Barra inferior con división sutil -->
     <div class="footer-bottom">
       <p class="copyright">
         © 2026 DECA Light. Todos los derechos reservados.
       </p>
-      <ul class="legal-links">
-        <li><span class="legal-placeholder">Aviso legal (En redacción)</span></li>
-        <li><span class="legal-placeholder">Política de privacidad (En redacción)</span></li>
-        <li><span class="legal-placeholder">Cookies</span></li>
-      </ul>
+      <p class="footer-sector-tagline">
+        Una solución pensada para el sector hortofrutícola.
+      </p>
     </div>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    background-color: var(--color-bg-surface);
-    border-top: 1px solid var(--color-border-subtle);
-    padding-top: var(--space-12);
-    padding-bottom: var(--space-8);
+    width: 100%;
+    background-color: #003B2A;
+    color: #FFFFFF;
+    padding-top: clamp(3.5rem, 6vw, 4.75rem);
+    padding-bottom: clamp(2rem, 3.5vw, 2.75rem);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .footer-container {
+    max-width: var(--container-max, 1340px);
   }
 
   .footer-top {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-8);
-    margin-bottom: var(--space-10);
+    gap: 2.25rem;
+    margin-bottom: clamp(2.5rem, 4.5vw, 3.5rem);
   }
 
+  /* Columna 1: Marca */
   .brand-col {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: 0.875rem;
   }
 
-  .footer-brand {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
+  .footer-brand-link {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .brand-deca {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+    transition: color 150ms ease;
+  }
+
+  .brand-light {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #A7F3D0;
+    letter-spacing: -0.02em;
+    transition: color 150ms ease;
+  }
+
+  .footer-brand-link:hover .brand-deca {
+    color: #6EE7B7;
+  }
+
+  .footer-brand-link:hover .brand-light {
+    color: #FFFFFF;
   }
 
   .footer-desc {
     font-size: 0.875rem;
-    color: var(--color-text-secondary);
+    color: #A3C4B8;
     line-height: 1.6;
-    max-width: 42ch;
+    max-width: 34ch;
+    margin: 0;
   }
 
   .footer-badge-wrap {
-    margin-top: var(--space-1);
+    margin-top: 0.25rem;
   }
 
+  .footer-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9999px;
+    padding: 0.3125rem 0.75rem;
+    font-size: 0.75rem;
+    color: #A3C4B8;
+    font-weight: 500;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #34D399;
+  }
+
+  /* Títulos de columna */
   .footer-col-title {
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-4);
+    color: #FFFFFF;
+    letter-spacing: 0.01em;
+    margin-bottom: 1.125rem;
   }
 
+  /* Listas de enlaces */
   .footer-links {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);
+    gap: 0.625rem;
+    padding: 0;
+    margin: 0;
   }
 
-  .footer-links a {
+  .footer-link {
     display: inline-flex;
     align-items: center;
-    padding-block: var(--space-1);
     font-size: 0.875rem;
-    color: var(--color-text-secondary);
+    color: #A3C4B8;
     text-decoration: none;
-    transition: color var(--transition-fast);
+    transition: color 150ms ease, transform 150ms ease;
   }
 
-  .footer-links a:hover {
-    color: var(--color-brand-primary);
-    text-decoration: underline;
+  .footer-link:hover {
+    color: #A7F3D0;
+    transform: translateX(2px);
+    text-decoration: none;
   }
 
-  .footer-status-text {
+  .footer-link:focus-visible {
+    outline: 2px solid #38BDF8;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Columna 4: Contacto */
+  .footer-contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+
+  .footer-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
     font-size: 0.875rem;
-    color: var(--color-text-secondary);
-    line-height: 1.5;
-    margin-bottom: var(--space-2);
+    color: #A3C4B8;
+    text-decoration: none;
+    transition: color 150ms ease, transform 150ms ease;
   }
 
-  .footer-status-text code {
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    background-color: var(--color-bg-surface-subtle);
-    padding: 2px 6px;
-    border-radius: var(--radius-sm);
-    color: var(--color-text-primary);
+  .contact-icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-color: #002E21;
+    color: #34D399;
+    transition: background-color 150ms ease, transform 150ms ease;
   }
 
+  .footer-contact-link:hover {
+    color: #FFFFFF;
+    transform: translateX(2px);
+    text-decoration: none;
+  }
+
+  .footer-contact-link:hover .contact-icon-box {
+    background-color: #004F38;
+    transform: scale(1.05);
+  }
+
+  .footer-contact-link:focus-visible {
+    outline: 2px solid #38BDF8;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .footer-social-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 0.25rem;
+  }
+
+  .footer-social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: #002E21;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #A3C4B8;
+    text-decoration: none;
+    transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+  }
+
+  .footer-social-btn:hover {
+    background-color: #004F38;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .footer-social-btn:focus-visible {
+    outline: 2px solid #38BDF8;
+    outline-offset: 2px;
+  }
+
+  /* Barra inferior */
   .footer-bottom {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
-    padding-top: var(--space-6);
-    border-top: 1px solid var(--color-border-subtle);
+    gap: 0.75rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.8125rem;
-    color: var(--color-text-muted);
+    color: #A3C4B8;
   }
 
-  .legal-links {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-4);
+  .copyright {
+    margin: 0;
   }
 
-  .legal-placeholder {
-    color: var(--color-text-muted);
-    font-style: italic;
+  .footer-sector-tagline {
+    margin: 0;
+    color: rgba(167, 243, 208, 0.9);
   }
 
-  @media (min-width: 768px) {
+  /* Tableta (768px a 1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
     .footer-top {
-      grid-template-columns: 2.2fr 1fr 1.6fr;
-      gap: var(--space-12);
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2.5rem 2rem;
     }
 
     .footer-bottom {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+    }
+  }
+
+  /* Escritorio (>=1024px) */
+  @media (min-width: 1024px) {
+    .footer-top {
+      grid-template-columns: 2fr 1.1fr 1.1fr 1.3fr;
+      gap: 3.5rem;
+    }
+
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .footer-link,
+    .footer-contact-link,
+    .footer-social-btn,
+    .contact-icon-box {
+      transition: none !important;
+      transform: none !important;
     }
   }
 </style>

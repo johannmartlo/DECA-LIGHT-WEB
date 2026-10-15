@@ -8,10 +8,6 @@
       <a href="/" class="brand-link" aria-label="DECA Light - Inicio">
         <span class="brand-name">DECA Light</span>
       </a>
-      <span class="badge badge-amber brand-badge" aria-label="Estado del proyecto: Proyecto en desarrollo">
-        <span class="badge-dot" aria-hidden="true"></span>
-        <span>PILOTO</span>
-      </span>
     </div>
 
     <!-- Botón hamburguesa accesible en móvil -->
@@ -43,7 +39,13 @@
         <li><a href="#faq" class="nav-link">Preguntas frecuentes</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="#piloto" class="btn btn-primary btn-cta">Me interesa el piloto</a>
+        <a href="#piloto" class="btn btn-primary btn-cta">
+          <span>Contactar</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
       </div>
     </nav>
   </div>
@@ -64,7 +66,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 64px;
+    min-height: 76px;
     padding-block: var(--space-2);
   }
 
@@ -82,14 +84,10 @@
   }
 
   .brand-name {
-    font-size: 1.25rem;
+    font-size: 1.375rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     color: var(--color-text-primary);
-  }
-
-  .brand-badge {
-    font-size: 0.6875rem;
   }
 
   .menu-toggle {
@@ -151,7 +149,20 @@
     font-weight: 500;
     color: var(--color-text-secondary);
     border-radius: var(--radius-md);
+    position: relative;
     transition: color var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 6px;
+    left: var(--space-3);
+    background-color: var(--color-brand-primary, #047857);
+    transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 9999px;
   }
 
   .nav-link:hover {
@@ -160,12 +171,24 @@
     text-decoration: none;
   }
 
+  .nav-link:hover::after {
+    width: calc(100% - (var(--space-3) * 2));
+  }
+
   .btn-cta {
     width: 100%;
   }
 
+  .btn-cta svg {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-cta:hover svg {
+    transform: translateX(3px);
+  }
+
   /* Escritorio */
-  @media (min-width: 1024px) {
+  @media (min-width: 900px) {
     .menu-toggle {
       display: none;
     }
@@ -190,7 +213,8 @@
     .btn-cta {
       width: auto;
       font-size: 0.875rem;
-      padding: var(--space-2) var(--space-4);
+      padding: 0.55rem 1.15rem;
+      gap: 0.4rem;
     }
   }
 </style>

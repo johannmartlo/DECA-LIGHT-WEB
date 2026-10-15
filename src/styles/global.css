@@ -2,6 +2,21 @@
 /* Basado en DESIGN_SYSTEM.md v2.1.0 y WEB_MAESTRO_DECA_LIGHT.md */
 
 :root {
+  /* Tokens de Operativa y Rediseño V2 (Fidelidad de Referencia) */
+  --brand-primary: #15803d;
+  --brand-accent: #16a34a;
+  --brand-light: #dcfce7;
+  --amber-text: #b45309;
+  --amber-border: #d97706;
+  --amber-bg: #fef3c7;
+  --amber-card-border: #fde68a;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-subtle: #64748b;
+  --border-subtle: #e2e8f0;
+  --bg-surface: #ffffff;
+  --bg-muted: #f8fafc;
+
   /* Tokens de Color Semánticos */
   --color-bg-canvas: #F8FAFC;
   --color-bg-surface: #FFFFFF;
@@ -37,7 +52,7 @@
   --space-24: 6rem;    /* 96px */
 
   /* Contenedores */
-  --container-max: 1200px;
+  --container-max: 1340px;
   --container-narrow: 720px;
 
   /* Radios de Esquina */
@@ -64,12 +79,12 @@
   --duration-normal: 200ms;
   --duration-slow: 300ms;
 
-  /* Revelados estructurales al scroll (Fase 2A y 2B) */
+  /* Revelados estructurales al scroll (Fase 3 - Motion Design) */
   --duration-reveal-fast: 320ms;
-  --duration-reveal: 450ms;
-  --reveal-offset: 14px;
-  --reveal-offset-editorial: 10px;
-  --reveal-offset-card: 20px;
+  --duration-reveal: 500ms;
+  --reveal-offset: 18px;
+  --reveal-offset-editorial: 16px;
+  --reveal-offset-card: 18px;
 }
 
 /* Reset y caja universal */
@@ -320,106 +335,113 @@ img, svg {
 }
 
 /* ==========================================================================
-   Revelados al hacer scroll (Scroll Reveals - Fase 2A)
+   Revelados al hacer scroll (Scroll Reveals - Fase 2 & Fase 3)
    Mejora progresiva: visible por defecto (sin JS, sin soporte o con reduced motion).
    Solo se oculta transitoriamente si <html> tiene .reveal-ready y el elemento no tiene .is-revealed.
    ========================================================================== */
 
-/* Estado por defecto y accesible */
-[data-reveal] {
-  opacity: 1;
-  transform: none;
-}
-
-/* Estado pre-revelado: solo activo cuando el script ha verificado soporte y entorno */
-html.reveal-ready [data-reveal]:not(.is-revealed) {
-  opacity: 0;
-  transform: translate3d(0, var(--reveal-offset, 14px), 0);
-}
-
-html.reveal-ready [data-reveal="editorial"]:not(.is-revealed) {
-  transform: translate3d(0, var(--reveal-offset-editorial, 10px), 0);
-}
-
-html.reveal-ready [data-reveal="blueprint"]:not(.is-revealed),
-html.reveal-ready [data-reveal="card"]:not(.is-revealed) {
-  transform: translate3d(0, var(--reveal-offset-card, 20px), 0);
-}
-
-/* Contenedores de escena coordinada: no se desvanecen como bloques monolíticos,
-   sino que orquestan el movimiento secuencial de sus elementos internos */
-html.reveal-ready [data-reveal^="problem-"]:not(.is-revealed),
-html.reveal-ready [data-reveal^="problem-"].is-revealed {
-  opacity: 1;
-  transform: none;
-  transition: none;
-}
-
-/* Transición al revelarse */
-html.reveal-ready [data-reveal].is-revealed {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  transition:
-    opacity var(--duration-reveal, 450ms) var(--ease-out),
-    transform var(--duration-reveal, 450ms) var(--ease-out);
-}
-
-html.reveal-ready [data-reveal="editorial"].is-revealed {
-  transition-duration: var(--duration-reveal-fast, 320ms);
-}
-
-/* Escalonado (Staggering) inteligente por viewport:
-   En escritorio/tablet horizontal (>= 768px), escalonado sutil (80ms, 160ms, 240ms).
-   En móvil (< 768px), donde los bloques se apilan verticalmente, el retraso
-   permanece en 0ms para que cada elemento responda de inmediato al cruzar el viewport. */
-@media (min-width: 768px) {
-  html.reveal-ready [data-reveal-delay="1"] {
-    transition-delay: 80ms;
-  }
-  html.reveal-ready [data-reveal-delay="2"] {
-    transition-delay: 160ms;
-  }
-  html.reveal-ready [data-reveal-delay="3"] {
-    transition-delay: 240ms;
-  }
-}
-
-/* Salvaguarda de Accesibilidad y Teclado (WCAG) */
-html.reveal-ready [data-reveal]:focus-visible,
-html.reveal-ready [data-reveal]:focus-within {
+/* 1. Garantía No-JS y Fallback accesible:
+      Si JavaScript no se ejecuta o no soporta IntersectionObserver, <html> NO recibe .reveal-ready.
+      En este estado, todos los elementos permanecen 100% visibles e interactivos. */
+html:not(.reveal-ready) [data-reveal] {
   opacity: 1 !important;
   transform: none !important;
   transition: none !important;
 }
 
+/* 2. Estado pre-revelado:
+      Solo cuando JS ha verificado el soporte e inyectado .reveal-ready en <html>,
+      y el elemento aún no ha cruzado el umbral del viewport (:not(.is-revealed)). */
+html.reveal-ready [data-reveal]:not(.is-revealed) {
+  opacity: 0 !important;
+  transform: translate3d(0, var(--reveal-offset, 18px), 0) !important;
+  transition: none !important;
+  pointer-events: none;
+}
+
+html.reveal-ready [data-reveal="editorial"]:not(.is-revealed) {
+  transform: translate3d(0, var(--reveal-offset-editorial, 16px), 0) !important;
+}
+
+html.reveal-ready [data-reveal="card"]:not(.is-revealed) {
+  transform: translate3d(0, var(--reveal-offset-card, 18px), 0) !important;
+}
+
+/* 3. Transición de revelado al entrar en viewport (.is-revealed):
+      Usamos :not(:hover) para que la animación de entrada prevalezca sobre transiciones
+      locales de componentes y al mismo tiempo libere :hover una vez el usuario interactúe. */
+html.reveal-ready [data-reveal].is-revealed:not(:hover) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  pointer-events: auto;
+  transition:
+    opacity var(--duration-reveal, 500ms) var(--ease-out),
+    transform var(--duration-reveal, 500ms) var(--ease-out);
+}
+
+html.reveal-ready [data-reveal="editorial"].is-revealed:not(:hover) {
+  transition-duration: var(--duration-reveal, 500ms);
+}
+
+/* 4. Escalonado (Staggering) moderado por viewport:
+   En escritorio y tablet horizontal (>= 768px), escalonado sutil (80ms, 160ms, 240ms, 320ms).
+   En móvil (< 768px), donde los bloques se apilan verticalmente, el retraso
+   permanece en 0ms para que cada elemento responda de inmediato al cruzar el viewport. */
+@media (min-width: 768px) {
+  html.reveal-ready [data-reveal-delay="1"].is-revealed:not(:hover) {
+    transition-delay: 80ms;
+  }
+  html.reveal-ready [data-reveal-delay="2"].is-revealed:not(:hover) {
+    transition-delay: 160ms;
+  }
+  html.reveal-ready [data-reveal-delay="3"].is-revealed:not(:hover) {
+    transition-delay: 240ms;
+  }
+  html.reveal-ready [data-reveal-delay="4"].is-revealed:not(:hover) {
+    transition-delay: 320ms;
+  }
+}
+
+/* 5. Salvaguarda de Accesibilidad y Teclado (WCAG) */
+html.reveal-ready [data-reveal]:focus-visible,
+html.reveal-ready [data-reveal]:focus-within {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  pointer-events: auto !important;
+}
+
+/* Movimiento reducido normativo (MOTION_GUIDELINES.md):
+   Suprime traslaciones y animaciones continuas no esenciales, garantizando visibilidad inmediata */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
   html.reveal-ready [data-reveal],
   html.reveal-ready [data-reveal]:not(.is-revealed),
-  html.reveal-ready [data-reveal].is-revealed {
+  html.reveal-ready [data-reveal].is-revealed,
+  [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
-}
 
-/* Indicador de actividad sutil para estados pendientes (Fase 2B) */
-@keyframes calm-pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.45;
-    transform: scale(0.9);
-  }
-}
-
-/* Movimiento reducido general */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  /* Desactivar bucles continuos preservando la posición y visibilidad del elemento */
+  .animate-float-a,
+  .animate-float-b,
+  .animate-float-c,
+  .beacon-ring,
+  .flow-line-a,
+  .flow-line-b,
+  .flow-line-down,
+  .flow-dashed-path,
+  .pulse-amber,
+  .animate-hub-breath,
+  .animate-shimmer::after,
+  .ambient-glow {
+    animation: none !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
   }
 }
