@@ -5,11 +5,90 @@
 ---
 
 <section id="el-problema" class="problem-section" aria-labelledby="problem-title">
+  <!--
+    Gestor de revelados al hacer scroll (Scroll Reveals - Fase 2A).
+    Idempotente: se ejecuta una sola vez aunque esté presente en varios componentes.
+    Anti-FOUC sincrónico: comprueba elementos ya visibles antes de activar la compuerta reveal-ready.
+  -->
+  <script is:inline>
+    (function () {
+      if (window.__decaRevealInit) return;
+      window.__decaRevealInit = true;
+
+      function initReveal() {
+        try {
+          var motionOk = window.matchMedia && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+          var ioOk = 'IntersectionObserver' in window;
+          var cssOk = window.CSS && CSS.supports && CSS.supports('transform', 'translate3d(0, 0, 0)');
+
+          if (!motionOk || !ioOk || !cssOk) return;
+
+          var revealElements = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+          if (revealElements.length === 0) return;
+
+          var pendingCount = 0;
+          var thresholdHeight = window.innerHeight * 0.92;
+
+          // Fase sincrónica anti-FOUC: revelar inmediatamente elementos en viewport o por encima del pliegue
+          for (var i = 0; i < revealElements.length; i++) {
+            var el = revealElements[i];
+            var rect = el.getBoundingClientRect();
+            if (rect.top < thresholdHeight) {
+              el.classList.add('is-revealed');
+            } else {
+              pendingCount++;
+            }
+          }
+
+          // Activar compuerta global en <html>
+          document.documentElement.classList.add('reveal-ready');
+
+          if (pendingCount === 0) return;
+
+          var observer = new IntersectionObserver(function (entries) {
+            for (var j = 0; j < entries.length; j++) {
+              var entry = entries[j];
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+                pendingCount--;
+                if (pendingCount <= 0) {
+                  observer.disconnect();
+                }
+              }
+            }
+          }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -8% 0px'
+          });
+
+          for (var k = 0; k < revealElements.length; k++) {
+            var item = revealElements[k];
+            if (!item.classList.contains('is-revealed')) {
+              observer.observe(item);
+            }
+          }
+        } catch (err) {
+          document.documentElement.classList.remove('reveal-ready');
+          var all = document.querySelectorAll('[data-reveal]');
+          for (var n = 0; n < all.length; n++) {
+            all[n].classList.add('is-revealed');
+          }
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initReveal, { once: true });
+      } else {
+        initReveal();
+      }
+    })();
+  </script>
 
   <div class="container">
     <div class="problem-layout">
       <!-- Columna izquierda: Tesis y contexto (Sticky en desktop) -->
-      <header class="problem-intro">
+      <header class="problem-intro" data-reveal="problem-intro">
         <span class="section-kicker">EL RETO OPERATIVO EN MUELLE</span>
         <h2 id="problem-title" class="problem-title">
           La carga puede estar lista antes que los datos del transporte.
@@ -20,7 +99,7 @@
       </header>
 
       <!-- Columna derecha: Tres momentos de fricción operativa (Editorial abierto) -->
-      <div class="problem-frictions" role="list">
+      <div class="problem-frictions" role="list" data-reveal="problem-frictions">
         <!-- Fricción 01 -->
         <article class="friction-item" role="listitem">
           <div class="friction-meta">
@@ -57,7 +136,7 @@
     </div>
 
     <!-- Cierre editorial: Pull-Quote destacada -->
-    <aside class="problem-quote-wrap" aria-label="Reflexión sobre el reto operativo">
+    <aside class="problem-quote-wrap" aria-label="Reflexión sobre el reto operativo" data-reveal="problem-quote">
       <blockquote class="problem-quote">
         <p class="quote-text">
           El reto no es únicamente generar un documento. Es coordinar la información de la expedición con los datos del transporte que llegan después.
@@ -118,10 +197,22 @@
   }
 
   .friction-item {
+    position: relative;
     display: flex;
     flex-direction: column;
     padding-block: var(--space-6);
-    border-top: 1px solid var(--color-border-subtle);
+    border-top: 1px solid transparent; /* Preserva la caja geométrica intacta para evitar CLS */
+  }
+
+  .friction-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--color-border-subtle);
+    transform-origin: left center;
   }
 
   .friction-item:last-child {
@@ -161,16 +252,40 @@
 
   /* ---- Cierre Editorial: Pull-Quote ---- */
   .problem-quote-wrap {
+    position: relative;
     margin-top: var(--space-12);
     padding-top: var(--space-8);
-    border-top: 1px solid var(--color-border-subtle);
+    border-top: 1px solid transparent; /* Preserva la caja geométrica intacta */
+  }
+
+  .problem-quote-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--color-border-subtle);
+    transform-origin: left center;
   }
 
   .problem-quote {
+    position: relative;
     margin: 0;
     padding-left: var(--space-6);
-    border-left: 3px solid var(--color-brand-primary);
+    border-left: 3px solid transparent; /* Preserva la caja geométrica intacta */
     max-width: 820px;
+  }
+
+  .problem-quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    background-color: var(--color-brand-primary);
+    transform-origin: top center;
   }
 
   .quote-text {
@@ -206,6 +321,10 @@
       font-size: 2.125rem;
     }
 
+    .friction-item:first-child::before {
+      display: none;
+    }
+
     .friction-item:first-child {
       border-top: none;
       padding-top: 0;
@@ -221,6 +340,250 @@
     .problem-intro {
       position: sticky;
       top: calc(64px + var(--space-8));
+    }
+  }
+
+  /* ==========================================================================
+     Escena Editorial Coordinada «El Problema»
+     Solo se activa cuando la compuerta reveal-ready está en <html>.
+     Si JavaScript no está disponible o falla, todo el contenido permanece
+     completamente visible sin animaciones bloqueadas (No-JS seguro).
+     ========================================================================== */
+
+  /* 1. Columna Izquierda: Estados en espera */
+  :global(html.reveal-ready) .problem-intro:not(.is-revealed) .section-kicker,
+  :global(html.reveal-ready) .problem-intro:not(.is-revealed) .problem-title,
+  :global(html.reveal-ready) .problem-intro:not(.is-revealed) .problem-subtitle {
+    opacity: 0;
+    will-change: opacity, transform;
+  }
+  :global(html.reveal-ready) .problem-intro:not(.is-revealed) .section-kicker {
+    transform: translateY(10px);
+  }
+  :global(html.reveal-ready) .problem-intro:not(.is-revealed) .problem-title {
+    transform: translateY(20px);
+  }
+  :global(html.reveal-ready) .problem-intro:not(.is-revealed) .problem-subtitle {
+    transform: translateY(16px);
+  }
+
+  /* 1. Columna Izquierda: Entrada coordinada */
+  :global(html.reveal-ready) .problem-intro.is-revealed .section-kicker {
+    animation: problem-kicker-in 420ms var(--ease-out) both;
+    animation-delay: 0ms;
+  }
+  :global(html.reveal-ready) .problem-intro.is-revealed .problem-title {
+    animation: problem-title-in 520ms var(--ease-out) both;
+    animation-delay: 100ms;
+  }
+  :global(html.reveal-ready) .problem-intro.is-revealed .problem-subtitle {
+    animation: problem-subtitle-in 500ms var(--ease-out) both;
+    animation-delay: 220ms;
+  }
+
+  /* 2. Columna Derecha: Estados en espera */
+  :global(html.reveal-ready) .problem-frictions:not(.is-revealed) .friction-item {
+    opacity: 0;
+    transform: translateY(14px);
+    will-change: opacity, transform;
+  }
+  :global(html.reveal-ready) .problem-frictions:not(.is-revealed) .friction-item::before {
+    opacity: 0;
+    transform: scaleX(0);
+    will-change: opacity, transform;
+  }
+
+  /* 2. Columna Derecha: Entrada coordinada */
+  :global(html.reveal-ready) .problem-frictions.is-revealed .friction-item {
+    animation: problem-row-in 480ms var(--ease-out) both;
+  }
+  :global(html.reveal-ready) .problem-frictions.is-revealed .friction-item::before {
+    animation: problem-line-draw 460ms var(--ease-out) both;
+  }
+
+  /* Escalonamiento ágil en móvil (< 1024px) */
+  :global(html.reveal-ready) .problem-frictions.is-revealed .friction-item:nth-child(1) {
+    animation-delay: 0ms;
+  }
+  :global(html.reveal-ready) .problem-frictions.is-revealed .friction-item:nth-child(1)::before {
+    animation-delay: 0ms;
+  }
+  :global(html.reveal-ready) .problem-frictions.is-revealed .friction-item:nth-child(2) {
+    animation-delay: 90ms;
+  }
+  :global(html.reveal-ready) .problem-frictions.is-revealed .friction-item:nth-child(2)::before {
+    animation-delay: 70ms;
+  }
+  :global(html.reveal-ready) .problem-frictions.is-revealed .friction-item:nth-child(3) {
+    animation-delay: 180ms;
+  }
+  :global(html.reveal-ready) .problem-frictions.is-revealed .friction-item:nth-child(3)::before {
+    animation-delay: 150ms;
+  }
+
+  /* Escalonamiento editorial en escritorio (>= 1024px) con 120ms entre filas */
+  @media (min-width: 1024px) {
+    :global(html.reveal-ready) .problem-frictions.is-revealed .friction-item:nth-child(1) {
+      animation-delay: 120ms;
+    }
+    :global(html.reveal-ready) .problem-frictions.is-revealed .friction-item:nth-child(2) {
+      animation-delay: 240ms;
+    }
+    :global(html.reveal-ready) .problem-frictions.is-revealed .friction-item:nth-child(2)::before {
+      animation-delay: 180ms;
+    }
+    :global(html.reveal-ready) .problem-frictions.is-revealed .friction-item:nth-child(3) {
+      animation-delay: 360ms;
+    }
+    :global(html.reveal-ready) .problem-frictions.is-revealed .friction-item:nth-child(3)::before {
+      animation-delay: 300ms;
+    }
+  }
+
+  /* 3. Conclusión Inferior: Estados en espera */
+  :global(html.reveal-ready) .problem-quote-wrap:not(.is-revealed)::before {
+    opacity: 0;
+    transform: scaleX(0);
+    will-change: opacity, transform;
+  }
+  :global(html.reveal-ready) .problem-quote-wrap:not(.is-revealed) .problem-quote::before {
+    opacity: 0;
+    transform: scaleY(0);
+    will-change: opacity, transform;
+  }
+  :global(html.reveal-ready) .problem-quote-wrap:not(.is-revealed) .quote-text {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: opacity, transform;
+  }
+  :global(html.reveal-ready) .problem-quote-wrap:not(.is-revealed) .quote-clarification {
+    opacity: 0;
+    transform: translateY(8px);
+    will-change: opacity, transform;
+  }
+
+  /* 3. Conclusión Inferior: Entrada coordinada */
+  :global(html.reveal-ready) .problem-quote-wrap.is-revealed::before {
+    animation: problem-line-draw 520ms var(--ease-out) both;
+    animation-delay: 40ms;
+  }
+  :global(html.reveal-ready) .problem-quote-wrap.is-revealed .problem-quote::before {
+    animation: problem-bar-grow 460ms var(--ease-out) both;
+    animation-delay: 140ms;
+  }
+  :global(html.reveal-ready) .problem-quote-wrap.is-revealed .quote-text {
+    animation: problem-quote-in 480ms var(--ease-out) both;
+    animation-delay: 220ms;
+  }
+  :global(html.reveal-ready) .problem-quote-wrap.is-revealed .quote-clarification {
+    animation: problem-attribution-in 440ms var(--ease-out) both;
+    animation-delay: 340ms;
+  }
+
+  /* Keyframes de la escena editorial */
+  @keyframes problem-kicker-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes problem-title-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes problem-subtitle-in {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes problem-row-in {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes problem-line-draw {
+    from {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    to {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes problem-bar-grow {
+    from {
+      opacity: 0.3;
+      transform: scaleY(0);
+    }
+    to {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes problem-quote-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes problem-attribution-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Respeto estricto a prefers-reduced-motion: reduce */
+  @media (prefers-reduced-motion: reduce) {
+    .section-kicker,
+    .problem-title,
+    .problem-subtitle,
+    .friction-item,
+    .friction-item::before,
+    .problem-quote-wrap::before,
+    .problem-quote::before,
+    .quote-text,
+    .quote-clarification {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
     }
   }
 </style>

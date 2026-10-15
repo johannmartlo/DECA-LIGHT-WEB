@@ -3,8 +3,88 @@
 ---
 
 <section id="como-funciona" class="how-it-works-section" aria-labelledby="how-it-works-title">
+  <!--
+    Gestor de revelados al hacer scroll (Scroll Reveals - Fase 2A).
+    Idempotente: se ejecuta una sola vez aunque esté presente en varios componentes.
+    Anti-FOUC sincrónico: comprueba elementos ya visibles antes de activar la compuerta reveal-ready.
+  -->
+  <script is:inline>
+    (function () {
+      if (window.__decaRevealInit) return;
+      window.__decaRevealInit = true;
+
+      function initReveal() {
+        try {
+          var motionOk = window.matchMedia && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+          var ioOk = 'IntersectionObserver' in window;
+          var cssOk = window.CSS && CSS.supports && CSS.supports('transform', 'translate3d(0, 0, 0)');
+
+          if (!motionOk || !ioOk || !cssOk) return;
+
+          var revealElements = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+          if (revealElements.length === 0) return;
+
+          var pendingCount = 0;
+          var thresholdHeight = window.innerHeight * 0.92;
+
+          // Fase sincrónica anti-FOUC: revelar inmediatamente elementos en viewport o por encima del pliegue
+          for (var i = 0; i < revealElements.length; i++) {
+            var el = revealElements[i];
+            var rect = el.getBoundingClientRect();
+            if (rect.top < thresholdHeight) {
+              el.classList.add('is-revealed');
+            } else {
+              pendingCount++;
+            }
+          }
+
+          // Activar compuerta global en <html>
+          document.documentElement.classList.add('reveal-ready');
+
+          if (pendingCount === 0) return;
+
+          var observer = new IntersectionObserver(function (entries) {
+            for (var j = 0; j < entries.length; j++) {
+              var entry = entries[j];
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+                pendingCount--;
+                if (pendingCount <= 0) {
+                  observer.disconnect();
+                }
+              }
+            }
+          }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -8% 0px'
+          });
+
+          for (var k = 0; k < revealElements.length; k++) {
+            var item = revealElements[k];
+            if (!item.classList.contains('is-revealed')) {
+              observer.observe(item);
+            }
+          }
+        } catch (err) {
+          document.documentElement.classList.remove('reveal-ready');
+          var all = document.querySelectorAll('[data-reveal]');
+          for (var n = 0; n < all.length; n++) {
+            all[n].classList.add('is-revealed');
+          }
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initReveal, { once: true });
+      } else {
+        initReveal();
+      }
+    })();
+  </script>
+
   <div class="container">
-    <header class="section-intro">
+    <header class="section-intro" data-reveal="editorial">
       <span class="section-kicker">Flujo objetivo de trabajo</span>
       <h2 id="how-it-works-title" class="section-title">
         De la preparación de la carga a la documentación organizada.
@@ -29,7 +109,7 @@
       
       <!-- FASE 1: ALMACÉN (Pasos 01–03) -->
       <article class="macro-phase" aria-labelledby="phase-1-heading">
-        <div class="macro-phase-editorial">
+        <div class="macro-phase-editorial" data-reveal="editorial">
           <div class="macro-phase-badge">
             <span class="phase-tag">Fase 1</span>
             <span class="phase-category">Almacén</span>
@@ -70,7 +150,7 @@
           </ol>
         </div>
 
-        <div class="macro-phase-visual">
+        <div class="macro-phase-visual" data-reveal="blueprint" data-reveal-delay="1">
           <figure class="blueprint-card" aria-label="Esquema conceptual: Relación entre expedición EXP-0842 y albarán ALB-0842">
             <div class="blueprint-header">
               <div class="blueprint-title-wrap">
@@ -167,7 +247,7 @@
 
       <!-- FASE 2: TRANSPORTE (Pasos 04–05) -->
       <article class="macro-phase" aria-labelledby="phase-2-heading">
-        <div class="macro-phase-editorial">
+        <div class="macro-phase-editorial" data-reveal="editorial">
           <div class="macro-phase-badge macro-phase-badge--amber">
             <span class="phase-tag phase-tag--amber">Fase 2</span>
             <span class="phase-category phase-category--amber">Transporte</span>
@@ -199,7 +279,7 @@
           </ol>
         </div>
 
-        <div class="macro-phase-visual">
+        <div class="macro-phase-visual" data-reveal="blueprint" data-reveal-delay="1">
           <figure class="blueprint-card blueprint-card--amber" aria-label="Esquema conceptual: Detección de matrícula pendiente para la expedición EXP-0842">
             <div class="blueprint-header">
               <div class="blueprint-title-wrap">
@@ -255,7 +335,7 @@
 
       <!-- FASE 3: COORDINACIÓN (Pasos 06–07) -->
       <article class="macro-phase macro-phase--last" aria-labelledby="phase-3-heading">
-        <div class="macro-phase-editorial">
+        <div class="macro-phase-editorial" data-reveal="editorial">
           <div class="macro-phase-badge macro-phase-badge--green">
             <span class="phase-tag phase-tag--green">Fase 3</span>
             <span class="phase-category phase-category--green">Coordinación</span>
@@ -287,7 +367,7 @@
           </ol>
         </div>
 
-        <div class="macro-phase-visual">
+        <div class="macro-phase-visual" data-reveal="blueprint" data-reveal-delay="1">
           <figure class="blueprint-card blueprint-card--green" aria-label="Esquema conceptual: Cotejo de documentación consolidada y supervisión humana previa">
             <div class="blueprint-header">
               <div class="blueprint-title-wrap">
@@ -1164,6 +1244,184 @@
     .blueprint-card {
       position: sticky;
       top: 104px; /* Flota suavemente al leer los pasos de la fase */
+    }
+  }
+
+  /* ==========================================================================
+     Secuencias de Movimiento Coordinado en Blueprints (Bloque A - Fase 2B)
+     Solo se animan cuando el contenedor visual padre ha alcanzado .is-revealed.
+     Se ejecutan una única vez, sin reiniciarse en scrolls sucesivos.
+     ========================================================================== */
+
+  /* Blueprint 1: Pipeline documental progresivo */
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node {
+    animation: blueprint-node-in 320ms var(--ease-out) both;
+  }
+
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(1) {
+    animation-delay: 60ms;
+  }
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(2) {
+    animation-delay: 160ms;
+  }
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(3) {
+    animation-delay: 260ms;
+  }
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(4) {
+    animation-delay: 360ms;
+  }
+
+  /* Conexiones verticales que se dibujan hacia abajo */
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .node-stem {
+    transform-origin: top center;
+    animation: blueprint-stem-grow 280ms var(--ease-out) both;
+  }
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(1) .node-stem {
+    animation-delay: 120ms;
+  }
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(2) .node-stem {
+    animation-delay: 220ms;
+  }
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node:nth-child(3) .node-stem {
+    animation-delay: 320ms;
+  }
+
+  /* Estado pendiente en Blueprint 1: actividad suave en icono y badge */
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .pipeline-node--pending .node-icon--pending {
+    animation: calm-pulse 3s ease-in-out infinite;
+    animation-delay: 500ms;
+  }
+
+  /* Blueprint 2: Control de asignación de transporte */
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .blueprint-field-pending {
+    animation: blueprint-field-highlight 400ms var(--ease-out) both;
+    animation-delay: 140ms;
+  }
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .blueprint-subsequent-slot {
+    animation: blueprint-node-in 300ms var(--ease-out) both;
+    animation-delay: 260ms;
+  }
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .blueprint-field-pending .badge-dot {
+    animation: calm-pulse 2.4s ease-in-out infinite;
+    animation-delay: 400ms;
+  }
+
+  /* Blueprint 3: Checklist de cotejo y banner de resultado */
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .check-item {
+    animation: blueprint-node-in 280ms var(--ease-out) both;
+  }
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .check-item:nth-child(1) {
+    animation-delay: 80ms;
+  }
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .check-item:nth-child(2) {
+    animation-delay: 180ms;
+  }
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .check-item:nth-child(3) {
+    animation-delay: 280ms;
+  }
+
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .blueprint-result-banner {
+    animation: blueprint-banner-in 340ms var(--ease-out) both;
+    animation-delay: 360ms;
+  }
+
+  :global(html.reveal-ready) .macro-phase-visual.is-revealed .blueprint-history-row {
+    animation: blueprint-node-in 260ms var(--ease-out) both;
+    animation-delay: 440ms;
+  }
+
+  /* Keyframes de entrada coordinada de blueprints */
+  @keyframes blueprint-node-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes blueprint-stem-grow {
+    from {
+      transform: scaleY(0);
+      opacity: 0.3;
+    }
+    to {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes blueprint-field-highlight {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+      border-color: var(--color-border-subtle);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      border-color: #FCD34D;
+    }
+  }
+
+  @keyframes blueprint-banner-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Bloque B: Profundidad interactiva controlada (Hover sutil en escritorio) */
+  @media (hover: hover) and (pointer: fine) {
+    .blueprint-card {
+      transition:
+        box-shadow var(--duration-medium, 200ms) var(--ease-out),
+        border-color var(--duration-medium, 200ms) var(--ease-out),
+        transform var(--duration-medium, 200ms) var(--ease-out);
+    }
+
+    .blueprint-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(4, 120, 87, 0.25);
+      box-shadow:
+        0 4px 6px -1px rgba(15, 23, 42, 0.04),
+        0 10px 20px -3px rgba(15, 23, 42, 0.06);
+    }
+
+    .blueprint-card--amber:hover {
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+
+    .blueprint-card--green:hover {
+      border-color: rgba(4, 120, 87, 0.35);
+    }
+  }
+
+  /* Movimiento reducido en blueprints */
+  @media (prefers-reduced-motion: reduce) {
+    .pipeline-node,
+    .node-stem,
+    .blueprint-field-pending,
+    .blueprint-subsequent-slot,
+    .check-item,
+    .blueprint-result-banner,
+    .blueprint-history-row,
+    .blueprint-field-pending .badge-dot,
+    .pipeline-node--pending .node-icon--pending {
+      animation: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+      transition: none !important;
+    }
+
+    .blueprint-card:hover {
+      transform: none !important;
     }
   }
 </style>

@@ -7,30 +7,48 @@
 ---
 
 <section class="hero-section" aria-labelledby="hero-title">
+  <!--
+    Puerta de mejora progresiva para la entrada del Hero.
+    Se ejecuta de forma síncrona antes de que se analice el contenido del Hero, por lo que no hay parpadeo.
+    Sin JavaScript, sin soporte de animaciones CSS o con movimiento reducido, la clase no se añade
+    y todo el contenido se muestra visible desde el primer render.
+  -->
+  <script is:inline>
+    (function () {
+      var root = document.documentElement;
+      var motionOk = window.matchMedia && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+      var cssOk = window.CSS && CSS.supports && CSS.supports('animation-name', 'hero-enter');
+      if (!motionOk || !cssOk) return;
+      root.classList.add('hero-motion');
+      // Red de seguridad: al retirar la clase el contenido vuelve a su estado visible por defecto,
+      // idéntico al estado final de la animación, por lo que no produce saltos.
+      window.setTimeout(function () { root.classList.remove('hero-motion'); }, 1500);
+    })();
+  </script>
   <div class="container hero-container">
     <div class="hero-content">
-      <p class="section-kicker">Coordinación documental de expediciones</p>
+      <p class="section-kicker hero-reveal">Coordinación documental de expediciones</p>
 
-      <h1 id="hero-title" class="hero-title">
+      <h1 id="hero-title" class="hero-title hero-reveal">
         Coordina la documentación de tus expediciones sin esperas innecesarias.
       </h1>
 
-      <p class="hero-description">
+      <p class="hero-description hero-reveal hero-reveal--step-1">
         DECA Light se está desarrollando para ayudar a los almacenes hortofrutícolas a organizar la documentación de las cargas y los datos del transporte, incluso cuando la información llega en momentos diferentes.
       </p>
 
-      <div class="hero-actions">
+      <div class="hero-actions hero-reveal hero-reveal--step-2">
         <a href="#piloto" class="btn btn-primary hero-btn">Me interesa el piloto</a>
         <a href="#como-funciona" class="btn btn-secondary hero-btn">Descubrir cómo funciona</a>
       </div>
 
-      <p class="hero-note">
+      <p class="hero-note hero-reveal hero-reveal--step-2">
         Estamos contrastando el proceso con profesionales del sector antes de abrir una prueba operativa.
       </p>
     </div>
 
     <figure
-      class="flow-figure"
+      class="flow-figure hero-reveal hero-reveal--step-3"
       aria-label="Diagrama conceptual: la información del almacén y la del transporte convergen en DECA Light"
     >
       <!-- Alternativa accesible única (los dos SVG visuales están ocultos a lectores de pantalla) -->
@@ -512,6 +530,38 @@
     }
   }
 
+  /* ---- Entrada progresiva del Hero ----
+     Solo se activa si el script inline ha añadido .hero-motion a <html>.
+     Sin esa clase (sin JS, sin soporte o con movimiento reducido) no hay estado inicial oculto.
+     El kicker y el H1 arrancan sin retardo para no retener el titular; el resto se escalona 60 ms.
+     Se animan exclusivamente opacity y transform: sin recálculo de layout ni desplazamientos acumulativos. */
+  :global(html.hero-motion) .hero-reveal {
+    animation: hero-enter var(--duration-long) var(--ease-out) both;
+  }
+
+  :global(html.hero-motion) .hero-reveal--step-1 {
+    animation-delay: 60ms;
+  }
+
+  :global(html.hero-motion) .hero-reveal--step-2 {
+    animation-delay: 120ms;
+  }
+
+  :global(html.hero-motion) .hero-reveal--step-3 {
+    animation-delay: 180ms;
+  }
+
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 8px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   /* Movimiento reducido: desactiva animaciones y preserva el diagrama estático */
   @media (prefers-reduced-motion: reduce) {
     .flow-pulse,
@@ -519,6 +569,11 @@
       animation: none !important;
       opacity: 0 !important;
       visibility: hidden !important;
+    }
+
+    /* Refuerzo por si la preferencia cambia con la página abierta: contenido siempre visible y quieto */
+    .hero-reveal {
+      animation: none !important;
     }
   }
 </style>

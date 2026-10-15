@@ -53,6 +53,23 @@
 
   /* Transiciones */
   --transition-fast: 150ms ease;
+
+  /* Movimiento (Motion Design): curvas y duraciones reutilizables */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);      /* entradas y salidas: arranque rápido, frenada larga */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);  /* desplazamientos de un elemento ya visible */
+  --duration-short: 120ms;   /* respuesta inmediata (pulsación, cambios de estado pequeños) */
+  --duration-medium: 200ms;  /* componentes pequeños (desplegables, menús) */
+  --duration-long: 300ms;    /* entradas de contenido */
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+
+  /* Revelados estructurales al scroll (Fase 2A y 2B) */
+  --duration-reveal-fast: 320ms;
+  --duration-reveal: 450ms;
+  --reveal-offset: 14px;
+  --reveal-offset-editorial: 10px;
+  --reveal-offset-card: 20px;
 }
 
 /* Reset y caja universal */
@@ -302,11 +319,102 @@ img, svg {
   transition: border-color var(--transition-fast);
 }
 
-.card:hover {
-  border-color: var(--color-border-strong);
+/* ==========================================================================
+   Revelados al hacer scroll (Scroll Reveals - Fase 2A)
+   Mejora progresiva: visible por defecto (sin JS, sin soporte o con reduced motion).
+   Solo se oculta transitoriamente si <html> tiene .reveal-ready y el elemento no tiene .is-revealed.
+   ========================================================================== */
+
+/* Estado por defecto y accesible */
+[data-reveal] {
+  opacity: 1;
+  transform: none;
 }
 
-/* Movimiento reducido */
+/* Estado pre-revelado: solo activo cuando el script ha verificado soporte y entorno */
+html.reveal-ready [data-reveal]:not(.is-revealed) {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-offset, 14px), 0);
+}
+
+html.reveal-ready [data-reveal="editorial"]:not(.is-revealed) {
+  transform: translate3d(0, var(--reveal-offset-editorial, 10px), 0);
+}
+
+html.reveal-ready [data-reveal="blueprint"]:not(.is-revealed),
+html.reveal-ready [data-reveal="card"]:not(.is-revealed) {
+  transform: translate3d(0, var(--reveal-offset-card, 20px), 0);
+}
+
+/* Contenedores de escena coordinada: no se desvanecen como bloques monolíticos,
+   sino que orquestan el movimiento secuencial de sus elementos internos */
+html.reveal-ready [data-reveal^="problem-"]:not(.is-revealed),
+html.reveal-ready [data-reveal^="problem-"].is-revealed {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Transición al revelarse */
+html.reveal-ready [data-reveal].is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity var(--duration-reveal, 450ms) var(--ease-out),
+    transform var(--duration-reveal, 450ms) var(--ease-out);
+}
+
+html.reveal-ready [data-reveal="editorial"].is-revealed {
+  transition-duration: var(--duration-reveal-fast, 320ms);
+}
+
+/* Escalonado (Staggering) inteligente por viewport:
+   En escritorio/tablet horizontal (>= 768px), escalonado sutil (80ms, 160ms, 240ms).
+   En móvil (< 768px), donde los bloques se apilan verticalmente, el retraso
+   permanece en 0ms para que cada elemento responda de inmediato al cruzar el viewport. */
+@media (min-width: 768px) {
+  html.reveal-ready [data-reveal-delay="1"] {
+    transition-delay: 80ms;
+  }
+  html.reveal-ready [data-reveal-delay="2"] {
+    transition-delay: 160ms;
+  }
+  html.reveal-ready [data-reveal-delay="3"] {
+    transition-delay: 240ms;
+  }
+}
+
+/* Salvaguarda de Accesibilidad y Teclado (WCAG) */
+html.reveal-ready [data-reveal]:focus-visible,
+html.reveal-ready [data-reveal]:focus-within {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.reveal-ready [data-reveal],
+  html.reveal-ready [data-reveal]:not(.is-revealed),
+  html.reveal-ready [data-reveal].is-revealed {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Indicador de actividad sutil para estados pendientes (Fase 2B) */
+@keyframes calm-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.9);
+  }
+}
+
+/* Movimiento reducido general */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
