@@ -7,11 +7,17 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "dev:pages": "wrangler pages dev dist --d1=DB=deca-light-d1-local --local",
+    "d1:migrate:local": "wrangler d1 execute deca-light-d1-local --local --file=./migrations/0001_create_pilot_submissions.sql",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "node --test test/pilot-api.test.mjs"
   },
   "dependencies": {
     "astro": "^7.3.8"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.1"
   }
 }

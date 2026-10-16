@@ -25,3 +25,7 @@ pnpm-debug.log*
 
 # design references
 _design_refs/
+
+# wrangler local state
+.wrangler/
+

@@ -1,0 +1,10 @@
+name = "deca-light-web"
+pages_build_output_dir = "dist"
+compatibility_date = "2024-09-23"
+
+# Configuración exclusiva para desarrollo local offline
+# En Cloudflare Pages (Preview y Producción), los bindings se configuran de forma independiente en el Dashboard
+[[d1_databases]]
+binding = "DB"
+database_name = "deca-light-d1-local"
+database_id = "local-d1-db-id"

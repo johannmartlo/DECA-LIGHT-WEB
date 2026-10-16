@@ -300,7 +300,20 @@
               </div>
             </div>
 
-            <form class="demo-form" id="pilot-interest-form" novalidate data-endpoint="" method="POST">
+            <form class="demo-form" id="pilot-interest-form" novalidate action="/api/pilot" data-endpoint="/api/pilot" method="POST">
+              <!-- Campo Honeypot invisible para protección pasiva anti-bot -->
+              <input
+                type="text"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+                style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"
+              />
+
+              <!-- Clave de idempotencia única por sesión de formulario -->
+              <input type="hidden" name="idempotency_key" id="pilot-idempotency-key" value="" />
+
               <div class="inputs-row">
                 <div class="input-field-wrap">
                   <label for="company-name" class="input-label">Nombre de la empresa</label>
@@ -336,7 +349,7 @@
 
               <div class="form-btn-wrap">
                 <button type="submit" class="cta-button btn-submit-pilot" id="btn-submit-pilot">
-                  <span>Solicitar participación en el piloto</span>
+                  <span id="btn-pilot-text">Solicitar participación en el piloto</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow-icon" aria-hidden="true">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
@@ -624,20 +637,30 @@
     const form = document.getElementById('pilot-interest-form') as HTMLFormElement | null;
     const feedback = document.getElementById('feedback-note');
     const submitBtn = document.getElementById('btn-submit-pilot') as HTMLButtonElement | null;
+    const btnText = document.getElementById('btn-pilot-text');
+    const idempotencyInput = document.getElementById('pilot-idempotency-key') as HTMLInputElement | null;
+
+    // Generar o refrescar la clave de idempotencia única para esta sesión de formulario
+    const refreshIdempotencyKey = () => {
+      if (idempotencyInput) {
+        idempotencyInput.value = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : 'idemp-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+      }
+    };
+    refreshIdempotencyKey();
 
     if (form && feedback) {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // 1. Validación básica HTML5
+        // 1. Validación básica HTML5 en el navegador
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
         }
 
-        const endpoint = form.getAttribute('data-endpoint') || form.getAttribute('action') || '';
+        const endpoint = form.getAttribute('data-endpoint') || form.getAttribute('action') || '/api/pilot';
 
-        // 2. Si no hay endpoint real configurado, informar con veracidad sin borrar campos
+        // 2. Comprobar que existe un endpoint definido
         if (!endpoint || endpoint === '#' || endpoint.trim() === '') {
           feedback.className = 'feedback-notification is-unconfigured';
           feedback.textContent = 'Canal en preparación técnica: La recepción telemática directa se encuentra en fase de configuración técnica para el lanzamiento. Tus datos se han conservado en el formulario. Para enviar tu solicitud de inmediato, por favor contacta directamente con el equipo promotor.';
@@ -647,9 +670,11 @@
           return;
         }
 
-        // 3. Envío real a endpoint configurado
+        // 3. Activar estado de carga y deshabilitar botón para evitar pulsaciones duplicadas
+        const originalBtnText = btnText ? btnText.textContent : 'Solicitar participación en el piloto';
         if (submitBtn) {
           submitBtn.disabled = true;
+          if (btnText) btnText.textContent = 'Enviando solicitud...';
         }
 
         try {
@@ -662,16 +687,24 @@
             }
           });
 
+          let responseData: { message?: string; error?: string } = {};
+          try {
+            responseData = await response.json();
+          } catch {
+            // Respuesta no-JSON
+          }
+
           if (response.ok) {
             feedback.className = 'feedback-notification is-success';
-            feedback.textContent = '¡Solicitud recibida con éxito! Nos pondremos en contacto contigo para evaluar el encaje operativo de DECA Light en tu almacén.';
+            feedback.textContent = responseData.message || '¡Solicitud recibida con éxito! Nos pondremos en contacto contigo para evaluar el encaje operativo de DECA Light en tu almacén.';
             feedback.classList.remove('hidden');
             feedback.setAttribute('tabindex', '-1');
             feedback.focus();
             form.reset();
+            refreshIdempotencyKey(); // Clave nueva para solicitudes legítimas posteriores
           } else {
             feedback.className = 'feedback-notification is-error';
-            feedback.textContent = 'No se ha podido procesar el envío (respuesta del servidor no satisfactoria). Por favor, inténtalo de nuevo o contacta a través de nuestro correo oficial. Los datos no se han borrado.';
+            feedback.textContent = responseData.message || 'No se ha podido procesar el envío (respuesta del servidor no satisfactoria). Por favor, inténtalo de nuevo o contacta a través de nuestro correo oficial. Los datos no se han borrado.';
             feedback.classList.remove('hidden');
             feedback.setAttribute('tabindex', '-1');
             feedback.focus();
@@ -685,6 +718,7 @@
         } finally {
           if (submitBtn) {
             submitBtn.disabled = false;
+            if (btnText && originalBtnText) btnText.textContent = originalBtnText;
           }
         }
       });
