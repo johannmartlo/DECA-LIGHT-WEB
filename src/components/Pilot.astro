@@ -300,7 +300,7 @@
               </div>
             </div>
 
-            <form class="demo-form" id="pilot-interest-form" novalidate>
+            <form class="demo-form" id="pilot-interest-form" novalidate data-endpoint="" method="POST">
               <div class="inputs-row">
                 <div class="input-field-wrap">
                   <label for="company-name" class="input-label">Nombre de la empresa</label>
@@ -327,8 +327,15 @@
                 </div>
               </div>
 
+              <!-- Cláusula informativa de primera capa (RGPD art. 13 / LOPDGDD art. 11) -->
+              <div class="form-privacy-box">
+                <p class="privacy-box-text">
+                  <strong>Información de protección de datos:</strong> Responsable: titular promotor de DECA Light. Finalidad: tramitar la solicitud de información y valorar la participación en el programa piloto. Legitimación: medidas precontractuales a petición del interesado (art. 6.1.b RGPD) e interés legítimo en contactos profesionales (art. 19 LOPDGDD). Detalles completos y derechos en nuestra <a href="/politica-privacidad" class="privacy-link">Política de Privacidad</a>.
+                </p>
+              </div>
+
               <div class="form-btn-wrap">
-                <button type="submit" class="cta-button btn-submit-pilot">
+                <button type="submit" class="cta-button btn-submit-pilot" id="btn-submit-pilot">
                   <span>Solicitar participación en el piloto</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow-icon" aria-hidden="true">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -338,9 +345,7 @@
               </div>
             </form>
 
-            <div id="feedback-note" class="feedback-notification hidden" role="status">
-              ¡Gracias! Nos pondremos en contacto contigo para evaluar el encaje operativo.
-            </div>
+            <div id="feedback-note" class="feedback-notification hidden" role="status"></div>
 
             <p class="form-disclaimer">
               Sin compromiso. Evaluaremos contigo el encaje operativo en tus instalaciones.
@@ -618,26 +623,70 @@
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('pilot-interest-form') as HTMLFormElement | null;
     const feedback = document.getElementById('feedback-note');
+    const submitBtn = document.getElementById('btn-submit-pilot') as HTMLButtonElement | null;
 
     if (form && feedback) {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Validación básica HTML5
+        // 1. Validación básica HTML5
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
         }
 
-        // Simulación limpia de confirmación en cliente
-        feedback.classList.remove('hidden');
-        feedback.setAttribute('tabindex', '-1');
-        feedback.focus();
-        form.reset();
+        const endpoint = form.getAttribute('data-endpoint') || form.getAttribute('action') || '';
 
-        setTimeout(() => {
-          feedback.classList.add('hidden');
-        }, 6000);
+        // 2. Si no hay endpoint real configurado, informar con veracidad sin borrar campos
+        if (!endpoint || endpoint === '#' || endpoint.trim() === '') {
+          feedback.className = 'feedback-notification is-unconfigured';
+          feedback.textContent = 'Canal en preparación técnica: La recepción telemática directa se encuentra en fase de configuración técnica para el lanzamiento. Tus datos se han conservado en el formulario. Para enviar tu solicitud de inmediato, por favor contacta directamente con el equipo promotor.';
+          feedback.classList.remove('hidden');
+          feedback.setAttribute('tabindex', '-1');
+          feedback.focus();
+          return;
+        }
+
+        // 3. Envío real a endpoint configurado
+        if (submitBtn) {
+          submitBtn.disabled = true;
+        }
+
+        try {
+          const formData = new FormData(form);
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+
+          if (response.ok) {
+            feedback.className = 'feedback-notification is-success';
+            feedback.textContent = '¡Solicitud recibida con éxito! Nos pondremos en contacto contigo para evaluar el encaje operativo de DECA Light en tu almacén.';
+            feedback.classList.remove('hidden');
+            feedback.setAttribute('tabindex', '-1');
+            feedback.focus();
+            form.reset();
+          } else {
+            feedback.className = 'feedback-notification is-error';
+            feedback.textContent = 'No se ha podido procesar el envío (respuesta del servidor no satisfactoria). Por favor, inténtalo de nuevo o contacta a través de nuestro correo oficial. Los datos no se han borrado.';
+            feedback.classList.remove('hidden');
+            feedback.setAttribute('tabindex', '-1');
+            feedback.focus();
+          }
+        } catch (err) {
+          feedback.className = 'feedback-notification is-error';
+          feedback.textContent = 'Error de conexión al enviar la solicitud. Revisa tu conexión a internet o contacta con el equipo. Los datos permanecen en el formulario.';
+          feedback.classList.remove('hidden');
+          feedback.setAttribute('tabindex', '-1');
+          feedback.focus();
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+          }
+        }
       });
     }
 
@@ -1669,17 +1718,66 @@
     transform: translateX(3px);
   }
 
+  .form-privacy-box {
+    margin-top: 0.75rem;
+    padding: 0.625rem 0.75rem;
+    background-color: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 0.5rem;
+    text-align: left;
+  }
+
+  .privacy-box-text {
+    font-size: 0.6875rem;
+    color: #64748B;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .privacy-box-text strong {
+    color: #334155;
+  }
+
+  .privacy-link {
+    color: #047857;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .privacy-link:hover {
+    color: #065F46;
+  }
+
   .feedback-notification {
-    margin-top: 0.5rem;
-    padding: 0.5rem 0.75rem;
+    margin-top: 0.75rem;
+    padding: 0.75rem 0.875rem;
     background-color: #ECFDF5;
     border: 1px solid #A7F3D0;
     border-radius: 0.5rem;
-    font-size: 0.6875rem;
-    font-weight: 600;
+    font-size: 0.75rem;
+    font-weight: 500;
     color: #064E3B;
-    text-align: center;
+    text-align: left;
+    line-height: 1.45;
     animation: fadeIn 0.3s ease;
+  }
+
+  .feedback-notification.is-unconfigured {
+    background-color: #FEF3C7;
+    border-color: #FCD34D;
+    color: #92400E;
+  }
+
+  .feedback-notification.is-error {
+    background-color: #FEE2E2;
+    border-color: #FCA5A5;
+    color: #991B1B;
+  }
+
+  .feedback-notification.is-success {
+    background-color: #ECFDF5;
+    border-color: #A7F3D0;
+    color: #064E3B;
   }
 
   .hidden {

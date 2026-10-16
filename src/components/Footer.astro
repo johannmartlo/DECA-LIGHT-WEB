@@ -38,17 +38,17 @@
         <h3 class="footer-col-title">Legal</h3>
         <ul class="footer-links">
           <li>
-            <a href="#piloto" class="footer-link" title="Aviso legal en proceso de validación jurídica para el lanzamiento">
+            <a href="/aviso-legal" class="footer-link">
               Aviso legal
             </a>
           </li>
           <li>
-            <a href="#piloto" class="footer-link" title="Política de privacidad en redacción conforme al RGPD">
+            <a href="/politica-privacidad" class="footer-link">
               Política de privacidad
             </a>
           </li>
           <li>
-            <a href="#piloto" class="footer-link" title="Política de cookies para el lanzamiento comercial">
+            <a href="/politica-cookies" class="footer-link">
               Política de cookies
             </a>
           </li>
@@ -96,11 +96,16 @@
       </div>
     </div>
 
-    <!-- Barra inferior con división sutil -->
+    <!-- Barra inferior con división sutil y advertencia de marcas -->
     <div class="footer-bottom">
-      <p class="copyright">
-        © 2026 DECA Light. Todos los derechos reservados.
-      </p>
+      <div class="footer-legal-copy">
+        <p class="copyright">
+          © 2026 DECA Light. Todos los derechos reservados.
+        </p>
+        <p class="footer-disclaimer">
+          DECA Light es un proyecto en desarrollo. Las marcas y denominaciones comerciales de terceros citadas en este sitio web (incluidas Hispatec o TransFollow) pertenecen a sus respectivos titulares y se mencionan exclusivamente con fines descriptivos de interoperabilidad y contexto operativo sectorial.
+        </p>
+      </div>
       <p class="footer-sector-tagline">
         Una solución pensada para el sector hortofrutícola.
       </p>
@@ -293,6 +298,7 @@
   }
 
   .footer-social-btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -304,6 +310,19 @@
     color: #A3C4B8;
     text-decoration: none;
     transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+  }
+
+  /* Área táctil accesible mínima de 44x44px preservando el tamaño visual */
+  .footer-social-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 44px;
+    min-height: 44px;
+    width: 100%;
+    height: 100%;
   }
 
   .footer-social-btn:hover {
@@ -322,15 +341,30 @@
   .footer-bottom {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1.25rem;
     padding-top: 1.75rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.8125rem;
     color: #A3C4B8;
   }
 
+  .footer-legal-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 70ch;
+  }
+
   .copyright {
     margin: 0;
+    font-weight: 600;
+  }
+
+  .footer-disclaimer {
+    margin: 0;
+    font-size: 0.6875rem;
+    line-height: 1.5;
+    color: #7CA194;
   }
 
   .footer-sector-tagline {

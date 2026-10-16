@@ -1,0 +1,218 @@
+---
+// src/pages/politica-cookies.astro - Política de cookies de DECA Light
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Política de Cookies · DECA Light"
+  description="Información sobre el uso de cookies y tecnologías de almacenamiento local en el sitio web de DECA Light."
+>
+  <div class="legal-page">
+    <div class="container legal-container">
+      <!-- Breadcrumb de retorno -->
+      <nav class="legal-breadcrumb" aria-label="Ruta de navegación">
+        <a href="/" class="breadcrumb-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Volver al inicio</span>
+        </a>
+      </nav>
+
+      <!-- Banner de advertencia de borrador legal -->
+      <div class="legal-draft-notice" role="note">
+        <div class="notice-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <div>
+          <p class="notice-title">BORRADOR INFORMATIVO PREVIO AL LANZAMIENTO</p>
+          <p class="notice-desc">
+            En su versión comercial estática actual, DECA Light no utiliza cookies de seguimiento publicitario ni analítica invasiva de terceros.
+          </p>
+        </div>
+      </div>
+
+      <header class="legal-header">
+        <span class="section-kicker">INFORMACIÓN TÉCNICA</span>
+        <h1 class="legal-title">Política de Cookies</h1>
+        <p class="legal-date">Última actualización: Octubre de 2026</p>
+      </header>
+
+      <div class="legal-content">
+        <section class="legal-section">
+          <h2>1. ¿Qué son las cookies?</h2>
+          <p>
+            Una cookie es un pequeño fichero de texto que un sitio web almacena en el navegador del usuario al visitarlo. Su finalidad suele ser recordar preferencias de navegación, mejorar el rendimiento técnico o recopilar métricas de uso anónimas.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>2. Cookies utilizadas en este sitio web</h2>
+          <p>
+            En cumplimiento del artículo 22.2 de la Ley 34/2002 (LSSI-CE) y de la guía de la Agencia Española de Protección de Datos (AEPD), se informa a los usuarios del estado de uso de cookies en <strong>DECA Light</strong>:
+          </p>
+          <ul class="legal-list">
+            <li>
+              <strong>Cookies técnicas estrictamente necesarias:</strong> Este sitio web está construido como una aplicación estática ligera con Astro. En su estado actual, no instala cookies analíticas, cookies publicitarias ni cookies de seguimiento de terceros.
+            </li>
+            <li>
+              <strong>Cookies analíticas o de personalización:</strong> <strong>Ninguna en uso activo.</strong> No se cargan scripts externos de Google Analytics, Meta Pixel ni redes publicitarias.
+            </li>
+            <li>
+              <strong>Cookies de terceros:</strong> No se realizan llamadas a servicios externos que instalen cookies en el equipo del usuario al cargar las páginas.
+            </li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>3. Futuras integraciones</h2>
+          <p>
+            Si en fases posteriores de lanzamiento comercial se decidiera incorporar herramientas analíticas que requieran el uso de cookies no exentas, se implementará con carácter previo un sistema de gestión de consentimiento (CMP o banner de cookies) que permita aceptar, configurar o rechazar su instalación de manera informada y granular.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>4. Cómo gestionar las cookies desde su navegador</h2>
+          <p>
+            El usuario puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador web que utilice (Chrome, Firefox, Safari, Edge). En la actualidad, bloquear cookies no afectará en absoluto a la navegación o lectura en la web de DECA Light al carecer de cookies de rastreo.
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .legal-page {
+    padding-top: clamp(2rem, 4vw, 3.5rem);
+    padding-bottom: clamp(4rem, 6vw, 6rem);
+    background-color: var(--color-bg-canvas, #F8FAFC);
+  }
+
+  .legal-container {
+    max-width: 820px;
+    margin-inline: auto;
+  }
+
+  .legal-breadcrumb {
+    margin-bottom: var(--space-6, 1.5rem);
+  }
+
+  .breadcrumb-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary, #475569);
+    text-decoration: none;
+    transition: color 150ms ease;
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--color-brand-primary, #047857);
+    text-decoration: underline;
+  }
+
+  .legal-draft-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background-color: var(--color-accent-amber-subtle, #FEF3C7);
+    border: 1px solid var(--color-accent-amber-border, #FCD34D);
+    border-radius: var(--radius-md, 6px);
+    margin-bottom: var(--space-8, 2rem);
+  }
+
+  .notice-icon {
+    flex-shrink: 0;
+    color: var(--color-accent-amber-text, #92400E);
+    margin-top: 2px;
+  }
+
+  .notice-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-accent-amber-text, #92400E);
+    margin-bottom: 0.25rem;
+  }
+
+  .notice-desc {
+    font-size: 0.8125rem;
+    color: var(--color-accent-amber-text, #92400E);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .legal-header {
+    margin-bottom: var(--space-8, 2rem);
+    padding-bottom: var(--space-6, 1.5rem);
+    border-bottom: 1px solid var(--color-border-subtle, #E2E8F0);
+  }
+
+  .legal-title {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: var(--color-text-primary, #0F172A);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .legal-date {
+    font-size: 0.875rem;
+    color: var(--color-text-muted, #64748B);
+  }
+
+  .legal-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8, 2rem);
+  }
+
+  .legal-section h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #0F172A);
+    margin-bottom: var(--space-3, 0.75rem);
+  }
+
+  .legal-section p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary, #475569);
+    line-height: 1.65;
+    margin-bottom: var(--space-4, 1rem);
+  }
+
+  .legal-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: var(--space-4, 1rem);
+  }
+
+  .legal-list li {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary, #475569);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .legal-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-brand-primary, #047857);
+    font-weight: bold;
+  }
+</style>

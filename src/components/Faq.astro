@@ -454,6 +454,23 @@
   </div>
 </section>
 
+<!-- Fallback No-JS accesible: garantiza la lectura completa si JavaScript está deshabilitado -->
+<noscript>
+  <style>
+    .accordion-content {
+      grid-template-rows: 1fr !important;
+    }
+    .accordion-inner {
+      opacity: 1 !important;
+      transform: none !important;
+      overflow: visible !important;
+    }
+    .accordion-chevron {
+      display: none !important;
+    }
+  </style>
+</noscript>
+
 <!-- ==============================================
      INTERACCIÓN DEL ACORDEÓN ACCESIBLE
      ============================================== -->
@@ -1247,6 +1264,21 @@
     opacity: 1;
     transform: translateY(0);
     transition-delay: 60ms;
+  }
+
+  /* Fallback accesible para entornos donde JavaScript esté deshabilitado */
+  :global(html:not(.js)) .accordion-content {
+    grid-template-rows: 1fr !important;
+  }
+
+  :global(html:not(.js)) .accordion-inner {
+    opacity: 1 !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  :global(html:not(.js)) .accordion-chevron {
+    display: none !important;
   }
 
   .answer-body {
