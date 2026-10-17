@@ -2,8 +2,15 @@ name = "deca-light-web"
 pages_build_output_dir = "dist"
 compatibility_date = "2024-09-23"
 
-# Base de datos D1 para entorno Preview
+# Base de datos D1 para entorno Production
 [[d1_databases]]
+binding = "DB"
+database_name = "deca-light-d1"
+database_id = "c90f8ab0-493f-481b-9de2-2688004134dd"
+
+# Base de datos D1 para entorno Preview
+[env.preview]
+[[env.preview.d1_databases]]
 binding = "DB"
 database_name = "deca-light-d1-preview"
 database_id = "ed864a09-32d3-4b67-850a-19ac8eae5c80"

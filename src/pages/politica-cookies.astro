@@ -82,6 +82,23 @@ import Layout from '../layouts/Layout.astro';
             El usuario puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador web que utilice (Chrome, Firefox, Safari, Edge). En la actualidad, bloquear cookies no afectará en absoluto a la navegación o lectura en la web de DECA Light al carecer de cookies de rastreo.
           </p>
         </section>
+
+        <section class="legal-section">
+          <h2>5. Contacto y dudas técnicas</h2>
+          <p>
+            Para cualquier consulta sobre esta política técnica o sobre el funcionamiento del sitio web, puede comunicarse con el equipo promotor a través de <a href="mailto:contacto@decalight.es" class="legal-link">contacto@decalight.es</a>.
+          </p>
+        </section>
+
+        <!-- Navegación entre documentos legales -->
+        <nav class="legal-cross-nav" aria-label="Documentos legales relacionados">
+          <span class="cross-nav-title">Documentos legales relacionados</span>
+          <ul class="cross-nav-list">
+            <li><a href="/aviso-legal" class="legal-link">Aviso Legal</a></li>
+            <li><a href="/politica-privacidad" class="legal-link">Política de Privacidad</a></li>
+            <li><a href="/politica-cookies" class="legal-link" aria-current="page">Política de Cookies</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
@@ -214,5 +231,40 @@ import Layout from '../layouts/Layout.astro';
     left: 0;
     color: var(--color-brand-primary, #047857);
     font-weight: bold;
+  }
+
+  .legal-link {
+    color: var(--color-brand-primary, #047857);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 150ms ease;
+  }
+
+  .legal-link:hover {
+    color: var(--color-brand-hover, #065F46);
+  }
+
+  .legal-cross-nav {
+    margin-top: var(--space-8, 2rem);
+    padding-top: var(--space-6, 1.5rem);
+    border-top: 1px solid var(--color-border-subtle, #E2E8F0);
+  }
+
+  .cross-nav-title {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted, #64748B);
+    margin-bottom: var(--space-3, 0.75rem);
+  }
+
+  .cross-nav-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
   }
 </style>

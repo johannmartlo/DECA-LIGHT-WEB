@@ -50,7 +50,7 @@ import Layout from '../layouts/Layout.astro';
             <li><strong>Identidad:</strong> DECA Light ([PENDIENTE: Razón social del titular promotor])</li>
             <li><strong>NIF:</strong> [PENDIENTE DE INCORPORACIÓN]</li>
             <li><strong>Domicilio:</strong> [PENDIENTE DE INCORPORACIÓN]</li>
-            <li><strong>Correo de contacto para privacidad:</strong> [PENDIENTE: privacidad@decalight.com]</li>
+            <li><strong>Correo de contacto para privacidad:</strong> <a href="mailto:contacto@decalight.es" class="legal-link">contacto@decalight.es</a> (canal general habilitado; [PENDIENTE DE REVISIÓN: determinar si se creará un buzón específico de privacidad])</li>
           </ul>
         </section>
 
@@ -89,10 +89,18 @@ import Layout from '../layouts/Layout.astro';
         </section>
 
         <section class="legal-section">
-          <h2>5. Destinatarios y transferencias internacionales</h2>
+          <h2>5. Encargados del tratamiento y transferencias internacionales</h2>
           <p>
-            No se cederán datos a terceros salvo obligación legal expresa. La infraestructura de alojamiento y correo opera preferentemente bajo proveedores con servidores ubicados en el Espacio Económico Europeo (EEE) o bajo mecanismos reconocidos de adecuación y salvaguardas estándar.
+            No se ceden datos personales a terceros con fines publicitarios ni comerciales. Para la operativa del sitio web y la gestión del formulario de contacto, se recurre a los siguientes proveedores de servicios que actúan en calidad de encargados del tratamiento conforme al artículo 28 del RGPD:
           </p>
+          <ul class="legal-list">
+            <li>
+              <strong>Alojamiento web y base de datos (Cloudflare, Inc.):</strong> Servicio de computación en el Edge (Cloudflare Pages) y base de datos relacional serverless (Cloudflare D1, ubicada preferentemente en el Espacio Económico Europeo). Cloudflare opera bajo Cláusulas Contractuales Tipo de la Comisión Europea y el marco de privacidad de datos UE-EE. UU. (Data Privacy Framework). Las direcciones IP de conexión se anonimizan mediante una función criptográfica unidireccional (hash SHA-256 con sal) con fines exclusivos de prevención de abusos (rate limiting), sin almacenarse en texto plano.
+            </li>
+            <li>
+              <strong>Notificaciones transaccionales (Resend, Inc.):</strong> Proveedor de servicio de correo electrónico utilizado exclusivamente para remitir la alerta interna de nueva solicitud recibida al equipo de DECA Light. La transmisión se realiza mediante canal cifrado (HTTPS/TLS) y bajo salvaguardas contractuales conformes con la normativa europea.
+            </li>
+          </ul>
         </section>
 
         <section class="legal-section">
@@ -101,9 +109,19 @@ import Layout from '../layouts/Layout.astro';
             El interesado tiene derecho a acceder a sus datos personales, solicitar la rectificación de los inexactos o, en su caso, solicitar su supresión cuando ya no sean necesarios para los fines que fueron recogidos. Asimismo, podrá solicitar la limitación del tratamiento o formular oposición.
           </p>
           <p>
-            Para ejercer estos derechos, puede remitir comunicación escrita acreditando su identidad al buzón de contacto legal indicado en el apartado 1. Igualmente, tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD, www.aepd.es) si considera que sus derechos han sido vulnerados.
+            Para ejercer estos derechos, puede remitir comunicación escrita acreditando su identidad al buzón de contacto indicado en el apartado 1 (<a href="mailto:contacto@decalight.es" class="legal-link">contacto@decalight.es</a>). Igualmente, tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD, www.aepd.es) si considera que sus derechos han sido vulnerados.
           </p>
         </section>
+
+        <!-- Navegación entre documentos legales -->
+        <nav class="legal-cross-nav" aria-label="Documentos legales relacionados">
+          <span class="cross-nav-title">Documentos legales relacionados</span>
+          <ul class="cross-nav-list">
+            <li><a href="/aviso-legal" class="legal-link">Aviso Legal</a></li>
+            <li><a href="/politica-privacidad" class="legal-link" aria-current="page">Política de Privacidad</a></li>
+            <li><a href="/politica-cookies" class="legal-link">Política de Cookies</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
@@ -236,5 +254,40 @@ import Layout from '../layouts/Layout.astro';
     left: 0;
     color: var(--color-brand-primary, #047857);
     font-weight: bold;
+  }
+
+  .legal-link {
+    color: var(--color-brand-primary, #047857);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 150ms ease;
+  }
+
+  .legal-link:hover {
+    color: var(--color-brand-hover, #065F46);
+  }
+
+  .legal-cross-nav {
+    margin-top: var(--space-8, 2rem);
+    padding-top: var(--space-6, 1.5rem);
+    border-top: 1px solid var(--color-border-subtle, #E2E8F0);
+  }
+
+  .cross-nav-title {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted, #64748B);
+    margin-bottom: var(--space-3, 0.75rem);
+  }
+
+  .cross-nav-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
   }
 </style>
