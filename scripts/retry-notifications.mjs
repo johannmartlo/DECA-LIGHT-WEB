@@ -27,7 +27,7 @@ export function escapeHtml(str) {
  */
 export function buildNotificationEmail(record, { recipientEmail, senderEmail } = {}) {
   const recipient = recipientEmail || process.env.NOTIFICATION_RECIPIENT_EMAIL || "contacto@decalight.es";
-  const sender = senderEmail || process.env.NOTIFICATION_SENDER_EMAIL || "DECA Light <onboarding@resend.dev>";
+  const sender = senderEmail || process.env.NOTIFICATION_SENDER_EMAIL || "DECA Light <piloto@envios.decalight.es>";
   const company = record.company_name || "";
   const email = record.email || "";
   const id = record.id;

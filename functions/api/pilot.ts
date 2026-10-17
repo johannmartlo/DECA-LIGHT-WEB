@@ -243,7 +243,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   // 8. Notificación mediante proveedor de email (Resend)
   // La persistencia ya está garantizada en D1. Si el correo falla, la solicitud no se pierde.
   const recipientEmail = env.NOTIFICATION_RECIPIENT_EMAIL || "contacto@decalight.es";
-  const senderEmail = env.NOTIFICATION_SENDER_EMAIL || "DECA Light <onboarding@resend.dev>";
+  const senderEmail = env.NOTIFICATION_SENDER_EMAIL || "DECA Light <piloto@envios.decalight.es>";
   const resendApiKey = env.RESEND_API_KEY;
 
   if (resendApiKey) {
