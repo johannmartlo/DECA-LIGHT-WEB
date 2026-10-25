@@ -1,6 +1,6 @@
 # DECA Light Web
 
-Sitio web comercial estático de **DECA Light**, solución en desarrollo orientada a la coordinación documental de expediciones para almacenes y comercializadoras hortofrutícolas.
+Sitio web comercial estático de **DECA Light**, solución orientada a la coordinación documental de expediciones para almacenes y comercializadoras hortofrutícolas.
 
 ---
 
@@ -81,7 +81,7 @@ El repositorio está conectado directamente a **Cloudflare Pages** mediante la i
 
 ---
 
-## 7. Formulario de captación del piloto (Pages Functions y Cloudflare D1)
+## 7. Formulario de solicitud de demostración (Pages Functions y Cloudflare D1)
 
 La sección `#piloto` cuenta con un endpoint serverless gestionado por Cloudflare Pages Functions:
 

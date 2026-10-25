@@ -177,7 +177,7 @@ Para garantizar total veracidad con el código existente en el repositorio:
 ### CMP-05: `StatusBadge` (Insignia de Estado Operativo)
 
 - **Estado en código:** `IMPLEMENTADO`  
-  *Justificación:* Operativo en `src/components/Header.astro` ("Proyecto en desarrollo"), en `src/components/Hero.astro`, en `src/components/Problem.astro` y en `src/components/HowItWorks.astro`.
+  *Justificación:* Operativo en `src/components/Footer.astro` ("Disponible para almacenes hortofrutícolas"), en `src/components/Hero.astro`, en `src/components/Problem.astro` y en `src/components/HowItWorks.astro`.
 - **Propósito:** Informar de manera instantánea sobre el estado de un proceso, documento o del propio proyecto, asociando un color funcional con un texto explícito.
 - **Semántica HTML:** `<span class="status-badge status-badge--[variant]">`.
 - **Plano de profundidad:** **Plano 1** (dentro de tarjetas) o **Plano 2** (flotante sobre cabeceras).
@@ -204,7 +204,7 @@ Para garantizar total veracidad con el código existente en el repositorio:
   - **CRÍTICO:** Prohibido el uso de `animation-duration: 0.01ms !important` genérico que hace parpadear o desaparecer el dot.
   - La animación de pulso (`keyframes pulse`) se apaga (`animation: none`), pero el `StatusDot` permanece **100% visible, estático y con su color funcional intacto**.
 - **Accesibilidad (WCAG AA):**
-  - **No basarse únicamente en el color:** El badge siempre incluye texto legible ("En desarrollo", "Pendiente de matrícula", "Validado").
+  - **No basarse únicamente en el color:** El badge siempre incluye texto legible ("Disponible", "Pendiente de matrícula", "Validado").
   - Si el dot estuviera aislado, requeriría `aria-label="Estado: Pendiente"`.
 
 ---

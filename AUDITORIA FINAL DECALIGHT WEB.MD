@@ -1,3 +1,5 @@
+> **Documento histórico.** Describe el estado de la web antes del lanzamiento. Superado por la decisión de lanzamiento del 25-oct-2026 (ver `WEB_MAESTRO_DECA_LIGHT.md` §0). No usar como especificación actual.
+
 DECA Light — Auditoría Final Integral y Plan de Cierre de la Web
 
 1\. Resumen ejecutivo

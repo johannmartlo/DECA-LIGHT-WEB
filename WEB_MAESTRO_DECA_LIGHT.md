@@ -1,13 +1,27 @@
 # DECA Light — Documento Maestro de la Web Comercial
 
-**Versión:** 1.0.0  
-**Fecha de consolidación:** 14 de octubre de 2026  
+**Versión:** 1.1.0  
+**Fecha de consolidación:** 14 de octubre de 2026 · **Actualizado:** 25 de octubre de 2026 (lanzamiento comercial)  
 **Estado:** Documento normativo de referencia de producto, narrativa y arquitectura  
 **Uso:** Fuente de verdad canónica para el diseño, contenido y construcción de la web comercial de DECA Light  
 **Documentos vinculados:** [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) (v3.0.0), [`COMPONENT_LIBRARY.md`](COMPONENT_LIBRARY.md) (v1.0.0), [`MOTION_GUIDELINES.md`](MOTION_GUIDELINES.md) (v1.0.0)  
-**Restricción permanente:** Este documento no autoriza modificaciones en el código de la aplicación SaaS subyacente ni presupone la disponibilidad operativa de funcionalidades catalogadas como en desarrollo o hipótesis.
+**Restricción permanente:** Este documento no autoriza modificaciones en el código de la aplicación SaaS subyacente ni presupone la disponibilidad operativa de funcionalidades catalogadas como hoja de ruta o hipótesis.
 
 ---
+
+## 0. Decisión de lanzamiento (25-oct-2026) — prevalece sobre el resto del documento
+
+Por decisión del responsable del producto, la web deja de presentar DECA Light como proyecto en desarrollo o programa piloto.
+
+- **Mensaje:** DECA Light está **disponible** para almacenes y comercializadoras hortofrutícolas, con **demostración y puesta en marcha guiada** (alta y configuración acompañadas; no hay autoservicio).
+- **Llamada a la acción aprobada:** «Solicitar demostración» (variantes: «Solicitar una demostración», «Contactar»). El ancla `#piloto` se mantiene por compatibilidad de enlaces.
+- **Qué se puede afirmar hoy:** importa el informe de expediciones de Hispatec (CSV exportado) y cartas de porte en PDF; agrupa el día por transportista; pide solo lo que falta (normalmente la matrícula); genera el DeCA en PDF con código QR; multiempresa.
+- **Qué NO se puede afirmar:** clientes, testimonios, logotipos o métricas no reales; «ya funciona en almacenes» hasta que el piloto real esté en marcha; integración directa (API) con Hispatec o TransFollow; CMR o transporte internacional; «homologado», «certificado», «cumple el 100 % de la normativa», «preparado para eFTI».
+- **Páginas legales:** siguen marcadas como borrador hasta incorporar los datos del titular (LSSI art. 10).
+- Las secciones 3, 4, 5, 6 y 8 se han actualizado a esta decisión; donde quede algún texto antiguo, prevalece esta sección.
+
+---
+
 
 ## 1. Propósito y Marco de Gobernanza
 
@@ -18,10 +32,11 @@ Este archivo actúa como el contrato maestro para cualquier diseñador, director
 
 ### 1.2 Reglas fundamentales de gobernanza
 1. **Inviolabilidad del software SaaS:** No tocar, modificar ni refactorizar repositorios, bases de datos o servicios de la aplicación SaaS desde el proyecto web.
-2. **Despliegue bajo autorización:** Prohibido desplegar la web, alterar zonas DNS de DonDominio o publicar cambios en producción sin aprobación humana expresa y trazable.
+2. **Despliegue bajo autorización:** Prohibido alterar zonas DNS (gestionadas en Cloudflare) o publicar cambios en la rama de producción de Cloudflare Pages sin aprobación humana expresa y trazable.
 3. **Principio de honestidad comercial:** Prohibido anunciar como operativas funciones que se encuentren en fase de investigación, diseño o desarrollo. Distinguir siempre entre:
    - **Hechos comprobados:** Realidad contrastada en almacenes hortofrutícolas.
-   - **Capacidades en desarrollo:** Funciones programadas en la hoja de ruta técnica pero no finalizadas.
+   - **Capacidades disponibles:** Funciones que existen en el producto (§6).
+   - **Hoja de ruta:** Funciones previstas pero no disponibles.
    - **Hipótesis por validar:** Suposiciones operativas o de negocio sujetas a entrevistas de campo.
 4. **Tolerancia cero a la ficción de marketing:** No inventar logotipos de clientes, citas testimoniales, métricas de ahorro inventadas, acuerdos de integración con terceros (Hispatec, TransFollow) ni garantías de cumplimiento normativo absoluto.
 5. **Calidad estética e integridad técnica:** Mantener una identidad visual B2B sobria, editorial y premium, rechazando recursos de plantilla genérica, animaciones intrusivas o degradaciones de accesibilidad.
@@ -31,7 +46,7 @@ Este archivo actúa como el contrato maestro para cualquier diseñador, director
 ## 2. Producto, Posicionamiento y Contexto Sectorial
 
 ### 2.1 Definición técnica y conceptual de DECA Light
-DECA Light es una solución SaaS B2B en fase de desarrollo concebida como una **capa ligera de coordinación documental de expediciones** para almacenes hortofrutícolas y empresas comercializadoras agrícolas.
+DECA Light es una solución SaaS B2B concebida como una **capa ligera de coordinación documental de expediciones** para almacenes hortofrutícolas y empresas comercializadoras agrícolas.
 
 ```
 ┌────────────────────────────────────────────────────────┐
@@ -97,7 +112,7 @@ Para mantener el rigor editorial y técnico, la web debe referenciar con exactit
 - **Lema principal aprobado:**  
   > *La gestión documental de tus expediciones, más sencilla.*
 - **Sublema / Kicker superior de posicionamiento:**  
-  > `PROYECTO EN DESARROLLO · COORDINACIÓN DOCUMENTAL DE EXPEDICIONES`
+  > `COORDINACIÓN DOCUMENTAL DE EXPEDICIONES`
 - **Tono de voz comercial:**
   - Sobrio, riguroso, empático con la tensión del muelle agrícola y respetuoso con los procedimientos tradicionales.
   - Rechazo frontal de la hipérbole tecnológica ("revolución cuántica", "magia de IA", "disrupción").
@@ -110,11 +125,12 @@ Para mantener el rigor editorial y técnico, la web debe referenciar con exactit
 Para preservar la credibilidad de DECA Light ante directores de operaciones y gerentes de cooperativas agrícolas, la web debe respetar estrictamente los siguientes límites:
 
 ### 3.1 Lo que SÍ se puede afirmar
-- "DECA Light está en fase de desarrollo y validación con profesionales del sector hortofrutícola."
+- "DECA Light está disponible para almacenes y comercializadoras hortofrutícolas, con demostración y puesta en marcha guiada."
+- "Importa el informe de expediciones de Hispatec y las cartas de porte en PDF, y genera el DeCA con su PDF y su código QR."
 - "El objetivo del proyecto es estructurar la documentación disponible para que la llegada de la matrícula no colapse la operativa."
 - "Diseñado para actuar como una capa complementaria sobre los sistemas de gestión habituales."
 - "Mantiene la verificación humana como principio central en cada decisión documental."
-- "Buscamos almacenes colaboradores para contrastar necesidades en entrevistas y diseñar un programa piloto futuro."
+- "Te enseñamos DECA Light con un caso como el tuyo y te acompañamos en la puesta en marcha."
 
 ### 3.2 Declaraciones terminantemente PROHIBIDAS
 | Declaración Prohibida | Razón de la Prohibición | Formulación Aceptada de Reemplazo |
@@ -125,7 +141,9 @@ Para preservar la credibilidad de DECA Light ante directores de operaciones y ge
 | *"Integración nativa con Hispatec / ERP"* | No existe integración técnica validada por contrato; es un objetivo de estudio. | *"Diseñado para convivir con los procedimientos y sistemas habituales del almacén."* |
 | *"Ahorra un 80% del tiempo de expedición"* | No existen métricas estadísticas auditadas en producción real. | *"Orientado a reducir las búsquedas manuales y la sobrecarga al final de la jornada."* |
 | *"Cumplimiento legal 100% blindado"* | La responsabilidad legal del transporte recae en el cargador y transportista según la LOTT. | *"Facilita la incorporación de los datos exigidos por la normativa de transporte."* |
-| *"Comienza a utilizarlo hoy gratis"* | El software no está abierto a producción comercial libre ni autoservicio. | *"Solicita participar en las entrevistas de validación y programa piloto."* |
+| *"Comienza a utilizarlo hoy gratis"* | No hay autoservicio ni precio público: el alta es guiada. | *"Solicita una demostración."* |
+| *"Homologado / certificado por el Ministerio"* | El Ministerio no certifica aplicaciones de DeCA. | *"Genera el DeCA en PDF con código QR para su consulta en carretera."* |
+| *"Preparado para eFTI"* | No acreditado. | No mencionar hasta tener integración o certificación documentada. |
 
 ---
 
@@ -135,16 +153,16 @@ La web comercial de DECA Light se estructura en una sola página fluida, modular
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│ HEADER: Marca · Nav (Problema, Flujo, Piloto, FAQ) · Status · CTA │
+│ HEADER: Marca · Nav (Problema, Flujo, Demostración, FAQ) · CTA    │
 ├──────────────────────────────────────────────────────────────────┤
-│ HERO: Kicker · H1 Lema · P Desarrollo · CTA Piloto · SVG Flujo   │
+│ HERO: Kicker · H1 Lema · P Propuesta · CTA Contactar · SVG Flujo │
 ├──────────────────────────────────────────────────────────────────┤
 │ PROBLEM: Editorial 2 cols · Kicker · H2 · P · 3 Fricciones · Banner│
 ├──────────────────────────────────────────────────────────────────┤
 │ HOW IT WORKS: 3 Fases (Preparar · Coordinar · Completar)         │
 │               Blueprints · Pipeline Nodes · Human Checklists     │
 ├──────────────────────────────────────────────────────────────────┤
-│ PILOT: Captación entrevistas · Formulario honesto · Advertencias │
+│ DEMO (#piloto): Solicitud de demostración · Formulario · Pasos   │
 ├──────────────────────────────────────────────────────────────────┤
 │ FAQ: Acordeón accesible · 6 Preguntas normativas de producto     │
 ├──────────────────────────────────────────────────────────────────┤
@@ -156,24 +174,22 @@ La web comercial de DECA Light se estructura en una sola página fluida, modular
 - **Propósito:** Identificación de marca inmediata, navegación accesible y llamada a la acción siempre disponible.
 - **Elementos anatómicos:**
   - **Identificador de marca:** Logotipo tipográfico `DECA Light` con enlace ancla a inicio (`#`). Tipografía Inter semibold con acento sutil en `Light`.
-  - **Navegación principal:** Lista semántica `<nav>` con 4 anclas: *El problema* (`#problema`), *Cómo funciona* (`#como-funciona`), *Programa piloto* (`#piloto`), *Preguntas frecuentes* (`#faq`).
-  - **Status Badge:** Componente `StatusBadge` con dot pulsante ámbar y texto: `En desarrollo`. Comunica de inmediato el estado del proyecto.
-  - **CTA de cabecera:** Enlace botón a `#piloto` con texto: `Me interesa el piloto` (versión compacta).
+  - **Navegación principal:** Lista semántica `<nav>` con 4 anclas: *El problema* (`#problema`), *Cómo funciona* (`#como-funciona`), *Demostración* (`#piloto`), *Preguntas frecuentes* (`#faq`).
+  - **CTA de cabecera:** Enlace botón a `#piloto` con texto: `Contactar`. No hay distintivo de «En desarrollo».
 - **Responsive:** En móvil (<768px), la navegación de enlaces se oculta o condensa; el identificador de marca y el CTA de cabecera se mantienen accesibles respetando el área táctil mínima de 44×44px.
 
 ### 4.2 Hero (`src/components/Hero.astro`)
 - **Propósito:** Declarar el posicionamiento en los primeros 3 segundos y modelar visualmente la convergencia del flujo documental.
 - **Elementos anatómicos:**
-  - **Kicker superior:** `PROYECTO EN DESARROLLO · DOCUMENTACIÓN DE EXPEDICIONES` estilizado con tracking amplio y acento esmeralda.
+  - **Kicker superior:** `COORDINACIÓN DOCUMENTAL DE EXPEDICIONES` estilizado con tracking amplio y acento esmeralda.
   - **Titular H1:** *La gestión documental de tus expediciones, más sencilla.*
-  - **Párrafo de posicionamiento:** *DECA Light está en desarrollo para ayudar a los almacenes hortofrutícolas a organizar la información de sus expediciones y simplificar las tareas administrativas relacionadas con su documentación.*
-  - **Acción principal:** Botón primario esmeralda con enlace a `#piloto`: *Mostrar interés en el programa piloto*.
-  - **Micro-copia de honestidad:** *Estamos contrastando el proceso con profesionales del sector antes de abrir una prueba operativa.*
+  - **Párrafo de posicionamiento:** *DECA Light coordina la documentación de las expediciones y organiza la información del almacén y del transporte, incluso cuando los datos llegan en momentos diferentes.*
+  - **Acción principal:** Botón primario esmeralda con enlace a `#piloto`: *Contactar*.
   - **Diagrama de proceso convergente (ProcessDiagram):**
     - Columna izquierda: Bloque "Almacén" (Albarán, Pesaje, Bultos listos).
     - Columna central: Bloque "Transporte" (Matrícula y Conductor con estado ámbar "Pendiente").
     - Centro de convergencia: Nodo DECA Light que procesa la unión.
-    - Columna derecha: Bloque de salida con documento "DECA Validado" en verde esmeralda.
+    - Columna derecha: Bloque de salida con el documento DeCA listo, en verde esmeralda.
     - En móvil (<768px): El diagrama SVG conmuta a una representación vertical lineal clara y legible.
 
 ### 4.3 Sección «El problema» (`src/components/Problem.astro`)
@@ -203,13 +219,15 @@ La web comercial de DECA Light se estructura en una sola página fluida, modular
   3. **Fase 03 · Completar y archivar (Validación previa y generación):**
      - Lista de comprobación humana (`HumanChecklist`): *Trazabilidad de origen verificada*, *Datos de transporte completos*, *Pesaje oficial cuadrado*.
      - Generación del documento DECA estructurado, trazable y listo para su custodia o envío.
-     - Nota de advertencia técnica: *Flujo conceptual en desarrollo; las funciones reales y capacidades de importación están sujetas a validación técnica en planta.*
+     - Las ilustraciones son esquemas del flujo, no capturas de pantalla.
 
-### 4.5 Sección «Programa piloto» (`src/components/Pilot.astro`)
-- **Propósito:** Punto de conversión de la landing. Invitar a almacenes y cooperativas a colaborar en entrevistas de descubrimiento sin inducir a error sobre disponibilidad inmediata.
-- **Elementos anatómicos:**
-  - Encabezado pedagógico: *Buscamos almacenes hortofrutícolas para validar DECA Light sobre el terreno.*
-  - Texto explicativo: Aclara que no se trata de una prueba de software descargable ni de una suscripción de autoservicio, sino de conversaciones estructuradas con el equipo de producto.
+### 4.5 Sección «Demostración» (`src/components/Pilot.astro`, ancla `#piloto`)
+- **Propósito:** Punto de conversión de la landing: solicitud de demostración y puesta en marcha guiada.
+- **Elementos anatómicos (estado real tras el lanzamiento):**
+  - Kicker `SOLICITA UNA DEMOSTRACIÓN`; titular *Llevemos DECA Light a la operativa real de tu almacén.*
+  - Pasos de puesta en marcha: 01 Conocemos tu operativa · 02 Configuramos tu cuenta · 03 Arranque acompañado (en paralelo al sistema actual hasta darlo por bueno).
+  - Botón del formulario: `Solicitar demostración`. Campos reales: nombre de la empresa y correo (ver `src/components/Pilot.astro`).
+- **Especificación original (histórica, sustituida):**
   - **Formulario de captación `#piloto`:**
     - Campo 1: *Nombre y apellidos* (obligatorio).
     - Campo 2: *Correo electrónico corporativo* (obligatorio, tipo email).
@@ -218,7 +236,7 @@ La web comercial de DECA Light se estructura en una sola página fluida, modular
     - Campo 5: *Casilla obligatoria de consentimiento informado y privacidad*.
     - Botón de envío: `Solicitar participar en la validación`.
   - **Límites técnicos y legales actuales del formulario:**
-    - Actualmente, el formulario opera en modo de **captación controlada**. No existe backend en producción activo ni almacenamiento de bases de datos conectado.
+    - El formulario está activo con Cloudflare Pages Functions y D1 (ver README).
     - Prohibido simular un envío exitoso ficticio con pantallas de agradecimiento que confundan al usuario.
     - No solicitar en esta fase documentos confidenciales de expedición, CIFs ni datos bancarios.
 
@@ -227,24 +245,24 @@ La web comercial de DECA Light se estructura en una sola página fluida, modular
 - **Las 6 preguntas normativas de producto:**
   1. *¿DECA Light sustituye a Hispatec o al sistema de gestión de mi almacén?*  
      **Respuesta:** No. DECA Light no es un ERP ni pretende sustituirlo. Su diseño está orientado a actuar como una capa de coordinación documental que complemente al software existente, organizando los datos de transporte que el ERP aún no tiene.
-  2. *¿Está el software disponible para utilizarse hoy mismo en mi empresa?*  
-     **Respuesta:** No. DECA Light se encuentra en fase activa de desarrollo y diseño conceptual. Actualmente estamos realizando entrevistas de validación con profesionales del sector para asegurar que la herramienta responda a problemas reales antes de abrir una prueba operativa en planta.
+  2. *¿Está el software disponible?*  
+     **Respuesta:** Sí, con demostración previa y puesta en marcha guiada por el equipo (no hay autoservicio).
   3. *¿Qué documentación contempla el sistema en su alcance objetivo?*  
-     **Respuesta:** El alcance prioritario abarca el DECA (Documento de Control y Acompañamiento) y su documentación asociada: albaranes de salida hortofrutícolas, cartas de porte nacionales y CMR internacionales de transporte por carretera.
+     **Respuesta:** El DeCA (documento de control administrativo electrónico del transporte de mercancías por carretera, interior y cabotaje) a partir del informe de expediciones del ERP y de las cartas de porte en PDF. No incluye CMR ni transporte internacional.
   4. *¿Existe actualmente integración directa confirmada con Hispatec o TransFollow?*  
-     **Respuesta:** No. Cualquier integración técnica mediante API, intercambio de archivos o sincronización de bases de datos se encuentra en fase de estudio preliminar y requiere validaciones técnicas y comerciales previas. La primera vía de trabajo se basa en la importación y lectura de documentos.
-  5. *¿Qué implica participar en el programa de validación o piloto?*  
-     **Respuesta:** Supone participar en sesiones breves de entrevista para compartir cómo gestionáis actualmente las expediciones y contrastar las pantallas y flujos propuestos. No exige instalación técnica, compromiso de compra ni alteración de vuestro trabajo diario.
-  6. *¿Tendrá coste participar en las pruebas piloto?*  
-     **Respuesta:** Las condiciones comerciales definitivas no están cerradas. Los almacenes que colaboren en el diseño inicial y validen los primeros prototipos operativos contarán con condiciones preferentes y acuerdos individualizados acordados previamente.
+     **Respuesta:** No hay integración directa por API. DECA Light importa el informe de expediciones exportado de Hispatec (CSV) y lee cartas de porte en PDF.
+  5. *¿Cómo puedo ver DECA Light funcionando?*  
+     **Respuesta:** Solicitando una demostración desde el formulario o en contacto@decalight.es.
+  6. *(Precios: no se publican; se informan en la demostración. No prometer condiciones no acordadas.)*
 
 ### 4.7 Pie de página (`src/components/Footer.astro`)
 - **Propósito:** Cierre institucional, salvaguarda de cumplimiento normativo y contacto corporativo.
 - **Elementos anatómicos:**
   - Identidad: Logotipo tipográfico `DECA Light` y descriptor *Coordinación documental para expediciones hortofrutícolas*.
   - Enlaces de navegación rápida a las secciones de la página.
-  - Enlaces normativos legales: *Aviso Legal*, *Política de Privacidad*, *Política de Cookies* (con indicación de texto preliminar en desarrollo).
-  - Aviso legal preceptivo: *DECA Light es un proyecto en desarrollo. Las denominaciones de terceros mencionadas pertenecen a sus respectivos titulares y se citan exclusivamente con fines de compatibilidad operativa y contexto sectorial.*
+  - Enlaces normativos legales: *Aviso Legal*, *Política de Privacidad*, *Política de Cookies* (marcadas como borrador hasta incorporar los datos del titular).
+  - Distintivo: *Disponible para almacenes hortofrutícolas*.
+  - Aviso de marcas: *Las denominaciones de terceros mencionadas pertenecen a sus respectivos titulares y se citan exclusivamente con fines de compatibilidad operativa y contexto sectorial.*
   - Correo de contacto real verificado. (No inventar correos ficticios).
   - Copyright: `© 2026 DECA Light. Todos los derechos reservados.`
 
@@ -264,7 +282,7 @@ La experiencia de lectura en la landing page está concebida como un **embudo na
 [HOW IT WORKS]      MÉTODO EN 3 PASOS: Resuelve el problema con orden, blueprints y verificación humana
        │
        ▼ (Scroll)
-[PILOT]             LLAMADA A LA ACCIÓN: Invita a participar en la construcción del producto
+[DEMO]              LLAMADA A LA ACCIÓN: Solicitar demostración y puesta en marcha guiada
        │
        ▼ (Scroll)
 [FAQ]               RESOLUCIÓN DE DUDAS: Neutraliza objeciones técnicas de integración y plazos
@@ -275,8 +293,8 @@ La experiencia de lectura en la landing page está concebida como un **embudo na
 
 - **Del Hero al Problema:** El Hero muestra el diagrama conceptual de cómo convergen almacén y transporte. Al hacer scroll, la sección Problem detalla por qué esa convergencia hoy es dolorosa y genera fricción.
 - **Del Problema a Cómo Funciona:** Tras constatar el desfase temporal, How It Works desglosa el protocolo de 3 pasos para mitigar el caos: preparar anticipadamente lo conocido, recibir de forma estructurada lo pendiente y validar antes de emitir.
-- **De Cómo Funciona al Piloto:** Una vez que el visitante comprende el mecanismo, se le ofrece la oportunidad de contrastarlo con su propia casuística mediante el formulario del piloto.
-- **Del Piloto a las FAQs:** Para quienes tienen dudas razonables sobre su ERP existente o la disponibilidad del software, las FAQs ofrecen respuestas directas y transparentes sin rodeos comerciales.
+- **De Cómo Funciona a la Demostración:** Una vez que el visitante comprende el mecanismo, se le ofrece verlo con su propia casuística mediante una demostración.
+- **De la Demostración a las FAQs:** Para quienes tienen dudas razonables sobre su ERP existente o la disponibilidad del software, las FAQs ofrecen respuestas directas y transparentes sin rodeos comerciales.
 
 ---
 
@@ -288,13 +306,15 @@ Para asegurar que todo el equipo distinga la realidad de los objetivos de diseñ
 |---|---|---|---|
 | **Estructuración del problema de asincronía** | **HECHO COMPROBADO** | Validado mediante trabajo de campo con empresas agrícolas. | Argumentario central en Hero y Problem. |
 | **Flujo de 3 fases (Preparar · Coordinar · Completar)** | **CONCEPTO APROBADO** | Arquitectura conceptual cerrada y diagramada. | Base visual de HowItWorks. |
-| **Importación y extracción de PDFs (Albarán, CMR)** | **EN DESARROLLO** | Algoritmos de extracción y mapeo en construcción en SaaS. | Explicado como capacidad objetivo; no prometer OCR infalible. |
-| **Conciliación automática por nº de albarán** | **EN DESARROLLO** | Lógica de correlación en prototipado backend. | Presentado como flujo previsto sujeto a confirmación de datos. |
-| **Panel visual de expediciones pendientes de matrícula** | **EN DESARROLLO** | Interfaz en diseño en Figma / prototipos preliminares. | Representado conceptualmente mediante maquetas sobrias. |
+| **Importación del informe de expediciones de Hispatec (CSV)** | **DISPONIBLE** | Implementado y probado. | Se puede afirmar. |
+| **Lectura de cartas de porte en PDF (modelo FOM, con texto)** | **DISPONIBLE** | Implementado; escaneos/fotos y CMR no. | Afirmar solo PDF con texto; no prometer OCR. |
+| **Conciliación por nº de albarán (informe + carta)** | **DISPONIBLE** | Implementado. | Se puede afirmar, con revisión humana de discrepancias. |
+| **Vista del día por transportista y matrícula una vez por camión** | **DISPONIBLE** | Implementado. | Se puede afirmar. |
 | **Integración directa bidireccional con Hispatec** | **HIPÓTESIS POR VALIDAR**| No iniciada contractualmente ni desarrollada técnicamente. | **Prohibido afirmar disponibilidad**. Mencionar como estudio técnico. |
 | **Intercambio electrónico con TransFollow (e-CMR)** | **HIPÓTESIS POR VALIDAR**| Exploración técnica preliminar de estándares. | No anunciar como funcionalidad existente. |
-| **Generación automática certificada de DECA oficial** | **EN DESARROLLO** | Mapeo de plantilla oficial según normativa autonómica. | Destacar la verificación y validación humana obligatoria. |
-| **Prueba operativa con acceso multi-usuario en planta** | **HIPÓTESIS POR VALIDAR**| Condicionada a la superación de pruebas de seguridad y estrés. | Formular como objetivo del programa piloto futuro. |
+| **Generación del DeCA en PDF con código QR** | **DISPONIBLE** | Implementado (normativa estatal: Ley 9/2025, Orden FOM/2861/2012, Resolución de 5-jun-2026). La emisión la confirma siempre una persona. | Afirmar «genera el DeCA»; nunca «certificado» ni «homologado». |
+| **Usuarios con inicio de sesión y roles; alta autónoma** | **HOJA DE RUTA** | Previsto. | No anunciar como disponible. |
+| **eFTI** | **HOJA DE RUTA** | En estudio. | No mencionar como disponible. |
 
 ---
 
@@ -321,8 +341,8 @@ Para asegurar que todo el equipo distinga la realidad de los objetivos de diseñ
 Antes de que cualquier versión de la web de DECA Light sea considerada lista para despliegue público, debe superar la siguiente lista de verificación:
 
 - [ ] **Auditoría de textos:** Ninguna sección promete "automatización total", "cero errores" ni "integración con Hispatec garantizada".
-- [ ] **Badge de desarrollo visible:** El Header y el Hero muestran inequívocamente la etiqueta de *Proyecto en desarrollo*.
-- [ ] **Formulario seguro y no engañoso:** El formulario de `#piloto` cuenta con aviso de privacidad y no simula falsas operaciones de backend.
+- [ ] **Coherencia con §0:** Ningún texto presenta el producto como «en desarrollo» o «programa piloto», ni afirma lo prohibido en §0.
+- [ ] **Formulario seguro y no engañoso:** El formulario de `#piloto` cuenta con aviso de privacidad coherente con la finalidad (demostración).
 - [ ] **Matriz responsive superada:** Comprobación sin desbordamientos horizontales ni textos solapados en: 320px, 375px, 390px, 768px, 1024px y 1440px.
 - [ ] **Accesibilidad certificada:** Todos los elementos interactivos alcanzan al menos 44×44px de área táctil, el foco por teclado es nítido y la navegación no depende exclusivamente del color.
 - [ ] **Modo No-JS y movimiento reducido:** Con JavaScript desactivado o con `prefers-reduced-motion: reduce`, todo el contenido es visible y comprensible de inmediato.

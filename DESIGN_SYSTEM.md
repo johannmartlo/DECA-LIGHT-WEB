@@ -1,13 +1,15 @@
 # Sistema de Diseño: DECA Light Web Comercial
 
 > **Documento normativo de identidad visual, componentes, experiencia responsive, motion design y estándares técnicos para la web comercial de DECA Light.**  
-> Versión consolidada: `3.0.0`  
+> Versión consolidada: `3.1.0` (25-oct-2026: lanzamiento comercial)  
 > Estado: `Consolidado y reconciliado con Documento Maestro (WEB_MAESTRO_DECA_LIGHT.md v1.0.0)`  
 > Ámbito: Proyecto `DECA-LIGHT-WEB` (Astro `v7.3.8`, TypeScript Estricto)  
 > Documentos normativos complementarios:
-> - [`WEB_MAESTRO_DECA_LIGHT.md`](file:///c:/Users/juani/OneDrive/Escritorio/PROYECTOS/DECA-LIGHT-WEB/WEB_MAESTRO_DECA_LIGHT.md) (Estrategia, narrativa, posicionamiento y restricciones comerciales).
-> - [`COMPONENT_LIBRARY.md`](file:///c:/Users/juani/OneDrive/Escritorio/PROYECTOS/DECA-LIGHT-WEB/COMPONENT_LIBRARY.md) (Catálogo visual, anatomía y estados de componentes gráficos).
-> - [`MOTION_GUIDELINES.md`](file:///c:/Users/juani/OneDrive/Escritorio/PROYECTOS/DECA-LIGHT-WEB/MOTION_GUIDELINES.md) (Estándares de animación, curvas, accesibilidad de movimiento y rendimiento).
+> - [`WEB_MAESTRO_DECA_LIGHT.md`](WEB_MAESTRO_DECA_LIGHT.md) (Estrategia, narrativa, posicionamiento y restricciones comerciales).
+> - [`COMPONENT_LIBRARY.md`](COMPONENT_LIBRARY.md) (Catálogo visual, anatomía y estados de componentes gráficos).
+> - [`MOTION_GUIDELINES.md`](MOTION_GUIDELINES.md) (Estándares de animación, curvas, accesibilidad de movimiento y rendimiento).
+
+> **Decisión de lanzamiento (25-oct-2026, responsable del producto):** la web deja de presentar DECA Light como proyecto en desarrollo o programa piloto. El producto se presenta como **disponible**, con **demostración y puesta en marcha guiada**. La llamada a la acción aprobada es **«Solicitar demostración»** (variantes: «Solicitar una demostración», «Contactar»). Siguen vigentes TODAS las prohibiciones de veracidad: nada de testimonios, logotipos, métricas, «homologado», «certificado», «cumple el 100 % de la normativa» ni «preparado para eFTI» sin acreditarlo. Ver también `WEB_MAESTRO_DECA_LIGHT.md` §0.
 
 ---
 
@@ -16,20 +18,21 @@
 ### 1.1. Propósito de la Web Comercial
 La web comercial de **DECA Light** tiene como objetivos exclusivos:
 1. **Presentar con rigor técnico, sobriedad y transparencia** la propuesta de valor de DECA Light ante gerentes generales, directores de operaciones y responsables de administración en **almacenes y comercializadoras hortofrutícolas** (cítricos, fruta de hueso, hortalizas, centrales de confección y cooperativas).
-2. **Canalizar el interés de empresas candidatas** para participar en entrevistas técnicas de contraste y valorar un posible **programa piloto de desarrollo inicial**.
+2. **Canalizar solicitudes de demostración** de empresas interesadas y acompañarlas en la **puesta en marcha** del servicio.
 
 ### 1.2. Principio de Veracidad Absoluta (Anti-Falsedad)
-El producto se encuentra en **fase de desarrollo activo**. Se establecen las siguientes reglas deontológicas obligatorias e inquebrantables:
+El producto está **disponible** con demostración y puesta en marcha guiada (decisión de 25-oct-2026). Se establecen las siguientes reglas deontológicas obligatorias e inquebrantables:
 * **Prohibiciones estrictas:**
   * Prohibido incluir testimonios, citas, casos de éxito o reseñas ficticias.
   * Prohibido mostrar logotipos corporativos de empresas del sector simulando que son clientes en producción si no existe un acuerdo formal de colaboración.
   * Prohibido publicar métricas de impacto comercial o porcentajes de mejora inventados (ej. *"Aumenta la productividad un 35%"* o *"Ahorra 2 horas por camión"*).
   * Prohibido presentar capturas de pantalla reales o interfaces acabadas de funciones que aún no estén implementadas o confirmadas en código.
-  * Prohibido añadir botones de autoservicio, registro automático o compra inmediata que sugieran disponibilidad comercial general o producto listo para producción.
+  * Prohibido añadir botones de autoservicio, registro automático o compra inmediata mientras no existan en el producto (el alta es guiada por el equipo).
   * Prohibido prometer plazas limitadas, urgencia artificial, fechas de lanzamiento definitivas, precios cerrados, condiciones de soporte técnico garantizadas o acceso operativo inmediato.
 * **Criterios de comunicación honesta:**
-  * Cada módulo, flujo o característica debe indicar con transparencia su estado real: `En desarrollo`, `Fase Piloto`, `Hoja de ruta`.
-  * La llamada a la acción principal aprobada es: **«Mostrar interés en el programa piloto»** (alternativa corta para espacios reducidos: **«Me interesa el piloto»**).
+  * Solo se presentan como disponibles las funciones que existen en el producto (ver la matriz de capacidades de `WEB_MAESTRO_DECA_LIGHT.md` §6). Lo que no exista se presenta como `Hoja de ruta` o no se menciona.
+  * La llamada a la acción principal aprobada es: **«Solicitar demostración»** (variantes: «Solicitar una demostración», «Contactar»).
+  * Prohibido afirmar «homologado», «certificado por el Ministerio», «cumple el 100 % de la normativa» o «preparado para eFTI» sin acreditación documentada.
 
 ### 1.3. Dirección Artística: Precisión Logística B2B
 Definimos la personalidad de DECA Light bajo la tríada:  
@@ -44,7 +47,7 @@ Para asegurar que DECA Light no se perciba como una plantilla prediseñada:
 1. **Cero ilustraciones 3D de personajes abstractos**, manos flotantes o metáforas visuales infantiles.
 2. **Cero degradados multicolores estridentes** (violeta/magenta/azul eléctrico) en titulares.
 3. **Cero estadísticas no auditadas.**
-4. **Cero simulaciones de software inexistente:** Toda representación visual de la herramienta debe etiquetarse visiblemente como `«Esquema conceptual · Proyecto en desarrollo»`.
+4. **Cero simulaciones de software inexistente:** Las ilustraciones de la herramienta son esquemas, no capturas; no deben mostrar funciones que el producto no tenga.
 5. **Cero tarjetas con bordes redondeados excesivos** (máximo `10px` para tarjetas, manteniendo la disciplina geométrica).
 6. **Composición asimétrica funcional:** Huir de la clásica simetría rígida de 50/50 mediante el patrón *Split-Flow* (5fr editorial / 7fr datos).
 7. **Tipografía monoespaciada con función real:** No como adorno cosmético, sino para códigos de albarán, matrículas, bultos y horas.
@@ -200,7 +203,7 @@ Para reflejar fielmente la operativa de expedición sin inducir a error:
 
 ## 6. Principios de Motion Design y Coordinación
 
-*(Especificación exhaustiva en [`MOTION_GUIDELINES.md`](file:///c:/Users/juani/OneDrive/Escritorio/PROYECTOS/DECA-LIGHT-WEB/MOTION_GUIDELINES.md)).*
+*(Especificación exhaustiva en [`MOTION_GUIDELINES.md`](MOTION_GUIDELINES.md)).*
 
 ### 6.1. Tokens de Movimiento Aprobados
 ```css
@@ -258,16 +261,16 @@ Para reflejar fielmente la operativa de expedición sin inducir a error:
 ## 8. Bloqueos Técnicos y Quality Gate Previo a Publicación
 
 ### 8.1. Bloqueos Técnicos Activos
-1. **[Bloqueo Formulario]:** El formulario en `#piloto` debe permanecer deshabilitado con `disabled` y `aria-disabled="true"` en todos los campos y botones hasta que exista una solución validada de recepción segura y política de privacidad formal.
-2. **[Bloqueo Integraciones]:** No afirmar integración técnica operativa con Hispatec o TransFollow; son vías de estudio preliminar.
-3. **[Bloqueo Despliegue y DNS]:** El dominio `decalight.es` está registrado; no modificar registros DNS ni desplegar en hosting externo sin autorización expresa.
+1. **[Formulario]:** El formulario de `#piloto` está activo (Cloudflare Pages Functions + D1, ver README). No se cambia su tratamiento de datos sin actualizar la política de privacidad.
+2. **[Integraciones]:** Se puede decir que DECA Light importa el informe de expediciones exportado de Hispatec y lee cartas de porte en PDF. No afirmar integración directa (API) con Hispatec ni con TransFollow.
+3. **[Despliegue y DNS]:** La web se publica en Cloudflare Pages desde la rama de producción (ver README). No modificar registros DNS ni publicar en producción sin autorización expresa del responsable del producto.
 4. **[Bloqueo Dependencias]:** No instalar frameworks JS pesados ni librerías de animación externas.
 
 ### 8.2. Quality Gate para Aprobación Visual
 - [ ] No contiene testimonios, reseñas ni casos de éxito ficticios.
 - [ ] No muestra logotipos de empresas sin acuerdo formal.
 - [ ] No exhibe métricas de rendimiento inventadas ni porcentajes no fundamentados.
-- [ ] Comunica explícitamente el estado de desarrollo activo y programa piloto.
+- [ ] No presenta como disponible ninguna función que no exista en el producto; sin «homologado», «certificado» ni «preparado para eFTI» sin acreditar.
 - [ ] No presenta capturas de software simuladas como reales.
 - [ ] Comprobado empíricamente a **320px**, **375px**, **390px**, **768px**, **1024px** y **1440px**.
 - [ ] Ausencia de scroll horizontal no intencionado sin aplicar parches globales en `body`/`html`.
