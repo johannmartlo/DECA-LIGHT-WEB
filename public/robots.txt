@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap pendiente de confirmación de dominio definitivo
-# Sitemap: https://[DOMINIO-DEFINITIVO]/sitemap-index.xml
+Sitemap: https://www.decalight.es/sitemap.xml
