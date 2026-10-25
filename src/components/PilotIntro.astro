@@ -1,0 +1,1249 @@
+---
+// PilotIntro.astro — extraído de Pilot.astro
+---
+
+<!-- ==============================================
+     BLOQUE 1: INTRODUCCIÓN Y CANVAS DE EXPEDICIÓN
+     ============================================== -->
+<div class="pilot-hero-grid">
+  <!-- Columna Izquierda: Editorial y Propuesta de Valor -->
+  <div class="editorial-col" data-reveal="editorial">
+    <!-- Eyebrow Kicker -->
+    <div class="eyebrow-wrap">
+      <span class="eyebrow-line" aria-hidden="true"></span>
+      <span class="eyebrow-text">SOLICITA UNA DEMOSTRACIÓN</span>
+    </div>
+
+    <!-- Titular Principal -->
+    <h2 id="pilot-heading" class="pilot-heading">
+      Llevemos DECA Light a la operativa real de tu almacén.
+    </h2>
+
+    <!-- Párrafo Descriptivo -->
+    <p class="pilot-description">
+      Te enseñamos DECA Light con un caso como el tuyo y te acompañamos en la puesta en marcha para organizar la información de cada expedición.
+    </p>
+
+    <!-- Cuadrícula de 4 Puntos de Confianza -->
+    <div class="trust-grid" role="list" aria-label="Cómo trabajamos contigo">
+      <!-- Item 1: Entorno real -->
+      <article class="trust-card group" role="listitem">
+        <div class="trust-icon-box" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <h3 class="trust-title">Tu operativa real</h3>
+          <p class="trust-text">Puesta en marcha con tus propias expediciones.</p>
+        </div>
+      </article>
+
+      <!-- Item 2: Escucha activa -->
+      <article class="trust-card group" role="listitem">
+        <div class="trust-icon-box" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            <path d="M8 9h8"></path>
+            <path d="M8 13h5"></path>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <h3 class="trust-title">Acompañamiento</h3>
+          <p class="trust-text">Trato directo con tu equipo de tráfico.</p>
+        </div>
+      </article>
+
+      <!-- Item 3: Mejora continua -->
+      <article class="trust-card group" role="listitem">
+        <div class="trust-icon-box" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <h3 class="trust-title">Mejora continua</h3>
+          <p class="trust-text">Ajustes según las incidencias del día a día.</p>
+        </div>
+      </article>
+
+      <!-- Item 4: Sector hortofrutícola -->
+      <article class="trust-card group" role="listitem">
+        <div class="trust-icon-box" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <path d="M9 12l2 2 4-4"></path>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <h3 class="trust-title">Sector hortofrutícola</h3>
+          <p class="trust-text">Diseñado por y para empresas agrícolas.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Micro-barra informativa de estado sobria -->
+    <div class="status-microbar" role="status">
+      <span class="ping-indicator" aria-hidden="true">
+        <span class="ping-circle"></span>
+        <span class="ping-core"></span>
+      </span>
+      <span class="microbar-text">Disponible · Demostración y puesta en marcha guiada</span>
+    </div>
+  </div>
+
+  <!-- Columna Derecha: Canvas Visual de Expedición y Formulario -->
+  <div class="visual-col" data-reveal="card">
+    <div class="canvas-container group-docs">
+      <!-- Silueta decorativa sutil de almacén en segundo plano -->
+      <div class="warehouse-silhouette" aria-hidden="true">
+        <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="silhouette-svg">
+          <path d="M0 180h400v60H0v-60z" fill="#08543E" fill-opacity="0.03" />
+          <rect x="40" y="80" width="120" height="100" rx="4" fill="#08543E" fill-opacity="0.04" />
+          <rect x="55" y="95" width="90" height="85" fill="#08543E" fill-opacity="0.03" />
+          <line x1="55" y1="110" x2="145" y2="110" stroke="#08543E" stroke-opacity="0.08" stroke-width="2" stroke-dasharray="4 4" />
+          <line x1="55" y1="130" x2="145" y2="130" stroke="#08543E" stroke-opacity="0.08" stroke-width="2" stroke-dasharray="4 4" />
+          <line x1="55" y1="150" x2="145" y2="150" stroke="#08543E" stroke-opacity="0.08" stroke-width="2" stroke-dasharray="4 4" />
+          <rect x="200" y="90" width="160" height="90" rx="6" fill="#08543E" fill-opacity="0.04" />
+          <rect x="330" y="120" width="40" height="60" rx="4" fill="#08543E" fill-opacity="0.05" />
+          <circle cx="240" cy="180" r="14" fill="#08543E" fill-opacity="0.09" />
+          <circle cx="310" cy="180" r="14" fill="#08543E" fill-opacity="0.09" />
+          <circle cx="355" cy="180" r="12" fill="#08543E" fill-opacity="0.09" />
+        </svg>
+      </div>
+
+      <!-- Nodos Superiores: Expedición & Tarjetas de Datos -->
+      <div class="nodes-top-row">
+        <!-- Nodo A: Tarjeta Principal Expedición -->
+        <div class="expedition-card">
+          <div class="expedition-header">
+            <div class="expedition-id-wrap">
+              <div class="expedition-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16.5 9.4 7.55 4.24a1.78 1.78 0 0 0-2.5 1.55v12.42a1.78 1.78 0 0 0 2.5 1.55L16.5 14.6a1.78 1.78 0 0 0 0-3.2z"></path>
+                  <polyline points="3.29 7 12 12 20.71 7"></polyline>
+                  <line x1="12" y1="22" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <div>
+                <span class="node-label">EXPEDICIÓN</span>
+                <p class="node-code">EXP-2026-1047</p>
+              </div>
+            </div>
+            <span class="status-pill status-amber">En preparación</span>
+          </div>
+
+          <div class="expedition-details">
+            <div class="detail-row">
+              <span class="detail-label">Cajas</span>
+              <span class="detail-value">120 uds</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Variedad</span>
+              <span class="detail-value">Tomate Rama</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Destino</span>
+              <span class="detail-value">Madrid (Merca)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nodo B: Stack de Micro-Tarjetas de Almacén y Transporte -->
+        <div class="micro-nodes-col">
+          <!-- Micro Card: Datos del Almacén -->
+          <div class="micro-node-card">
+            <div class="micro-node-left">
+              <div class="micro-icon-box bg-emerald" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 21h18"></path>
+                  <path d="M5 21V7l8-4v18"></path>
+                  <path d="M19 21V11l-6-3"></path>
+                  <path d="M9 9h1"></path>
+                  <path d="M9 13h1"></path>
+                  <path d="M9 17h1"></path>
+                </svg>
+              </div>
+              <div class="micro-node-info">
+                <h4 class="micro-node-title">Datos del almacén</h4>
+                <p class="micro-node-sub">Albaranes importados y cotejados</p>
+              </div>
+            </div>
+            <div class="check-pill" aria-label="Completado">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Micro Card: Datos del Transporte -->
+          <div class="micro-node-card micro-node-transport">
+            <div class="transport-top">
+              <div class="micro-node-left">
+                <div class="micro-icon-box bg-amber" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="1" y="3" width="15" height="13"></rect>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                  </svg>
+                </div>
+                <div class="micro-node-info">
+                  <h4 class="micro-node-title">Datos del transporte</h4>
+                  <p class="micro-node-sub">Tráiler frigorífico</p>
+                </div>
+              </div>
+              <span class="badge-amber-pulse">Pendiente</span>
+            </div>
+            <div class="transport-bottom">
+              <span class="transport-label">Matrícula tractora:</span>
+              <span class="transport-val">--- Pendiente de chofer ---</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nivel Medio: Abanico Documental Físico y Digital -->
+      <div class="fanned-stack-area">
+        <!-- Trazo Conector SVG Continuo Animado -->
+        <svg class="flow-connector-svg" fill="none" viewBox="0 0 600 60" preserveAspectRatio="none" aria-hidden="true">
+          <path class="flow-dash-anim" d="M 80 15 Q 300 -10, 520 20" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"></path>
+        </svg>
+
+        <!-- Contenedor del Abanico Documental Con Protrusión Fiel a la Referencia -->
+        <div class="doc-stack-wrapper">
+          <!-- Hoja Trasera: CMR Internacional -->
+          <div class="doc-stack-item doc-sheet-back">
+            <div class="sheet-head">
+              <span class="sheet-title">CMR INTERNACIONAL</span>
+              <span class="sheet-num">#CMR-982</span>
+            </div>
+            <div class="sheet-lines" aria-hidden="true">
+              <div class="sheet-line line-75"></div>
+              <div class="sheet-line line-50"></div>
+            </div>
+            <span class="sheet-foot">Copia transportista</span>
+          </div>
+
+          <!-- Hoja Intermedia: Carta de Porte -->
+          <div class="doc-stack-item doc-sheet-mid">
+            <div class="sheet-head">
+              <span class="sheet-title">CARTA DE PORTE</span>
+              <span class="sheet-num">ES-ES-771</span>
+            </div>
+            <div class="sheet-lines" aria-hidden="true">
+              <div class="sheet-line line-80"></div>
+              <div class="sheet-line line-65"></div>
+            </div>
+            <span class="sheet-foot">Validado en muelle</span>
+          </div>
+
+          <!-- Hoja Frontal: DECA Light Expediente Centralizado -->
+          <div class="doc-stack-item doc-sheet-front">
+            <div class="sheet-head">
+              <div class="brand-inline">
+                <span class="brand-bold">DECA</span>
+                <span class="brand-light">Light</span>
+              </div>
+              <span class="sheet-tag">ALBARÁN 4081</span>
+            </div>
+
+            <div class="sheet-body">
+              <div class="sheet-lead">Expediente Centralizado</div>
+              <div class="sheet-status">
+                <span class="pulse-dot-green" aria-hidden="true"></span>
+                <span>Documentación digital lista</span>
+              </div>
+            </div>
+
+            <div class="progress-track" aria-hidden="true">
+              <div class="shimmer-active progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge Flotante de Validación con Shimmer -->
+        <div class="badge-shimmer validation-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="pill-icon-green" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span>Documentación lista para revisión y salida</span>
+        </div>
+      </div>
+
+      <!-- Parte Inferior: Formulario de Interés Ilustrativo -->
+      <div id="form-piloto" class="interest-form-card">
+        <div class="form-card-header">
+          <div class="mail-icon-box" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h4 class="form-card-title">¿Quieres conocer DECA Light en tu almacén?</h4>
+            <p class="form-card-sub">Déjanos tus datos y te contactamos para organizar una demostración.</p>
+          </div>
+        </div>
+
+        <form class="demo-form" id="pilot-interest-form" novalidate action="/api/pilot" data-endpoint="/api/pilot" method="POST">
+          <!-- Campo Honeypot invisible para protección pasiva anti-bot -->
+          <input
+            type="text"
+            name="_gotcha"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+            style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"
+          />
+
+          <!-- Clave de idempotencia única por sesión de formulario -->
+          <input type="hidden" name="idempotency_key" id="pilot-idempotency-key" value="" />
+
+          <div class="inputs-row">
+            <div class="input-field-wrap">
+              <label for="company-name" class="input-label">Nombre de la empresa</label>
+              <input
+                type="text"
+                id="company-name"
+                name="company"
+                class="form-text-input"
+                placeholder="Ej. Frutas del Sureste S.L."
+                required
+              />
+            </div>
+
+            <div class="input-field-wrap">
+              <label for="company-email" class="input-label">Correo electrónico</label>
+              <input
+                type="email"
+                id="company-email"
+                name="email"
+                class="form-text-input"
+                placeholder="responsable@almacen.com"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Cláusula informativa de primera capa (RGPD art. 13 / LOPDGDD art. 11) -->
+          <div class="form-privacy-box">
+            <p class="privacy-box-text">
+              <strong>Información de protección de datos:</strong> Responsable: titular promotor de DECA Light. Finalidad: tramitar la solicitud de información, organizar una demostración y valorar la puesta en marcha del servicio. Legitimación: medidas precontractuales a petición del interesado (art. 6.1.b RGPD) e interés legítimo en contactos profesionales (art. 19 LOPDGDD). Detalles completos y derechos en nuestra <a href="/politica-privacidad" class="privacy-link">Política de Privacidad</a>.
+            </p>
+          </div>
+
+          <div class="form-btn-wrap">
+            <button type="submit" class="cta-button btn-submit-pilot" id="btn-submit-pilot">
+              <span id="btn-pilot-text">Solicitar demostración</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow-icon" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </form>
+
+        <div id="feedback-note" class="feedback-notification hidden" role="status"></div>
+
+        <p class="form-disclaimer">
+          Sin compromiso. Evaluaremos contigo el encaje operativo en tus instalaciones.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .pilot-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+  @media (min-width: 1024px) {
+    .pilot-hero-grid {
+          grid-template-columns: 5fr 7fr;
+          gap: 2.5rem;
+        }
+  }
+  .editorial-col {
+      display: flex;
+      flex-direction: column;
+    }
+  .eyebrow-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+  .eyebrow-line {
+      width: 1.5rem;
+      height: 2px;
+      background-color: var(--palette-deca-800);
+      border-radius: 9999px;
+    }
+  .eyebrow-text {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--palette-deca-800);
+    }
+  .pilot-heading {
+      font-size: 2.125rem;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--palette-slate-900);
+      margin-bottom: 1.25rem;
+    }
+  @media (min-width: 640px) {
+    .pilot-heading {
+          font-size: 2.5rem;
+        }
+  }
+  @media (min-width: 1024px) {
+    .pilot-heading {
+          font-size: 2.75rem;
+        }
+  }
+  .pilot-description {
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: var(--palette-slate-600);
+      margin-bottom: 2rem;
+      max-width: 36rem;
+    }
+  .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+  @media (min-width: 640px) {
+    .trust-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+  }
+  .trust-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.875rem;
+      padding: 0.875rem 1rem;
+      background-color: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-radius: 1rem;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+  .trust-card:hover {
+      background-color: var(--palette-white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px -4px rgba(15, 23, 42, 0.08);
+    }
+  .trust-icon-box {
+      flex-shrink: 0;
+      width: 2.375rem;
+      height: 2.375rem;
+      border-radius: 0.75rem;
+      background-color: var(--palette-emerald-50);
+      color: var(--palette-deca-800);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+  .trust-card:hover .trust-icon-box {
+      transform: scale(1.08);
+    }
+  .trust-content {
+      display: flex;
+      flex-direction: column;
+    }
+  .trust-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--palette-slate-900);
+      line-height: 1.3;
+    }
+  .trust-text {
+      font-size: 0.75rem;
+      color: var(--palette-slate-500);
+      line-height: 1.4;
+      margin-top: 0.125rem;
+    }
+  .status-microbar {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background-color: rgba(236, 253, 245, 0.85);
+      border: 1px solid rgba(167, 243, 208, 0.8);
+      border-radius: 0.75rem;
+      color: var(--palette-emerald-900);
+      font-size: 0.75rem;
+      font-weight: 500;
+      box-shadow: 0 1px 2px rgba(8, 84, 62, 0.04);
+    }
+  .ping-indicator {
+      position: relative;
+      display: flex;
+      width: 0.625rem;
+      height: 0.625rem;
+    }
+  .ping-circle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 9999px;
+      background-color: var(--palette-deca-800);
+      opacity: 0.75;
+      animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+  .ping-core {
+      position: relative;
+      display: inline-flex;
+      border-radius: 9999px;
+      width: 0.625rem;
+      height: 0.625rem;
+      background-color: var(--palette-deca-800);
+    }
+  .visual-col {
+      position: relative;
+      width: 100%;
+    }
+  .canvas-container {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 1.75rem;
+      padding: 1.5rem;
+      box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+  @media (min-width: 640px) {
+    .canvas-container {
+          padding: 2rem;
+        }
+  }
+  .warehouse-silhouette {
+      position: absolute;
+      right: -2rem;
+      bottom: -1rem;
+      width: 28rem;
+      height: 18rem;
+      opacity: 0.5;
+      pointer-events: none;
+      user-select: none;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .canvas-container:hover .warehouse-silhouette {
+      transform: scale(1.04);
+    }
+  .silhouette-svg {
+      width: 100%;
+      height: 100%;
+    }
+  .nodes-top-row {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  @media (min-width: 640px) {
+    .nodes-top-row {
+          grid-template-columns: repeat(2, 1fr);
+        }
+  }
+  .expedition-card {
+      background-color: var(--palette-white);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 1rem;
+      padding: 1rem 1.125rem;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+  .expedition-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px -3px rgba(15, 23, 42, 0.08);
+    }
+  .expedition-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.75rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid var(--palette-slate-100);
+    }
+  .expedition-id-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+  .expedition-icon {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+      background-color: var(--palette-emerald-50);
+      color: var(--palette-deca-800);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  .node-label {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--palette-slate-400);
+      text-transform: uppercase;
+    }
+  .node-code {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--palette-slate-800);
+    }
+  .status-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+    }
+  .status-amber {
+      background-color: var(--palette-amber-100);
+      color: var(--palette-amber-700);
+      border: 1px solid rgba(217, 119, 6, 0.3);
+    }
+  .expedition-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+    }
+  .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--palette-slate-500);
+    }
+  .detail-value {
+      font-weight: 600;
+      color: var(--palette-slate-800);
+    }
+  .micro-nodes-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+  .micro-node-card {
+      background-color: var(--palette-white);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 1rem;
+      padding: 0.875rem 1rem;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+  .micro-node-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px -3px rgba(15, 23, 42, 0.08);
+    }
+  .micro-node-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+  .micro-icon-box {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+  .micro-icon-box.bg-emerald {
+      background-color: var(--palette-emerald-50);
+      color: var(--palette-deca-800);
+    }
+  .micro-icon-box.bg-amber {
+      background-color: var(--palette-amber-100);
+      color: var(--palette-amber-700);
+    }
+  .micro-node-info {
+      display: flex;
+      flex-direction: column;
+    }
+  .micro-node-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--palette-slate-800);
+      line-height: 1.2;
+    }
+  .micro-node-sub {
+      font-size: 0.6875rem;
+      color: var(--palette-slate-500);
+      margin-top: 0.125rem;
+    }
+  .check-pill {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 9999px;
+      background-color: var(--palette-deca-800);
+      color: var(--palette-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 2px rgba(8, 84, 62, 0.2);
+    }
+  .micro-node-transport {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: stretch;
+    }
+  .transport-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  .transport-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.6875rem;
+      color: var(--palette-slate-600);
+      padding-top: 0.25rem;
+      border-top: 1px dashed var(--palette-slate-100);
+    }
+  .transport-val {
+      font-family: var(--font-mono, monospace);
+      color: var(--palette-slate-400);
+    }
+  .badge-amber-pulse {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.625rem;
+      font-weight: 700;
+      background-color: var(--palette-amber-100);
+      color: var(--palette-amber-800);
+      border: 1px solid var(--palette-amber-300);
+      animation: amberPulse 2.8s ease-in-out infinite;
+    }
+  .fanned-stack-area {
+      position: relative;
+      margin: 1.5rem 0;
+      padding: 1.5rem 0 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  .flow-connector-svg {
+      position: absolute;
+      inset-inline: 0;
+      top: 0.25rem;
+      width: 100%;
+      height: 3.5rem;
+      overflow: visible;
+      pointer-events: none;
+      display: none;
+    }
+  @media (min-width: 640px) {
+    .flow-connector-svg {
+          display: block;
+        }
+  }
+  .flow-dash-anim {
+      stroke-dasharray: 6 6;
+      animation: flowDash 1.2s linear infinite;
+      opacity: 0.6;
+    }
+  .doc-stack-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 26rem;
+      height: 9.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  .doc-stack-item {
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+      will-change: transform;
+    }
+  .doc-sheet-back {
+      position: absolute;
+      width: 14rem;
+      height: 6.75rem;
+      background-color: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.07);
+      transform: rotate(-8deg) translate(-3.25rem, -0.625rem);
+      padding: 0.625rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.5625rem;
+      color: var(--palette-slate-400);
+    }
+  .doc-sheet-mid {
+      position: absolute;
+      width: 14rem;
+      height: 6.75rem;
+      background-color: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 0.75rem;
+      box-shadow: 0 8px 12px -2px rgba(15, 23, 42, 0.07);
+      transform: rotate(6deg) translate(3.25rem, 0.375rem);
+      padding: 0.625rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.5625rem;
+      color: var(--palette-slate-400);
+    }
+  .doc-sheet-front {
+      position: relative;
+      z-index: 10;
+      width: 15rem;
+      height: 7.75rem;
+      background-color: var(--palette-white);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 0.75rem;
+      box-shadow: 0 16px 28px -4px rgba(8, 84, 62, 0.12), 0 4px 8px -2px rgba(15, 23, 42, 0.04);
+      padding: 0.75rem 0.875rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  .group-docs:hover .doc-sheet-back {
+      transform: rotate(-11deg) translate(-4rem, -0.875rem);
+    }
+  .group-docs:hover .doc-sheet-mid {
+      transform: rotate(8.5deg) translate(4rem, 0.5rem);
+    }
+  .group-docs:hover .doc-sheet-front {
+      transform: translateY(-3px) scale(1.02);
+    }
+  @media (max-width: 480px) {
+    .doc-sheet-back {
+          width: 11.5rem;
+          transform: rotate(-6deg) translate(-2rem, -0.5rem);
+        }
+    .doc-sheet-mid {
+          width: 11.5rem;
+          transform: rotate(5deg) translate(2rem, 0.25rem);
+        }
+    .doc-sheet-front {
+          width: 13rem;
+        }
+    .group-docs:hover .doc-sheet-back {
+          transform: rotate(-8deg) translate(-2.5rem, -0.625rem);
+        }
+    .group-docs:hover .doc-sheet-mid {
+          transform: rotate(6.5deg) translate(2.5rem, 0.375rem);
+        }
+  }
+  .sheet-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  .sheet-title {
+      font-weight: 700;
+      color: var(--palette-slate-600);
+    }
+  .sheet-num {
+      color: var(--palette-slate-400);
+    }
+  .sheet-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+  .sheet-line {
+      height: 0.375rem;
+      background-color: var(--palette-slate-200);
+      border-radius: 9999px;
+    }
+  .line-75 { width: 75%; }
+  .line-50 { width: 50%; }
+  .line-80 { width: 80%; }
+  .line-65 { width: 65%; }
+  .sheet-foot {
+      font-size: 0.5625rem;
+      color: var(--palette-slate-400);
+    }
+  .brand-inline {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.8125rem;
+    }
+  .brand-bold {
+      font-weight: 800;
+      color: var(--palette-slate-900);
+    }
+  .brand-light {
+      font-weight: 600;
+      color: var(--palette-deca-800);
+    }
+  .sheet-tag {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.625rem;
+      font-weight: 700;
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.25rem;
+      background-color: var(--palette-emerald-50);
+      color: var(--palette-deca-800);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+  .sheet-lead {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--palette-slate-700);
+    }
+  .sheet-status {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      margin-top: 0.25rem;
+      font-size: 0.625rem;
+      color: var(--palette-slate-500);
+    }
+  .pulse-dot-green {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 9999px;
+      background-color: var(--palette-emerald-500);
+      animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+  .progress-track {
+      width: 100%;
+      height: 0.375rem;
+      background-color: var(--palette-slate-100);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+  .progress-fill {
+      height: 100%;
+      width: 82%;
+      border-radius: 9999px;
+    }
+  .shimmer-active {
+      background: linear-gradient(90deg, var(--palette-deca-800) 0%, var(--palette-emerald-500) 50%, var(--palette-deca-800) 100%);
+      background-size: 200% 100%;
+      animation: shimmerBar 3.2s infinite linear;
+    }
+  .validation-pill {
+      margin-top: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--palette-emerald-50);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      padding: 0.375rem 0.875rem;
+      border-radius: 9999px;
+      box-shadow: 0 1px 3px rgba(8, 84, 62, 0.08);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--palette-emerald-900);
+    }
+  .pill-icon-green {
+      color: var(--palette-deca-800);
+    }
+  .badge-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+  .badge-shimmer::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+      transform: skewX(-20deg);
+      animation: badgeGleam 4s infinite ease-in-out;
+    }
+  .interest-form-card {
+      position: relative;
+      z-index: 10;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+  .form-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+  .mail-icon-box {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 0.75rem;
+      background-color: var(--palette-emerald-50);
+      color: var(--palette-deca-800);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+  .form-card-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--palette-slate-900);
+      line-height: 1.25;
+    }
+  .form-card-sub {
+      font-size: 0.75rem;
+      color: var(--palette-slate-500);
+      margin-top: 0.125rem;
+    }
+  .demo-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  .inputs-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  @media (min-width: 640px) {
+    .inputs-row {
+          grid-template-columns: repeat(2, 1fr);
+        }
+  }
+  .input-field-wrap {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
+    }
+  .input-field-wrap.input-focused {
+      transform: scale(1.01);
+    }
+  .input-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--palette-slate-600);
+      margin-bottom: 0.25rem;
+    }
+  .form-text-input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+      border-radius: 0.75rem;
+      background-color: var(--palette-slate-50);
+      border: 1px solid var(--palette-slate-300);
+      color: var(--palette-slate-900);
+      transition: all 0.2s ease;
+    }
+  .form-text-input:focus {
+      background-color: var(--palette-white);
+      outline: none;
+      border-color: var(--palette-deca-800);
+      box-shadow: 0 0 0 3px rgba(8, 84, 62, 0.12);
+    }
+  .form-btn-wrap {
+      padding-top: 0.25rem;
+    }
+  .cta-button {
+      position: relative;
+      overflow: hidden;
+    }
+  .cta-button::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.65s ease;
+      pointer-events: none;
+    }
+  .cta-button:hover::after {
+      left: 170%;
+    }
+  .btn-submit-pilot {
+      width: 100%;
+      padding: 0.625rem 1rem;
+      border-radius: 0.75rem;
+      background-color: var(--palette-deca-800);
+      color: var(--palette-white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 1px 2px rgba(8, 84, 62, 0.2);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .btn-submit-pilot:hover {
+      background-color: var(--palette-deca-900);
+      box-shadow: 0 6px 12px -2px rgba(8, 84, 62, 0.25);
+      transform: translateY(-1px);
+    }
+  .btn-submit-pilot:active {
+      transform: scale(0.99);
+    }
+  .btn-arrow-icon {
+      transition: transform 0.2s ease;
+    }
+  .btn-submit-pilot:hover .btn-arrow-icon {
+      transform: translateX(3px);
+    }
+  .form-privacy-box {
+      margin-top: 0.75rem;
+      padding: 0.625rem 0.75rem;
+      background-color: var(--palette-slate-50);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 0.5rem;
+      text-align: left;
+    }
+  .privacy-box-text {
+      font-size: 0.6875rem;
+      color: var(--palette-slate-500);
+      line-height: 1.45;
+      margin: 0;
+    }
+  .privacy-box-text strong {
+      color: var(--palette-slate-700);
+    }
+  .privacy-link {
+      color: var(--palette-emerald-700);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+  .privacy-link:hover {
+      color: var(--palette-emerald-800);
+    }
+  .feedback-notification {
+      margin-top: 0.75rem;
+      padding: 0.75rem 0.875rem;
+      background-color: var(--palette-emerald-50);
+      border: 1px solid var(--palette-emerald-200);
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--palette-emerald-900);
+      text-align: left;
+      line-height: 1.45;
+      animation: fadeIn 0.3s ease;
+    }
+  .feedback-notification.is-unconfigured {
+      background-color: var(--palette-amber-100);
+      border-color: var(--palette-amber-300);
+      color: var(--palette-amber-800);
+    }
+  .feedback-notification.is-error {
+      background-color: var(--palette-red-100);
+      border-color: var(--palette-red-300);
+      color: #991B1B;
+    }
+  .feedback-notification.is-success {
+      background-color: var(--palette-emerald-50);
+      border-color: var(--palette-emerald-200);
+      color: var(--palette-emerald-900);
+    }
+  .hidden {
+      display: none;
+    }
+  .form-disclaimer {
+      font-size: 0.625rem;
+      color: var(--palette-slate-400);
+      text-align: center;
+      margin-top: 0.625rem;
+      line-height: 1.4;
+    }
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+    .badge-amber-pulse,
+        .flow-dash-anim,
+        .shimmer-active,
+        .badge-shimmer::after,
+        .ping-circle,
+        .cta-pulse-dot,
+        .pulse-dot-green {
+          animation: none !important;
+        }
+  }
+
+  @keyframes ping {
+      75%, 100% {
+        transform: scale(2.2);
+        opacity: 0;
+      }
+    }
+
+  @keyframes amberPulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.25);
+      }
+      50% {
+        opacity: 0.85;
+        transform: scale(0.97);
+        box-shadow: 0 0 0 4px rgba(217, 119, 6, 0);
+      }
+    }
+
+  @keyframes flowDash {
+      to {
+        stroke-dashoffset: -20;
+      }
+    }
+
+  @keyframes shimmerBar {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+  @keyframes badgeGleam {
+      0%, 60% { left: -120%; }
+      100% { left: 160%; }
+    }
+
+  @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+</style>

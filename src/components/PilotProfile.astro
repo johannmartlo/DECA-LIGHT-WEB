@@ -1,0 +1,209 @@
+---
+// PilotProfile.astro — extraído de Pilot.astro
+---
+
+<!-- ==============================================
+     BLOQUE 3: PERFIL DE EMPRESA (QUIÉN ENCAJA)
+     ============================================== -->
+<div class="pilot-profile-section" data-reveal="card">
+  <div class="profile-card-container">
+    <div class="profile-intro">
+      <div class="eyebrow-wrap text-center">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span class="eyebrow-text">PERFIL DE EMPRESA</span>
+        <span class="eyebrow-line" aria-hidden="true"></span>
+      </div>
+      <h3 class="profile-heading">
+        Pensado para empresas que coordinan expediciones y documentación a diario.
+      </h3>
+      <p class="profile-subtitle">
+        Si tu operativa lidia con albaranes en papel, esperas de transportistas y comprobaciones manuales, DECA Light está diseñado para ti.
+      </p>
+    </div>
+
+    <div class="fit-cards-grid" role="list">
+      <!-- Fit Card 1 -->
+      <article class="fit-card group" role="listitem">
+        <div class="fit-icon-halo" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"></path>
+            <path d="M12 6v6l4 2"></path>
+            <path d="M7 16c2-2 4-2 5 0"></path>
+          </svg>
+        </div>
+        <h4 class="fit-card-title">Almacenes y comercializadoras</h4>
+        <p class="fit-card-text">
+          Especialistas en frutas, hortalizas y perecederos con un volumen continuo de salidas.
+        </p>
+      </article>
+
+      <!-- Fit Card 2 -->
+      <article class="fit-card group" role="listitem">
+        <div class="fit-icon-halo" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <circle cx="19" cy="5" r="2"></circle>
+            <circle cx="5" cy="5" r="2"></circle>
+            <circle cx="19" cy="19" r="2"></circle>
+            <circle cx="5" cy="19" r="2"></circle>
+            <line x1="7" y1="6" x2="10" y2="10"></line>
+            <line x1="17" y1="6" x2="14" y2="10"></line>
+            <line x1="7" y1="18" x2="10" y2="14"></line>
+            <line x1="17" y1="18" x2="14" y2="14"></line>
+          </svg>
+        </div>
+        <h4 class="fit-card-title">Múltiples fuentes de datos</h4>
+        <p class="fit-card-text">
+          Operativas donde la información de cada envío procede de ERPs, transportistas externos y personal de muelle.
+        </p>
+      </article>
+
+      <!-- Fit Card 3 -->
+      <article class="fit-card group" role="listitem">
+        <div class="fit-icon-halo" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4"></path>
+            <path d="M12 18v4"></path>
+            <path d="M4.93 4.93l2.83 2.83"></path>
+            <path d="M16.24 16.24l2.83 2.83"></path>
+            <path d="M2 12h4"></path>
+            <path d="M18 12h4"></path>
+            <path d="M4.93 19.07l2.83-2.83"></path>
+            <path d="M16.24 7.76l2.83-2.83"></path>
+          </svg>
+        </div>
+        <h4 class="fit-card-title">Reducción de tareas manuales</h4>
+        <p class="fit-card-text">
+          Equipos decididos a eliminar el extravío de albaranes, llamadas reiteradas y errores en la carga de matrículas.
+        </p>
+      </article>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .eyebrow-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+  .eyebrow-wrap.text-center {
+      justify-content: center;
+    }
+  .eyebrow-line {
+      width: 1.5rem;
+      height: 2px;
+      background-color: var(--palette-deca-800);
+      border-radius: 9999px;
+    }
+  .eyebrow-text {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--palette-deca-800);
+    }
+  .pilot-profile-section {
+      width: 100%;
+    }
+  .profile-card-container {
+      background: linear-gradient(135deg, var(--palette-white) 0%, var(--palette-slate-50) 50%, rgba(236, 253, 245, 0.4) 100%);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 1.75rem;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+  @media (min-width: 640px) {
+    .profile-card-container {
+          padding: 3rem 2.5rem;
+        }
+  }
+  .profile-intro {
+      text-align: center;
+      max-width: 44rem;
+      margin: 0 auto 2.5rem;
+    }
+  .profile-heading {
+      font-size: 1.5rem;
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--palette-slate-900);
+      margin-top: 0.5rem;
+    }
+  @media (min-width: 640px) {
+    .profile-heading {
+          font-size: 1.875rem;
+        }
+  }
+  .profile-subtitle {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      color: var(--palette-slate-500);
+      margin-top: 0.625rem;
+    }
+  .fit-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  @media (min-width: 768px) {
+    .fit-cards-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+  }
+  .fit-card {
+      background-color: var(--palette-white);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+    }
+  .fit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px -4px rgba(15, 23, 42, 0.08);
+    }
+  .fit-icon-halo {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 1rem;
+      background-color: var(--palette-emerald-50);
+      color: var(--palette-deca-800);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+  .fit-card:hover .fit-icon-halo {
+      transform: scale(1.12);
+      box-shadow: 0 0 0 8px rgba(8, 84, 62, 0.08);
+      background-color: var(--palette-emerald-100);
+    }
+  .fit-card-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--palette-slate-900);
+      margin-bottom: 0.5rem;
+    }
+  .fit-card-text {
+      font-size: 0.75rem;
+      line-height: 1.55;
+      color: var(--palette-slate-600);
+    }
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+  }
+</style>
