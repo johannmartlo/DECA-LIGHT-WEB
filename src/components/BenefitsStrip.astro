@@ -76,9 +76,9 @@
   .benefits-strip-section {
     position: relative;
     width: 100%;
-    background-color: #FFFFFF;
-    border-top: 1px solid var(--color-border-subtle, #E2E8F0);
-    border-bottom: 1px solid var(--color-border-subtle, #E2E8F0);
+    background-color: var(--palette-white);
+    border-top: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
     padding-top: clamp(3rem, 5vw, 4rem);
     padding-bottom: clamp(3rem, 5vw, 4rem);
   }
@@ -111,7 +111,7 @@
 
   /* Tarjeta de beneficio */
   .benefit-card {
-    background-color: #FFFFFF;
+    background-color: var(--palette-white);
     border-radius: 1rem;
     padding: 1.5rem;
     border: 1px solid rgba(226, 232, 240, 0.85);
@@ -131,7 +131,7 @@
 
     .benefit-card:hover .benefit-icon-container {
       transform: scale(1.06);
-      background-color: #D1FAE5;
+      background-color: var(--palette-emerald-100);
       border-color: rgba(16, 185, 129, 0.4);
     }
   }
@@ -141,12 +141,12 @@
     width: 48px;
     height: 48px;
     border-radius: 0.875rem;
-    background-color: #ECFDF5;
+    background-color: var(--palette-emerald-50);
     border: 1px solid rgba(16, 185, 129, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #08543E;
+    color: var(--palette-deca-800);
     margin-bottom: 1.25rem;
     transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
   }
@@ -154,7 +154,7 @@
   .benefit-title {
     font-size: 1.0625rem;
     font-weight: 700;
-    color: #0F172A;
+    color: var(--palette-slate-900);
     line-height: 1.35;
     margin-bottom: 0.5rem;
     letter-spacing: -0.01em;
@@ -162,7 +162,7 @@
 
   .benefit-desc {
     font-size: 0.875rem;
-    color: #475569;
+    color: var(--palette-slate-600);
     line-height: 1.55;
     margin: 0;
   }

@@ -108,7 +108,7 @@ import Layout from '../layouts/Layout.astro';
   .legal-page {
     padding-top: clamp(2rem, 4vw, 3.5rem);
     padding-bottom: clamp(4rem, 6vw, 6rem);
-    background-color: var(--color-bg-canvas, #F8FAFC);
+    background-color: var(--color-bg-canvas, var(--palette-slate-50));
   }
 
   .legal-container {
@@ -126,13 +126,13 @@ import Layout from '../layouts/Layout.astro';
     gap: 0.5rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--color-text-secondary, #475569);
+    color: var(--color-text-secondary, var(--palette-slate-600));
     text-decoration: none;
     transition: color 150ms ease;
   }
 
   .breadcrumb-link:hover {
-    color: var(--color-brand-primary, #047857);
+    color: var(--color-brand-primary, var(--palette-emerald-700));
     text-decoration: underline;
   }
 
@@ -141,15 +141,15 @@ import Layout from '../layouts/Layout.astro';
     align-items: flex-start;
     gap: 1rem;
     padding: 1rem 1.25rem;
-    background-color: var(--color-accent-amber-subtle, #FEF3C7);
-    border: 1px solid var(--color-accent-amber-border, #FCD34D);
+    background-color: var(--color-accent-amber-subtle, var(--palette-amber-100));
+    border: 1px solid var(--color-accent-amber-border, var(--palette-amber-300));
     border-radius: var(--radius-md, 6px);
     margin-bottom: var(--space-8, 2rem);
   }
 
   .notice-icon {
     flex-shrink: 0;
-    color: var(--color-accent-amber-text, #92400E);
+    color: var(--color-accent-amber-text, var(--palette-amber-800));
     margin-top: 2px;
   }
 
@@ -157,13 +157,13 @@ import Layout from '../layouts/Layout.astro';
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.05em;
-    color: var(--color-accent-amber-text, #92400E);
+    color: var(--color-accent-amber-text, var(--palette-amber-800));
     margin-bottom: 0.25rem;
   }
 
   .notice-desc {
     font-size: 0.8125rem;
-    color: var(--color-accent-amber-text, #92400E);
+    color: var(--color-accent-amber-text, var(--palette-amber-800));
     line-height: 1.5;
     margin: 0;
   }
@@ -171,13 +171,13 @@ import Layout from '../layouts/Layout.astro';
   .legal-header {
     margin-bottom: var(--space-8, 2rem);
     padding-bottom: var(--space-6, 1.5rem);
-    border-bottom: 1px solid var(--color-border-subtle, #E2E8F0);
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
   }
 
   .legal-title {
     font-size: clamp(2rem, 3.5vw, 2.75rem);
     font-weight: 800;
-    color: var(--color-text-primary, #0F172A);
+    color: var(--color-text-primary, var(--palette-slate-900));
     line-height: 1.2;
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
@@ -185,7 +185,7 @@ import Layout from '../layouts/Layout.astro';
 
   .legal-date {
     font-size: 0.875rem;
-    color: var(--color-text-muted, #64748B);
+    color: var(--color-text-muted, var(--palette-slate-500));
   }
 
   .legal-content {
@@ -197,13 +197,13 @@ import Layout from '../layouts/Layout.astro';
   .legal-section h2 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--color-text-primary, #0F172A);
+    color: var(--color-text-primary, var(--palette-slate-900));
     margin-bottom: var(--space-3, 0.75rem);
   }
 
   .legal-section p {
     font-size: 0.9375rem;
-    color: var(--color-text-secondary, #475569);
+    color: var(--color-text-secondary, var(--palette-slate-600));
     line-height: 1.65;
     margin-bottom: var(--space-4, 1rem);
   }
@@ -219,7 +219,7 @@ import Layout from '../layouts/Layout.astro';
 
   .legal-list li {
     font-size: 0.9375rem;
-    color: var(--color-text-secondary, #475569);
+    color: var(--color-text-secondary, var(--palette-slate-600));
     padding-left: 1.25rem;
     position: relative;
     line-height: 1.6;
@@ -229,25 +229,25 @@ import Layout from '../layouts/Layout.astro';
     content: "•";
     position: absolute;
     left: 0;
-    color: var(--color-brand-primary, #047857);
+    color: var(--color-brand-primary, var(--palette-emerald-700));
     font-weight: bold;
   }
 
   .legal-link {
-    color: var(--color-brand-primary, #047857);
+    color: var(--color-brand-primary, var(--palette-emerald-700));
     text-decoration: underline;
     text-underline-offset: 2px;
     transition: color 150ms ease;
   }
 
   .legal-link:hover {
-    color: var(--color-brand-hover, #065F46);
+    color: var(--color-brand-hover, var(--palette-emerald-800));
   }
 
   .legal-cross-nav {
     margin-top: var(--space-8, 2rem);
     padding-top: var(--space-6, 1.5rem);
-    border-top: 1px solid var(--color-border-subtle, #E2E8F0);
+    border-top: 1px solid var(--color-border-subtle, var(--palette-slate-200));
   }
 
   .cross-nav-title {
@@ -256,7 +256,7 @@ import Layout from '../layouts/Layout.astro';
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-text-muted, #64748B);
+    color: var(--color-text-muted, var(--palette-slate-500));
     margin-bottom: var(--space-3, 0.75rem);
   }
 

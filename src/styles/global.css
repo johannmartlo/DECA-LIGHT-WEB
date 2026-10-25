@@ -1,37 +1,11 @@
 /* DECA Light - Global Styles & Design System Tokens */
-/* Basado en DESIGN_SYSTEM.md v2.1.0 y WEB_MAESTRO_DECA_LIGHT.md */
+/* Basado en DESIGN_SYSTEM.md y WEB_MAESTRO_DECA_LIGHT.md. Colores en tokens.css */
+@import './tokens.css';
 
 :root {
-  /* Tokens de Operativa y Rediseño V2 (Fidelidad de Referencia) */
-  --brand-primary: #15803d;
-  --brand-accent: #16a34a;
-  --brand-light: #dcfce7;
-  --amber-text: #b45309;
-  --amber-border: #d97706;
-  --amber-bg: #fef3c7;
-  --amber-card-border: #fde68a;
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-subtle: #64748b;
-  --border-subtle: #e2e8f0;
-  --bg-surface: #ffffff;
-  --bg-muted: #f8fafc;
-
-  /* Tokens de Color Semánticos */
-  --color-bg-canvas: #F8FAFC;
-  --color-bg-surface: #FFFFFF;
-  --color-bg-surface-subtle: #F1F5F9;
-  --color-border-subtle: #E2E8F0;
-  --color-border-strong: #CBD5E1;
-  --color-text-primary: #0F172A;
-  --color-text-secondary: #475569;
-  --color-text-muted: #64748B;
-  --color-brand-primary: #047857;
-  --color-brand-hover: #065F46;
-  --color-accent-amber: #F59E0B;
-  --color-accent-amber-subtle: #FEF3C7;
-  --color-accent-amber-text: #92400E;
-  --color-focus-ring: #0284C7;
+  /* Compatibilidad: nombres antiguos usados en algunos componentes */
+  --border-subtle: var(--color-border-subtle);
+  --bg-muted: var(--color-bg-canvas);
 
   /* Tipografía */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -147,7 +121,7 @@ img, svg {
   top: -100px;
   left: var(--space-4);
   background-color: var(--color-text-primary);
-  color: #FFFFFF;
+  color: var(--palette-white);
   padding: var(--space-3) var(--space-5);
   border-radius: var(--radius-md);
   font-weight: 600;
@@ -264,7 +238,7 @@ img, svg {
 
 .btn-primary {
   background-color: var(--color-brand-primary);
-  color: #FFFFFF;
+  color: var(--palette-white);
   border-color: var(--color-brand-primary);
 }
 
@@ -301,7 +275,7 @@ img, svg {
 .badge-amber {
   background-color: var(--color-accent-amber-subtle);
   color: var(--color-accent-amber-text);
-  border: 1px solid #FCD34D;
+  border: 1px solid var(--palette-amber-300);
 }
 
 .badge-amber .badge-dot {

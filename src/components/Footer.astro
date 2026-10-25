@@ -108,7 +108,7 @@
   .site-footer {
     width: 100%;
     background-color: #003B2A;
-    color: #FFFFFF;
+    color: var(--palette-white);
     padding-top: clamp(3.5rem, 6vw, 4.75rem);
     padding-bottom: clamp(2rem, 3.5vw, 2.75rem);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -142,7 +142,7 @@
   .brand-deca {
     font-size: 1.5rem;
     font-weight: 800;
-    color: #FFFFFF;
+    color: var(--palette-white);
     letter-spacing: -0.02em;
     transition: color 150ms ease;
   }
@@ -150,22 +150,22 @@
   .brand-light {
     font-size: 1.5rem;
     font-weight: 300;
-    color: #A7F3D0;
+    color: var(--palette-emerald-200);
     letter-spacing: -0.02em;
     transition: color 150ms ease;
   }
 
   .footer-brand-link:hover .brand-deca {
-    color: #6EE7B7;
+    color: var(--palette-emerald-300);
   }
 
   .footer-brand-link:hover .brand-light {
-    color: #FFFFFF;
+    color: var(--palette-white);
   }
 
   .footer-desc {
     font-size: 0.875rem;
-    color: #A3C4B8;
+    color: var(--palette-deca-300);
     line-height: 1.6;
     max-width: 34ch;
     margin: 0;
@@ -184,7 +184,7 @@
     border-radius: 9999px;
     padding: 0.3125rem 0.75rem;
     font-size: 0.75rem;
-    color: #A3C4B8;
+    color: var(--palette-deca-300);
     font-weight: 500;
   }
 
@@ -192,14 +192,14 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background-color: #34D399;
+    background-color: var(--palette-emerald-400);
   }
 
   /* Títulos de columna */
   .footer-col-title {
     font-size: 0.9375rem;
     font-weight: 700;
-    color: #FFFFFF;
+    color: var(--palette-white);
     letter-spacing: 0.01em;
     margin-bottom: 1.125rem;
   }
@@ -218,19 +218,19 @@
     display: inline-flex;
     align-items: center;
     font-size: 0.875rem;
-    color: #A3C4B8;
+    color: var(--palette-deca-300);
     text-decoration: none;
     transition: color 150ms ease, transform 150ms ease;
   }
 
   .footer-link:hover {
-    color: #A7F3D0;
+    color: var(--palette-emerald-200);
     transform: translateX(2px);
     text-decoration: none;
   }
 
   .footer-link:focus-visible {
-    outline: 2px solid #38BDF8;
+    outline: 2px solid var(--palette-sky-400);
     outline-offset: 2px;
     border-radius: 2px;
   }
@@ -247,7 +247,7 @@
     align-items: center;
     gap: 0.75rem;
     font-size: 0.875rem;
-    color: #A3C4B8;
+    color: var(--palette-deca-300);
     text-decoration: none;
     transition: color 150ms ease, transform 150ms ease;
   }
@@ -259,24 +259,24 @@
     width: 32px;
     height: 32px;
     border-radius: 8px;
-    background-color: #002E21;
-    color: #34D399;
+    background-color: var(--palette-deca-950);
+    color: var(--palette-emerald-400);
     transition: background-color 150ms ease, transform 150ms ease;
   }
 
   .footer-contact-link:hover {
-    color: #FFFFFF;
+    color: var(--palette-white);
     transform: translateX(2px);
     text-decoration: none;
   }
 
   .footer-contact-link:hover .contact-icon-box {
-    background-color: #004F38;
+    background-color: var(--palette-deca-850);
     transform: scale(1.05);
   }
 
   .footer-contact-link:focus-visible {
-    outline: 2px solid #38BDF8;
+    outline: 2px solid var(--palette-sky-400);
     outline-offset: 2px;
     border-radius: 2px;
   }
@@ -296,9 +296,9 @@
     width: 36px;
     height: 36px;
     border-radius: 8px;
-    background-color: #002E21;
+    background-color: var(--palette-deca-950);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #A3C4B8;
+    color: var(--palette-deca-300);
     text-decoration: none;
     transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
   }
@@ -317,14 +317,14 @@
   }
 
   .footer-social-btn:hover {
-    background-color: #004F38;
-    color: #FFFFFF;
+    background-color: var(--palette-deca-850);
+    color: var(--palette-white);
     transform: translateY(-2px);
     text-decoration: none;
   }
 
   .footer-social-btn:focus-visible {
-    outline: 2px solid #38BDF8;
+    outline: 2px solid var(--palette-sky-400);
     outline-offset: 2px;
   }
 
@@ -336,7 +336,7 @@
     padding-top: 1.75rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.8125rem;
-    color: #A3C4B8;
+    color: var(--palette-deca-300);
   }
 
   .footer-legal-copy {
@@ -349,6 +349,7 @@
   .copyright {
     margin: 0;
     font-weight: 600;
+    color: var(--palette-slate-300);
   }
 
   .footer-disclaimer {

@@ -1,0 +1,75 @@
+/* DECA Light — tokens de marca compartidos (web y aplicación).
+   Paleta base (--palette-*) y tokens semánticos (--color-*). Cambiar aquí, no en los componentes. */
+:root {
+  /* Paleta base */
+  --palette-white: #FFFFFF;
+  --palette-slate-50: #F8FAFC;
+  --palette-slate-100: #F1F5F9;
+  --palette-slate-200: #E2E8F0;
+  --palette-slate-300: #CBD5E1;
+  --palette-slate-400: #94A3B8;
+  --palette-slate-500: #64748B;
+  --palette-slate-600: #475569;
+  --palette-slate-700: #334155;
+  --palette-slate-800: #1E293B;
+  --palette-slate-900: #0F172A;
+  --palette-emerald-50: #ECFDF5;
+  --palette-emerald-100: #D1FAE5;
+  --palette-emerald-200: #A7F3D0;
+  --palette-emerald-300: #6EE7B7;
+  --palette-emerald-400: #34D399;
+  --palette-emerald-500: #10B981;
+  --palette-emerald-600: #059669;
+  --palette-emerald-700: #047857;
+  --palette-emerald-800: #065F46;
+  --palette-emerald-900: #064E3B;
+  --palette-deca-50: #E8F5EE;
+  --palette-deca-300: #A3C4B8;
+  --palette-deca-700: #006847;
+  --palette-deca-800: #08543E;
+  --palette-deca-850: #004F38;
+  --palette-deca-900: #064231;
+  --palette-deca-950: #002E21;
+  --palette-amber-50: #FFFBEB;
+  --palette-amber-100: #FEF3C7;
+  --palette-amber-200: #FDE68A;
+  --palette-amber-300: #FCD34D;
+  --palette-amber-400: #FBBF24;
+  --palette-amber-500: #F59E0B;
+  --palette-amber-600: #D97706;
+  --palette-amber-700: #B45309;
+  --palette-amber-800: #92400E;
+  --palette-red-100: #FEE2E2;
+  --palette-red-300: #FCA5A5;
+  --palette-red-500: #EF4444;
+  --palette-red-600: #DC2626;
+  --palette-sky-400: #38BDF8;
+  --palette-sky-600: #0284C7;
+
+  /* Tokens semánticos */
+  --color-bg-canvas: var(--palette-slate-50);
+  --color-bg-surface: var(--palette-white);
+  --color-bg-surface-subtle: var(--palette-slate-100);
+  --color-border-subtle: var(--palette-slate-200);
+  --color-border-strong: var(--palette-slate-300);
+  --color-text-primary: var(--palette-slate-900);
+  --color-text-secondary: var(--palette-slate-600);
+  --color-text-muted: var(--palette-slate-500);
+  --color-text-faint: var(--palette-slate-400);
+  --color-brand-primary: var(--palette-emerald-700);
+  --color-brand-hover: var(--palette-emerald-800);
+  --color-brand-deep: var(--palette-deca-800);
+  --color-brand-tint: var(--palette-emerald-50);
+  --color-accent-amber: var(--palette-amber-500);
+  --color-accent-amber-subtle: var(--palette-amber-100);
+  --color-accent-amber-text: var(--palette-amber-800);
+  --color-focus-ring: var(--palette-sky-600);
+
+  /* Estados de expedición (compartidos con la aplicación) */
+  --color-status-pending-bg: var(--palette-amber-100);
+  --color-status-pending-text: var(--palette-amber-800);
+  --color-status-ready-bg: var(--palette-emerald-50);
+  --color-status-ready-text: var(--palette-emerald-700);
+  --color-status-error-bg: var(--palette-red-100);
+  --color-status-error-text: var(--palette-red-600);
+}
