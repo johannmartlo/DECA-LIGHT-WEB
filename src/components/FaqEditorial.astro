@@ -1,0 +1,625 @@
+---
+// FaqEditorial.astro — extraído de Faq.astro
+---
+
+  <!-- ==============================================
+       COLUMNA IZQUIERDA: EDITORIAL Y MOCKUP ESQUEMÁTICO
+       ============================================== -->
+  <aside class="faq-editorial-col" data-reveal="editorial">
+    <!-- Encabezado Editorial -->
+    <div class="editorial-header">
+      <div class="eyebrow-wrap">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span class="eyebrow-text">PREGUNTAS FRECUENTES</span>
+      </div>
+
+      <h2 id="faq-heading" class="faq-heading">
+        Resolvemos tus dudas<br />
+        antes de dar el<br />
+        siguiente paso.
+      </h2>
+
+      <p class="faq-description">
+        Conoce qué propone DECA Light, para qué tipo de operativa está pensado y cómo valorar si encaja con tu empresa.
+      </p>
+    </div>
+
+    <!-- Ilustración Esquemática Conceptual del Flujo Documental -->
+    <div class="mockup-wrapper" aria-label="Esquema ilustrativo del flujo documental de expedición">
+      <div class="mockup-container group-mockup">
+        <!-- Barra Superior: Estado Ilustrativo y Chip Shimmer -->
+        <div class="mockup-top-bar">
+          <div class="beacon-wrap">
+            <span class="beacon-indicator" aria-hidden="true">
+              <span class="beacon-ping"></span>
+              <span class="beacon-core"></span>
+            </span>
+            <span class="beacon-text">FLUJO DOCUMENTAL ACTIVO</span>
+          </div>
+
+          <span class="shimmer-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shimmer-check" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Estructura preparada</span>
+          </span>
+        </div>
+
+        <!-- Abanico Documental Superpuesto -->
+        <div class="fanned-docs-stage" aria-hidden="true">
+          <!-- Hoja Trasera Derecha: CMR Internacional -->
+          <div class="doc-sheet sheet-cmr">
+            <div class="sheet-header">
+              <span class="sheet-name">CMR Internacional</span>
+              <span class="sheet-code">e-CMR #441</span>
+            </div>
+            <div class="sheet-lines">
+              <div class="sheet-bar bar-85"></div>
+              <div class="sheet-bar bar-65"></div>
+              <div class="sheet-bar bar-75"></div>
+            </div>
+            <div class="sheet-footer">
+              <span>Tránsito Int.</span>
+              <span class="sheet-status-green">Validado</span>
+            </div>
+          </div>
+
+          <!-- Hoja Intermedia Izquierda: Carta de Porte -->
+          <div class="doc-sheet sheet-cp">
+            <div class="sheet-header">
+              <span class="sheet-name">Carta de porte nacional</span>
+              <span class="sheet-code">CP-902</span>
+            </div>
+            <div class="sheet-lines">
+              <div class="sheet-bar bar-100"></div>
+              <div class="sheet-bar bar-80"></div>
+              <div class="sheet-bar bar-60"></div>
+            </div>
+            <div class="sheet-footer">
+              <span>Porteador asignado</span>
+              <span class="sheet-status-dark">OK</span>
+            </div>
+          </div>
+
+          <!-- Hoja Frontal: Albarán Hortofrutícola -->
+          <div class="doc-sheet sheet-albaran">
+            <div class="sheet-header">
+              <span class="sheet-name-brand">Albarán EXP-2026-1047</span>
+              <span class="sheet-badge-horto">Hortofrutícola</span>
+            </div>
+            <div class="sheet-meta-rows">
+              <div class="meta-row">
+                <span>Origen:</span>
+                <span class="meta-val">Muelle Carga 02</span>
+              </div>
+              <div class="meta-row">
+                <span>Destino:</span>
+                <span class="meta-val-bold">Mercamadrid</span>
+              </div>
+              <div class="meta-row">
+                <span>Carga:</span>
+                <span class="meta-val-green">Tomate Rama • 120 cajas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ficha Central: Expedición Consolidada -->
+        <div class="consolidated-card">
+          <div class="consolidated-head">
+            <span class="consolidated-label">Expedición consolidada:</span>
+            <span class="consolidated-id">EXP-2026-1047</span>
+          </div>
+
+          <div class="consolidated-grid">
+            <div class="info-block">
+              <span class="info-label">Origen &amp; Destino</span>
+              <p class="info-val">Muelle 02 → Mercamadrid</p>
+            </div>
+            <div class="info-block">
+              <span class="info-label">Desglose de carga</span>
+              <p class="info-val">Tomate Rama (120 caj.)</p>
+            </div>
+          </div>
+
+          <div class="consolidated-foot">
+            <div class="date-chip">
+              <span class="dot-green-tiny" aria-hidden="true"></span>
+              <span>Fecha: 15/10/2026</span>
+            </div>
+            <span class="tag-linked">
+              ✓ Documentación vinculada
+            </span>
+          </div>
+        </div>
+
+        <!-- Chip Inferior de Valor Unificado -->
+        <div class="unification-banner">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="banner-icon-green" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span>Coordinación y visualización unificada de la documentación de expedición</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+<style>
+  .animate-stagger-1 {
+      animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+    }
+  .animate-stagger-2 {
+      animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+    }
+  .animate-stagger-3 {
+      animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+    }
+  .faq-editorial-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 100%;
+    }
+  .editorial-header {
+      display: flex;
+      flex-direction: column;
+    }
+  .eyebrow-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.875rem;
+    }
+  .eyebrow-line {
+      width: 1.5rem;
+      height: 2px;
+      background-color: var(--palette-deca-800);
+      border-radius: 9999px;
+    }
+  .eyebrow-text {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--palette-deca-800);
+    }
+  .faq-heading {
+      font-size: 2.125rem;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--palette-slate-900);
+      margin-bottom: 1rem;
+    }
+  @media (min-width: 640px) {
+    .faq-heading {
+          font-size: 2.5rem;
+        }
+  }
+  @media (min-width: 1024px) {
+    .faq-heading {
+          font-size: 2.625rem;
+        }
+  }
+  .faq-description {
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: var(--palette-slate-600);
+      max-width: 28rem;
+    }
+  .mockup-wrapper {
+      width: 100%;
+      max-width: 29rem;
+      padding-top: 0.5rem;
+    }
+  .mockup-container {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.85) 100%);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+      box-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.05), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+      backdrop-filter: blur(8px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+    }
+  @media (max-width: 640px) {
+    .mockup-container {
+          padding: 1rem;
+        }
+  }
+  .mockup-container:hover {
+      border-color: var(--palette-emerald-200);
+      box-shadow: 0 20px 35px -5px rgba(8, 84, 62, 0.08), 0 8px 16px -6px rgba(15, 23, 42, 0.04);
+    }
+  .mockup-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.875rem;
+      border-bottom: 1px solid var(--palette-slate-100);
+    }
+  .beacon-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  .beacon-indicator {
+      position: relative;
+      display: flex;
+      width: 0.625rem;
+      height: 0.625rem;
+    }
+  .beacon-ping {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 9999px;
+      background-color: var(--palette-emerald-400);
+      opacity: 0.75;
+      animation: pulseRing 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  .beacon-core {
+      position: relative;
+      display: inline-flex;
+      border-radius: 9999px;
+      width: 0.625rem;
+      height: 0.625rem;
+      background-color: var(--palette-emerald-500);
+    }
+  .beacon-text {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--palette-slate-600);
+      text-transform: uppercase;
+    }
+  .shimmer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--palette-deca-800);
+      border: 1px solid var(--palette-emerald-200);
+      padding: 0.2rem 0.625rem;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, var(--palette-deca-50) 0%, var(--palette-emerald-100) 50%, var(--palette-deca-50) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 4.5s ease-in-out infinite;
+    }
+  .shimmer-check {
+      color: var(--palette-deca-800);
+    }
+  .fanned-docs-stage {
+      position: relative;
+      height: 12rem;
+      margin: 1rem 0;
+      user-select: none;
+      overflow: hidden;
+    }
+  .doc-sheet {
+      border-radius: 0.75rem;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+    }
+  .sheet-cmr {
+      position: absolute;
+      right: 0.5rem;
+      top: 0.25rem;
+      width: 14rem;
+      height: 8.75rem;
+      background-color: var(--palette-white);
+      border: 1px solid var(--palette-slate-200);
+      box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+      transform: rotate(5deg);
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 0.6875rem;
+      color: var(--palette-slate-400);
+    }
+  .mockup-container:hover .sheet-cmr {
+      transform: translate(6px, -4px) rotate(8.5deg);
+    }
+  .sheet-cp {
+      position: absolute;
+      left: 1.5rem;
+      top: 0.75rem;
+      width: 14rem;
+      height: 8.75rem;
+      background-color: var(--palette-white);
+      border: 1px solid var(--palette-slate-200);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.06);
+      transform: rotate(-3deg);
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 0.6875rem;
+      color: var(--palette-slate-500);
+    }
+  .mockup-container:hover .sheet-cp {
+      transform: translate(-4px, -4px) rotate(-5.5deg);
+    }
+  .sheet-albaran {
+      position: absolute;
+      left: 0.25rem;
+      top: 1.75rem;
+      width: 16.5rem;
+      height: 9.5rem;
+      background-color: var(--palette-white);
+      border: 1px solid var(--palette-emerald-200);
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 18px -3px rgba(8, 84, 62, 0.1);
+      padding: 0.875rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 5;
+    }
+  .mockup-container:hover .sheet-albaran {
+      transform: translate(0, -6px) scale(1.02);
+      box-shadow: 0 14px 26px -4px rgba(8, 84, 62, 0.15);
+    }
+  @media (max-width: 640px) {
+    .fanned-docs-stage {
+          height: 10.5rem;
+        }
+    .sheet-albaran {
+          width: 14.5rem;
+          left: 0;
+          top: 1.5rem;
+        }
+    .sheet-cmr {
+          width: 12.5rem;
+          right: 0;
+          transform: rotate(4deg);
+        }
+    .sheet-cp {
+          width: 12.5rem;
+          left: 0.5rem;
+          transform: rotate(-2deg);
+        }
+  }
+  .sheet-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.375rem;
+      border-bottom: 1px solid var(--palette-slate-100);
+    }
+  .sheet-name {
+      font-weight: 700;
+      color: var(--palette-slate-900);
+      font-size: 0.6875rem;
+    }
+  .sheet-name-brand {
+      font-weight: 700;
+      color: var(--palette-deca-800);
+      font-size: 0.6875rem;
+      white-space: nowrap;
+    }
+  .sheet-code {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.625rem;
+      color: var(--palette-slate-400);
+    }
+  .sheet-badge-horto {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.625rem;
+      color: var(--palette-emerald-800);
+      background-color: var(--palette-deca-50);
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.25rem;
+    }
+  .sheet-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+  .sheet-bar {
+      height: 0.375rem;
+      background-color: var(--palette-slate-100);
+      border-radius: 9999px;
+    }
+  .bar-100 { width: 100%; }
+  .bar-85 { width: 85%; }
+  .bar-80 { width: 80%; }
+  .bar-75 { width: 75%; }
+  .bar-65 { width: 65%; }
+  .bar-60 { width: 60%; }
+  .sheet-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.375rem;
+      border-top: 1px dashed var(--palette-slate-200);
+      font-size: 0.625rem;
+    }
+  .sheet-status-green {
+      font-family: var(--font-mono, monospace);
+      color: var(--palette-emerald-700);
+      font-weight: 600;
+    }
+  .sheet-status-dark {
+      font-family: var(--font-mono, monospace);
+      color: var(--palette-slate-800);
+      font-weight: 600;
+    }
+  .sheet-meta-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.6875rem;
+    }
+  .meta-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--palette-slate-500);
+    }
+  .meta-val {
+      font-weight: 500;
+      color: var(--palette-slate-900);
+    }
+  .meta-val-bold {
+      font-weight: 600;
+      color: var(--palette-slate-900);
+    }
+  .meta-val-green {
+      font-family: var(--font-mono, monospace);
+      color: var(--palette-deca-800);
+      font-weight: 600;
+    }
+  .consolidated-card {
+      background-color: var(--palette-white);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 0.875rem;
+      padding: 0.875rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      transition: border-color 0.2s ease;
+    }
+  .mockup-container:hover .consolidated-card {
+      border-color: var(--palette-slate-300);
+    }
+  .consolidated-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+    }
+  .consolidated-label {
+      font-weight: 500;
+      color: var(--palette-slate-500);
+    }
+  .consolidated-id {
+      font-family: var(--font-mono, monospace);
+      font-weight: 700;
+      color: var(--palette-slate-900);
+    }
+  .consolidated-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      padding-top: 0.25rem;
+      border-top: 1px solid var(--palette-slate-100);
+    }
+  .info-block {
+      background-color: var(--palette-slate-50);
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
+  .info-label {
+      font-size: 0.625rem;
+      color: var(--palette-slate-400);
+    }
+  .info-val {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--palette-slate-900);
+      margin-top: 0.125rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  .consolidated-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.25rem;
+      font-size: 0.6875rem;
+    }
+  .date-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      color: var(--palette-slate-500);
+    }
+  .dot-green-tiny {
+      width: 0.375rem;
+      height: 0.375rem;
+      border-radius: 9999px;
+      background-color: var(--palette-deca-800);
+    }
+  .tag-linked {
+      font-size: 0.625rem;
+      font-weight: 600;
+      color: var(--palette-emerald-800);
+      background-color: var(--palette-emerald-50);
+      border: 1px solid var(--palette-emerald-200);
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.375rem;
+    }
+  .unification-banner {
+      margin-top: 0.875rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--palette-deca-800);
+      background-color: var(--palette-deca-50);
+      border: 1px solid var(--palette-emerald-200);
+      border-radius: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.35;
+      transition: transform 0.2s ease;
+    }
+  .mockup-container:hover .unification-banner {
+      transform: translateY(-1px);
+    }
+  .banner-icon-green {
+      color: var(--palette-deca-800);
+      flex-shrink: 0;
+    }
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+    .beacon-ping,
+        .shimmer-badge {
+          animation: none !important;
+        }
+  }
+
+  @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  @keyframes pulseRing {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
+    }
+
+  @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+</style>

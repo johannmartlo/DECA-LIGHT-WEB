@@ -1,0 +1,480 @@
+---
+// FaqAcordeon.astro — extraído de Faq.astro
+---
+
+  <!-- ==============================================
+       COLUMNA DERECHA: ACORDEÓN CON LAS 8 PREGUNTAS
+       ============================================== -->
+  <div class="faq-accordion-col" role="region" aria-label="Lista de preguntas frecuentes">
+    <div class="accordion-list" id="faq-accordion" data-reveal="card">
+      <!-- --------------------------------------------
+           PREGUNTA 01 (Abierta por defecto)
+           -------------------------------------------- -->
+      <article class="accordion-item" data-open="true">
+        <div class="accordion-accent-bar" aria-hidden="true"></div>
+        <h3>
+          <button
+            type="button"
+            id="faq-btn-1"
+            class="faq-toggle"
+            aria-expanded="true"
+            aria-controls="faq-ans-1"
+          >
+            <div class="toggle-left">
+              <span class="faq-num">01</span>
+              <span class="faq-title">¿Qué es DECA Light?</span>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </h3>
+        <div
+          id="faq-ans-1"
+          class="accordion-content"
+          role="region"
+          aria-labelledby="faq-btn-1"
+        >
+          <div class="accordion-inner">
+            <div class="answer-body">
+              DECA Light es una solución digital orientada a facilitar la coordinación de la documentación de transporte y la información asociada a las expediciones en empresas hortofrutícolas.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- --------------------------------------------
+           PREGUNTA 02
+           -------------------------------------------- -->
+      <article class="accordion-item" data-open="false">
+        <div class="accordion-accent-bar" aria-hidden="true"></div>
+        <h3>
+          <button
+            type="button"
+            id="faq-btn-2"
+            class="faq-toggle"
+            aria-expanded="false"
+            aria-controls="faq-ans-2"
+          >
+            <div class="toggle-left">
+              <span class="faq-num">02</span>
+              <span class="faq-title">¿Qué problema busca resolver?</span>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </h3>
+        <div
+          id="faq-ans-2"
+          class="accordion-content"
+          role="region"
+          aria-labelledby="faq-btn-2"
+        >
+          <div class="accordion-inner">
+            <div class="answer-body">
+              Busca ayudar a organizar la información documental de las expediciones y reducir la fricción derivada de gestionar datos y documentos procedentes de distintas fuentes y personas.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- --------------------------------------------
+           PREGUNTA 03
+           -------------------------------------------- -->
+      <article class="accordion-item" data-open="false">
+        <div class="accordion-accent-bar" aria-hidden="true"></div>
+        <h3>
+          <button
+            type="button"
+            id="faq-btn-3"
+            class="faq-toggle"
+            aria-expanded="false"
+            aria-controls="faq-ans-3"
+          >
+            <div class="toggle-left">
+              <span class="faq-num">03</span>
+              <span class="faq-title">¿Para qué tipo de empresas está pensado?</span>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </h3>
+        <div
+          id="faq-ans-3"
+          class="accordion-content"
+          role="region"
+          aria-labelledby="faq-btn-3"
+        >
+          <div class="accordion-inner">
+            <div class="answer-body">
+              Está orientado principalmente a almacenes y comercializadoras hortofrutícolas que coordinan expediciones de forma habitual y necesitan organizar la información relacionada con sus documentos de transporte.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- --------------------------------------------
+           PREGUNTA 04
+           -------------------------------------------- -->
+      <article class="accordion-item" data-open="false">
+        <div class="accordion-accent-bar" aria-hidden="true"></div>
+        <h3>
+          <button
+            type="button"
+            id="faq-btn-4"
+            class="faq-toggle"
+            aria-expanded="false"
+            aria-controls="faq-ans-4"
+          >
+            <div class="toggle-left">
+              <span class="faq-num">04</span>
+              <span class="faq-title">¿Qué documentación contempla?</span>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </h3>
+        <div
+          id="faq-ans-4"
+          class="accordion-content"
+          role="region"
+          aria-labelledby="faq-btn-4"
+        >
+          <div class="accordion-inner">
+            <div class="answer-body">
+              DECA Light trabaja con el informe de expediciones de tu ERP y con las cartas de porte en PDF, y prepara el documento de control (DeCA) de cada expedición, con su PDF y su código QR. Si quieres saber qué exige la norma, consulta nuestra <a href="/guia-deca">guía del DeCA</a>.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- --------------------------------------------
+           PREGUNTA 05
+           -------------------------------------------- -->
+      <article class="accordion-item" data-open="false">
+        <div class="accordion-accent-bar" aria-hidden="true"></div>
+        <h3>
+          <button
+            type="button"
+            id="faq-btn-5"
+            class="faq-toggle"
+            aria-expanded="false"
+            aria-controls="faq-ans-5"
+          >
+            <div class="toggle-left">
+              <span class="faq-num">05</span>
+              <span class="faq-title">¿DECA Light sustituye a nuestro ERP?</span>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </h3>
+        <div
+          id="faq-ans-5"
+          class="accordion-content"
+          role="region"
+          aria-labelledby="faq-btn-5"
+        >
+          <div class="accordion-inner">
+            <div class="answer-body">
+              DECA Light está concebido como una herramienta de apoyo a la coordinación documental, no como un sustituto general del ERP. El encaje con los sistemas y procesos existentes debe estudiarse para cada caso.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- --------------------------------------------
+           PREGUNTA 06
+           -------------------------------------------- -->
+      <article class="accordion-item" data-open="false">
+        <div class="accordion-accent-bar" aria-hidden="true"></div>
+        <h3>
+          <button
+            type="button"
+            id="faq-btn-6"
+            class="faq-toggle"
+            aria-expanded="false"
+            aria-controls="faq-ans-6"
+          >
+            <div class="toggle-left">
+              <span class="faq-num">06</span>
+              <span class="faq-title">¿Cómo podemos saber si encaja con nuestra operativa?</span>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </h3>
+        <div
+          id="faq-ans-6"
+          class="accordion-content"
+          role="region"
+          aria-labelledby="faq-btn-6"
+        >
+          <div class="accordion-inner">
+            <div class="answer-body">
+              El primer paso es conocer cómo gestionáis actualmente las expediciones, qué información utilizáis y dónde aparecen las principales dificultades. A partir de ahí te enseñamos en una demostración cómo encaja DECA Light con vuestra forma de trabajar.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- --------------------------------------------
+           PREGUNTA 07
+           -------------------------------------------- -->
+      <article class="accordion-item" data-open="false">
+        <div class="accordion-accent-bar" aria-hidden="true"></div>
+        <h3>
+          <button
+            type="button"
+            id="faq-btn-7"
+            class="faq-toggle"
+            aria-expanded="false"
+            aria-controls="faq-ans-7"
+          >
+            <div class="toggle-left">
+              <span class="faq-num">07</span>
+              <span class="faq-title">¿Es necesario cambiar nuestro proceso de trabajo?</span>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </h3>
+        <div
+          id="faq-ans-7"
+          class="accordion-content"
+          role="region"
+          aria-labelledby="faq-btn-7"
+        >
+          <div class="accordion-inner">
+            <div class="answer-body">
+              No. DECA Light se adapta a vuestra operativa: importa la información que ya tenéis y solo os pide lo que falta, normalmente la matrícula del camión. Hoy importa el informe de expediciones de determinados ERP; consúltanos si trabajáis con otro.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- --------------------------------------------
+           PREGUNTA 08
+           -------------------------------------------- -->
+      <article class="accordion-item" data-open="false">
+        <div class="accordion-accent-bar" aria-hidden="true"></div>
+        <h3>
+          <button
+            type="button"
+            id="faq-btn-8"
+            class="faq-toggle"
+            aria-expanded="false"
+            aria-controls="faq-ans-8"
+          >
+            <div class="toggle-left">
+              <span class="faq-num">08</span>
+              <span class="faq-title">¿Cómo puedo ver DECA Light funcionando?</span>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </h3>
+        <div
+          id="faq-ans-8"
+          class="accordion-content"
+          role="region"
+          aria-labelledby="faq-btn-8"
+        >
+          <div class="accordion-inner">
+            <div class="answer-body">
+              Solicita una demostración desde el formulario o escríbenos a contacto@decalight.es. Te enseñamos DECA Light con un caso como el tuyo y, si encaja, te acompañamos en la puesta en marcha.
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+<style>
+  .animate-stagger-1 {
+      animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+    }
+  .animate-stagger-2 {
+      animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+    }
+  .animate-stagger-3 {
+      animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+    }
+  .faq-accordion-col {
+      width: 100%;
+      max-width: 100%;
+    }
+  .accordion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  .accordion-item {
+      position: relative;
+      background-color: var(--palette-white);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 0.875rem;
+      overflow: hidden;
+      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+    }
+  .accordion-item:hover {
+      border-color: var(--palette-slate-300);
+    }
+  .accordion-accent-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background-color: var(--palette-deca-800);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+  .accordion-item[data-open="true"] {
+      background-color: #FAFFFC;
+      border-color: var(--palette-emerald-200);
+      box-shadow: 0 4px 20px -2px rgba(8, 84, 62, 0.06);
+    }
+  .accordion-item[data-open="true"] .accordion-accent-bar {
+      opacity: 1;
+    }
+  .faq-toggle {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      gap: 1rem;
+      font-family: inherit;
+      transition: background-color 0.15s ease;
+    }
+  .faq-toggle:focus-visible {
+      outline: none;
+      box-shadow: inset 0 0 0 2px var(--palette-deca-800);
+    }
+  .toggle-left {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+    }
+  .faq-num {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--palette-slate-600);
+      background-color: var(--palette-slate-100);
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+  .accordion-item[data-open="true"] .faq-num {
+      color: var(--palette-deca-800);
+      background-color: var(--palette-deca-50);
+    }
+  .faq-title {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--palette-slate-900);
+      transition: color 0.2s ease;
+    }
+  @media (min-width: 640px) {
+    .faq-title {
+          font-size: 1rem;
+        }
+  }
+  .accordion-chevron {
+      color: var(--palette-slate-400);
+      flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+    }
+  .accordion-item[data-open="true"] .accordion-chevron {
+      transform: rotate(180deg);
+      color: var(--palette-deca-800);
+    }
+  .accordion-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .accordion-item[data-open="true"] .accordion-content {
+      grid-template-rows: 1fr;
+    }
+  .accordion-inner {
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 240ms cubic-bezier(0.16, 1, 0.3, 1), transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .accordion-item[data-open="true"] .accordion-inner {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 60ms;
+    }
+  :global(html:not(.js)) .accordion-content {
+      grid-template-rows: 1fr !important;
+    }
+  :global(html:not(.js)) .accordion-inner {
+      opacity: 1 !important;
+      transform: none !important;
+      overflow: visible !important;
+    }
+  :global(html:not(.js)) .accordion-chevron {
+      display: none !important;
+    }
+  .answer-body {
+      padding: 0.25rem 1.25rem 1.25rem;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--palette-slate-700);
+      border-top: 1px solid rgba(241, 245, 249, 0.9);
+    }
+  @media (min-width: 640px) {
+    .answer-body {
+          font-size: 0.90625rem;
+          padding-left: 4.125rem;
+          padding-right: 1.5rem;
+        }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+    .accordion-content,
+        .accordion-inner,
+        .accordion-chevron {
+          transition: none !important;
+        }
+  }
+
+  @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+</style>
