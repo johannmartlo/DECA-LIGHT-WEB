@@ -1,0 +1,817 @@
+---
+// HeroDiagrama.astro — extraído de Hero.astro
+---
+
+<!-- Columna Derecha: Diagrama de Convergencia (3 Niveles) -->
+<div class="hero-diagram" aria-label="Diagrama conceptual del flujo documental convergente de DECA Light">
+  <!-- Fila 1: Grid de Tarjetas Superiores (Almacén y Transporte) -->
+  <div class="diagram-top-grid">
+    <!-- Tarjeta Izquierda: Datos del almacén (Flotación suave A) -->
+    <article class="diagram-card card-warehouse animate-float-a">
+      <header class="card-header">
+        <div class="icon-box icon-box-green" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <div class="card-title-group">
+          <h3 class="card-title">Datos del almacén</h3>
+          <p class="card-subtitle">Carga · Albarán</p>
+        </div>
+      </header>
+
+      <div class="inner-ticket-card">
+        <div class="ticket-header">
+          <div class="ticket-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+          </div>
+          <div class="ticket-info">
+            <span class="ticket-name">Albarán de expedición</span>
+            <span class="ticket-id">EXP-2026-1047</span>
+          </div>
+        </div>
+
+        <!-- Líneas decorativas esqueleto -->
+        <div class="skeleton-group" aria-hidden="true">
+          <div class="skeleton-line line-wide"></div>
+          <div class="skeleton-line line-narrow"></div>
+        </div>
+
+        <div class="ticket-footer">
+          <div class="ticket-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            <span>12 cajas</span>
+          </div>
+          <div class="ticket-tag">
+            <span class="bullet-dot" aria-hidden="true">○</span>
+            <span>Naranjas</span>
+          </div>
+          <div class="ticket-check" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tarjeta Derecha: Datos del transporte (Flotación suave B con desfase) -->
+    <div class="transport-column">
+      <article class="diagram-card card-transport animate-float-b">
+        <span class="floating-pending-pill" aria-label="Estado operativo">Puede estar pendiente</span>
+
+        <header class="card-header">
+          <div class="icon-box icon-box-amber" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </div>
+          <div class="card-title-group">
+            <h3 class="card-title">Datos del transporte</h3>
+            <p class="card-subtitle">Vehículo · Matrícula</p>
+          </div>
+        </header>
+
+        <div class="inner-spec-card">
+          <div class="spec-row">
+            <span class="spec-label">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+              Vehículo
+            </span>
+            <span class="spec-value">Tráiler</span>
+          </div>
+
+          <div class="spec-row">
+            <span class="spec-label">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                <line x1="2" y1="10" x2="22" y2="10"></line>
+              </svg>
+              Matrícula
+            </span>
+            <span class="badge-pending pulse-amber">Pendiente</span>
+          </div>
+
+          <div class="spec-row">
+            <span class="spec-label">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Transportista
+            </span>
+            <span class="skeleton-line line-narrow mini-skel" aria-hidden="true"></span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Píldora inferior flotante con aviso de asincronía (Flotación suave C) -->
+      <div class="floating-info-pill animate-float-c" role="note">
+        <span class="pill-clock-icon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </span>
+        <span>La información del transporte puede llegar en otro momento.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nivel 2: Conectores SVG Curvos hacia el Nodo Central con Flujo Fluido Stitch -->
+  <div class="diagram-connectors" aria-hidden="true">
+    <svg viewBox="0 0 580 84" fill="none" class="connectors-svg connector-line-glow" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="greenLineGrad" x1="140" y1="0" x2="290" y2="76" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#059669" stop-opacity="0.9" />
+          <stop offset="100%" stop-color="#047857" />
+        </linearGradient>
+        <linearGradient id="amberLineGrad" x1="450" y1="0" x2="290" y2="76" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#d97706" stop-opacity="0.9" />
+          <stop offset="100%" stop-color="#047857" />
+        </linearGradient>
+      </defs>
+
+      <!-- Rama izquierda: base estática + trazado dinámico animado (dashMove 1.6s) -->
+      <path d="M 140 0 C 140 52, 290 36, 290 76" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+      <path class="flow-line-green" d="M 140 0 C 140 52, 290 36, 290 76" stroke="url(#greenLineGrad)" stroke-width="2.5" stroke-linecap="round" />
+      <circle cx="140" cy="2" fill="#047857" r="4.5" />
+
+      <!-- Rama derecha: base estática + trazado dinámico animado (dashMove 2.2s) -->
+      <path d="M 450 0 C 450 52, 290 36, 290 76" stroke="#fed7aa" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+      <path class="flow-line-amber" d="M 450 0 C 450 52, 290 36, 290 76" stroke="url(#amberLineGrad)" stroke-width="2.5" stroke-linecap="round" />
+      <circle cx="450" cy="2" fill="#d97706" r="4.5" />
+
+      <!-- Nodo central de unión en el borde superior de DECA Light -->
+      <circle cx="290" cy="76" fill="#047857" r="5" stroke="#ffffff" stroke-width="2" />
+    </svg>
+  </div>
+
+  <!-- Nivel 3: Bloque Central DECA Light -->
+  <div class="central-hub-wrap">
+    <div class="central-hub-card">
+      <div class="hub-icon-wrap" aria-hidden="true">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <path d="M9 13h6"></path>
+          <path d="M9 17h4"></path>
+        </svg>
+      </div>
+      <div class="hub-texts">
+        <h3 class="hub-title">DECA Light</h3>
+        <p class="hub-subtitle">Capa de coordinación documental</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conector vertical hacia la salida con flujo animado -->
+  <div class="output-connector" aria-hidden="true">
+    <svg width="14" height="38" viewBox="0 0 14 38" fill="none">
+      <defs>
+        <linearGradient id="downLineGrad" x1="7" y1="0" x2="7" y2="28" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#047857" />
+          <stop offset="100%" stop-color="#059669" />
+        </linearGradient>
+      </defs>
+      <line x1="7" y1="0" x2="7" y2="28" stroke="#e2e8f0" stroke-width="2" stroke-linecap="round" />
+      <line class="flow-line-down" x1="7" y1="0" x2="7" y2="28" stroke="url(#downLineGrad)" stroke-width="2.5" stroke-linecap="round" />
+      <polygon points="7,36 2,26 12,26" fill="#047857" />
+    </svg>
+  </div>
+
+  <!-- Nivel 4: Panel Inferior de Documentación Preparada -->
+  <article class="output-card">
+    <header class="output-header">
+      <div class="output-icon-green" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+        </svg>
+      </div>
+      <h3 class="output-title">Documentación preparada para revisión</h3>
+    </header>
+
+    <div class="output-body">
+      <!-- Columna izquierda: 3 documentos -->
+      <ul class="doc-list" role="list">
+        <li class="doc-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          <span class="doc-label">Expedición</span>
+          <span class="doc-code">EXP-2026-1047</span>
+        </li>
+        <li class="doc-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          <span class="doc-label">Albarán</span>
+          <span class="doc-code">ALB-2026-1047</span>
+        </li>
+        <li class="doc-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          <span class="doc-label">Ficha de transporte</span>
+          <span class="doc-code">TR-2026-1047</span>
+        </li>
+      </ul>
+
+      <!-- Columna derecha: Subtarjeta de confirmación con Shimmer Stitch -->
+      <div class="ready-subcard shimmer-green">
+        <div class="ready-badge-row">
+          <span class="ready-check-icon" aria-hidden="true">✓</span>
+          <span class="ready-text">Lista para revisión</span>
+        </div>
+        <div class="ready-skeleton" aria-hidden="true">
+          <div class="ready-skel-line" style="width: 82%;"></div>
+          <div class="ready-skel-line" style="width: 55%;"></div>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<style>
+  .hero-diagram {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 585px;
+      margin-left: auto;
+    }
+  .hero-diagram::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      right: -50px;
+      bottom: -50px;
+      background-image: radial-gradient(var(--palette-slate-300) 1.4px, transparent 1.4px);
+      background-size: 22px 22px;
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: radial-gradient(ellipse at center, black 65%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 65%, transparent 100%);
+    }
+  .diagram-top-grid,
+    .diagram-connectors,
+    .central-hub-wrap,
+    .output-connector,
+    .output-card {
+      position: relative;
+      z-index: 1;
+    }
+  .diagram-top-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      width: 100%;
+      align-items: start;
+    }
+  .diagram-card {
+      background-color: var(--palette-white);
+      border: 1px solid var(--border-subtle, var(--palette-slate-200));
+      border-radius: 0.875rem;
+      padding: 1.25rem;
+      box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.06);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .diagram-card:hover {
+      box-shadow: 0 16px 32px -4px rgba(15, 23, 42, 0.1);
+    }
+  .card-warehouse {
+      border-color: var(--palette-slate-200);
+    }
+  .transport-column {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1.65rem; 
+    }
+  .card-transport {
+      position: relative;
+      background: linear-gradient(180deg, #fffdf7 0%, var(--palette-white) 50%);
+      border-color: var(--palette-amber-200);
+      box-shadow: 0 8px 24px -4px rgba(245, 158, 11, 0.08);
+    }
+  .floating-pending-pill {
+      position: absolute;
+      top: -0.75rem;
+      right: 0.75rem;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--palette-amber-800);
+      background-color: var(--palette-amber-100);
+      border: 1px solid var(--palette-amber-300);
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      box-shadow: 0 2px 5px rgba(245, 158, 11, 0.12);
+    }
+  .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+  .icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 0.5rem;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+  .icon-box-green {
+      background-color: var(--palette-emerald-50);
+      color: var(--palette-emerald-700);
+      border: 1px solid var(--palette-emerald-100);
+    }
+  .icon-box-amber {
+      background-color: var(--palette-amber-100);
+      color: var(--palette-amber-600);
+      border: 1px solid var(--palette-amber-200);
+    }
+  .card-title {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--palette-slate-900);
+      line-height: 1.25;
+      margin: 0;
+    }
+  .card-subtitle {
+      font-size: 0.75rem;
+      color: var(--palette-slate-500);
+      margin-top: 0.15rem;
+      margin-bottom: 0;
+    }
+  .inner-ticket-card {
+      background-color: var(--palette-slate-50);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 0.625rem;
+      padding: 0.85rem;
+    }
+  .ticket-header {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.65rem;
+    }
+  .ticket-icon {
+      display: grid;
+      place-items: center;
+      color: var(--palette-slate-500);
+    }
+  .ticket-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+  .ticket-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--palette-slate-800);
+    }
+  .ticket-id {
+      font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+      font-size: 0.6875rem;
+      color: var(--palette-slate-500);
+    }
+  .skeleton-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 0.85rem;
+    }
+  .skeleton-line {
+      height: 5px;
+      background-color: var(--palette-slate-200);
+      border-radius: 3px;
+    }
+  .line-wide {
+      width: 85%;
+    }
+  .line-narrow {
+      width: 55%;
+    }
+  .ticket-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid var(--palette-slate-200);
+    }
+  .ticket-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.71875rem;
+      font-weight: 500;
+      color: var(--palette-slate-600);
+    }
+  .bullet-dot {
+      font-size: 0.6rem;
+      color: var(--palette-slate-500);
+    }
+  .ticket-check {
+      margin-left: auto;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background-color: var(--palette-emerald-600);
+      display: grid;
+      place-items: center;
+    }
+  .inner-spec-card {
+      background-color: var(--palette-white);
+      border: 1px solid var(--palette-slate-100);
+      border-radius: 0.625rem;
+      padding: 0.75rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+  .spec-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+    }
+  .spec-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--palette-slate-500);
+    }
+  .spec-value {
+      color: var(--palette-slate-900);
+      font-weight: 600;
+    }
+  .badge-pending {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      background-color: var(--palette-amber-100);
+      color: var(--palette-amber-700);
+      border: 1px solid var(--palette-amber-300);
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      display: inline-block;
+    }
+  .mini-skel {
+      margin-bottom: 0;
+    }
+  .floating-info-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+      margin-left: auto;
+      background-color: var(--palette-white);
+      border: 1px solid #fed7aa;
+      border-radius: 999px;
+      padding: 0.45rem 0.95rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--palette-amber-800);
+      max-width: 98%;
+    }
+  .pill-clock-icon {
+      display: grid;
+      place-items: center;
+      color: var(--palette-amber-600);
+      flex-shrink: 0;
+    }
+  .diagram-connectors {
+      width: 100%;
+      height: 84px;
+      margin: -0.25rem 0;
+    }
+  .connectors-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  .connector-line-glow {
+      filter: drop-shadow(0px 2px 6px rgba(4, 120, 87, 0.15));
+    }
+  .central-hub-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  .central-hub-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: linear-gradient(135deg, var(--palette-emerald-700) 0%, var(--palette-emerald-800) 100%);
+      border: 1px solid var(--palette-emerald-800);
+      border-radius: 0.875rem;
+      padding: 0.95rem 1.8rem;
+      box-shadow: 0 12px 28px -4px rgba(4, 120, 87, 0.38);
+      color: var(--palette-white);
+      width: 384px;
+      height: 84px;
+      justify-content: flex-start;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .central-hub-card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 18px 40px -6px rgba(4, 120, 87, 0.45);
+    }
+  .hub-icon-wrap {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+  .hub-texts {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+  .hub-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      color: var(--palette-white);
+      margin: 0;
+      line-height: 1.2;
+    }
+  .hub-subtitle {
+      font-size: 0.8125rem;
+      color: var(--palette-emerald-200);
+      margin: 0.15rem 0 0 0;
+      font-weight: 500;
+    }
+  .output-connector {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      height: 38px;
+      margin: 0.25rem 0;
+    }
+  .output-card {
+      width: 100%;
+      max-width: 581px;
+      background-color: var(--palette-white);
+      border: 1px solid var(--border-subtle, var(--palette-slate-200));
+      border-radius: 0.875rem;
+      padding: 1.4rem 1.75rem;
+      box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.06);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .output-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -4px rgba(15, 23, 42, 0.1);
+    }
+  .output-header {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 1.1rem;
+    }
+  .output-icon-green {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+  .output-title {
+      font-size: 0.96875rem;
+      font-weight: 700;
+      color: var(--color-text-primary, var(--palette-slate-900));
+      margin: 0;
+    }
+  .output-body {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 1.35rem;
+      align-items: center;
+    }
+  .doc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      padding: 0;
+      margin: 0;
+    }
+  .doc-item {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8125rem;
+    }
+  .doc-label {
+      color: var(--palette-slate-600);
+    }
+  .doc-code {
+      font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+      color: var(--palette-slate-900);
+      font-weight: 600;
+      font-size: 0.78125rem;
+      margin-left: auto;
+    }
+  .ready-subcard {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 0.625rem;
+      padding: 0.85rem 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: transform 0.2s ease;
+    }
+  .ready-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  .ready-check-icon {
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: var(--palette-emerald-600);
+      color: var(--palette-white);
+      font-size: 0.8125rem;
+      font-weight: 800;
+    }
+  .ready-text {
+      font-size: 0.84375rem;
+      font-weight: 700;
+      color: var(--palette-emerald-800);
+    }
+  .ready-skeleton {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+  .ready-skel-line {
+      height: 5px;
+      background-color: #bbf7d0;
+      border-radius: 3px;
+    }
+  .flow-line-green {
+      stroke-dasharray: 6 6;
+      animation: dashMove 1.6s linear infinite;
+    }
+  .flow-line-amber {
+      stroke-dasharray: 6 6;
+      animation: dashMove 2.2s linear infinite;
+    }
+  .flow-line-down {
+      stroke-dasharray: 6 6;
+      animation: dashMove 1.4s linear infinite;
+    }
+  .animate-float-a {
+      animation: floatGentleA 6s ease-in-out infinite;
+    }
+  .animate-float-b {
+      animation: floatGentleB 7s ease-in-out 1s infinite;
+    }
+  .animate-float-c {
+      animation: floatGentleC 5.5s ease-in-out 0.5s infinite;
+    }
+  .animate-float-a:hover,
+    .animate-float-b:hover,
+    .animate-float-c:hover {
+      animation-play-state: paused;
+    }
+  .pulse-amber {
+      animation: pulseAmberSoft 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  .shimmer-green {
+      animation: shimmerGreenSoft 2.8s ease-in-out infinite;
+    }
+  @media (max-width: 900px) {
+    .hero-diagram {
+          margin-inline: auto;
+        }
+  }
+  @media (max-width: 580px) {
+    .diagram-top-grid {
+          grid-template-columns: 1fr;
+          gap: 1.25rem;
+        }
+    .transport-column {
+          margin-top: 0;
+        }
+    .diagram-connectors {
+          display: none;
+        }
+    .central-hub-wrap {
+          margin-top: 1rem;
+        }
+    .central-hub-card {
+          width: 100%;
+          min-width: unset;
+          justify-content: center;
+        }
+    .output-body {
+          grid-template-columns: 1fr;
+          gap: 0.85rem;
+        }
+    .animate-float-a,
+        .animate-float-b,
+        .animate-float-c {
+          animation: none !important;
+        }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .diagram-card:hover,
+        .output-card:hover,
+        .hero-btn-primary:hover,
+        .central-hub-card:hover {
+          transform: none !important;
+        }
+    .flow-line-green,
+        .flow-line-amber,
+        .flow-line-down,
+        .animate-float-a,
+        .animate-float-b,
+        .animate-float-c,
+        .pulse-amber,
+        .shimmer-green,
+        .btn-arrow {
+          animation: none !important;
+          transform: none !important;
+          transition: none !important;
+        }
+  }
+
+  @keyframes dashMove {
+      to {
+        stroke-dashoffset: -32;
+      }
+    }
+
+  @keyframes floatGentleA {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+  @keyframes floatGentleB {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+
+  @keyframes floatGentleC {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-4px);
+      }
+    }
+
+  @keyframes pulseAmberSoft {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.25);
+      }
+      50% {
+        box-shadow: 0 0 0 5px rgba(217, 119, 6, 0);
+      }
+    }
+
+  @keyframes shimmerGreenSoft {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(4, 120, 87, 0.25), inset 0 0 8px rgba(16, 185, 129, 0.08);
+      }
+      50% {
+        box-shadow: 0 0 0 6px rgba(4, 120, 87, 0), inset 0 0 14px rgba(16, 185, 129, 0.18);
+      }
+    }
+</style>

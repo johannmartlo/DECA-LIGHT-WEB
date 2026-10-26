@@ -1,0 +1,190 @@
+---
+// HeroContenido.astro — extraído de Hero.astro
+---
+
+<!-- Columna Izquierda: Editorial y Llamadas a la Acción -->
+<div class="hero-content">
+  <div class="kicker-wrap">
+    <span class="kicker-line" aria-hidden="true"></span>
+    <span class="kicker-text">COORDINACIÓN DOCUMENTAL DE EXPEDICIONES</span>
+  </div>
+
+  <h1 id="hero-title" class="hero-title">
+    Coordina la <br class="hero-title-break" />
+    documentación de <br class="hero-title-break" />
+    tus expediciones sin <br class="hero-title-break" />
+    esperas innecesarias.
+  </h1>
+
+  <p class="hero-description">
+    DECA Light coordina la documentación de las expediciones y organiza la información del almacén y del transporte, incluso cuando los datos llegan en momentos diferentes.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#piloto" class="btn btn-primary hero-btn-primary">
+      <span>Contactar</span>
+      <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+    <a href="#como-funciona" class="btn btn-secondary hero-btn-secondary">
+      Descubrir cómo funciona
+    </a>
+  </div>
+</div>
+
+<style>
+  .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  .kicker-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 1.5rem;
+    }
+  .kicker-line {
+      width: 24px;
+      height: 2px;
+      background-color: var(--color-brand-primary, var(--palette-emerald-700));
+      border-radius: 1px;
+      flex-shrink: 0;
+    }
+  .kicker-text {
+      font-size: 0.78125rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-brand-primary, var(--palette-emerald-700));
+    }
+  .hero-title {
+      font-size: clamp(2.35rem, 3.65vw, 3.35rem);
+      line-height: 1.14;
+      font-weight: 800;
+      color: var(--color-text-primary, var(--palette-slate-900));
+      letter-spacing: -0.035em;
+      margin-bottom: 1.5rem;
+      max-width: 580px;
+    }
+  .hero-title-break {
+      display: inline;
+    }
+  .hero-description {
+      font-size: 1.125rem;
+      line-height: 1.65;
+      color: var(--color-text-secondary, var(--palette-slate-600));
+      margin-bottom: 2.25rem;
+      max-width: 52ch;
+    }
+  .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.125rem;
+    }
+  .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.65rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .hero-btn-primary {
+      background-color: var(--color-brand-primary, var(--palette-emerald-700));
+      color: var(--palette-white);
+      box-shadow: 0 4px 14px rgba(4, 120, 87, 0.25);
+      border: 1px solid transparent;
+      border-radius: 9999px;
+    }
+  .hero-btn-primary:hover {
+      background-color: var(--color-brand-hover, var(--palette-emerald-800));
+      box-shadow: 0 6px 20px rgba(4, 120, 87, 0.35);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+  .btn-arrow {
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .hero-btn-primary:hover .btn-arrow {
+      transform: translateX(4px);
+    }
+  .hero-btn-secondary {
+      background-color: var(--palette-white);
+      color: var(--color-text-primary, var(--palette-slate-900));
+      border: 1px solid var(--border-subtle, var(--palette-slate-200));
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+      border-radius: 0.5rem;
+    }
+  .hero-btn-secondary:hover {
+      background-color: var(--bg-muted, var(--palette-slate-50));
+      border-color: var(--palette-slate-300);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+  @media (max-width: 1024px) {
+    .hero-title {
+          font-size: 2.25rem;
+        }
+  }
+  @media (max-width: 900px) {
+    .hero-content {
+          align-items: center;
+          text-align: center;
+          max-width: 620px;
+          margin-inline: auto;
+        }
+    .kicker-wrap {
+          justify-content: center;
+        }
+    .hero-title-break {
+          display: none;
+        }
+    .hero-description {
+          margin-inline: auto;
+        }
+    .hero-actions {
+          justify-content: center;
+        }
+  }
+  @media (max-width: 580px) {
+    .hero-title {
+          font-size: 1.85rem;
+        }
+    .hero-actions {
+          flex-direction: column;
+          width: 100%;
+        }
+    .btn {
+          width: 100%;
+        }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .diagram-card:hover,
+        .output-card:hover,
+        .hero-btn-primary:hover,
+        .central-hub-card:hover {
+          transform: none !important;
+        }
+    .flow-line-green,
+        .flow-line-amber,
+        .flow-line-down,
+        .animate-float-a,
+        .animate-float-b,
+        .animate-float-c,
+        .pulse-amber,
+        .shimmer-green,
+        .btn-arrow {
+          animation: none !important;
+          transform: none !important;
+          transition: none !important;
+        }
+  }
+</style>
