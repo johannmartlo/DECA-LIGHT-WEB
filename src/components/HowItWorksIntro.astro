@@ -1,0 +1,144 @@
+---
+// HowItWorksIntro.astro — extraído de HowItWorks.astro
+---
+
+<!-- ==============================================
+     ENCABEZADO EDITORIAL CENTRADO
+     ============================================== -->
+<header class="section-intro" data-reveal="editorial">
+  <div class="eyebrow-wrap">
+    <span class="eyebrow-line" aria-hidden="true"></span>
+    <span class="eyebrow-text">UN PROCESO SIMPLE Y CONTROLADO</span>
+  </div>
+
+  <h2 id="how-it-works-title" class="section-title">
+    De la información dispersa <br class="br-desktop" />
+    a la documentación preparada
+  </h2>
+
+  <p class="section-description">
+    DECA Light coordina la información del almacén y del transporte, la organiza y te ayuda a preparar la documentación de cada expedición para su revisión.
+  </p>
+</header>
+
+<style>
+  .section-intro {
+      max-width: 52rem;
+      margin-inline: auto;
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+  @media (min-width: 1024px) {
+    .section-intro {
+          margin-bottom: 4.5rem;
+        }
+  }
+  .eyebrow-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      margin-bottom: 0.875rem;
+      cursor: default;
+    }
+  .eyebrow-line {
+      width: 1.5rem;
+      height: 2.5px;
+      background-color: var(--palette-deca-800);
+      border-radius: 9999px;
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .eyebrow-wrap:hover .eyebrow-line {
+      width: 2.25rem;
+    }
+  .eyebrow-text {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--palette-deca-800);
+    }
+  @media (min-width: 640px) {
+    .eyebrow-text {
+          font-size: 0.8125rem;
+        }
+  }
+  .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--palette-slate-900);
+      margin: 0 0 1rem 0;
+      word-break: break-word;
+    }
+  @media (min-width: 640px) {
+    .section-title {
+          font-size: 2.5rem;
+        }
+  }
+  @media (min-width: 1024px) {
+    .section-title {
+          font-size: 3rem;
+          line-height: 1.18;
+        }
+  }
+  .br-desktop {
+      display: none;
+    }
+  @media (min-width: 640px) {
+    .br-desktop {
+          display: inline;
+        }
+  }
+  .section-description {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--palette-slate-600);
+      max-width: 42rem;
+      margin-inline: auto;
+      margin-block: 0;
+      word-break: break-word;
+    }
+  @media (min-width: 640px) {
+    .section-description {
+          font-size: 1.125rem;
+        }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .eyebrow-line,
+        .step-badge,
+        .format-pill,
+        .icon-pdf,
+        .icon-csv,
+        .icon-manual,
+        .doc-ghost,
+        .card-cmr,
+        .card-porte,
+        .card-cmr-4,
+        .card-porte-4,
+        .albaran-box,
+        .validation-card,
+        .hub-coordination-card,
+        .deca-output-card,
+        .flow-dashed-path,
+        .ping-circle,
+        .pending-icon-circle,
+        .pending-callout-box,
+        .clock-spin-icon,
+        .hub-emblem,
+        .animate-shimmer::after,
+        .benefit-item,
+        .benefit-icon-box {
+          animation: none !important;
+          transition: none !important;
+          transform: none !important;
+        }
+  }
+
+  @keyframes ping {
+      75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+</style>

@@ -1,0 +1,376 @@
+---
+// HowItWorksPaso2.astro — extraído de HowItWorks.astro
+---
+
+  <!-- --------------------------------------------
+       PASO 2: Validamos y organizamos
+       -------------------------------------------- -->
+  <article class="step-card group step-2" role="listitem" data-reveal="card" data-reveal-delay="2">
+    <!-- Encabezado del Paso -->
+    <div class="step-header">
+      <div class="step-badge-wrap">
+        <span class="step-badge" aria-hidden="true">2</span>
+        <div class="step-title-copy">
+          <h3 class="step-title">Validamos y organizamos</h3>
+          <p class="step-text">
+            Revisamos los datos, detectamos incompletos y los organizamos por expedición.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual / Mockup del Paso 2: Validación de Datos -->
+    <div class="step-visual visual-step-2">
+      <div class="validation-card">
+        <div class="validation-card-header">
+          <h4 class="validation-heading">Validación de datos</h4>
+          <span class="count-tag">4/5 listos</span>
+        </div>
+
+        <ul class="validation-list">
+          <li class="validation-item">
+            <span class="check-icon-circle">✓</span>
+            <span class="item-label">Albarán correcto</span>
+          </li>
+          <li class="validation-item">
+            <span class="check-icon-circle">✓</span>
+            <span class="item-label">Datos de carga</span>
+          </li>
+          <!-- Estado Pendiente Destacado con Pulso Ámbar -->
+          <li class="validation-item item-pending">
+            <span class="pending-icon-circle">!</span>
+            <span class="item-label text-amber">Matrícula pendiente</span>
+          </li>
+          <li class="validation-item">
+            <span class="check-icon-circle">✓</span>
+            <span class="item-label">Transportista identificado</span>
+          </li>
+          <li class="validation-item">
+            <span class="check-icon-circle">✓</span>
+            <span class="item-label">Destino correcto</span>
+          </li>
+        </ul>
+
+        <!-- Cuadro de Aviso Ámbar: Asincronía del Transporte -->
+        <div class="pending-callout-box" role="note">
+          <svg class="clock-spin-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <p class="pending-callout-text">
+            La información del transporte puede llegar en otro momento.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flecha de Conexión 2 -> 3 (Desktop/Tablet) -->
+    <div class="flow-arrow-wrap arrow-2-3" aria-hidden="true">
+      <svg class="flow-arrow-svg" viewBox="0 0 24 24" fill="none">
+        <path class="flow-dashed-path" d="M14 5l7 7m0 0l-7 7m7-7H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </div>
+  </article>
+
+<style>
+  .step-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      cursor: default;
+    }
+  .step-header {
+      margin-bottom: 1.25rem;
+    }
+  .step-badge-wrap {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+  .step-badge {
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 9999px;
+      background-color: #e6f4ea;
+      color: var(--palette-deca-800);
+      font-size: 0.875rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .step-card:hover .step-badge {
+      background-color: var(--palette-deca-800);
+      color: var(--palette-white);
+      box-shadow: 0 4px 8px -2px rgba(8, 84, 62, 0.25);
+    }
+  .step-title-copy {
+      flex: 1;
+      min-width: 0;
+    }
+  .step-title {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--palette-slate-900);
+      line-height: 1.3;
+      margin: 0;
+      transition: color 0.2s ease;
+      word-break: break-word;
+    }
+  @media (min-width: 1280px) {
+    .step-title {
+          font-size: 1rem;
+        }
+  }
+  .step-card:hover .step-title {
+      color: var(--palette-deca-800);
+    }
+  .step-text {
+      font-size: 0.75rem;
+      line-height: 1.45;
+      color: var(--palette-slate-500);
+      margin: 0.25rem 0 0 0;
+      word-break: break-word;
+    }
+  @media (min-width: 640px) {
+    .step-text {
+          font-size: 0.8125rem;
+        }
+  }
+  .step-visual {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  .flow-arrow-wrap {
+      display: none;
+      position: absolute;
+      top: 55%;
+      transform: translateY(-50%);
+      z-index: 20;
+      pointer-events: none;
+      color: var(--palette-emerald-600);
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
+    }
+  @media (min-width: 1024px) {
+    .flow-arrow-wrap {
+          display: flex;
+          align-items: center;
+          right: -1rem;
+        }
+  }
+  @media (min-width: 1280px) {
+    .flow-arrow-wrap {
+          right: -1.25rem;
+        }
+  }
+  .flow-arrow-svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  .flow-dashed-path {
+      stroke-dasharray: 4 3;
+      animation: dashTravel 1.2s linear infinite;
+    }
+  .visual-step-2 {
+      width: 100%;
+    }
+  .validation-card {
+      width: 100%;
+      background-color: var(--palette-white);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 1rem;
+      padding: 0.875rem;
+      box-shadow: 0 10px 25px -5px rgba(8, 84, 62, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  @media (min-width: 640px) {
+    .validation-card {
+          padding: 1rem;
+        }
+  }
+  .step-2:hover .validation-card {
+      box-shadow: 0 20px 30px -10px rgba(8, 84, 62, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transform: translateY(-3px);
+    }
+  .validation-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--palette-slate-100);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.625rem;
+    }
+  .validation-heading {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--palette-slate-900);
+      margin: 0;
+    }
+  @media (min-width: 640px) {
+    .validation-heading {
+          font-size: 0.8125rem;
+        }
+  }
+  .count-tag {
+      font-size: 0.5625rem;
+      font-weight: 500;
+      color: var(--palette-slate-400);
+    }
+  .validation-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      font-size: 0.6875rem;
+    }
+  .validation-item {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--palette-slate-700);
+      padding: 0.2rem 0.3rem;
+      border-radius: 0.375rem;
+      transition: background-color 0.15s ease;
+    }
+  .validation-item:hover {
+      background-color: var(--palette-slate-50);
+    }
+  .item-pending {
+      background-color: rgba(254, 243, 199, 0.7);
+      border: 1px solid rgba(251, 191, 36, 0.6);
+    }
+  .check-icon-circle {
+      width: 0.95rem;
+      height: 0.95rem;
+      border-radius: 9999px;
+      background-color: var(--palette-emerald-500);
+      color: var(--palette-white);
+      font-size: 0.5625rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
+  .validation-item:hover .check-icon-circle {
+      transform: scale(1.1);
+    }
+  .pending-icon-circle {
+      width: 0.95rem;
+      height: 0.95rem;
+      border-radius: 9999px;
+      background-color: var(--palette-amber-400);
+      color: var(--palette-white);
+      font-size: 0.5625rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      animation: amberPulseMini 2s infinite;
+    }
+  .text-amber {
+      color: var(--palette-amber-700);
+      font-weight: 600;
+    }
+  .pending-callout-box {
+      margin-top: 0.75rem;
+      background-color: rgba(254, 243, 199, 0.85);
+      border: 1px solid rgba(251, 191, 36, 0.8);
+      border-radius: 0.625rem;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--palette-amber-800);
+      animation: warmPulse 2.8s ease-in-out infinite;
+    }
+  .clock-spin-icon {
+      color: var(--palette-amber-600);
+      flex-shrink: 0;
+      animation: slowSpin 12s linear infinite;
+    }
+  .pending-callout-text {
+      font-size: 0.625rem;
+      line-height: 1.25;
+      margin: 0;
+      font-weight: 500;
+    }
+  @media (prefers-reduced-motion: reduce) {
+    .eyebrow-line,
+        .step-badge,
+        .format-pill,
+        .icon-pdf,
+        .icon-csv,
+        .icon-manual,
+        .doc-ghost,
+        .card-cmr,
+        .card-porte,
+        .card-cmr-4,
+        .card-porte-4,
+        .albaran-box,
+        .validation-card,
+        .hub-coordination-card,
+        .deca-output-card,
+        .flow-dashed-path,
+        .ping-circle,
+        .pending-icon-circle,
+        .pending-callout-box,
+        .clock-spin-icon,
+        .hub-emblem,
+        .animate-shimmer::after,
+        .benefit-item,
+        .benefit-icon-box {
+          animation: none !important;
+          transition: none !important;
+          transform: none !important;
+        }
+  }
+
+  @keyframes dashTravel {
+      to {
+        stroke-dashoffset: -20;
+      }
+    }
+
+  @keyframes ping {
+      75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+
+  @keyframes amberPulseMini {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
+
+  @keyframes warmPulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.25);
+        border-color: rgba(251, 191, 36, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 0 4px rgba(245, 158, 11, 0);
+        border-color: rgba(245, 158, 11, 0.9);
+      }
+    }
+
+  @keyframes slowSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+</style>

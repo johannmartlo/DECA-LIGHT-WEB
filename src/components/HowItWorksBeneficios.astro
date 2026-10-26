@@ -1,0 +1,192 @@
+---
+// HowItWorksBeneficios.astro — extraído de HowItWorks.astro
+---
+
+<!-- ==============================================
+     FRANJA INFERIOR: CUATRO BENEFICIOS OPERATIVOS
+     ============================================== -->
+<footer class="benefits-section" aria-label="Beneficios operativos" data-reveal="card">
+  <div class="benefits-grid">
+    <!-- Beneficio 1: Menos esperas -->
+    <div class="benefit-item group">
+      <div class="benefit-icon-box" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <div class="benefit-copy">
+        <h4 class="benefit-title">Menos esperas</h4>
+        <p class="benefit-text">
+          Organiza la información aunque llegue en momentos diferentes.
+        </p>
+      </div>
+    </div>
+
+    <!-- Beneficio 2: Menos errores -->
+    <div class="benefit-item group">
+      <div class="benefit-icon-box" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+      </div>
+      <div class="benefit-copy">
+        <h4 class="benefit-title">Menos errores</h4>
+        <p class="benefit-text">
+          Detecta datos incompletos y dobles comprobaciones.
+        </p>
+      </div>
+    </div>
+
+    <!-- Beneficio 3: Más control -->
+    <div class="benefit-item group">
+      <div class="benefit-icon-box" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+        </svg>
+      </div>
+      <div class="benefit-copy">
+        <h4 class="benefit-title">Más control</h4>
+        <p class="benefit-text">
+          Toda la documentación de cada expedición en un único lugar.
+        </p>
+      </div>
+    </div>
+
+    <!-- Beneficio 4: Proceso claro y trazable -->
+    <div class="benefit-item group">
+      <div class="benefit-icon-box" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+        </svg>
+      </div>
+      <div class="benefit-copy">
+        <h4 class="benefit-title">Proceso claro y trazable</h4>
+        <p class="benefit-text">
+          Listo para su revisión y consulta cuando lo necesites.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .benefits-section {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(226, 232, 240, 0.8);
+    }
+  @media (min-width: 1024px) {
+    .benefits-section {
+          padding-top: 2.5rem;
+        }
+  }
+  .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  @media (min-width: 640px) {
+    .benefits-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+  }
+  @media (min-width: 1024px) {
+    .benefits-grid {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1.75rem;
+        }
+  }
+  .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.875rem;
+      padding: 0.625rem;
+      border-radius: 1rem;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.25s ease,
+                  box-shadow 0.25s ease;
+      cursor: default;
+    }
+  .benefit-item:hover {
+      background-color: var(--palette-white);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px -5px rgba(8, 84, 62, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+    }
+  .benefit-icon-box {
+      flex-shrink: 0;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.75rem;
+      background-color: var(--palette-white);
+      border: 1px solid var(--palette-slate-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--palette-emerald-700);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .benefit-item:hover .benefit-icon-box {
+      background-color: #e6f4ea;
+      border-color: var(--palette-emerald-500);
+      transform: scale(1.08);
+    }
+  .benefit-copy {
+      flex: 1;
+      min-width: 0;
+    }
+  .benefit-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--palette-slate-900);
+      margin: 0 0 0.25rem 0;
+      transition: color 0.2s ease;
+    }
+  .benefit-item:hover .benefit-title {
+      color: var(--palette-deca-800);
+    }
+  .benefit-text {
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: var(--palette-slate-500);
+      margin: 0;
+      word-break: break-word;
+    }
+  @media (prefers-reduced-motion: reduce) {
+    .eyebrow-line,
+        .step-badge,
+        .format-pill,
+        .icon-pdf,
+        .icon-csv,
+        .icon-manual,
+        .doc-ghost,
+        .card-cmr,
+        .card-porte,
+        .card-cmr-4,
+        .card-porte-4,
+        .albaran-box,
+        .validation-card,
+        .hub-coordination-card,
+        .deca-output-card,
+        .flow-dashed-path,
+        .ping-circle,
+        .pending-icon-circle,
+        .pending-callout-box,
+        .clock-spin-icon,
+        .hub-emblem,
+        .animate-shimmer::after,
+        .benefit-item,
+        .benefit-icon-box {
+          animation: none !important;
+          transition: none !important;
+          transform: none !important;
+        }
+  }
+
+  @keyframes ping {
+      75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+</style>

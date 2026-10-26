@@ -1,0 +1,474 @@
+---
+// HowItWorksPaso1.astro — extraído de HowItWorks.astro
+---
+
+  <!-- --------------------------------------------
+       PASO 1: Recibimos la información
+       -------------------------------------------- -->
+  <article class="step-card group step-1 fanned-step-1" role="listitem" data-reveal="card" data-reveal-delay="1">
+    <!-- Encabezado del Paso -->
+    <div class="step-header">
+      <div class="step-badge-wrap">
+        <span class="step-badge" aria-hidden="true">1</span>
+        <div class="step-title-copy">
+          <h3 class="step-title">Recibimos la información</h3>
+          <p class="step-text">
+            Importa albaranes, cartas de porte, CMR o añade los datos manualmente.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual / Mockup del Paso 1 -->
+    <div class="step-visual visual-step-1">
+      <!-- Pastillas de Formatos Ilustrativos (No funcionales) -->
+      <div class="source-pills-col" aria-label="Formatos ilustrativos admitidos">
+        <!-- Píldora PDF -->
+        <div class="format-pill pill-pdf" title="Ilustración: Importación PDF">
+          <svg class="pill-icon icon-pdf" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M7 3C5.9 3 5 3.9 5 5V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V8L14 3H7M14 4.5L17.5 8H14V4.5M10.8 11.5C11.3 12.3 11.9 13.5 12.2 14.5C11.6 14.9 10.8 15.6 10.3 16.4C10.2 16.6 10 17.5 9.7 17.8C9.5 18 9.2 18.2 8.9 18.2C8.5 18.2 8.2 17.9 8.2 17.5C8.2 16.8 8.9 15.2 10.2 13.7C10.4 12.9 10.6 12.1 10.8 11.5M15.8 13.9C16.4 13.9 17 14.2 17.2 14.7C17.2 15 17 15.3 16.7 15.4C16.2 15.6 15.4 15.1 14.9 14.6C15.2 14.2 15.5 14 15.8 13.9Z"></path>
+          </svg>
+          <span class="pill-label">PDF</span>
+        </div>
+
+        <!-- Píldora CSV -->
+        <div class="format-pill pill-csv" title="Ilustración: Importación CSV">
+          <svg class="pill-icon icon-csv" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1 14.5c0 .8-.7 1.5-1.5 1.5h-5c-.8 0-1.5-.7-1.5-1.5v-3c0-.8.7-1.5 1.5-1.5h5c.8 0 1.5.7 1.5 1.5v3zM14 9V3.5L18.5 8H14v1z"></path>
+          </svg>
+          <span class="pill-label">CSV</span>
+        </div>
+
+        <!-- Píldora Entrada Manual -->
+        <div class="format-pill pill-manual" title="Ilustración: Entrada manual">
+          <svg class="pill-icon icon-manual" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span class="pill-label-small">Entrada manual</span>
+        </div>
+      </div>
+
+      <!-- Documentos en Abanico: CMR, Carta de Porte y Albarán -->
+      <div class="fanned-docs-wrap" aria-hidden="true">
+        <div class="doc-ghost card-cmr">CMR</div>
+        <div class="doc-ghost card-porte">Carta de porte</div>
+
+        <!-- Tarjeta Principal: Albarán -->
+        <div class="albaran-box">
+          <div class="albaran-box-header">
+            <h4 class="albaran-box-title">Albarán</h4>
+            <span class="status-ping-wrap">
+              <span class="ping-circle"></span>
+              <span class="ping-dot"></span>
+            </span>
+          </div>
+
+          <div class="albaran-skeleton-lines">
+            <span class="skel-line w-full"></span>
+            <span class="skel-line w-80"></span>
+          </div>
+
+          <div class="albaran-data-table">
+            <div class="table-top-row">
+              <span class="exp-code">EXP-2026-1047</span>
+              <span class="status-pill-progress">En curso</span>
+            </div>
+            <div class="data-pairs">
+              <div class="data-pair">
+                <span class="pair-label">Variedad</span>
+                <span class="pair-val">Tomate Rama</span>
+              </div>
+              <div class="data-pair">
+                <span class="pair-label">Cajas</span>
+                <span class="pair-val">120</span>
+              </div>
+              <div class="data-pair">
+                <span class="pair-label">Destino</span>
+                <span class="pair-val">Madrid</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flecha de Conexión 1 -> 2 (Desktop/Tablet) -->
+    <div class="flow-arrow-wrap arrow-1-2" aria-hidden="true">
+      <svg class="flow-arrow-svg" viewBox="0 0 24 24" fill="none">
+        <path class="flow-dashed-path" d="M14 5l7 7m0 0l-7 7m7-7H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </div>
+  </article>
+
+<style>
+  .step-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      cursor: default;
+    }
+  .step-header {
+      margin-bottom: 1.25rem;
+    }
+  .step-badge-wrap {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+  .step-badge {
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 9999px;
+      background-color: #e6f4ea;
+      color: var(--palette-deca-800);
+      font-size: 0.875rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .step-card:hover .step-badge {
+      background-color: var(--palette-deca-800);
+      color: var(--palette-white);
+      box-shadow: 0 4px 8px -2px rgba(8, 84, 62, 0.25);
+    }
+  .step-title-copy {
+      flex: 1;
+      min-width: 0;
+    }
+  .step-title {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--palette-slate-900);
+      line-height: 1.3;
+      margin: 0;
+      transition: color 0.2s ease;
+      word-break: break-word;
+    }
+  @media (min-width: 1280px) {
+    .step-title {
+          font-size: 1rem;
+        }
+  }
+  .step-card:hover .step-title {
+      color: var(--palette-deca-800);
+    }
+  .step-text {
+      font-size: 0.75rem;
+      line-height: 1.45;
+      color: var(--palette-slate-500);
+      margin: 0.25rem 0 0 0;
+      word-break: break-word;
+    }
+  @media (min-width: 640px) {
+    .step-text {
+          font-size: 0.8125rem;
+        }
+  }
+  .step-visual {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  .flow-arrow-wrap {
+      display: none;
+      position: absolute;
+      top: 55%;
+      transform: translateY(-50%);
+      z-index: 20;
+      pointer-events: none;
+      color: var(--palette-emerald-600);
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
+    }
+  @media (min-width: 1024px) {
+    .flow-arrow-wrap {
+          display: flex;
+          align-items: center;
+          right: -1rem;
+        }
+  }
+  @media (min-width: 1280px) {
+    .flow-arrow-wrap {
+          right: -1.25rem;
+        }
+  }
+  .flow-arrow-svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  .flow-dashed-path {
+      stroke-dasharray: 4 3;
+      animation: dashTravel 1.2s linear infinite;
+    }
+  .visual-step-1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+    }
+  .source-pills-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 10;
+      flex-shrink: 0;
+    }
+  .format-pill {
+      background-color: var(--palette-white);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 0.75rem;
+      width: 3.25rem;
+      height: 3.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      user-select: none;
+    }
+  .format-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    }
+  .pill-pdf:hover {
+      border-color: var(--palette-red-300);
+    }
+  .pill-csv:hover {
+      border-color: var(--palette-emerald-300);
+    }
+  .pill-manual:hover {
+      border-color: var(--palette-emerald-400);
+    }
+  .icon-pdf {
+      color: var(--palette-red-500);
+      transition: transform 0.2s ease;
+    }
+  .pill-pdf:hover .icon-pdf {
+      transform: scale(1.1);
+    }
+  .icon-csv {
+      color: var(--palette-emerald-600);
+      transition: transform 0.2s ease;
+    }
+  .pill-csv:hover .icon-csv {
+      transform: scale(1.1);
+    }
+  .icon-manual {
+      color: var(--palette-emerald-700);
+      transition: transform 0.2s ease;
+    }
+  .pill-manual:hover .icon-manual {
+      transform: scale(1.1);
+    }
+  .pill-label {
+      font-size: 0.5625rem;
+      font-weight: 700;
+      color: var(--palette-slate-700);
+      letter-spacing: 0.04em;
+      margin-top: 0.15rem;
+    }
+  .pill-label-small {
+      font-size: 0.46875rem;
+      font-weight: 700;
+      color: var(--palette-slate-700);
+      text-align: center;
+      line-height: 1.1;
+      margin-top: 0.1rem;
+    }
+  .fanned-docs-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 12.5rem;
+    }
+  .doc-ghost {
+      position: absolute;
+      background-color: var(--palette-white);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 0.75rem;
+      padding: 0.625rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      font-size: 0.625rem;
+      font-weight: 600;
+      user-select: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .card-cmr {
+      top: -0.875rem;
+      left: -0.625rem;
+      width: 100%;
+      color: var(--palette-slate-400);
+      transform: rotate(-3deg);
+    }
+  .fanned-step-1:hover .card-cmr {
+      transform: translate(-8px, -4px) rotate(-6deg);
+    }
+  .card-porte {
+      top: -0.45rem;
+      right: 0.25rem;
+      width: 100%;
+      color: var(--palette-slate-500);
+      transform: rotate(2deg);
+    }
+  .fanned-step-1:hover .card-porte {
+      transform: translate(6px, -3px) rotate(5deg);
+    }
+  .albaran-box {
+      position: relative;
+      background-color: var(--palette-white);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 1rem;
+      padding: 0.875rem;
+      box-shadow: 0 10px 25px -5px rgba(8, 84, 62, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .step-1:hover .albaran-box {
+      box-shadow: 0 20px 30px -10px rgba(8, 84, 62, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transform: translateY(-3px);
+    }
+  .albaran-box-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--palette-slate-100);
+      padding-bottom: 0.375rem;
+      margin-bottom: 0.5rem;
+    }
+  .albaran-box-title {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--palette-slate-800);
+      margin: 0;
+    }
+  .status-ping-wrap {
+      position: relative;
+      display: flex;
+      width: 0.5rem;
+      height: 0.5rem;
+    }
+  .ping-circle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 9999px;
+      background-color: var(--palette-emerald-400);
+      opacity: 0.75;
+      animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+  .ping-dot {
+      position: relative;
+      display: inline-flex;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 9999px;
+      background-color: var(--palette-emerald-500);
+    }
+  .albaran-skeleton-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      margin-bottom: 0.5rem;
+    }
+  .skel-line {
+      display: block;
+      height: 5px;
+      background-color: var(--palette-slate-100);
+      border-radius: 9999px;
+    }
+  .w-full { width: 100%; }
+  .w-80 { width: 80%; }
+  .albaran-data-table {
+      background-color: rgba(248, 250, 252, 0.85);
+      border: 1px solid var(--palette-slate-100);
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      font-size: 0.625rem;
+      transition: background-color 0.2s ease;
+    }
+  .albaran-box:hover .albaran-data-table {
+      background-color: #f0fdf4;
+    }
+  .table-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.5625rem;
+      font-weight: 700;
+      color: var(--palette-slate-800);
+      margin-bottom: 0.35rem;
+    }
+  .status-pill-progress {
+      font-size: 0.5rem;
+      font-weight: 600;
+      color: var(--palette-emerald-700);
+      background-color: var(--palette-emerald-100);
+      padding: 0.1rem 0.375rem;
+      border-radius: 0.25rem;
+    }
+  .data-pairs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      color: var(--palette-slate-500);
+    }
+  .data-pair {
+      display: flex;
+      justify-content: space-between;
+    }
+  .pair-val {
+      font-weight: 600;
+      color: var(--palette-slate-800);
+    }
+  @media (prefers-reduced-motion: reduce) {
+    .eyebrow-line,
+        .step-badge,
+        .format-pill,
+        .icon-pdf,
+        .icon-csv,
+        .icon-manual,
+        .doc-ghost,
+        .card-cmr,
+        .card-porte,
+        .card-cmr-4,
+        .card-porte-4,
+        .albaran-box,
+        .validation-card,
+        .hub-coordination-card,
+        .deca-output-card,
+        .flow-dashed-path,
+        .ping-circle,
+        .pending-icon-circle,
+        .pending-callout-box,
+        .clock-spin-icon,
+        .hub-emblem,
+        .animate-shimmer::after,
+        .benefit-item,
+        .benefit-icon-box {
+          animation: none !important;
+          transition: none !important;
+          transform: none !important;
+        }
+  }
+
+  @keyframes dashTravel {
+      to {
+        stroke-dashoffset: -20;
+      }
+    }
+
+  @keyframes ping {
+      75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+</style>
