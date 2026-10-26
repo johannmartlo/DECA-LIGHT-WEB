@@ -1,0 +1,260 @@
+---
+// PilotIntroEditorial.astro — extraído de PilotIntro.astro
+---
+
+  <!-- Columna Izquierda: Editorial y Propuesta de Valor -->
+  <div class="editorial-col" data-reveal="editorial">
+<!-- Eyebrow Kicker -->
+<div class="eyebrow-wrap">
+  <span class="eyebrow-line" aria-hidden="true"></span>
+  <span class="eyebrow-text">SOLICITA UNA DEMOSTRACIÓN</span>
+</div>
+
+<!-- Titular Principal -->
+<h2 id="pilot-heading" class="pilot-heading">
+  Llevemos DECA Light a la operativa real de tu almacén.
+</h2>
+
+<!-- Párrafo Descriptivo -->
+<p class="pilot-description">
+  Te enseñamos DECA Light con un caso como el tuyo y te acompañamos en la puesta en marcha para organizar la información de cada expedición.
+</p>
+
+<!-- Cuadrícula de 4 Puntos de Confianza -->
+<div class="trust-grid" role="list" aria-label="Cómo trabajamos contigo">
+  <!-- Item 1: Entorno real -->
+  <article class="trust-card group" role="listitem">
+    <div class="trust-icon-box" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 11l3 3L22 4"></path>
+        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+      </svg>
+    </div>
+    <div class="trust-content">
+      <h3 class="trust-title">Tu operativa real</h3>
+      <p class="trust-text">Puesta en marcha con tus propias expediciones.</p>
+    </div>
+  </article>
+
+  <!-- Item 2: Escucha activa -->
+  <article class="trust-card group" role="listitem">
+    <div class="trust-icon-box" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        <path d="M8 9h8"></path>
+        <path d="M8 13h5"></path>
+      </svg>
+    </div>
+    <div class="trust-content">
+      <h3 class="trust-title">Acompañamiento</h3>
+      <p class="trust-text">Trato directo con tu equipo de tráfico.</p>
+    </div>
+  </article>
+
+  <!-- Item 3: Mejora continua -->
+  <article class="trust-card group" role="listitem">
+    <div class="trust-icon-box" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+        <polyline points="17 6 23 6 23 12"></polyline>
+      </svg>
+    </div>
+    <div class="trust-content">
+      <h3 class="trust-title">Mejora continua</h3>
+      <p class="trust-text">Ajustes según las incidencias del día a día.</p>
+    </div>
+  </article>
+
+  <!-- Item 4: Sector hortofrutícola -->
+  <article class="trust-card group" role="listitem">
+    <div class="trust-icon-box" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        <path d="M9 12l2 2 4-4"></path>
+      </svg>
+    </div>
+    <div class="trust-content">
+      <h3 class="trust-title">Sector hortofrutícola</h3>
+      <p class="trust-text">Diseñado por y para empresas agrícolas.</p>
+    </div>
+  </article>
+</div>
+
+<!-- Micro-barra informativa de estado sobria -->
+<div class="status-microbar" role="status">
+  <span class="ping-indicator" aria-hidden="true">
+    <span class="ping-circle"></span>
+    <span class="ping-core"></span>
+  </span>
+  <span class="microbar-text">Disponible · Demostración y puesta en marcha guiada</span>
+</div>
+  </div>
+
+<style>
+  .editorial-col {
+        display: flex;
+        flex-direction: column;
+      }
+  .eyebrow-wrap {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+  .eyebrow-line {
+        width: 1.5rem;
+        height: 2px;
+        background-color: var(--palette-deca-800);
+        border-radius: 9999px;
+      }
+  .eyebrow-text {
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--palette-deca-800);
+      }
+  .pilot-heading {
+        font-size: 2.125rem;
+        line-height: 1.15;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        color: var(--palette-slate-900);
+        margin-bottom: 1.25rem;
+      }
+  @media (min-width: 640px) {
+    .pilot-heading {
+              font-size: 2.5rem;
+            }
+  }
+  @media (min-width: 1024px) {
+    .pilot-heading {
+              font-size: 2.75rem;
+            }
+  }
+  .pilot-description {
+        font-size: 1.0625rem;
+        line-height: 1.6;
+        color: var(--palette-slate-600);
+        margin-bottom: 2rem;
+        max-width: 36rem;
+      }
+  .trust-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+  @media (min-width: 640px) {
+    .trust-grid {
+              grid-template-columns: repeat(2, 1fr);
+            }
+  }
+  .trust-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.875rem;
+        padding: 0.875rem 1rem;
+        background-color: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(226, 232, 240, 0.8);
+        border-radius: 1rem;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.3s ease;
+      }
+  .trust-card:hover {
+        background-color: var(--palette-white);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px -4px rgba(15, 23, 42, 0.08);
+      }
+  .trust-icon-box {
+        flex-shrink: 0;
+        width: 2.375rem;
+        height: 2.375rem;
+        border-radius: 0.75rem;
+        background-color: var(--palette-emerald-50);
+        color: var(--palette-deca-800);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+      }
+  .trust-card:hover .trust-icon-box {
+        transform: scale(1.08);
+      }
+  .trust-content {
+        display: flex;
+        flex-direction: column;
+      }
+  .trust-title {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: var(--palette-slate-900);
+        line-height: 1.3;
+      }
+  .trust-text {
+        font-size: 0.75rem;
+        color: var(--palette-slate-500);
+        line-height: 1.4;
+        margin-top: 0.125rem;
+      }
+  .status-microbar {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        background-color: rgba(236, 253, 245, 0.85);
+        border: 1px solid rgba(167, 243, 208, 0.8);
+        border-radius: 0.75rem;
+        color: var(--palette-emerald-900);
+        font-size: 0.75rem;
+        font-weight: 500;
+        box-shadow: 0 1px 2px rgba(8, 84, 62, 0.04);
+      }
+  .ping-indicator {
+        position: relative;
+        display: flex;
+        width: 0.625rem;
+        height: 0.625rem;
+      }
+  .ping-circle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 9999px;
+        background-color: var(--palette-deca-800);
+        opacity: 0.75;
+        animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+      }
+  .ping-core {
+        position: relative;
+        display: inline-flex;
+        border-radius: 9999px;
+        width: 0.625rem;
+        height: 0.625rem;
+        background-color: var(--palette-deca-800);
+      }
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+              animation-duration: 0.001ms !important;
+              animation-iteration-count: 1 !important;
+              transition-duration: 0.001ms !important;
+              scroll-behavior: auto !important;
+            }
+    .badge-amber-pulse,
+            .flow-dash-anim,
+            .shimmer-active,
+            .badge-shimmer::after,
+            .ping-circle,
+            .cta-pulse-dot,
+            .pulse-dot-green {
+              animation: none !important;
+            }
+  }
+
+  @keyframes ping {
+        75%, 100% {
+          transform: scale(2.2);
+          opacity: 0;
+        }
+      }
+</style>
