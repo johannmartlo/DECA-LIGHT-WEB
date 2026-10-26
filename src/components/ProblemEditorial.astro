@@ -1,0 +1,130 @@
+---
+// ProblemEditorial.astro — extraído de Problem.astro
+---
+
+  <!-- ==============================================
+       COLUMNA IZQUIERDA: EDITORIAL Y TESIS OPERATIVA
+       ============================================== -->
+  <aside class="editorial-col" data-reveal="editorial">
+    <!-- Eyebrow Kicker -->
+    <div class="eyebrow-wrap">
+      <span class="eyebrow-line" aria-hidden="true"></span>
+      <span class="eyebrow-text">EL PROBLEMA</span>
+    </div>
+
+    <!-- Titular Principal Contundente -->
+    <h2 id="problem-title" class="problem-title">
+      Misma operación,<br />
+      diferentes fuentes,<br />
+      demasiada fricción.
+    </h2>
+
+    <!-- Párrafo Narrativo -->
+    <p class="problem-description">
+      En un almacén hortofrutícola, la documentación de una expedición depende de información que llega en momentos diferentes y por canales distintos. Esto genera esperas, errores y carga administrativa innecesaria.
+    </p>
+  </aside>
+
+<style>
+  .editorial-col {
+      padding-top: 0.25rem;
+      width: 100%;
+      max-width: 100%;
+    }
+  @media (min-width: 1024px) {
+    .editorial-col {
+          position: sticky;
+          top: 6.5rem;
+        }
+  }
+  .eyebrow-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      margin-bottom: 1rem;
+      cursor: default;
+    }
+  .eyebrow-line {
+      width: 1.25rem;
+      height: 2.5px;
+      background-color: var(--palette-deca-700);
+      border-radius: 9999px;
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .eyebrow-wrap:hover .eyebrow-line {
+      width: 2rem;
+    }
+  .eyebrow-text {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--palette-deca-700);
+    }
+  .problem-title {
+      font-size: 1.875rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--palette-slate-900);
+      margin: 0 0 1.25rem 0;
+      word-break: break-word;
+    }
+  @media (min-width: 640px) {
+    .problem-title {
+          font-size: 2.25rem;
+        }
+  }
+  @media (min-width: 1024px) {
+    .problem-title {
+          font-size: 2.5rem;
+        }
+  }
+  @media (min-width: 1280px) {
+    .problem-title {
+          font-size: 2.75rem;
+        }
+  }
+  .problem-description {
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: var(--palette-slate-600);
+      max-width: 32rem;
+      margin: 0;
+      word-break: break-word;
+    }
+  @media (min-width: 640px) {
+    .problem-description {
+          font-size: 1rem;
+        }
+  }
+  @media (min-width: 1280px) {
+    .problem-description {
+          font-size: 1.0625rem;
+        }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .eyebrow-line,
+        .friction-card,
+        .icon-circle,
+        .albaran-card,
+        .albaran-card::after,
+        .pallet-container,
+        .animated-connector-path,
+        .floating-badge-pending,
+        .badge-pending-pill,
+        .skel-loader,
+        .truck-container,
+        .fan-sheet,
+        .alert-exclamation-dot,
+        .alert-box-card,
+        .statement-banner,
+        .accent-glow-bar::after,
+        .quote-symbol,
+        .coord-icon-box {
+          animation: none !important;
+          transition: none !important;
+          transform: none !important;
+        }
+  }
+</style>

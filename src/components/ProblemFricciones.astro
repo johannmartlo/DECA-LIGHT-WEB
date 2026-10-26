@@ -1,0 +1,1120 @@
+---
+// ProblemFricciones.astro — extraído de Problem.astro
+---
+
+  <!-- ==============================================
+       COLUMNA DERECHA: TRES TARJETAS DE FRICCIÓN
+       ============================================== -->
+  <div class="friction-col" role="list">
+    <!-- --------------------------------------------
+         BLOQUE 1: Datos del almacén listos, pero dispersos
+         -------------------------------------------- -->
+    <article class="friction-card group" role="listitem" data-reveal="card" data-reveal-delay="1">
+      <div class="friction-card-grid">
+        <!-- Izquierda: Icono + Título + Descripción -->
+        <div class="card-info">
+          <div class="icon-circle icon-warehouse" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+          </div>
+          <div class="card-copy">
+            <h3 class="card-heading">
+              Datos del almacén<br class="br-desktop" /> listos, pero dispersos
+            </h3>
+            <p class="card-text">
+              La información de la carga, los albaranes y las cajas está en el ERP, en hojas de cálculo o en papel.
+            </p>
+          </div>
+        </div>
+
+        <!-- Derecha: Mini Albarán + Palé Isométrico de Tomates -->
+        <div class="card-visual visual-pallet">
+          <!-- Documento Albarán Apilado con Sombra y Scanline -->
+          <div class="albaran-stack-wrap">
+            <div class="paper-layer paper-layer-back" aria-hidden="true"></div>
+            <div class="paper-layer paper-layer-mid" aria-hidden="true"></div>
+            <div class="albaran-card">
+              <div class="albaran-header">
+                <svg class="albaran-doc-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <div>
+                  <p class="albaran-title">Albarán de expedición</p>
+                  <p class="albaran-ref">ALB-2026-1047</p>
+                </div>
+              </div>
+              <div class="albaran-rows">
+                <div class="albaran-row">
+                  <span class="albaran-label">Cajas</span>
+                  <span class="albaran-value">120</span>
+                </div>
+                <div class="albaran-row">
+                  <span class="albaran-label">Variedad</span>
+                  <span class="albaran-value">Tomate Rama</span>
+                </div>
+                <div class="albaran-row">
+                  <span class="albaran-label">Destino</span>
+                  <span class="albaran-value">Madrid</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Palé Isométrico de Cajas con Tomates Frescos -->
+          <div class="pallet-container" aria-label="Ilustración isométrica de palé con cajas de tomates listos">
+            <svg class="pallet-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Base del Palé de Madera -->
+              <path d="M12 92 L60 108 L108 92 L60 78 Z" fill="#D4A373" stroke="#B08968" stroke-width="1.5"></path>
+              <path d="M12 92 L12 98 L60 114 L60 108 Z" fill="#B08968"></path>
+              <path d="M60 108 L60 114 L108 98 L108 92 Z" fill="#8C6D53"></path>
+              <!-- Bloques de Madera del Palé -->
+              <rect x="24" y="96" width="10" height="8" rx="1" fill="#7C5E43"></rect>
+              <rect x="55" y="101" width="10" height="8" rx="1" fill="#7C5E43"></rect>
+              <rect x="86" y="96" width="10" height="8" rx="1" fill="#7C5E43"></rect>
+              <!-- Capa Inferior de Cajas Verdes -->
+              <g id="crates-lower">
+                <path d="M18 76 L58 89 L58 71 L18 59 Z" fill="#1B4D3E"></path>
+                <path d="M58 89 L98 76 L98 59 L58 71 Z" fill="#143A2F"></path>
+                <path d="M18 59 L58 71 L98 59 L58 49 Z" fill="#246452"></path>
+                <line x1="22" y1="67" x2="54" y2="78" stroke="#102D24" stroke-width="1"></line>
+                <line x1="62" y1="78" x2="94" y2="67" stroke="#0E231C" stroke-width="1"></line>
+              </g>
+              <!-- Capa Superior de Cajas Verdes con Tomates -->
+              <g id="crates-upper" transform="translate(0, -18)">
+                <path d="M22 72 L58 84 L58 68 L22 57 Z" fill="#266955"></path>
+                <path d="M58 84 L94 72 L94 57 L58 68 Z" fill="#1D5343"></path>
+                <path d="M22 57 L58 68 L94 57 L58 48 Z" fill="#307C65"></path>
+                <!-- Racimo de Tomates Rojos Frescos -->
+                <circle cx="42" cy="54" r="5" fill="#E63946" stroke="#9B1C26" stroke-width="0.6"></circle>
+                <circle cx="50" cy="58" r="4.8" fill="#D90429" stroke="#9B1C26" stroke-width="0.6"></circle>
+                <circle cx="58" cy="55" r="5.2" fill="#E63946" stroke="#9B1C26" stroke-width="0.6"></circle>
+                <circle cx="66" cy="57" r="4.7" fill="#D90429" stroke="#9B1C26" stroke-width="0.6"></circle>
+                <circle cx="74" cy="54" r="4.9" fill="#E63946" stroke="#9B1C26" stroke-width="0.6"></circle>
+                <circle cx="48" cy="51" r="4.5" fill="#EF233C"></circle>
+                <circle cx="62" cy="50" r="4.6" fill="#EF233C"></circle>
+                <!-- Detalles del Cáliz Verde de los Tomates -->
+                <circle cx="42" cy="52" r="1.2" fill="#2B9348"></circle>
+                <circle cx="50" cy="56" r="1.2" fill="#2B9348"></circle>
+                <circle cx="58" cy="53" r="1.3" fill="#2B9348"></circle>
+                <circle cx="66" cy="55" r="1.2" fill="#2B9348"></circle>
+                <circle cx="74" cy="52" r="1.2" fill="#2B9348"></circle>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- --------------------------------------------
+         BLOQUE 2: Datos del transporte a menudo pendientes
+         -------------------------------------------- -->
+    <article class="friction-card group card-relative" role="listitem" data-reveal="card" data-reveal-delay="2">
+      <!-- Conector Curvo Superior Animado (Stitch dashStream) -->
+      <div class="animated-connector-svg" aria-hidden="true">
+        <svg class="connector-svg-el" viewBox="0 0 48 56" fill="none">
+          <path class="animated-connector-path" d="M2 54 C 2 24, 24 2, 46 2" fill="none" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round"></path>
+        </svg>
+      </div>
+
+      <div class="friction-card-grid">
+        <!-- Izquierda: Icono + Título + Descripción -->
+        <div class="card-info">
+          <div class="icon-circle icon-transport" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path>
+            </svg>
+          </div>
+          <div class="card-copy">
+            <h3 class="card-heading">
+              Datos del transporte<br class="br-desktop" /> a menudo pendientes
+            </h3>
+            <p class="card-text">
+              El vehículo y la matrícula pueden llegar a última hora, y dependen del transportista. Mientras tanto, la documentación se retrasa.
+            </p>
+          </div>
+        </div>
+
+        <!-- Derecha: Tarjeta de Transporte con Badge + Camión Blanco -->
+        <div class="card-visual visual-transport">
+          <!-- Ficha de Transporte con Borde Ámbar -->
+          <div class="transport-spec-card">
+            <!-- Píldora Flotante "Puede estar pendiente" con Respiración -->
+            <div class="floating-badge-pending">
+              Puede estar pendiente
+            </div>
+            <p class="transport-card-title">Información del transporte</p>
+            <div class="transport-fields">
+              <!-- Campo: Vehículo -->
+              <div class="transport-row">
+                <span class="transport-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M8 7h8m-8 4h8m-5 4h5"></path>
+                  </svg>
+                  Vehículo
+                </span>
+                <span class="transport-val-text">Tráiler</span>
+              </div>
+              <!-- Campo: Matrícula (Pendiente) -->
+              <div class="transport-row">
+                <span class="transport-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+                    <circle cx="6" cy="12" r="1.5"></circle>
+                  </svg>
+                  Matrícula
+                </span>
+                <span class="badge-pending-pill">Pendiente</span>
+              </div>
+              <!-- Campo: Transportista (Placeholder en espera) -->
+              <div class="transport-row">
+                <span class="transport-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  </svg>
+                  Transportista
+                </span>
+                <div class="skel-loader" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Camión Comercial Europeo Blanco Isométrico -->
+          <div class="truck-container" aria-label="Ilustración de camión europeo de transporte">
+            <svg class="truck-svg" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Semirremolque -->
+              <rect x="5" y="15" width="75" height="60" rx="3" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.5"></rect>
+              <line x1="5" y1="22" x2="80" y2="22" stroke="#94A3B8" stroke-width="1"></line>
+              <line x1="5" y1="68" x2="80" y2="68" stroke="#94A3B8" stroke-width="1"></line>
+              <!-- Cabina Europea Blanca -->
+              <path d="M78 18 L108 18 L124 38 L126 75 L78 75 Z" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"></path>
+              <!-- Parabrisas con Reflejo Celeste -->
+              <path d="M102 22 L118 38 L92 38 L92 22 Z" fill="#38BDF8" fill-opacity="0.25" stroke="#64748B" stroke-width="1"></path>
+              <!-- Ventana Lateral -->
+              <path d="M90 24 L82 24 L82 38 L90 38 Z" fill="#38BDF8" fill-opacity="0.2" stroke="#64748B" stroke-width="0.8"></path>
+              <!-- Deflector Aerodinámico Superior -->
+              <path d="M78 14 C90 10 110 12 114 18 L78 18 Z" fill="#E2E8F0"></path>
+              <!-- Parrilla y Faros -->
+              <rect x="112" y="52" width="12" height="18" rx="1.5" fill="#334155"></rect>
+              <line x1="114" y1="56" x2="122" y2="56" stroke="#94A3B8" stroke-width="1"></line>
+              <line x1="114" y1="60" x2="122" y2="60" stroke="#94A3B8" stroke-width="1"></line>
+              <line x1="114" y1="64" x2="122" y2="64" stroke="#94A3B8" stroke-width="1"></line>
+              <!-- Luz Faro Delantero -->
+              <polygon points="122,68 126,68 126,73 122,72" fill="#FDE047"></polygon>
+              <!-- Ruedas y Ejes -->
+              <circle cx="32" cy="76" r="11" fill="#1E293B"></circle>
+              <circle cx="32" cy="76" r="5" fill="#94A3B8"></circle>
+              <circle cx="72" cy="76" r="11" fill="#1E293B"></circle>
+              <circle cx="72" cy="76" r="5" fill="#94A3B8"></circle>
+              <circle cx="110" cy="76" r="11" fill="#1E293B"></circle>
+              <circle cx="110" cy="76" r="5" fill="#94A3B8"></circle>
+              <!-- Sombra en Suelo -->
+              <ellipse cx="68" cy="88" rx="60" ry="3" fill="#000000" fill-opacity="0.08"></ellipse>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- --------------------------------------------
+         BLOQUE 3: Documentación manual y riesgo de errores
+         -------------------------------------------- -->
+    <article class="friction-card group" role="listitem" data-reveal="card" data-reveal-delay="3">
+      <div class="friction-card-grid">
+        <!-- Izquierda: Icono + Título + Descripción -->
+        <div class="card-info">
+          <div class="icon-circle icon-document" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <div class="card-copy">
+            <h3 class="card-heading">
+              Documentación manual<br class="br-desktop" /> y riesgo de errores
+            </h3>
+            <p class="card-text">
+              La preparación y revisión de la documentación se hace con múltiples archivos y comprobaciones manuales.
+            </p>
+          </div>
+        </div>
+
+        <!-- Derecha: Abanico de Documentos + Caja de Alerta de Riesgos -->
+        <div class="card-visual visual-error">
+          <!-- Abanico de Documentos con Apertura en Hover -->
+          <div class="doc-fan-wrap" aria-hidden="true">
+            <!-- Papel 1 (Trasero): Carta de porte -->
+            <div class="fan-sheet sheet-back">
+              <p class="sheet-title">Carta de porte</p>
+              <div class="sheet-lines">
+                <span class="sheet-line line-100"></span>
+                <span class="sheet-line line-80"></span>
+                <span class="sheet-line line-60"></span>
+              </div>
+            </div>
+
+            <!-- Papel 2 (Medio): Albarán -->
+            <div class="fan-sheet sheet-mid">
+              <p class="sheet-title">Albarán</p>
+              <div class="sheet-lines">
+                <span class="sheet-line line-100"></span>
+                <span class="sheet-line line-85"></span>
+                <span class="sheet-line line-65"></span>
+              </div>
+            </div>
+
+            <!-- Papel 3 (Delantero): Documento DECA -->
+            <div class="fan-sheet sheet-front">
+              <p class="deca-doc-brand">DECA</p>
+              <div class="sheet-lines">
+                <span class="sheet-line line-100"></span>
+                <span class="sheet-line line-80"></span>
+                <span class="sheet-line line-100"></span>
+              </div>
+              <div class="deca-doc-stripe"></div>
+            </div>
+          </div>
+
+          <!-- Tarjeta de Alerta Roja: Riesgo de Errores -->
+          <div class="alert-box-card">
+            <div class="alert-header">
+              <div class="alert-exclamation-dot">!</div>
+              <span class="alert-title">Riesgo de errores</span>
+            </div>
+            <ul class="alert-list">
+              <li class="alert-item">
+                <span class="bullet-dot" aria-hidden="true"></span>
+                <span>Datos incompletos</span>
+              </li>
+              <li class="alert-item">
+                <span class="bullet-dot" aria-hidden="true"></span>
+                <span>Retrasos en la expedición</span>
+              </li>
+              <li class="alert-item">
+                <span class="bullet-dot" aria-hidden="true"></span>
+                <span>Dobles comprobaciones</span>
+              </li>
+              <li class="alert-item">
+                <span class="bullet-dot" aria-hidden="true"></span>
+                <span>Más carga administrativa</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+<style>
+  .friction-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 100%;
+    }
+  @media (min-width: 640px) {
+    .friction-col {
+          gap: 1.75rem;
+        }
+  }
+  .friction-card {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(226, 232, 240, 0.85);
+      border-radius: 1rem;
+      padding: 1.25rem 1rem;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+      box-sizing: border-box;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.25s ease,
+                  background-color 0.25s ease;
+      cursor: default;
+      width: 100%;
+      max-width: 100%;
+    }
+  @media (min-width: 640px) {
+    .friction-card {
+          padding: 1.5rem 1.75rem;
+        }
+  }
+  .friction-card:hover {
+      background-color: var(--palette-white);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -4px rgba(16, 24, 40, 0.09), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+      border-color: rgba(203, 213, 225, 0.95);
+    }
+  .card-relative {
+      position: relative;
+    }
+  .friction-card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      align-items: center;
+      width: 100%;
+    }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .friction-card-grid {
+          grid-template-columns: 1fr 1.1fr;
+          gap: 1.5rem;
+        }
+  }
+  @media (min-width: 1200px) {
+    .friction-card-grid {
+          grid-template-columns: 1fr 1.08fr;
+          gap: 1.75rem;
+        }
+  }
+  .card-info {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.875rem;
+      min-width: 0;
+    }
+  @media (min-width: 640px) {
+    .card-info {
+          gap: 1rem;
+        }
+  }
+  .icon-circle {
+      flex-shrink: 0;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background-color 0.25s ease;
+    }
+  @media (min-width: 640px) {
+    .icon-circle {
+          width: 3rem;
+          height: 3rem;
+        }
+  }
+  .friction-card:hover .icon-circle {
+      transform: scale(1.08);
+    }
+  .icon-warehouse {
+      background-color: var(--palette-emerald-50);
+      border: 1px solid var(--palette-emerald-100);
+      color: var(--palette-emerald-700);
+    }
+  .friction-card:hover .icon-warehouse {
+      background-color: var(--palette-emerald-100);
+    }
+  .icon-transport {
+      background-color: var(--palette-amber-50);
+      border: 1px solid var(--palette-amber-100);
+      color: var(--palette-amber-600);
+    }
+  .friction-card:hover .icon-transport {
+      background-color: var(--palette-amber-100);
+    }
+  .icon-document {
+      background-color: var(--palette-slate-100);
+      border: 1px solid var(--palette-slate-200);
+      color: var(--palette-slate-600);
+    }
+  .friction-card:hover .icon-document {
+      background-color: var(--palette-slate-200);
+    }
+  .card-copy {
+      flex: 1;
+      min-width: 0;
+    }
+  .card-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.32;
+      color: var(--palette-slate-900);
+      margin: 0;
+      transition: color 0.2s ease;
+      word-break: break-word;
+    }
+  @media (min-width: 640px) {
+    .card-heading {
+          font-size: 1.0625rem;
+        }
+  }
+  .friction-card:hover .card-heading {
+      color: var(--palette-deca-700);
+    }
+  .br-desktop {
+      display: none;
+    }
+  @media (min-width: 640px) {
+    .br-desktop {
+          display: inline;
+        }
+  }
+  .card-text {
+      margin: 0.375rem 0 0 0;
+      font-size: 0.8125rem;
+      line-height: 1.55;
+      color: var(--palette-slate-500);
+      word-break: break-word;
+    }
+  .card-visual {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      position: relative;
+      width: 100%;
+      min-width: 0;
+    }
+  @media (min-width: 640px) {
+    .card-visual {
+          justify-content: flex-end;
+          gap: 0.75rem;
+        }
+  }
+  .albaran-stack-wrap {
+      position: relative;
+      width: 9.75rem;
+      flex-shrink: 0;
+    }
+  @media (min-width: 640px) {
+    .albaran-stack-wrap {
+          width: 11.5rem;
+        }
+  }
+  @media (min-width: 1280px) {
+    .albaran-stack-wrap {
+          width: 13rem;
+        }
+  }
+  .paper-layer {
+      position: absolute;
+      inset: 0;
+      border-radius: 0.5rem;
+      border: 1px solid var(--palette-slate-200);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  .paper-layer-back {
+      background-color: rgba(241, 245, 249, 0.95);
+      transform: rotate(-3deg) translate(4px, -4px);
+    }
+  .friction-card:hover .paper-layer-back {
+      transform: rotate(-6deg) translate(7px, -7px);
+    }
+  .paper-layer-mid {
+      background-color: rgba(248, 250, 252, 0.95);
+      transform: rotate(2deg) translate(2px, -2px);
+    }
+  .friction-card:hover .paper-layer-mid {
+      transform: rotate(4deg) translate(5px, -5px);
+    }
+  .albaran-card {
+      position: relative;
+      background-color: var(--palette-white);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 0.5rem;
+      padding: 0.625rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      font-size: 0.6875rem;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  box-shadow 0.3s ease;
+    }
+  @media (min-width: 640px) {
+    .albaran-card {
+          padding: 0.75rem;
+        }
+  }
+  .albaran-card::after {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 40%;
+      background: linear-gradient(180deg, transparent, rgba(16, 185, 129, 0.12), transparent);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  .friction-card:hover .albaran-card {
+      box-shadow: 0 10px 22px -4px rgba(16, 24, 40, 0.08);
+      transform: translateY(-2px);
+    }
+  .friction-card:hover .albaran-card::after {
+      opacity: 1;
+      animation: scanlineSweep 1.8s ease-in-out infinite;
+    }
+  .albaran-header {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-bottom: 0.375rem;
+      padding-bottom: 0.375rem;
+      border-bottom: 1px solid var(--palette-slate-100);
+    }
+  .albaran-doc-icon {
+      color: var(--palette-slate-600);
+      flex-shrink: 0;
+    }
+  .albaran-title {
+      font-weight: 700;
+      color: var(--palette-slate-800);
+      line-height: 1;
+      margin: 0;
+      font-size: 0.625rem;
+    }
+  @media (min-width: 640px) {
+    .albaran-title {
+          font-size: 0.6875rem;
+        }
+  }
+  .albaran-ref {
+      font-size: 0.5rem;
+      color: var(--palette-slate-400);
+      margin: 0.1rem 0 0 0;
+    }
+  @media (min-width: 640px) {
+    .albaran-ref {
+          font-size: 0.5625rem;
+        }
+  }
+  .albaran-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+  .albaran-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.5625rem;
+    }
+  @media (min-width: 640px) {
+    .albaran-row {
+          font-size: 0.625rem;
+        }
+  }
+  .albaran-label {
+      color: var(--palette-slate-500);
+    }
+  .albaran-value {
+      font-weight: 600;
+      color: var(--palette-slate-800);
+    }
+  .pallet-container {
+      position: relative;
+      flex-shrink: 0;
+      width: 5.25rem;
+      height: 5.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: palletFloat 4.2s ease-in-out infinite;
+      transition: transform 0.4s ease;
+    }
+  @media (min-width: 640px) {
+    .pallet-container {
+          width: 6.25rem;
+          height: 6.25rem;
+        }
+  }
+  @media (min-width: 1280px) {
+    .pallet-container {
+          width: 7rem;
+          height: 7rem;
+        }
+  }
+  .friction-card:hover .pallet-container {
+      animation-duration: 2.4s;
+      transform: translateY(-6px) scale(1.02);
+    }
+  .pallet-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08));
+      overflow: visible;
+    }
+  .animated-connector-svg {
+      display: none;
+      position: absolute;
+      top: -1.25rem;
+      right: 4.5rem;
+      width: 3rem;
+      height: 3.5rem;
+      pointer-events: none;
+      z-index: 10;
+    }
+  @media (min-width: 768px) {
+    .animated-connector-svg {
+          display: block;
+        }
+  }
+  .connector-svg-el {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+  .animated-connector-path {
+      stroke-dasharray: 6 5;
+      animation: dashStream 1.1s linear infinite;
+    }
+  .transport-spec-card {
+      position: relative;
+      background-color: var(--palette-white);
+      border: 1px solid rgba(253, 230, 138, 0.9);
+      border-radius: 0.75rem;
+      padding: 0.625rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      width: 10.75rem;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+  @media (min-width: 640px) {
+    .transport-spec-card {
+          width: 12.25rem;
+          padding: 0.75rem;
+        }
+  }
+  @media (min-width: 1280px) {
+    .transport-spec-card {
+          width: 14rem;
+        }
+  }
+  .friction-card:hover .transport-spec-card {
+      transform: translateY(-2px);
+    }
+  .floating-badge-pending {
+      position: absolute;
+      top: -0.75rem;
+      right: 0.35rem;
+      background-color: var(--palette-amber-100);
+      color: var(--palette-amber-800);
+      border: 1px solid var(--palette-amber-300);
+      font-size: 0.5625rem;
+      font-weight: 600;
+      padding: 0.1rem 0.5rem;
+      border-radius: 9999px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      animation: breathTooltip 3s ease-in-out infinite;
+    }
+  @media (min-width: 640px) {
+    .floating-badge-pending {
+          top: -0.875rem;
+          right: 0.5rem;
+          font-size: 0.625rem;
+          padding: 0.125rem 0.625rem;
+        }
+  }
+  .transport-card-title {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--palette-slate-800);
+      margin: 0 0 0.5rem 0;
+      padding-top: 0.1rem;
+    }
+  @media (min-width: 640px) {
+    .transport-card-title {
+          font-size: 0.75rem;
+          margin-bottom: 0.625rem;
+        }
+  }
+  .transport-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.625rem;
+    }
+  @media (min-width: 640px) {
+    .transport-fields {
+          gap: 0.5rem;
+          font-size: 0.6875rem;
+        }
+  }
+  .transport-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  .transport-label {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--palette-slate-500);
+      font-size: 0.5625rem;
+    }
+  @media (min-width: 640px) {
+    .transport-label {
+          gap: 0.375rem;
+          font-size: 0.625rem;
+        }
+  }
+  .transport-label svg {
+      color: var(--palette-amber-600);
+      flex-shrink: 0;
+    }
+  .transport-val-text {
+      font-weight: 600;
+      color: var(--palette-slate-700);
+      font-size: 0.5625rem;
+    }
+  @media (min-width: 640px) {
+    .transport-val-text {
+          font-size: 0.625rem;
+        }
+  }
+  .badge-pending-pill {
+      background-color: var(--palette-amber-100);
+      color: var(--palette-amber-800);
+      font-size: 0.5rem;
+      font-weight: 700;
+      padding: 0.1rem 0.4rem;
+      border-radius: 0.25rem;
+      animation: amberGlow 2.2s infinite;
+    }
+  @media (min-width: 640px) {
+    .badge-pending-pill {
+          font-size: 0.5625rem;
+          padding: 0.125rem 0.5rem;
+        }
+  }
+  .skel-loader {
+      width: 2.75rem;
+      height: 0.45rem;
+      background-color: var(--palette-slate-200);
+      border-radius: 9999px;
+      animation: pulseSkel 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  @media (min-width: 640px) {
+    .skel-loader {
+          width: 3.5rem;
+          height: 0.5rem;
+        }
+  }
+  .truck-container {
+      width: 4.75rem;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: truckIdle 2.5s ease-in-out infinite;
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+  @media (min-width: 640px) {
+    .truck-container {
+          width: 5.5rem;
+        }
+  }
+  @media (min-width: 1280px) {
+    .truck-container {
+          width: 6.25rem;
+        }
+  }
+  .friction-card:hover .truck-container {
+      transform: translateX(4px) scale(1.03);
+    }
+  .truck-svg {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
+    }
+  .doc-fan-wrap {
+      position: relative;
+      width: 6.5rem;
+      height: 5.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+  @media (min-width: 640px) {
+    .doc-fan-wrap {
+          width: 8rem;
+          height: 6.5rem;
+        }
+  }
+  @media (min-width: 1280px) {
+    .doc-fan-wrap {
+          width: 10rem;
+          height: 7rem;
+        }
+  }
+  .fan-sheet {
+      position: absolute;
+      width: 4.5rem;
+      height: 5.5rem;
+      background-color: var(--palette-white);
+      border: 1px solid var(--palette-slate-200);
+      border-radius: 0.375rem;
+      padding: 0.375rem;
+      transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  box-shadow 0.3s ease;
+      will-change: transform;
+      box-sizing: border-box;
+    }
+  @media (min-width: 640px) {
+    .fan-sheet {
+          width: 5.25rem;
+          height: 6.5rem;
+          padding: 0.5rem;
+        }
+  }
+  @media (min-width: 1280px) {
+    .fan-sheet {
+          width: 6rem;
+          height: 7rem;
+        }
+  }
+  .sheet-back {
+      transform: rotate(-12deg) translate(-1rem, 0);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+  .friction-card:hover .sheet-back {
+      transform: rotate(-18deg) translate(-1.6rem, -0.2rem);
+      box-shadow: 0 10px 18px -4px rgba(15, 23, 42, 0.1);
+    }
+  .sheet-mid {
+      transform: rotate(-3deg) translate(-0.35rem, 0);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+  .friction-card:hover .sheet-mid {
+      transform: rotate(-5deg) translate(-0.55rem, -0.25rem);
+      box-shadow: 0 12px 22px -4px rgba(15, 23, 42, 0.12);
+    }
+  .sheet-front {
+      transform: rotate(6deg) translate(0.5rem, 0);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
+      z-index: 2;
+    }
+  .friction-card:hover .sheet-front {
+      transform: rotate(10deg) translate(0.9rem, -0.15rem);
+      box-shadow: 0 16px 26px -4px rgba(15, 23, 42, 0.16);
+    }
+  .sheet-title {
+      font-size: 0.4375rem;
+      font-weight: 700;
+      color: var(--palette-slate-500);
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  @media (min-width: 640px) {
+    .sheet-title {
+          font-size: 0.5rem;
+        }
+  }
+  .deca-doc-brand {
+      font-size: 0.5625rem;
+      font-weight: 800;
+      color: var(--palette-slate-900);
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+  @media (min-width: 640px) {
+    .deca-doc-brand {
+          font-size: 0.625rem;
+        }
+  }
+  .sheet-lines {
+      margin-top: 0.35rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+  .sheet-line {
+      display: block;
+      height: 3px;
+      background-color: var(--palette-slate-200);
+      border-radius: 9999px;
+    }
+  @media (min-width: 640px) {
+    .sheet-line {
+          height: 4px;
+        }
+  }
+  .line-100 { width: 100%; }
+  .line-85 { width: 85%; }
+  .line-80 { width: 80%; }
+  .line-65 { width: 65%; }
+  .line-60 { width: 60%; }
+  .deca-doc-stripe {
+      margin-top: 0.625rem;
+      width: 2.25rem;
+      height: 3px;
+      background-color: var(--palette-deca-700);
+      border-radius: 9999px;
+    }
+  @media (min-width: 640px) {
+    .deca-doc-stripe {
+          margin-top: 0.875rem;
+          width: 3rem;
+          height: 4px;
+        }
+  }
+  .alert-box-card {
+      background-color: rgba(254, 242, 242, 0.95);
+      border: 1px solid rgba(254, 202, 202, 0.85);
+      border-radius: 0.75rem;
+      padding: 0.625rem;
+      width: 9.5rem;
+      flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s ease;
+      box-sizing: border-box;
+    }
+  @media (min-width: 640px) {
+    .alert-box-card {
+          width: 11rem;
+          padding: 0.75rem 0.875rem;
+        }
+  }
+  @media (min-width: 1280px) {
+    .alert-box-card {
+          width: 12rem;
+        }
+  }
+  .friction-card:hover .alert-box-card {
+      transform: translateY(-2px);
+    }
+  .alert-header {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: #b91c1c;
+      font-weight: 700;
+      font-size: 0.625rem;
+      margin-bottom: 0.4rem;
+    }
+  @media (min-width: 640px) {
+    .alert-header {
+          font-size: 0.6875rem;
+          margin-bottom: 0.5rem;
+        }
+  }
+  .alert-exclamation-dot {
+      width: 0.9rem;
+      height: 0.9rem;
+      border-radius: 9999px;
+      background-color: var(--palette-red-100);
+      border: 1px solid var(--palette-red-300);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.5625rem;
+      color: var(--palette-red-600);
+      animation: alertExclamation 2.2s infinite ease-in-out;
+    }
+  .alert-title {
+      line-height: 1;
+    }
+  .alert-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+  .alert-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.5625rem;
+      color: var(--palette-slate-600);
+    }
+  @media (min-width: 640px) {
+    .alert-item {
+          font-size: 0.625rem;
+        }
+  }
+  .bullet-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 9999px;
+      background-color: var(--palette-red-500);
+      flex-shrink: 0;
+    }
+  @media (prefers-reduced-motion: reduce) {
+    .eyebrow-line,
+        .friction-card,
+        .icon-circle,
+        .albaran-card,
+        .albaran-card::after,
+        .pallet-container,
+        .animated-connector-path,
+        .floating-badge-pending,
+        .badge-pending-pill,
+        .skel-loader,
+        .truck-container,
+        .fan-sheet,
+        .alert-exclamation-dot,
+        .alert-box-card,
+        .statement-banner,
+        .accent-glow-bar::after,
+        .quote-symbol,
+        .coord-icon-box {
+          animation: none !important;
+          transition: none !important;
+          transform: none !important;
+        }
+  }
+
+  @keyframes scanlineSweep {
+      0% { top: -40%; }
+      100% { top: 140%; }
+    }
+
+  @keyframes palletFloat {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-5px) rotate(0.4deg);
+      }
+    }
+
+  @keyframes dashStream {
+      to {
+        stroke-dashoffset: -22;
+      }
+    }
+
+  @keyframes breathTooltip {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+
+  @keyframes amberGlow {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.35);
+      }
+      50% {
+        box-shadow: 0 0 0 5px rgba(245, 158, 11, 0);
+      }
+    }
+
+  @keyframes pulseSkel {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+  @keyframes truckIdle {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-1.5px); }
+    }
+
+  @keyframes alertExclamation {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+      }
+      50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 4px rgba(239, 68, 68, 0);
+      }
+    }
+</style>
