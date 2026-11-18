@@ -36,10 +36,7 @@
     width: 100%;
     padding-top: clamp(4rem, 7vw, 6.5rem);
     padding-bottom: clamp(4rem, 7vw, 6.5rem);
-    background-color: var(--color-ink, #0a0f0d);
-    background-image: radial-gradient(ellipse 680px 360px at 50% 45%, rgba(4, 120, 87, 0.22) 0%, rgba(17, 25, 21, 0.35) 55%, transparent 80%);
-    color: var(--palette-white);
-    border-bottom: 1px solid var(--color-ink-border, #1f2a25);
+    background: linear-gradient(180deg, #F8FAF9 0%, #F4F7F5 50%, var(--palette-white) 100%);
     overflow: hidden;
   }
 
@@ -50,7 +47,7 @@
     transform: translate(-50%, -50%);
     width: min(640px, 90vw);
     height: 320px;
-    background: radial-gradient(ellipse at center, rgba(52, 211, 153, 0.14) 0%, rgba(4, 120, 87, 0.06) 50%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(8, 84, 62, 0.07) 0%, rgba(16, 185, 129, 0.03) 50%, transparent 70%);
     border-radius: 9999px;
     filter: blur(40px);
     pointer-events: none;
@@ -74,7 +71,7 @@
   .final-cta-title {
     font-size: clamp(1.875rem, 3.8vw, 2.75rem);
     font-weight: 700;
-    color: var(--palette-white);
+    color: #0B251C;
     letter-spacing: -0.03em;
     line-height: 1.15;
     margin-bottom: 1.25rem;
@@ -84,7 +81,7 @@
   /* Subtítulo */
   .final-cta-subtitle {
     font-size: clamp(1rem, 1.35vw, 1.125rem);
-    color: var(--palette-slate-300);
+    color: var(--palette-slate-600);
     font-weight: 400;
     line-height: 1.65;
     max-width: 48ch;
@@ -113,7 +110,7 @@
     font-size: 1rem;
     font-weight: 700;
     text-decoration: none;
-    box-shadow: 0 4px 14px -2px rgba(4, 120, 87, 0.4), 0 2px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 14px -2px rgba(4, 120, 87, 0.25), 0 2px 4px rgba(4, 120, 87, 0.15);
     transition: background-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
     cursor: pointer;
   }
@@ -134,7 +131,7 @@
     background-color: var(--color-brand-hover, #065f46);
     text-decoration: none;
     transform: translateY(-2px);
-    box-shadow: 0 8px 22px -4px rgba(4, 120, 87, 0.5);
+    box-shadow: 0 8px 22px -4px rgba(4, 120, 87, 0.35);
   }
 
   .btn-final-cta:hover .btn-arrow {
