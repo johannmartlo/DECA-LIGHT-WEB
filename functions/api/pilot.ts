@@ -1,4 +1,4 @@
-// functions/api/pilot.ts - Endpoint Edge de Cloudflare Pages para captación del programa piloto
+// functions/api/pilot.ts - Endpoint Edge de Cloudflare Pages para solicitudes de demostración
 
 export interface Env {
   DB?: D1Database;
@@ -318,10 +318,10 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           body: JSON.stringify({
             from: senderEmail,
             to: [recipientEmail],
-            subject: `[Piloto DECA Light] Nueva solicitud: ${company}`,
+            subject: `[DECA Light] Nueva solicitud de demostración: ${company}`,
             html: `
-              <h2>Nueva solicitud de participación en el programa piloto</h2>
-              <p>Se ha recibido una nueva solicitud a través del formulario de la web comercial:</p>
+              <h2>Nueva solicitud de demostración</h2>
+              <p>Se ha recibido una nueva solicitud de demostración a través del formulario de la web comercial:</p>
               <ul>
                 <li><strong>Empresa:</strong> ${escapeHtml(company)}</li>
                 <li><strong>Correo de contacto:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></li>

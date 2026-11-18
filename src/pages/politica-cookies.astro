@@ -6,6 +6,7 @@ import Layout from '../layouts/Layout.astro';
 <Layout
   title="Política de Cookies · DECA Light"
   description="Información sobre el uso de cookies y tecnologías de almacenamiento local en el sitio web de DECA Light."
+  canonicalURL="https://www.decalight.es/politica-cookies"
 >
   <div class="legal-page">
     <div class="container legal-container">
@@ -20,27 +21,10 @@ import Layout from '../layouts/Layout.astro';
         </a>
       </nav>
 
-      <!-- Banner de advertencia de borrador legal -->
-      <div class="legal-draft-notice" role="note">
-        <div class="notice-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="8" x2="12" y2="12"></line>
-            <line x1="12" y1="16" x2="12.01" y2="16"></line>
-          </svg>
-        </div>
-        <div>
-          <p class="notice-title">BORRADOR INFORMATIVO</p>
-          <p class="notice-desc">
-            En su versión comercial estática actual, DECA Light no utiliza cookies de seguimiento publicitario ni analítica invasiva de terceros.
-          </p>
-        </div>
-      </div>
-
       <header class="legal-header">
         <span class="section-kicker">INFORMACIÓN TÉCNICA</span>
         <h1 class="legal-title">Política de Cookies</h1>
-        <p class="legal-date">Última actualización: Octubre de 2026</p>
+        <p class="legal-date">Última actualización: noviembre de 2026</p>
       </header>
 
       <div class="legal-content">
@@ -86,7 +70,7 @@ import Layout from '../layouts/Layout.astro';
         <section class="legal-section">
           <h2>5. Contacto y dudas técnicas</h2>
           <p>
-            Para cualquier consulta sobre esta política técnica o sobre el funcionamiento del sitio web, puede comunicarse con el equipo promotor a través de <a href="mailto:contacto@decalight.es" class="legal-link">contacto@decalight.es</a>.
+            Para cualquier consulta sobre esta política técnica o sobre el funcionamiento del sitio web, puede comunicarse con DECA Light a través de <a href="mailto:contacto@decalight.es" class="legal-link">contacto@decalight.es</a>.
           </p>
         </section>
 
@@ -134,38 +118,6 @@ import Layout from '../layouts/Layout.astro';
   .breadcrumb-link:hover {
     color: var(--color-brand-primary, var(--palette-emerald-700));
     text-decoration: underline;
-  }
-
-  .legal-draft-notice {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1rem 1.25rem;
-    background-color: var(--color-accent-amber-subtle, var(--palette-amber-100));
-    border: 1px solid var(--color-accent-amber-border, var(--palette-amber-300));
-    border-radius: var(--radius-md, 6px);
-    margin-bottom: var(--space-8, 2rem);
-  }
-
-  .notice-icon {
-    flex-shrink: 0;
-    color: var(--color-accent-amber-text, var(--palette-amber-800));
-    margin-top: 2px;
-  }
-
-  .notice-title {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--color-accent-amber-text, var(--palette-amber-800));
-    margin-bottom: 0.25rem;
-  }
-
-  .notice-desc {
-    font-size: 0.8125rem;
-    color: var(--color-accent-amber-text, var(--palette-amber-800));
-    line-height: 1.5;
-    margin: 0;
   }
 
   .legal-header {
