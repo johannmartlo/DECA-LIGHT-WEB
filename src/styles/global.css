@@ -2,13 +2,45 @@
 /* Basado en DESIGN_SYSTEM.md y WEB_MAESTRO_DECA_LIGHT.md. Colores en tokens.css */
 @import './tokens.css';
 
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/inter-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/inter-latin-600-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/inter-latin-700-normal.woff2') format('woff2');
+}
+
 :root {
   /* Compatibilidad: nombres antiguos usados en algunos componentes */
   --border-subtle: var(--color-border-subtle);
   --bg-muted: var(--color-bg-canvas);
 
   /* Tipografía */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
 
   /* Espaciado */
@@ -87,6 +119,7 @@ body {
 h1, h2, h3, h4 {
   color: var(--color-text-primary);
   font-weight: 700;
+  letter-spacing: -0.03em;
   line-height: 1.25;
 }
 

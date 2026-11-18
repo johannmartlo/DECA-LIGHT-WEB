@@ -1,0 +1,174 @@
+---
+// src/components/Comparison.astro - Comparativa operativa «Uno a uno» vs «DECA Light»
+---
+
+<section class="comparison-section" aria-labelledby="comparison-title">
+  <div class="container comparison-container" data-reveal="card">
+    <header class="comparison-header">
+      <h2 id="comparison-title" class="comparison-title">
+        La misma mañana, de dos maneras.
+      </h2>
+    </header>
+
+    <div class="comparison-table-wrap">
+      <table class="comparison-table">
+        <caption class="sr-only">
+          Comparativa de operativa entre emitir DeCA uno a uno o con DECA Light
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col" class="col-metric"><span class="sr-only">Tarea</span></th>
+            <th scope="col" class="col-manual">Uno a uno</th>
+            <th scope="col" class="col-deca">DECA Light</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Formularios que rellenas</th>
+            <td class="val-manual font-mono">40</td>
+            <td class="val-deca font-mono">0</td>
+          </tr>
+          <tr>
+            <th scope="row">Matrículas que tecleas</th>
+            <td class="val-manual font-mono">40</td>
+            <td class="val-deca font-mono">10</td>
+          </tr>
+          <tr>
+            <th scope="row">Clics para emitir</th>
+            <td class="val-manual font-mono">40</td>
+            <td class="val-deca"><span class="font-mono">4</span>, uno por transportista</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="comparison-note">
+      Ejemplo: 40 cargas de 4 transportistas en 10 camiones.
+    </p>
+  </div>
+</section>
+
+<style>
+  .comparison-section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+    background-color: var(--color-bg-canvas, var(--palette-slate-50));
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+  }
+
+  .comparison-container {
+    max-width: 900px;
+  }
+
+  .comparison-header {
+    text-align: center;
+    margin-bottom: 2.25rem;
+  }
+
+  .comparison-title {
+    font-size: clamp(1.625rem, 3vw, 2.25rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary, var(--palette-slate-900));
+    margin: 0;
+  }
+
+  .comparison-table-wrap {
+    width: 100%;
+    background-color: var(--color-bg-surface, var(--palette-white));
+    border: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    border-radius: var(--radius-lg, 10px);
+    box-shadow: var(--shadow-card);
+    overflow-x: auto;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  .comparison-table thead th {
+    padding: 1rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+  }
+
+  .col-metric {
+    width: 46%;
+    color: var(--color-text-muted, var(--palette-slate-500));
+  }
+
+  .col-manual {
+    width: 24%;
+    color: var(--color-text-secondary, var(--palette-slate-600));
+  }
+
+  .col-deca {
+    width: 30%;
+    color: var(--color-brand-primary, var(--palette-emerald-700));
+    background-color: var(--palette-emerald-50);
+  }
+
+  .comparison-table tbody th,
+  .comparison-table tbody td {
+    padding: 1.125rem 1.25rem;
+    font-size: 0.9375rem;
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+  }
+
+  .comparison-table tbody tr:last-child th,
+  .comparison-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .comparison-table tbody th {
+    font-weight: 600;
+    color: var(--color-text-primary, var(--palette-slate-900));
+  }
+
+  .val-manual {
+    color: var(--color-text-secondary, var(--palette-slate-600));
+    font-weight: 600;
+  }
+
+  .val-deca {
+    background-color: rgba(236, 253, 245, 0.55);
+    color: var(--palette-emerald-900);
+    font-weight: 700;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .comparison-note {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-muted, var(--palette-slate-500));
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 639px) {
+    .comparison-table thead th,
+    .comparison-table tbody th,
+    .comparison-table tbody td {
+      padding: 0.875rem 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>

@@ -1,35 +1,35 @@
 ---
-// src/components/Footer.astro - Footer Corporativo de DECA Light (Cuatro columnas, verde oscuro)
+// src/components/Footer.astro - Footer Corporativo de DECA Light
 ---
 
 <footer class="site-footer" aria-label="Pie de página corporativo">
   <div class="container footer-container">
     <div class="footer-top">
-      <!-- Columna 1: Marca y alcance -->
+      <!-- Columna 1: Marca y lema -->
       <div class="footer-col brand-col">
         <a href="/" class="footer-brand-link" aria-label="DECA Light - Inicio">
-          <span class="brand-deca">DECA</span>
-          <span class="brand-light">Light</span>
+          <img
+            src="/deca-light-logo-oscuro.svg"
+            alt="DECA Light"
+            class="footer-brand-logo"
+            width="160"
+            height="34"
+          />
         </a>
         <p class="footer-desc">
-          Coordinación documental para almacenes hortofrutícolas.
+          DECA Light · El DeCA de cada camión, en segundos.
         </p>
-        <div class="footer-badge-wrap">
-          <span class="footer-status-pill">
-            <span class="status-dot" aria-hidden="true"></span>
-            <span>Disponible para almacenes hortofrutícolas</span>
-          </span>
-        </div>
       </div>
 
-      <!-- Columna 2: Producto (Navegación de secciones) -->
+      <!-- Columna 2: Producto -->
       <div class="footer-col">
         <h3 class="footer-col-title">Producto</h3>
         <ul class="footer-links">
-          <li><a href="/#el-problema" class="footer-link">El problema</a></li>
           <li><a href="/#como-funciona" class="footer-link">Cómo funciona</a></li>
-          <li><a href="/#piloto" class="footer-link">Demostración</a></li>
-          <li><a href="/#faq" class="footer-link">Preguntas frecuentes</a></li>
+          <li><a href="/#que-incluye" class="footer-link">Qué incluye</a></li>
+          <li><a href="/#normativa" class="footer-link">Normativa</a></li>
+          <li><a href="/#preguntas" class="footer-link">Preguntas</a></li>
+          <li><a href="/#demo" class="footer-link">Pedir demostración</a></li>
           <li><a href="/guia-deca" class="footer-link">Guía del DeCA</a></li>
         </ul>
       </div>
@@ -38,64 +38,35 @@
       <div class="footer-col">
         <h3 class="footer-col-title">Legal</h3>
         <ul class="footer-links">
-          <li>
-            <a href="/aviso-legal" class="footer-link">
-              Aviso legal
-            </a>
-          </li>
-          <li>
-            <a href="/politica-privacidad" class="footer-link">
-              Política de privacidad
-            </a>
-          </li>
-          <li>
-            <a href="/politica-cookies" class="footer-link">
-              Política de cookies
-            </a>
-          </li>
+          <li><a href="/aviso-legal" class="footer-link">Aviso legal</a></li>
+          <li><a href="/politica-privacidad" class="footer-link">Política de privacidad</a></li>
+          <li><a href="/politica-cookies" class="footer-link">Política de cookies</a></li>
         </ul>
       </div>
 
-      <!-- Columna 4: Contacto y canales -->
+      <!-- Columna 4: Contacto -->
       <div class="footer-col">
         <h3 class="footer-col-title">Contacto</h3>
         <div class="footer-contact-block">
-          <a href="/#piloto" class="footer-contact-link" aria-label="Contactar con el equipo a través del formulario de demostración">
+          <a href="mailto:contacto@decalight.es" class="footer-contact-link">
             <span class="contact-icon-box" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
               </svg>
             </span>
-            <span>Contactar con el equipo</span>
+            <span>contacto@decalight.es · Almería</span>
           </a>
-
-          <!-- Canales de contacto -->
-          <div class="footer-social-row" aria-label="Canales de contacto">
-            <a
-              href="mailto:contacto@decalight.es"
-              class="footer-social-btn"
-              aria-label="Contactar por correo electrónico (contacto@decalight.es)"
-              title="contacto@decalight.es"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
-            </a>
-          </div>
         </div>
       </div>
     </div>
 
-    <!-- Barra inferior con división sutil y advertencia de marcas -->
     <div class="footer-bottom">
-      <div class="footer-legal-copy">
-        <p class="copyright">
-          © 2026 DECA Light. Todos los derechos reservados.
-        </p>
-      </div>
+      <p class="copyright">
+        © 2026 DECA Light. Todos los derechos reservados.
+      </p>
       <p class="footer-sector-tagline">
-        Una solución pensada para el sector hortofrutícola.
+        contacto@decalight.es · Almería
       </p>
     </div>
   </div>
@@ -122,7 +93,6 @@
     margin-bottom: clamp(2.5rem, 4.5vw, 3.5rem);
   }
 
-  /* Columna 1: Marca */
   .brand-col {
     display: flex;
     flex-direction: column;
@@ -133,66 +103,23 @@
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
+    min-height: 44px;
   }
 
-  .brand-deca {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--palette-white);
-    letter-spacing: -0.02em;
-    transition: color 150ms ease;
-  }
-
-  .brand-light {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--palette-emerald-200);
-    letter-spacing: -0.02em;
-    transition: color 150ms ease;
-  }
-
-  .footer-brand-link:hover .brand-deca {
-    color: var(--palette-emerald-300);
-  }
-
-  .footer-brand-link:hover .brand-light {
-    color: var(--palette-white);
+  .footer-brand-logo {
+    display: block;
+    height: 34px;
+    width: auto;
   }
 
   .footer-desc {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--palette-deca-300);
     line-height: 1.6;
     max-width: 34ch;
     margin: 0;
   }
 
-  .footer-badge-wrap {
-    margin-top: 0.25rem;
-  }
-
-  .footer-status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 9999px;
-    padding: 0.3125rem 0.75rem;
-    font-size: 0.75rem;
-    color: var(--palette-deca-300);
-    font-weight: 500;
-  }
-
-  .status-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--palette-emerald-400);
-  }
-
-  /* Títulos de columna */
   .footer-col-title {
     font-size: 0.9375rem;
     font-weight: 700;
@@ -201,12 +128,11 @@
     margin-bottom: 1.125rem;
   }
 
-  /* Listas de enlaces */
   .footer-links {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.625rem;
+    gap: 0.5rem;
     padding: 0;
     margin: 0;
   }
@@ -214,6 +140,7 @@
   .footer-link {
     display: inline-flex;
     align-items: center;
+    min-height: 32px;
     font-size: 0.875rem;
     color: var(--palette-deca-300);
     text-decoration: none;
@@ -232,16 +159,16 @@
     border-radius: 2px;
   }
 
-  /* Columna 4: Contacto */
   .footer-contact-block {
     display: flex;
     flex-direction: column;
-    gap: 1.125rem;
+    gap: 1rem;
   }
 
   .footer-contact-link {
     display: inline-flex;
     align-items: center;
+    min-height: 44px;
     gap: 0.75rem;
     font-size: 0.875rem;
     color: var(--palette-deca-300);
@@ -255,6 +182,7 @@
     justify-content: center;
     width: 32px;
     height: 32px;
+    flex-shrink: 0;
     border-radius: 8px;
     background-color: var(--palette-deca-950);
     color: var(--palette-emerald-400);
@@ -278,69 +206,14 @@
     border-radius: 2px;
   }
 
-  .footer-social-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding-top: 0.25rem;
-  }
-
-  .footer-social-btn {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background-color: var(--palette-deca-950);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--palette-deca-300);
-    text-decoration: none;
-    transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
-  }
-
-  /* Área táctil accesible mínima de 44x44px preservando el tamaño visual */
-  .footer-social-btn::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 44px;
-    min-height: 44px;
-    width: 100%;
-    height: 100%;
-  }
-
-  .footer-social-btn:hover {
-    background-color: var(--palette-deca-850);
-    color: var(--palette-white);
-    transform: translateY(-2px);
-    text-decoration: none;
-  }
-
-  .footer-social-btn:focus-visible {
-    outline: 2px solid var(--palette-sky-400);
-    outline-offset: 2px;
-  }
-
-  /* Barra inferior */
   .footer-bottom {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 0.75rem;
     padding-top: 1.75rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.8125rem;
     color: var(--palette-deca-300);
-  }
-
-  .footer-legal-copy {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    max-width: 70ch;
   }
 
   .copyright {
@@ -354,7 +227,6 @@
     color: rgba(167, 243, 208, 0.9);
   }
 
-  /* Tableta (768px a 1023px) */
   @media (min-width: 768px) and (max-width: 1023px) {
     .footer-top {
       grid-template-columns: 1.4fr 1fr;
@@ -368,7 +240,6 @@
     }
   }
 
-  /* Escritorio (>=1024px) */
   @media (min-width: 1024px) {
     .footer-top {
       grid-template-columns: 2fr 1.1fr 1.1fr 1.3fr;
@@ -385,7 +256,6 @@
   @media (prefers-reduced-motion: reduce) {
     .footer-link,
     .footer-contact-link,
-    .footer-social-btn,
     .contact-icon-box {
       transition: none !important;
       transform: none !important;

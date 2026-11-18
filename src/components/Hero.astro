@@ -1,56 +1,140 @@
 ---
-// src/components/Hero.astro - Hero de DECA Light con Animaciones de Alta Fidelidad Stitch
+// src/components/Hero.astro - Hero comercial de DECA Light con vídeo de demostración
 import HeroContenido from './HeroContenido.astro';
-import HeroDiagrama from './HeroDiagrama.astro';
 ---
 
 <section class="hero-section" aria-labelledby="hero-title">
   <div class="container hero-container">
     <HeroContenido />
 
-    <HeroDiagrama />
+    <div class="hero-media">
+      <div class="hero-video-frame">
+        <video
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="/video/demo-poster.jpg"
+          aria-label="Vídeo de demostración de DECA Light"
+        >
+          <source src="/video/demo.mp4" type="video/mp4" />
+        </video>
+        <img
+          src="/video/demo-poster.jpg"
+          alt="Vista previa de DECA Light"
+          class="hero-poster-fallback"
+          width="1280"
+          height="720"
+          decoding="async"
+        />
+      </div>
+    </div>
   </div>
 </section>
 
+<script is:inline>
+  (function () {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var v = document.querySelector('.hero-video');
+      if (v && typeof v.pause === 'function') {
+        v.pause();
+      }
+    }
+  })();
+</script>
+
 <style>
   .hero-section {
-      position: relative;
-      min-height: calc(100vh - 76px);
-      padding-top: 6.25rem;
-      padding-bottom: 6.5rem;
-      background-color: var(--palette-white);
-      background-image:
-        radial-gradient(ellipse 720px 580px at 78% 46%, rgba(209, 250, 229, 0.55) 0%, rgba(240, 253, 244, 0.28) 50%, transparent 80%),
-        radial-gradient(circle 450px at 15% 20%, rgba(241, 245, 249, 0.7) 0%, transparent 70%);
-      border-bottom: 1px solid var(--border-subtle, var(--palette-slate-200));
-      overflow: hidden;
-    }
+    position: relative;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+    background-color: var(--color-ink, #0a0f0d);
+    background-image:
+      radial-gradient(ellipse 760px 580px at 78% 45%, rgba(4, 120, 87, 0.24) 0%, rgba(17, 25, 21, 0.4) 55%, transparent 80%),
+      radial-gradient(circle 480px at 14% 22%, rgba(52, 211, 153, 0.1) 0%, transparent 70%);
+    color: var(--palette-white);
+    border-bottom: 1px solid var(--color-ink-border, #1f2a25);
+  }
+
   .hero-container {
-      display: grid;
-      grid-template-columns: 1fr 1.08fr;
-      gap: 3.5rem;
-      align-items: center;
-      max-width: 1340px;
+    display: grid;
+    grid-template-columns: 1fr 1.08fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1340px;
+  }
+
+  .hero-media {
+    width: 100%;
+    max-width: 640px;
+    margin-left: auto;
+  }
+
+  .hero-video-frame {
+    position: relative;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--color-ink-panel, #111915);
+    border: 1px solid var(--color-ink-border, #1f2a25);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.6);
+  }
+
+  .hero-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .hero-poster-fallback {
+    display: none;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video {
+      display: none;
     }
+
+    .hero-poster-fallback {
+      display: block;
+    }
+  }
+
   @media (max-width: 1024px) {
     .hero-container {
-          gap: 2.5rem;
-        }
+      gap: 2.25rem;
+    }
   }
+
   @media (max-width: 900px) {
     .hero-section {
-          padding-top: 3rem;
-          padding-bottom: 4rem;
-        }
+      padding-top: 2.75rem;
+      padding-bottom: 3.5rem;
+    }
+
     .hero-container {
-          grid-template-columns: 1fr;
-          gap: 3.5rem;
-        }
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .hero-media {
+      margin-inline: auto;
+    }
   }
+
   @media (max-width: 580px) {
     .hero-section {
-          padding-top: 2.25rem;
-          padding-bottom: 3.5rem;
-        }
+      padding-top: 2rem;
+      padding-bottom: 3rem;
+    }
   }
 </style>

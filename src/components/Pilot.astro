@@ -1,32 +1,19 @@
 ---
-// src/components/Pilot.astro - Sección 04 «Programa piloto» de DECA Light
-// Reconstrucción visual de alta fidelidad basada en Google Stitch y la referencia aprobada
+// src/components/Pilot.astro - Sección de oferta y formulario (id="demo")
 import PilotIntro from './PilotIntro.astro';
 import PilotSteps from './PilotSteps.astro';
-import PilotProfile from './PilotProfile.astro';
-import PilotCta from './PilotCta.astro';
 ---
 
-<section id="piloto" class="pilot-section" aria-labelledby="pilot-heading">
-  <!-- Ancla secundaria de compatibilidad -->
+<section id="demo" class="pilot-section" aria-labelledby="pilot-heading">
+  <div id="piloto" class="anchor-target" aria-hidden="true"></div>
   <div id="programa-piloto" class="anchor-target" aria-hidden="true"></div>
-
-  <!-- Luces ambientales sutiles de fondo -->
-  <div class="ambient-glow glow-top" aria-hidden="true"></div>
-  <div class="ambient-glow glow-mid" aria-hidden="true"></div>
-  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
 
   <div class="pilot-container">
     <PilotIntro />
     <PilotSteps />
-    <PilotProfile />
-    <PilotCta />
   </div>
 </section>
 
-<!-- ==============================================
-     INTERACCIÓN Y FEEDBACK ILUSTRATIVO
-     ============================================== -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('pilot-interest-form') as HTMLFormElement | null;
@@ -35,10 +22,12 @@ import PilotCta from './PilotCta.astro';
     const btnText = document.getElementById('btn-pilot-text');
     const idempotencyInput = document.getElementById('pilot-idempotency-key') as HTMLInputElement | null;
 
-    // Generar o refrescar la clave de idempotencia única para esta sesión de formulario
     const refreshIdempotencyKey = () => {
       if (idempotencyInput) {
-        idempotencyInput.value = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : 'idemp-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+        idempotencyInput.value =
+          typeof crypto !== 'undefined' && crypto.randomUUID
+            ? crypto.randomUUID()
+            : 'idemp-' + Date.now() + '-' + Math.random().toString(36).slice(2);
       }
     };
     refreshIdempotencyKey();
@@ -47,7 +36,6 @@ import PilotCta from './PilotCta.astro';
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // 1. Validación básica HTML5 en el navegador
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
@@ -55,18 +43,17 @@ import PilotCta from './PilotCta.astro';
 
         const endpoint = form.getAttribute('data-endpoint') || form.getAttribute('action') || '/api/pilot';
 
-        // 2. Comprobar que existe un endpoint definido
         if (!endpoint || endpoint === '#' || endpoint.trim() === '') {
           feedback.className = 'feedback-notification is-unconfigured';
-          feedback.textContent = 'No hemos podido enviar tu solicitud desde el formulario. Tus datos se han conservado. Escríbenos a contacto@decalight.es y te responderemos enseguida.';
+          feedback.textContent =
+            'No hemos podido enviar tu solicitud desde el formulario. Tus datos se han conservado. Escríbenos a contacto@decalight.es y te responderemos enseguida.';
           feedback.classList.remove('hidden');
           feedback.setAttribute('tabindex', '-1');
           feedback.focus();
           return;
         }
 
-        // 3. Activar estado de carga y deshabilitar botón para evitar pulsaciones duplicadas
-        const originalBtnText = btnText ? btnText.textContent : 'Solicitar demostración';
+        const originalBtnText = btnText ? btnText.textContent : 'Pedir demostración';
         if (submitBtn) {
           submitBtn.disabled = true;
           if (btnText) btnText.textContent = 'Enviando solicitud...';
@@ -78,7 +65,7 @@ import PilotCta from './PilotCta.astro';
             method: 'POST',
             body: formData,
             headers: {
-              'Accept': 'application/json'
+              Accept: 'application/json'
             }
           });
 
@@ -91,22 +78,27 @@ import PilotCta from './PilotCta.astro';
 
           if (response.ok) {
             feedback.className = 'feedback-notification is-success';
-            feedback.textContent = responseData.message || '¡Solicitud recibida! Te contactaremos para organizar la demostración de DECA Light.';
+            feedback.textContent =
+              responseData.message ||
+              '¡Solicitud recibida! Te contactaremos para organizar la demostración de DECA Light.';
             feedback.classList.remove('hidden');
             feedback.setAttribute('tabindex', '-1');
             feedback.focus();
             form.reset();
-            refreshIdempotencyKey(); // Clave nueva para solicitudes legítimas posteriores
+            refreshIdempotencyKey();
           } else {
             feedback.className = 'feedback-notification is-error';
-            feedback.textContent = responseData.message || 'No se ha podido procesar el envío (respuesta del servidor no satisfactoria). Por favor, inténtalo de nuevo o contacta a través de nuestro correo oficial. Los datos no se han borrado.';
+            feedback.textContent =
+              responseData.message ||
+              'No se ha podido procesar el envío. Por favor, inténtalo de nuevo o escríbenos a contacto@decalight.es.';
             feedback.classList.remove('hidden');
             feedback.setAttribute('tabindex', '-1');
             feedback.focus();
           }
-        } catch (err) {
+        } catch {
           feedback.className = 'feedback-notification is-error';
-          feedback.textContent = 'Error de conexión al enviar la solicitud. Revisa tu conexión a internet o contacta con el equipo. Los datos permanecen en el formulario.';
+          feedback.textContent =
+            'Error de conexión al enviar la solicitud. Revisa tu conexión a internet o escríbenos a contacto@decalight.es.';
           feedback.classList.remove('hidden');
           feedback.setAttribute('tabindex', '-1');
           feedback.focus();
@@ -118,81 +110,48 @@ import PilotCta from './PilotCta.astro';
         }
       });
     }
-
-    // Efecto sutil de elevación en foco de inputs
-    const inputs = document.querySelectorAll<HTMLInputElement>('.form-text-input');
-    inputs.forEach((input) => {
-      input.addEventListener('focus', () => {
-        input.parentElement?.classList.add('input-focused');
-      });
-      input.addEventListener('blur', () => {
-        input.parentElement?.classList.remove('input-focused');
-      });
-    });
   });
 </script>
 
 <style>
   .pilot-section {
-      position: relative;
-      width: 100%;
-      max-width: 100vw;
-      padding: 3.5rem 1.5rem 5rem;
-      background-color: transparent;
-      overflow: hidden;
-    }
+    position: relative;
+    width: 100%;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--palette-white);
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    scroll-margin-top: 5rem;
+  }
+
   .anchor-target {
-      position: absolute;
-      top: -80px;
-      left: 0;
-      width: 1px;
-      height: 1px;
-      pointer-events: none;
-    }
-  .ambient-glow {
-      position: absolute;
-      border-radius: 9999px;
-      filter: blur(80px);
-      pointer-events: none;
-      z-index: 0;
-      max-width: 100%;
-    }
-  .glow-top {
-      top: -6rem;
-      left: 15%;
-      width: 24rem;
-      height: 24rem;
-      background: rgba(167, 243, 208, 0.22);
-    }
-  .glow-mid {
-      top: 45%;
-      right: 0;
-      width: 24rem;
-      height: 24rem;
-      background: rgba(254, 243, 199, 0.22);
-    }
-  .glow-bottom {
-      bottom: -6rem;
-      left: 2.5rem;
-      width: 20rem;
-      height: 20rem;
-      background: rgba(204, 251, 241, 0.22);
-    }
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+  }
+
   .pilot-container {
-      position: relative;
-      z-index: 1;
-      max-width: 80rem; 
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 4.5rem;
+    width: 100%;
+    max-width: var(--container-max, 1340px);
+    margin-inline: auto;
+    padding-inline: var(--space-5, 1.25rem);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .pilot-container {
+      padding-inline: var(--space-8, 2rem);
     }
-  @media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
-          animation-duration: 0.001ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.001ms !important;
-          scroll-behavior: auto !important;
-        }
+  }
+
+  @media (min-width: 1024px) {
+    .pilot-container {
+      padding-inline: var(--space-10, 2.5rem);
+    }
   }
 </style>

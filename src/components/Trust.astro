@@ -1,0 +1,198 @@
+---
+// src/components/Trust.astro - Sección «Normativa y confianza» (id="normativa")
+---
+
+<section id="normativa" class="trust-section" aria-labelledby="trust-title">
+  <div class="container trust-container">
+    <header class="trust-header" data-reveal="editorial">
+      <h2 id="trust-title" class="trust-title">
+        Lo que pide el DeCA electrónico, de serie.
+      </h2>
+    </header>
+
+    <div class="trust-grid">
+      <article class="trust-card" data-reveal="card" data-reveal-delay="1">
+        <h3 class="trust-col-title">El documento</h3>
+        <ul class="trust-list">
+          <li>
+            <span class="trust-dot" aria-hidden="true"></span>
+            <span>PDF nativo con código QR</span>
+          </li>
+          <li>
+            <span class="trust-dot" aria-hidden="true"></span>
+            <span>Descarga directa desde el QR, sin usuario ni contraseña</span>
+          </li>
+          <li>
+            <span class="trust-dot" aria-hidden="true"></span>
+            <span>No se emite sin los datos mínimos (tampoco sin matrícula)</span>
+          </li>
+          <li>
+            <span class="trust-dot" aria-hidden="true"></span>
+            <span>Modificaciones con su motivo y su historial, con el mismo QR</span>
+          </li>
+          <li>
+            <span class="trust-dot" aria-hidden="true"></span>
+            <span>Enlace disponible durante el transporte y siete días después de terminarlo</span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="trust-card" data-reveal="card" data-reveal-delay="2">
+        <h3 class="trust-col-title">Tus datos</h3>
+        <ul class="trust-list">
+          <li>
+            <span class="trust-dot" aria-hidden="true"></span>
+            <span>Servidores en la Unión Europea</span>
+          </li>
+          <li>
+            <span class="trust-dot" aria-hidden="true"></span>
+            <span>Copias de seguridad cifradas cada día</span>
+          </li>
+          <li>
+            <span class="trust-dot" aria-hidden="true"></span>
+            <span>Cada empresa ve solo sus cargas, transportistas y DeCA</span>
+          </li>
+          <li>
+            <span class="trust-dot" aria-hidden="true"></span>
+            <span>Cada persona entra con su usuario y todo queda registrado</span>
+          </li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="trust-footer" data-reveal="card">
+      <p class="trust-references">
+        Referencias: Orden FOM/2861/2012 y Resolución de la Dirección General de Transporte por Carretera y Ferrocarril de 5 de junio de 2026 (BOE de 12 de junio de 2026).
+      </p>
+      <a href="/guia-deca" class="trust-guide-link">
+        <span>Lee la guía del DeCA</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--palette-white);
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    scroll-margin-top: 5rem;
+  }
+
+  .trust-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .trust-title {
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary, var(--palette-slate-900));
+    margin: 0;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  .trust-card {
+    background-color: var(--color-bg-canvas, var(--palette-slate-50));
+    border: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    border-radius: var(--radius-lg, 10px);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  .trust-col-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-primary, var(--palette-slate-900));
+    margin: 0 0 1.25rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+  }
+
+  .trust-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .trust-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary, var(--palette-slate-600));
+  }
+
+  .trust-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background-color: var(--color-brand-primary, var(--palette-emerald-700));
+    flex-shrink: 0;
+    margin-top: 0.5rem;
+  }
+
+  .trust-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 768px) {
+    .trust-footer {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .trust-references {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--color-text-muted, var(--palette-slate-500));
+    max-width: 68ch;
+  }
+
+  .trust-guide-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-brand-primary, var(--palette-emerald-700));
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    flex-shrink: 0;
+  }
+
+  .trust-guide-link:hover {
+    color: var(--color-brand-hover, var(--palette-emerald-800));
+  }
+</style>

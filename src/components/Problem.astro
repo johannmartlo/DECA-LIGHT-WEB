@@ -1,21 +1,17 @@
 ---
-// src/components/Problem.astro - Sección «El problema» de DECA Light
-// Reconstrucción visual de alta fidelidad basada en Google Stitch y la referencia oficial aprobada
+// src/components/Problem.astro - Sección «La hora punta» de DECA Light
 import ProblemEditorial from './ProblemEditorial.astro';
 import ProblemFricciones from './ProblemFricciones.astro';
-import ProblemBanner from './ProblemBanner.astro';
 ---
 
 <section id="el-problema" class="problem-section" aria-labelledby="problem-title">
   <div class="problem-container">
-    <!-- Grid Principal: Columna Editorial + Tres Momentos de Fricción -->
+    <!-- Grid Principal: Columna Editorial + Tres Tarjetas -->
     <div class="problem-layout">
       <ProblemEditorial />
 
       <ProblemFricciones />
     </div>
-
-    <ProblemBanner />
   </div>
 </section>
 

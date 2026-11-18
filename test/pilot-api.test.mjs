@@ -57,9 +57,15 @@ function createMockD1Database(migrationSql) {
   };
 }
 
-// Cargar la migración real del proyecto
-const migrationPath = path.resolve("migrations/0001_create_pilot_submissions.sql");
-const migrationSql = fs.readFileSync(migrationPath, "utf8");
+// Cargar todas las migraciones reales del proyecto en orden
+const migrationsDir = path.resolve("migrations");
+const migrationFiles = fs
+  .readdirSync(migrationsDir)
+  .filter((f) => f.endsWith(".sql"))
+  .sort();
+const migrationSql = migrationFiles
+  .map((f) => fs.readFileSync(path.join(migrationsDir, f), "utf8"))
+  .join("\n");
 
 // Importar la función Cloudflare Pages
 // Para compatibilidad ESM con extensiones .ts, importamos el handler directamente
@@ -490,5 +496,109 @@ test("12. scripts/retry-notifications.mjs - Comportamiento cuando no hay pendien
   const result2 = await processNextRetryNotification({ db, resendApiKey: "re_mock_key" });
   assert.equal(result2.processed, false);
   assert.equal(result2.reason, "NO_PENDING_SUBMISSIONS");
+});
+
+test("13. Campos opcionales phone, daily_loads y erp: validación y persistencia en D1", async () => {
+  const db = createMockD1Database(migrationSql);
+  const env = { DB: db };
+
+  // Caso A: Envío válido con los tres campos opcionales mediante FormData
+  {
+    const form = new FormData();
+    form.set("company", "Almacén Ejido S.L.");
+    form.set("email", "trafico@ejido.es");
+    form.set("phone", "  +34 950 123 456  ");
+    form.set("daily_loads", "20-50");
+    form.set("erp", "  Hispatec ERPagro  ");
+    form.set("idempotency_key", "idemp-optional-valid");
+
+    const req = new Request("https://deca-light-web.pages.dev/api/pilot", {
+      method: "POST",
+      headers: { "cf-connecting-ip": "198.51.100.11" },
+      body: form
+    });
+
+    const res = await onRequestPost({ request: req, env, waitUntil: () => {} });
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.success, true);
+
+    const row = db.raw.prepare("SELECT * FROM pilot_submissions WHERE id = ?").get(body.id);
+    assert.equal(row.phone, "+34 950 123 456");
+    assert.equal(row.daily_loads, "20-50");
+    assert.equal(row.erp, "Hispatec ERPagro");
+  }
+
+  // Caso B: Todos los valores válidos de daily_loads funcionan y si se omiten quedan null
+  {
+    const req = new Request("https://deca-light-web.pages.dev/api/pilot", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "cf-connecting-ip": "198.51.100.12" },
+      body: JSON.stringify({
+        company: "Cooperativa Poniente",
+        email: "info@poniente.es",
+        daily_loads: ">100",
+        idempotency_key: "idemp-optional-loads"
+      })
+    });
+    const res = await onRequestPost({ request: req, env, waitUntil: () => {} });
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    const row = db.raw.prepare("SELECT * FROM pilot_submissions WHERE id = ?").get(body.id);
+    assert.equal(row.phone, null);
+    assert.equal(row.daily_loads, ">100");
+    assert.equal(row.erp, null);
+  }
+
+  // Caso C: Teléfono > 30 caracteres rechazado con 400
+  {
+    const req = new Request("https://deca-light-web.pages.dev/api/pilot", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "cf-connecting-ip": "198.51.100.13" },
+      body: JSON.stringify({
+        company: "Empresa Tel Largo",
+        email: "tel@empresa.es",
+        phone: "1".repeat(31)
+      })
+    });
+    const res = await onRequestPost({ request: req, env, waitUntil: () => {} });
+    assert.equal(res.status, 400);
+    const body = await res.json();
+    assert.equal(body.error, "INVALID_PHONE");
+  }
+
+  // Caso D: daily_loads fuera de la lista permitida rechazado con 400
+  {
+    const req = new Request("https://deca-light-web.pages.dev/api/pilot", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "cf-connecting-ip": "198.51.100.14" },
+      body: JSON.stringify({
+        company: "Empresa Cargas Mal",
+        email: "cargas@empresa.es",
+        daily_loads: "500"
+      })
+    });
+    const res = await onRequestPost({ request: req, env, waitUntil: () => {} });
+    assert.equal(res.status, 400);
+    const body = await res.json();
+    assert.equal(body.error, "INVALID_DAILY_LOADS");
+  }
+
+  // Caso E: ERP > 60 caracteres rechazado con 400
+  {
+    const req = new Request("https://deca-light-web.pages.dev/api/pilot", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "cf-connecting-ip": "198.51.100.15" },
+      body: JSON.stringify({
+        company: "Empresa ERP Largo",
+        email: "erp@empresa.es",
+        erp: "E".repeat(61)
+      })
+    });
+    const res = await onRequestPost({ request: req, env, waitUntil: () => {} });
+    assert.equal(res.status, 400);
+    const body = await res.json();
+    assert.equal(body.error, "INVALID_ERP");
+  }
 });
 

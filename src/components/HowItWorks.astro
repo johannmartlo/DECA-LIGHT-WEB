@@ -1,11 +1,9 @@
 ---
-// src/components/HowItWorks.astro - Sección «Cómo funciona» de DECA Light
-// Reconstrucción visual de alta fidelidad basada en Google Stitch y la referencia aprobada
+// src/components/HowItWorks.astro - Sección «Cómo funciona» de DECA Light (3 pasos)
 import HowItWorksIntro from './HowItWorksIntro.astro';
 import HowItWorksPaso1 from './HowItWorksPaso1.astro';
 import HowItWorksPaso2 from './HowItWorksPaso2.astro';
 import HowItWorksPaso3 from './HowItWorksPaso3.astro';
-import HowItWorksPaso4 from './HowItWorksPaso4.astro';
 import HowItWorksBeneficios from './HowItWorksBeneficios.astro';
 ---
 
@@ -13,17 +11,10 @@ import HowItWorksBeneficios from './HowItWorksBeneficios.astro';
   <div class="how-it-works-container">
     <HowItWorksIntro />
 
-    <!-- ==============================================
-         FLUJO DE CUATRO PASOS (DIAGRAMA OPERATIVO)
-         ============================================== -->
-    <div class="flow-steps-grid" role="list" aria-label="Diagrama del proceso en 4 pasos">
+    <div class="flow-steps-grid" role="list" aria-label="Proceso en 3 pasos">
       <HowItWorksPaso1 />
-
       <HowItWorksPaso2 />
-
       <HowItWorksPaso3 />
-
-      <HowItWorksPaso4 />
     </div>
 
     <HowItWorksBeneficios />
@@ -32,56 +23,45 @@ import HowItWorksBeneficios from './HowItWorksBeneficios.astro';
 
 <style>
   .how-it-works-section {
-      position: relative;
-      padding-top: 5rem;
-      padding-bottom: 5.5rem;
-      background-color: var(--palette-slate-50);
-      background-image:
-        radial-gradient(circle at 50% 180px, rgba(167, 243, 208, 0.35) 0%, rgba(240, 253, 244, 0.15) 45%, rgba(248, 250, 252, 0) 75%);
-      background-attachment: scroll;
-      border-bottom: 1px solid var(--border-subtle, var(--palette-slate-200));
-      scroll-margin-top: 5rem;
-      overflow: hidden;
-    }
+    position: relative;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--palette-white);
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    scroll-margin-top: 5rem;
+  }
+
   .how-it-works-container {
-      width: 100%;
-      max-width: 1400px;
-      margin-inline: auto;
-      padding-inline: 1rem;
-      box-sizing: border-box;
-    }
-  @media (min-width: 640px) {
-    .how-it-works-container {
-          padding-inline: 1.5rem;
-        }
+    width: 100%;
+    max-width: var(--container-max, 1340px);
+    margin-inline: auto;
+    padding-inline: var(--space-5, 1.25rem);
   }
+
+  @media (min-width: 768px) {
+    .how-it-works-container {
+      padding-inline: var(--space-8, 2rem);
+    }
+  }
+
   @media (min-width: 1024px) {
     .how-it-works-container {
-          padding-inline: 2rem;
-        }
+      padding-inline: var(--space-10, 2.5rem);
+    }
   }
+
   .flow-steps-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-bottom: 4.5rem;
-      align-items: stretch;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    align-items: stretch;
+  }
+
+  @media (min-width: 900px) {
+    .flow-steps-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
     }
-  @media (min-width: 640px) and (max-width: 1023px) {
-    .flow-steps-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 2rem 1.75rem;
-        }
-  }
-  @media (min-width: 1024px) {
-    .flow-steps-grid {
-          grid-template-columns: repeat(4, 1fr);
-          gap: 1.5rem;
-        }
-  }
-  @media (min-width: 1280px) {
-    .flow-steps-grid {
-          gap: 2rem;
-        }
   }
 </style>

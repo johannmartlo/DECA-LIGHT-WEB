@@ -6,7 +6,13 @@
   <div class="container header-container">
     <div class="brand-group">
       <a href="/" class="brand-link" aria-label="DECA Light - Inicio">
-        <span class="brand-name">DECA Light</span>
+        <img
+          src="/deca-light-logo-claro.svg"
+          alt="DECA Light"
+          class="brand-logo"
+          width="150"
+          height="32"
+        />
       </a>
     </div>
 
@@ -33,14 +39,14 @@
     <!-- Navegación principal -->
     <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
       <ul class="nav-list">
-        <li><a href="/#el-problema" class="nav-link">El problema</a></li>
         <li><a href="/#como-funciona" class="nav-link">Cómo funciona</a></li>
-        <li><a href="/#piloto" class="nav-link">Demostración</a></li>
-        <li><a href="/#faq" class="nav-link">Preguntas frecuentes</a></li>
+        <li><a href="/#que-incluye" class="nav-link">Qué incluye</a></li>
+        <li><a href="/#normativa" class="nav-link">Normativa</a></li>
+        <li><a href="/#preguntas" class="nav-link">Preguntas</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="/#piloto" class="btn btn-primary btn-cta">
-          <span>Contactar</span>
+        <a href="/#demo" class="btn btn-primary btn-cta">
+          <span>Pedir demostración</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -83,11 +89,10 @@
     text-decoration: none;
   }
 
-  .brand-name {
-    font-size: 1.375rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    color: var(--color-text-primary);
+  .brand-logo {
+    display: block;
+    height: 32px;
+    width: auto;
   }
 
   .menu-toggle {

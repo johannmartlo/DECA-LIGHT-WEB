@@ -1,0 +1,84 @@
+---
+// src/components/CarriersStrip.astro - Franja corta para transportistas
+---
+
+<section class="carriers-strip" aria-labelledby="carriers-title">
+  <div class="container carriers-container" data-reveal="card">
+    <div class="carriers-box">
+      <div class="carriers-icon" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13"></rect>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+          <circle cx="5.5" cy="18.5" r="2.5"></circle>
+          <circle cx="18.5" cy="18.5" r="2.5"></circle>
+        </svg>
+      </div>
+      <div class="carriers-copy">
+        <h2 id="carriers-title" class="carriers-title">¿Eres transportista?</h2>
+        <p class="carriers-text">
+          Recibes el DeCA por correo, con su enlace. Tu conductor lo abre en el móvil o lee el QR: sin registrarse ni instalar nada. Si trabajas con almacenes que todavía lo hacen uno a uno, cuéntales que existe DECA Light.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .carriers-strip {
+    padding-block: 3rem;
+    background-color: var(--palette-emerald-50);
+    border-bottom: 1px solid var(--palette-emerald-200);
+  }
+
+  .carriers-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--color-bg-surface, var(--palette-white));
+    border: 1px solid var(--palette-emerald-200);
+    border-radius: var(--radius-lg, 10px);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  @media (min-width: 768px) {
+    .carriers-box {
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.75rem 2rem;
+    }
+  }
+
+  .carriers-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-md, 6px);
+    background-color: var(--palette-emerald-50);
+    border: 1px solid var(--palette-emerald-200);
+    color: var(--color-brand-primary, var(--palette-emerald-700));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .carriers-copy {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .carriers-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary, var(--palette-slate-900));
+    margin: 0 0 0.375rem 0;
+  }
+
+  .carriers-text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary, var(--palette-slate-600));
+    margin: 0;
+  }
+</style>

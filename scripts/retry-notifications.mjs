@@ -30,6 +30,9 @@ export function buildNotificationEmail(record, { recipientEmail, senderEmail } =
   const sender = senderEmail || process.env.NOTIFICATION_SENDER_EMAIL || "DECA Light <piloto@envios.decalight.es>";
   const company = record.company_name || "";
   const email = record.email || "";
+  const phone = record.phone || "";
+  const dailyLoads = record.daily_loads || "";
+  const erp = record.erp || "";
   const id = record.id;
   const device = record.device_type || "desktop";
 
@@ -43,6 +46,9 @@ export function buildNotificationEmail(record, { recipientEmail, senderEmail } =
       <ul>
         <li><strong>Empresa:</strong> ${escapeHtml(company)}</li>
         <li><strong>Correo de contacto:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></li>
+        ${phone ? `<li><strong>Teléfono:</strong> ${escapeHtml(phone)}</li>` : ""}
+        ${dailyLoads ? `<li><strong>Cargas al día:</strong> ${escapeHtml(dailyLoads)}</li>` : ""}
+        ${erp ? `<li><strong>ERP:</strong> ${escapeHtml(erp)}</li>` : ""}
         <li><strong>ID de Solicitud:</strong> <code>${id}</code></li>
         <li><strong>Dispositivo:</strong> ${escapeHtml(device)}</li>
       </ul>
@@ -67,7 +73,7 @@ WHERE id = (
     ORDER BY created_at ASC 
     LIMIT 1
 )
-RETURNING id, idempotency_key, company_name, email, device_type, notification_attempts;
+RETURNING id, idempotency_key, company_name, email, phone, daily_loads, erp, device_type, notification_attempts;
 `.trim().replace(/\s+/g, " ");
 
 /**

@@ -1,0 +1,182 @@
+---
+// src/components/Includes.astro - Sección «Qué incluye» (id="que-incluye")
+---
+
+<section id="que-incluye" class="includes-section" aria-labelledby="includes-title">
+  <div class="container includes-container">
+    <header class="includes-header" data-reveal="editorial">
+      <h2 id="includes-title" class="includes-title">
+        Qué recibes con DECA Light.
+      </h2>
+    </header>
+
+    <div class="includes-grid">
+      <article class="includes-card includes-card--do" data-reveal="card" data-reveal-delay="1">
+        <h3 class="includes-col-title">Lo que hace</h3>
+        <ul class="includes-list">
+          <li>
+            <span class="check-icon" aria-hidden="true">✓</span>
+            <span>Importación del informe de tu ERP y de cartas de porte en PDF, varias a la vez</span>
+          </li>
+          <li>
+            <span class="check-icon" aria-hidden="true">✓</span>
+            <span>Cargas agrupadas por transportista y estados claros: Lista para emitir, Falta matrícula, Revisión</span>
+          </li>
+          <li>
+            <span class="check-icon" aria-hidden="true">✓</span>
+            <span>Matrícula de tractora y remolque una vez por camión</span>
+          </li>
+          <li>
+            <span class="check-icon" aria-hidden="true">✓</span>
+            <span>Emisión de todos los DeCA de un transportista con un botón</span>
+          </li>
+          <li>
+            <span class="check-icon" aria-hidden="true">✓</span>
+            <span>DeCA en PDF con QR, y envío al transportista por correo</span>
+          </li>
+          <li>
+            <span class="check-icon" aria-hidden="true">✓</span>
+            <span>Modificar, sustituir y anular, con motivo e historial</span>
+          </li>
+          <li>
+            <span class="check-icon" aria-hidden="true">✓</span>
+            <span>Equipo: cada persona con su usuario</span>
+          </li>
+          <li>
+            <span class="check-icon" aria-hidden="true">✓</span>
+            <span>Datos en la UE, con copias de seguridad cifradas diarias</span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="includes-card includes-card--skip" data-reveal="card" data-reveal-delay="2">
+        <h3 class="includes-col-title">Lo que no tienes que hacer</h3>
+        <ul class="includes-list">
+          <li>
+            <span class="skip-icon" aria-hidden="true">—</span>
+            <span>cambiar de ERP</span>
+          </li>
+          <li>
+            <span class="skip-icon" aria-hidden="true">—</span>
+            <span>instalar nada (funciona en el navegador)</span>
+          </li>
+          <li>
+            <span class="skip-icon" aria-hidden="true">—</span>
+            <span>teclear la matrícula en cada albarán</span>
+          </li>
+          <li>
+            <span class="skip-icon" aria-hidden="true">—</span>
+            <span>rellenar un formulario por DeCA</span>
+          </li>
+          <li>
+            <span class="skip-icon" aria-hidden="true">—</span>
+            <span>registrar a los conductores en ninguna plataforma</span>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .includes-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-bg-canvas, var(--palette-slate-50));
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    scroll-margin-top: 5rem;
+  }
+
+  .includes-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .includes-title {
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary, var(--palette-slate-900));
+    margin: 0;
+  }
+
+  .includes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 900px) {
+    .includes-grid {
+      grid-template-columns: 7fr 5fr;
+      gap: 2rem;
+    }
+  }
+
+  .includes-card {
+    background-color: var(--color-bg-surface, var(--palette-white));
+    border: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    border-radius: var(--radius-lg, 10px);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  .includes-col-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-primary, var(--palette-slate-900));
+    margin: 0 0 1.25rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+  }
+
+  .includes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .includes-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary, var(--palette-slate-600));
+  }
+
+  .check-icon {
+    width: 1.375rem;
+    height: 1.375rem;
+    border-radius: 9999px;
+    background-color: var(--palette-emerald-50);
+    border: 1px solid var(--palette-emerald-200);
+    color: var(--color-brand-primary, var(--palette-emerald-700));
+    font-size: 0.75rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .skip-icon {
+    width: 1.375rem;
+    height: 1.375rem;
+    border-radius: 9999px;
+    background-color: var(--color-bg-surface-subtle, var(--palette-slate-100));
+    border: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    color: var(--color-text-muted, var(--palette-slate-500));
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+</style>

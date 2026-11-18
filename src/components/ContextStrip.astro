@@ -1,0 +1,59 @@
+---
+// src/components/ContextStrip.astro - Franja de contexto normativo bajo la portada
+---
+
+<section class="context-strip" aria-label="Contexto del DeCA electrónico">
+  <div class="container context-strip-container">
+    <p class="context-strip-text">
+      <span class="context-dot" aria-hidden="true"></span>
+      <span>
+        El DeCA electrónico es obligatorio desde el <strong>5 de octubre de 2026</strong>. DECA Light está hecho para emitirlo en la hora punta, con muchos camiones a la vez.
+      </span>
+    </p>
+  </div>
+</section>
+
+<style>
+  .context-strip {
+    width: 100%;
+    background-color: var(--palette-emerald-50);
+    border-bottom: 1px solid var(--palette-emerald-200);
+    padding-block: 0.875rem;
+  }
+
+  .context-strip-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .context-strip-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--palette-emerald-900);
+    text-align: center;
+  }
+
+  .context-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background-color: var(--color-brand-primary);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 639px) {
+    .context-strip-text {
+      font-size: 0.875rem;
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    .context-dot {
+      margin-top: 0.4rem;
+    }
+  }
+</style>

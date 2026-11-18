@@ -9,27 +9,17 @@
 
   <div class="container final-cta-container">
     <div class="final-cta-card" data-reveal="card">
-      <!-- Tag / Pre-título con acentos laterales -->
-      <div class="final-cta-tag" aria-hidden="true">
-        <span class="tag-accent-rule"></span>
-        <span class="tag-text">DECA Light para almacenes hortofrutícolas</span>
-        <span class="tag-accent-rule"></span>
-      </div>
-
-      <!-- Titular principal aprobado -->
       <h2 id="final-cta-heading" class="final-cta-title">
-        Organiza la documentación de tus expediciones
+        Tu próxima hora punta, con todos los DeCA listos.
       </h2>
 
-      <!-- Subtítulo prudente y realista -->
       <p class="final-cta-subtitle">
-        Descubre cómo DECA Light te ayuda a coordinar la información documental de tu almacén y a comprobarla con orden antes de cada expedición.
+        Primer mes gratis, con tus cargas reales y sin dejar lo que usas hoy.
       </p>
 
-      <!-- Botón de acción único y coherente con el destino real -->
       <div class="final-cta-actions">
-        <a href="#piloto" class="btn-final-cta">
-          <span>Solicitar una demostración</span>
+        <a href="#demo" class="btn-final-cta">
+          <span>Pedir demostración</span>
           <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -46,7 +36,10 @@
     width: 100%;
     padding-top: clamp(4rem, 7vw, 6.5rem);
     padding-bottom: clamp(4rem, 7vw, 6.5rem);
-    background: linear-gradient(180deg, #F8FAF9 0%, #F4F7F5 50%, var(--palette-white) 100%);
+    background-color: var(--color-ink, #0a0f0d);
+    background-image: radial-gradient(ellipse 680px 360px at 50% 45%, rgba(4, 120, 87, 0.22) 0%, rgba(17, 25, 21, 0.35) 55%, transparent 80%);
+    color: var(--palette-white);
+    border-bottom: 1px solid var(--color-ink-border, #1f2a25);
     overflow: hidden;
   }
 
@@ -57,7 +50,7 @@
     transform: translate(-50%, -50%);
     width: min(640px, 90vw);
     height: 320px;
-    background: radial-gradient(ellipse at center, rgba(8, 84, 62, 0.07) 0%, rgba(16, 185, 129, 0.03) 50%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(52, 211, 153, 0.14) 0%, rgba(4, 120, 87, 0.06) 50%, transparent 70%);
     border-radius: 9999px;
     filter: blur(40px);
     pointer-events: none;
@@ -77,49 +70,13 @@
     align-items: center;
   }
 
-  /* Tag pre-título */
-  .final-cta-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.625rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .tag-accent-rule {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background-color: var(--palette-deca-800);
-    border-radius: 2px;
-  }
-
-  @media (min-width: 640px) {
-    .tag-accent-rule {
-      width: 32px;
-    }
-  }
-
-  .tag-text {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--palette-deca-800);
-  }
-
-  @media (min-width: 640px) {
-    .tag-text {
-      font-size: 0.8125rem;
-    }
-  }
-
   /* Titular */
   .final-cta-title {
     font-size: clamp(1.875rem, 3.8vw, 2.75rem);
-    font-weight: 800;
-    color: #0B251C;
-    letter-spacing: -0.025em;
-    line-height: 1.18;
+    font-weight: 700;
+    color: var(--palette-white);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
     margin-bottom: 1.25rem;
     max-width: 22ch;
   }
@@ -127,7 +84,7 @@
   /* Subtítulo */
   .final-cta-subtitle {
     font-size: clamp(1rem, 1.35vw, 1.125rem);
-    color: var(--palette-slate-600);
+    color: var(--palette-slate-300);
     font-weight: 400;
     line-height: 1.65;
     max-width: 48ch;
@@ -151,12 +108,12 @@
     padding: 1rem 2rem;
     min-height: 52px;
     border-radius: 0.75rem;
-    background-color: var(--palette-deca-800);
+    background-color: var(--color-brand-primary, #047857);
     color: var(--palette-white);
     font-size: 1rem;
     font-weight: 700;
     text-decoration: none;
-    box-shadow: 0 4px 14px -2px rgba(8, 84, 62, 0.25), 0 2px 4px rgba(8, 84, 62, 0.15);
+    box-shadow: 0 4px 14px -2px rgba(4, 120, 87, 0.4), 0 2px 4px rgba(0, 0, 0, 0.25);
     transition: background-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
     cursor: pointer;
   }
@@ -174,10 +131,10 @@
   }
 
   .btn-final-cta:hover {
-    background-color: #064030;
+    background-color: var(--color-brand-hover, #065f46);
     text-decoration: none;
     transform: translateY(-2px);
-    box-shadow: 0 8px 22px -4px rgba(8, 84, 62, 0.35);
+    box-shadow: 0 8px 22px -4px rgba(4, 120, 87, 0.5);
   }
 
   .btn-final-cta:hover .btn-arrow {

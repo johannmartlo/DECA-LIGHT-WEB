@@ -12,11 +12,27 @@ interface Props {
 }
 
 const {
-  title = "DECA Light · DeCA y documentación de expediciones para almacenes hortofrutícolas",
-  description = "Genera el DeCA (documento de control electrónico) de tus expediciones desde el informe de tu ERP y tus cartas de porte. DECA Light, para almacenes y comercializadoras hortofrutícolas.",
+  title = "DECA Light · Todos tus DeCA del día, sin ir albarán por albarán",
+  description = "Emite en bloque el DeCA de tus expediciones hortofrutícolas: importas albaranes o cartas de porte, pones una matrícula por camión y emites con QR. Primer mes gratis.",
   canonicalURL,
   image = "/og-image.svg"
 } = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "DECA Light",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  url: "https://www.decalight.es/",
+  description:
+    "Emite en bloque el DeCA de tus expediciones hortofrutícolas: importas albaranes o cartas de porte, pones una matrícula por camión y emites con QR. Primer mes gratis.",
+  offers: {
+    "@type": "Offer",
+    name: "Primer mes gratis",
+    description: "Primer mes gratis"
+  }
+};
 ---
 
 <!doctype html>
@@ -39,7 +55,7 @@ const {
     <meta property="og:image" content={image} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="DECA Light · Coordinación documental de expediciones" />
+    <meta property="og:image:alt" content="DECA Light · Todos tus DeCA del día, sin ir albarán por albarán" />
     {canonicalURL && <meta property="og:url" content={canonicalURL} />}
 
     <!-- Twitter Cards -->
@@ -48,8 +64,13 @@ const {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
 
+    <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
     <!-- Detección síncrona de JavaScript para mejora progresiva (No-JS fallback) -->
     <script is:inline>

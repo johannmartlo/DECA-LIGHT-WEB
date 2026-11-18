@@ -10,6 +10,10 @@ export interface Env {
 
 const RFC5322_EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
 
+const ALLOWED_DAILY_LOADS = new Set(["<20", "20-50", "50-100", ">100"]);
+const MAX_PHONE_LENGTH = 30;
+const MAX_ERP_LENGTH = 60;
+
 const CORS_HEADERS = {
   "Content-Type": "application/json",
   "X-Content-Type-Options": "nosniff"
@@ -58,6 +62,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   // 3. Procesamiento y deserialización de datos entrantes
   let companyRaw = "";
   let emailRaw = "";
+  let phoneRaw = "";
+  let dailyLoadsRaw = "";
+  let erpRaw = "";
   let idempotencyKeyRaw = "";
   let gotchaRaw = "";
 
@@ -68,6 +75,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       const json = await request.json<Record<string, unknown>>();
       companyRaw = typeof json.company === "string" ? json.company : "";
       emailRaw = typeof json.email === "string" ? json.email : "";
+      phoneRaw = typeof json.phone === "string" ? json.phone : "";
+      dailyLoadsRaw = typeof json.daily_loads === "string" ? json.daily_loads : "";
+      erpRaw = typeof json.erp === "string" ? json.erp : "";
       idempotencyKeyRaw = typeof json.idempotency_key === "string" ? json.idempotency_key : "";
       gotchaRaw = typeof json._gotcha === "string" ? json._gotcha : "";
     } else if (
@@ -77,6 +87,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       const formData = await request.formData();
       companyRaw = (formData.get("company") as string) || "";
       emailRaw = (formData.get("email") as string) || "";
+      phoneRaw = (formData.get("phone") as string) || "";
+      dailyLoadsRaw = (formData.get("daily_loads") as string) || "";
+      erpRaw = (formData.get("erp") as string) || "";
       idempotencyKeyRaw = (formData.get("idempotency_key") as string) || "";
       gotchaRaw = (formData.get("_gotcha") as string) || "";
     } else {
@@ -113,6 +126,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   // 5. Validación y normalización estricta de entradas
   const company = companyRaw.trim().replace(/[\u0000-\u001F\u007F]/g, ""); // Sanear caracteres de control
   const email = emailRaw.trim().toLowerCase();
+  const phone = phoneRaw.trim().replace(/[\u0000-\u001F\u007F]/g, "");
+  const dailyLoads = dailyLoadsRaw.trim().replace(/[\u0000-\u001F\u007F]/g, "");
+  const erp = erpRaw.trim().replace(/[\u0000-\u001F\u007F]/g, "");
   const idempotencyKey = (idempotencyKeyRaw.trim() || crypto.randomUUID()).slice(0, 64);
 
   if (company.length < 2 || company.length > 120) {
@@ -130,6 +146,36 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       JSON.stringify({
         error: "INVALID_EMAIL",
         message: "La dirección de correo electrónico introducida no es válida."
+      }),
+      { status: 400, headers: CORS_HEADERS }
+    );
+  }
+
+  if (phone.length > MAX_PHONE_LENGTH) {
+    return new Response(
+      JSON.stringify({
+        error: "INVALID_PHONE",
+        message: "El teléfono no puede superar los 30 caracteres."
+      }),
+      { status: 400, headers: CORS_HEADERS }
+    );
+  }
+
+  if (dailyLoads !== "" && !ALLOWED_DAILY_LOADS.has(dailyLoads)) {
+    return new Response(
+      JSON.stringify({
+        error: "INVALID_DAILY_LOADS",
+        message: "El volumen diario de cargas seleccionado no es válido."
+      }),
+      { status: 400, headers: CORS_HEADERS }
+    );
+  }
+
+  if (erp.length > MAX_ERP_LENGTH) {
+    return new Response(
+      JSON.stringify({
+        error: "INVALID_ERP",
+        message: "El nombre del ERP no puede superar los 60 caracteres."
       }),
       { status: 400, headers: CORS_HEADERS }
     );
@@ -198,13 +244,26 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         idempotency_key,
         company_name,
         email,
+        phone,
+        daily_loads,
+        erp,
         ip_hash,
         device_type,
         notification_status,
         created_at
-      ) VALUES (?1, ?2, ?3, ?4, ?5, ?6, 'pending', strftime('%Y-%m-%dT%H:%M:%SZ', 'now'));
+      ) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, 'pending', strftime('%Y-%m-%dT%H:%M:%SZ', 'now'));
     `)
-      .bind(submissionId, idempotencyKey, company, email, ipHash, deviceType)
+      .bind(
+        submissionId,
+        idempotencyKey,
+        company,
+        email,
+        phone || null,
+        dailyLoads || null,
+        erp || null,
+        ipHash,
+        deviceType
+      )
       .run();
   } catch (err: unknown) {
     const errorMsg = err instanceof Error ? err.message : String(err);
@@ -266,6 +325,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
               <ul>
                 <li><strong>Empresa:</strong> ${escapeHtml(company)}</li>
                 <li><strong>Correo de contacto:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></li>
+                ${phone ? `<li><strong>Teléfono:</strong> ${escapeHtml(phone)}</li>` : ""}
+                ${dailyLoads ? `<li><strong>Cargas al día:</strong> ${escapeHtml(dailyLoads)}</li>` : ""}
+                ${erp ? `<li><strong>ERP:</strong> ${escapeHtml(erp)}</li>` : ""}
                 <li><strong>ID de Solicitud:</strong> <code>${submissionId}</code></li>
                 <li><strong>Dispositivo:</strong> ${escapeHtml(deviceType)}</li>
               </ul>
