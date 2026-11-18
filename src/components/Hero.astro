@@ -1,5 +1,5 @@
 ---
-// src/components/Hero.astro - Hero comercial de DECA Light con vídeo de demostración
+// src/components/Hero.astro - Portada comercial con imagen de producto y modal de vídeo accesible
 import HeroContenido from './HeroContenido.astro';
 ---
 
@@ -8,54 +8,115 @@ import HeroContenido from './HeroContenido.astro';
     <HeroContenido />
 
     <div class="hero-media">
-      <div class="hero-video-frame">
+      <img
+        src="/img/portada.webp"
+        alt="Pantalla Día de DECA Light con cargas agrupadas por transportista y asignación de matrícula"
+        width="2360"
+        height="1600"
+        fetchpriority="high"
+        decoding="async"
+        class="hero-image"
+      />
+    </div>
+  </div>
+
+  <!-- Modal accesible con el vídeo de demostración -->
+  <dialog
+    id="hero-video-modal"
+    class="video-modal"
+    aria-labelledby="video-modal-title"
+  >
+    <div class="video-modal-box">
+      <div class="video-modal-header">
+        <h2 id="video-modal-title" class="video-modal-title">Cómo funciona DECA Light</h2>
+        <button
+          type="button"
+          id="close-video-modal"
+          class="video-modal-close"
+          aria-label="Cerrar vídeo"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="video-modal-body">
         <video
-          class="hero-video"
-          autoplay
+          id="hero-modal-video"
+          class="modal-video-player"
+          controls
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="none"
           poster="/video/demo-poster.jpg"
-          aria-label="Vídeo de demostración de DECA Light"
         >
           <source src="/video/demo.mp4" type="video/mp4" />
         </video>
-        <img
-          src="/video/demo-poster.jpg"
-          alt="Vista previa de DECA Light"
-          class="hero-poster-fallback"
-          width="1280"
-          height="720"
-          decoding="async"
-        />
       </div>
     </div>
-  </div>
+  </dialog>
 </section>
 
-<script is:inline>
-  (function () {
-    if (typeof window === 'undefined' || !window.matchMedia) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      var v = document.querySelector('.hero-video');
-      if (v && typeof v.pause === 'function') {
-        v.pause();
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const openBtn = document.getElementById('open-video-modal') as HTMLButtonElement | null;
+    const closeBtn = document.getElementById('close-video-modal') as HTMLButtonElement | null;
+    const modal = document.getElementById('hero-video-modal') as HTMLDialogElement | null;
+    const video = document.getElementById('hero-modal-video') as HTMLVideoElement | null;
+
+    if (!openBtn || !modal) return;
+
+    const closeModal = () => {
+      if (video && typeof video.pause === 'function') {
+        video.pause();
       }
-    }
-  })();
+      if (modal.open) {
+        modal.close();
+      }
+      openBtn.focus();
+    };
+
+    openBtn.addEventListener('click', () => {
+      if (typeof modal.showModal === 'function') {
+        modal.showModal();
+      } else {
+        modal.setAttribute('open', '');
+      }
+      closeBtn?.focus();
+      const prefersReduced =
+        window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (video && !prefersReduced) {
+        video.play().catch(() => {});
+      }
+    });
+
+    closeBtn?.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    modal.addEventListener('close', () => {
+      if (video && typeof video.pause === 'function') {
+        video.pause();
+      }
+    });
+  });
 </script>
 
 <style>
   .hero-section {
     position: relative;
-    padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
     background-color: var(--palette-white);
     background-image:
-      radial-gradient(ellipse 720px 580px at 78% 46%, rgba(209, 250, 229, 0.45) 0%, rgba(240, 253, 244, 0.22) 50%, transparent 80%),
-      radial-gradient(circle 450px at 15% 20%, rgba(241, 245, 249, 0.7) 0%, transparent 70%);
-    border-bottom: 1px solid var(--border-subtle, var(--palette-slate-200));
+      radial-gradient(ellipse 680px 520px at 78% 46%, rgba(209, 250, 229, 0.38) 0%, rgba(240, 253, 244, 0.18) 55%, transparent 80%);
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
   }
 
   .hero-container {
@@ -63,60 +124,23 @@ import HeroContenido from './HeroContenido.astro';
     grid-template-columns: 1fr 1.08fr;
     gap: 3rem;
     align-items: center;
-    max-width: 1340px;
   }
 
   .hero-media {
     width: 100%;
-    max-width: 640px;
+    max-width: 600px;
     margin-left: auto;
   }
 
-  .hero-video-frame {
-    position: relative;
-    width: 100%;
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: var(--color-bg-surface-subtle, var(--palette-slate-100));
-    border: 1px solid var(--color-border-subtle, var(--palette-slate-200));
-    box-shadow: var(--shadow-elevated);
-  }
-
-  .hero-video {
+  .hero-image {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-  }
-
-  .hero-poster-fallback {
-    display: none;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-video {
-      display: none;
-    }
-
-    .hero-poster-fallback {
-      display: block;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    .hero-container {
-      gap: 2.25rem;
-    }
   }
 
   @media (max-width: 900px) {
     .hero-section {
-      padding-top: 2.75rem;
+      padding-top: 3.5rem;
       padding-bottom: 3.5rem;
     }
 
@@ -126,14 +150,76 @@ import HeroContenido from './HeroContenido.astro';
     }
 
     .hero-media {
-      margin-inline: auto;
+      margin-left: 0;
+      max-width: 600px;
     }
   }
 
-  @media (max-width: 580px) {
-    .hero-section {
-      padding-top: 2rem;
-      padding-bottom: 3rem;
-    }
+  /* Modal de vídeo */
+  .video-modal {
+    margin: auto;
+    padding: 0;
+    border: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    border-radius: 16px;
+    background-color: var(--palette-white);
+    color: var(--color-text-primary, var(--palette-slate-900));
+    width: min(92vw, 920px);
+    max-width: 920px;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.35);
+  }
+
+  .video-modal::backdrop {
+    background-color: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(4px);
+  }
+
+  .video-modal-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .video-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+  }
+
+  .video-modal-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .video-modal-close {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md, 6px);
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--color-text-secondary, var(--palette-slate-600));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .video-modal-close:hover {
+    background-color: var(--color-bg-surface-subtle, var(--palette-slate-100));
+    color: var(--color-text-primary, var(--palette-slate-900));
+  }
+
+  .video-modal-body {
+    padding: 1rem;
+    background-color: var(--palette-slate-900);
+  }
+
+  .modal-video-player {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
   }
 </style>

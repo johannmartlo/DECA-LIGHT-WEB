@@ -1,137 +1,89 @@
 ---
-// ProblemFricciones.astro — Tres tarjetas del problema en hora punta
+// ProblemFricciones.astro — Tres puntos del problema en hora punta, sin cajas pesadas
 ---
 
-<div class="friction-col" role="list">
-  <article class="friction-card" role="listitem" data-reveal="card" data-reveal-delay="1">
-    <div class="card-info">
-      <div class="icon-circle icon-warehouse" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-        </svg>
-      </div>
-      <div class="card-copy">
-        <h3 class="card-heading">Un formulario por DeCA.</h3>
-        <p class="card-text">Cuarenta cargas son cuarenta formularios.</p>
-      </div>
+<div class="friction-list" role="list">
+  <article class="friction-item" role="listitem" data-reveal="card" data-reveal-delay="1">
+    <div class="friction-icon" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+        <line x1="16" y1="13" x2="8" y2="13"></line>
+        <line x1="16" y1="17" x2="8" y2="17"></line>
+      </svg>
+    </div>
+    <div class="friction-copy">
+      <h3 class="friction-heading">Un formulario por DeCA.</h3>
+      <p class="friction-text">Cuarenta cargas son cuarenta formularios.</p>
     </div>
   </article>
 
-  <article class="friction-card" role="listitem" data-reveal="card" data-reveal-delay="2">
-    <div class="card-info">
-      <div class="icon-circle icon-amber" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="6" width="20" height="12" rx="2"></rect>
-          <path d="M6 12h12"></path>
-        </svg>
-      </div>
-      <div class="card-copy">
-        <h3 class="card-heading">La matrícula, repetida.</h3>
-        <p class="card-text">La misma, en cada albarán del mismo camión.</p>
-      </div>
+  <article class="friction-item" role="listitem" data-reveal="card" data-reveal-delay="2">
+    <div class="friction-icon" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+        <path d="M6 12h12"></path>
+      </svg>
+    </div>
+    <div class="friction-copy">
+      <h3 class="friction-heading">La matrícula, repetida.</h3>
+      <p class="friction-text">La misma, en cada albarán del mismo camión.</p>
     </div>
   </article>
 
-  <article class="friction-card" role="listitem" data-reveal="card" data-reveal-delay="3">
-    <div class="card-info">
-      <div class="icon-circle icon-document" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="9"></circle>
-          <polyline points="12 7 12 12 15 15"></polyline>
-        </svg>
-      </div>
-      <div class="card-copy">
-        <h3 class="card-heading">El camión esperando.</h3>
-        <p class="card-text">Sin DeCA no sale, y el conductor necesita su copia antes de arrancar.</p>
-      </div>
+  <article class="friction-item" role="listitem" data-reveal="card" data-reveal-delay="3">
+    <div class="friction-icon" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"></circle>
+        <polyline points="12 7 12 12 15 15"></polyline>
+      </svg>
+    </div>
+    <div class="friction-copy">
+      <h3 class="friction-heading">El camión esperando.</h3>
+      <p class="friction-text">Sin DeCA no sale, y el conductor necesita su copia antes de arrancar.</p>
     </div>
   </article>
 </div>
 
 <style>
-  .friction-col {
+  .friction-list {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
     width: 100%;
-    max-width: 100%;
+    border-top: 1px solid var(--color-border-subtle, var(--palette-slate-200));
   }
 
-  .friction-card {
-    background-color: var(--color-bg-surface, var(--palette-white));
-    border: 1px solid var(--color-border-subtle, var(--palette-slate-200));
-    border-radius: var(--radius-lg, 10px);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-card);
-    transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), border-color 0.2s ease;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .friction-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(4, 120, 87, 0.25);
-      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.04), 0 10px 20px -3px rgba(15, 23, 42, 0.06);
-    }
-  }
-
-  .card-info {
+  .friction-item {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 1.125rem;
+    padding-block: 1.5rem;
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
   }
 
-  .icon-circle {
+  .friction-icon {
     flex-shrink: 0;
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: var(--color-brand-primary, var(--palette-emerald-700));
+    margin-top: 0.125rem;
   }
 
-  .icon-warehouse {
-    background-color: var(--palette-emerald-50);
-    border: 1px solid var(--palette-emerald-100);
-    color: var(--palette-emerald-700);
-  }
-
-  .icon-amber {
-    background-color: var(--palette-amber-50);
-    border: 1px solid var(--palette-amber-200);
-    color: var(--palette-amber-700);
-  }
-
-  .icon-document {
-    background-color: var(--palette-slate-100);
-    border: 1px solid var(--palette-slate-200);
-    color: var(--palette-slate-700);
-  }
-
-  .card-copy {
+  .friction-copy {
     flex: 1;
     min-width: 0;
   }
 
-  .card-heading {
-    font-size: 1.0625rem;
+  .friction-heading {
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.35;
     color: var(--color-text-primary, var(--palette-slate-900));
-    margin: 0 0 0.375rem 0;
+    margin: 0 0 0.25rem 0;
   }
 
-  .card-text {
-    font-size: 0.9375rem;
+  .friction-text {
+    font-size: 1rem;
     line-height: 1.55;
     color: var(--color-text-secondary, var(--palette-slate-600));
     margin: 0;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .friction-card {
-      transition: none !important;
-      transform: none !important;
-    }
   }
 </style>

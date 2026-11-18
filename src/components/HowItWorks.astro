@@ -1,5 +1,5 @@
 ---
-// src/components/HowItWorks.astro - Sección «Cómo funciona» de DECA Light (3 pasos)
+// src/components/HowItWorks.astro - Sección «Cómo funciona» de DECA Light (3 pasos en filas alternas)
 import HowItWorksIntro from './HowItWorksIntro.astro';
 import HowItWorksPaso1 from './HowItWorksPaso1.astro';
 import HowItWorksPaso2 from './HowItWorksPaso2.astro';
@@ -8,10 +8,10 @@ import HowItWorksBeneficios from './HowItWorksBeneficios.astro';
 ---
 
 <section id="como-funciona" class="how-it-works-section" aria-labelledby="how-it-works-title">
-  <div class="how-it-works-container">
+  <div class="container how-it-works-container">
     <HowItWorksIntro />
 
-    <div class="flow-steps-grid" role="list" aria-label="Proceso en 3 pasos">
+    <div class="flow-steps-stack" role="list" aria-label="Proceso en 3 pasos">
       <HowItWorksPaso1 />
       <HowItWorksPaso2 />
       <HowItWorksPaso3 />
@@ -31,37 +31,24 @@ import HowItWorksBeneficios from './HowItWorksBeneficios.astro';
     scroll-margin-top: 5rem;
   }
 
-  .how-it-works-container {
-    width: 100%;
-    max-width: var(--container-max, 1340px);
-    margin-inline: auto;
-    padding-inline: var(--space-5, 1.25rem);
-  }
-
-  @media (min-width: 768px) {
-    .how-it-works-container {
-      padding-inline: var(--space-8, 2rem);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .how-it-works-container {
-      padding-inline: var(--space-10, 2.5rem);
-    }
-  }
-
-  .flow-steps-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-    align-items: stretch;
+  .flow-steps-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    margin-bottom: 3rem;
   }
 
   @media (min-width: 900px) {
-    .flow-steps-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
+    .flow-steps-stack {
+      gap: 4.5rem;
+      margin-bottom: 3.5rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .how-it-works-section {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
     }
   }
 </style>

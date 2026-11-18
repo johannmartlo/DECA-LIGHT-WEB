@@ -1,79 +1,109 @@
 ---
-// src/components/Includes.astro - Sección «Qué incluye» (id="que-incluye")
+// src/components/Includes.astro - Sección «Qué incluye» (id="que-incluye") en dos columnas limpias sin cajas
 ---
 
 <section id="que-incluye" class="includes-section" aria-labelledby="includes-title">
   <div class="container includes-container">
     <header class="includes-header" data-reveal="editorial">
+      <div class="eyebrow-wrap">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span class="eyebrow-text">QUÉ INCLUYE</span>
+      </div>
       <h2 id="includes-title" class="includes-title">
         Qué recibes con DECA Light.
       </h2>
     </header>
 
     <div class="includes-grid">
-      <article class="includes-card includes-card--do" data-reveal="card" data-reveal-delay="1">
+      <div class="includes-col" data-reveal="card" data-reveal-delay="1">
         <h3 class="includes-col-title">Lo que hace</h3>
         <ul class="includes-list">
           <li>
-            <span class="check-icon" aria-hidden="true">✓</span>
+            <svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
             <span>Importación del informe de tu ERP y de cartas de porte en PDF, varias a la vez</span>
           </li>
           <li>
-            <span class="check-icon" aria-hidden="true">✓</span>
+            <svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
             <span>Cargas agrupadas por transportista y estados claros: Lista para emitir, Falta matrícula, Revisión</span>
           </li>
           <li>
-            <span class="check-icon" aria-hidden="true">✓</span>
+            <svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
             <span>Matrícula de tractora y remolque una vez por camión</span>
           </li>
           <li>
-            <span class="check-icon" aria-hidden="true">✓</span>
+            <svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
             <span>Emisión de todos los DeCA de un transportista con un botón</span>
           </li>
           <li>
-            <span class="check-icon" aria-hidden="true">✓</span>
+            <svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
             <span>DeCA en PDF con QR, y envío al transportista por correo</span>
           </li>
           <li>
-            <span class="check-icon" aria-hidden="true">✓</span>
+            <svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
             <span>Modificar, sustituir y anular, con motivo e historial</span>
           </li>
           <li>
-            <span class="check-icon" aria-hidden="true">✓</span>
+            <svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
             <span>Equipo: cada persona con su usuario</span>
           </li>
           <li>
-            <span class="check-icon" aria-hidden="true">✓</span>
+            <svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
             <span>Datos en la UE, con copias de seguridad cifradas diarias</span>
           </li>
         </ul>
-      </article>
+      </div>
 
-      <article class="includes-card includes-card--skip" data-reveal="card" data-reveal-delay="2">
+      <div class="includes-col" data-reveal="card" data-reveal-delay="2">
         <h3 class="includes-col-title">Lo que no tienes que hacer</h3>
         <ul class="includes-list">
           <li>
-            <span class="skip-icon" aria-hidden="true">—</span>
+            <svg class="icon-skip" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
             <span>cambiar de ERP</span>
           </li>
           <li>
-            <span class="skip-icon" aria-hidden="true">—</span>
+            <svg class="icon-skip" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
             <span>instalar nada (funciona en el navegador)</span>
           </li>
           <li>
-            <span class="skip-icon" aria-hidden="true">—</span>
+            <svg class="icon-skip" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
             <span>teclear la matrícula en cada albarán</span>
           </li>
           <li>
-            <span class="skip-icon" aria-hidden="true">—</span>
+            <svg class="icon-skip" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
             <span>rellenar un formulario por DeCA</span>
           </li>
           <li>
-            <span class="skip-icon" aria-hidden="true">—</span>
+            <svg class="icon-skip" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
             <span>registrar a los conductores en ninguna plataforma</span>
           </li>
         </ul>
-      </article>
+      </div>
     </div>
   </div>
 </section>
@@ -88,11 +118,33 @@
   }
 
   .includes-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .eyebrow-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .eyebrow-line {
+    width: 1.5rem;
+    height: 2px;
+    background-color: var(--color-brand-primary, var(--palette-emerald-700));
+    border-radius: 9999px;
+  }
+
+  .eyebrow-text {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-brand-primary, var(--palette-emerald-700));
   }
 
   .includes-title {
-    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    font-size: clamp(1.875rem, 3.2vw, 2.5rem);
     font-weight: 700;
     letter-spacing: -0.03em;
     color: var(--color-text-primary, var(--palette-slate-900));
@@ -102,32 +154,24 @@
   .includes-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2.5rem;
     align-items: start;
   }
 
   @media (min-width: 900px) {
     .includes-grid {
       grid-template-columns: 7fr 5fr;
-      gap: 2rem;
+      gap: 4rem;
     }
-  }
-
-  .includes-card {
-    background-color: var(--color-bg-surface, var(--palette-white));
-    border: 1px solid var(--color-border-subtle, var(--palette-slate-200));
-    border-radius: var(--radius-lg, 10px);
-    padding: 1.75rem;
-    box-shadow: var(--shadow-card);
   }
 
   .includes-col-title {
     font-size: 1.125rem;
     font-weight: 700;
     color: var(--color-text-primary, var(--palette-slate-900));
-    margin: 0 0 1.25rem 0;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    margin: 0 0 0.5rem 0;
+    padding-bottom: 0.875rem;
+    border-bottom: 2px solid var(--color-border-strong, var(--palette-slate-300));
   }
 
   .includes-list {
@@ -136,47 +180,35 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.875rem;
   }
 
   .includes-list li {
     display: flex;
     align-items: flex-start;
-    gap: 0.75rem;
+    gap: 0.875rem;
+    padding-block: 0.9375rem;
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
     font-size: 0.9375rem;
     line-height: 1.55;
     color: var(--color-text-secondary, var(--palette-slate-600));
   }
 
-  .check-icon {
-    width: 1.375rem;
-    height: 1.375rem;
-    border-radius: 9999px;
-    background-color: var(--palette-emerald-50);
-    border: 1px solid var(--palette-emerald-200);
+  .icon-check {
     color: var(--color-brand-primary, var(--palette-emerald-700));
-    font-size: 0.75rem;
-    font-weight: 800;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     flex-shrink: 0;
-    margin-top: 0.1rem;
+    margin-top: 0.15rem;
   }
 
-  .skip-icon {
-    width: 1.375rem;
-    height: 1.375rem;
-    border-radius: 9999px;
-    background-color: var(--color-bg-surface-subtle, var(--palette-slate-100));
-    border: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+  .icon-skip {
     color: var(--color-text-muted, var(--palette-slate-500));
-    font-size: 0.75rem;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     flex-shrink: 0;
-    margin-top: 0.1rem;
+    margin-top: 0.15rem;
+  }
+
+  @media (max-width: 900px) {
+    .includes-section {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
   }
 </style>

@@ -15,16 +15,8 @@
 
 <style>
   .section-intro {
-    max-width: 52rem;
-    margin-inline: auto;
-    text-align: center;
+    max-width: 48rem;
     margin-bottom: 3rem;
-  }
-
-  @media (min-width: 1024px) {
-    .section-intro {
-      margin-bottom: 3.5rem;
-    }
   }
 
   .eyebrow-wrap {
@@ -36,23 +28,23 @@
 
   .eyebrow-line {
     width: 1.5rem;
-    height: 2.5px;
-    background-color: var(--palette-deca-800);
+    height: 2px;
+    background-color: var(--color-brand-primary, var(--palette-emerald-700));
     border-radius: 9999px;
   }
 
   .eyebrow-text {
     font-size: 0.75rem;
-    font-weight: 800;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--palette-deca-800);
+    letter-spacing: 0.1em;
+    color: var(--color-brand-primary, var(--palette-emerald-700));
   }
 
   .section-title {
-    font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+    font-size: clamp(1.875rem, 3.2vw, 2.5rem);
     font-weight: 700;
-    line-height: 1.18;
+    line-height: 1.15;
     letter-spacing: -0.03em;
     color: var(--color-text-primary, var(--palette-slate-900));
     margin: 0;

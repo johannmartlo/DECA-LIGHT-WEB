@@ -1,5 +1,6 @@
 ---
-// PilotIntroEditorial.astro — Oferta comercial «Primer mes gratis»
+// PilotIntroEditorial.astro — Oferta comercial «Primer mes gratis» y sus 3 pasos
+import PilotSteps from './PilotSteps.astro';
 ---
 
 <div class="editorial-col" data-reveal="editorial">
@@ -15,6 +16,8 @@
   <p class="pilot-description">
     Trabajas en paralelo con lo que usas hoy hasta que lo veas claro. Dejamos tu cuenta y tus transportistas configurados contigo. El precio depende de tu volumen: te lo damos en la demostración, sin compromiso.
   </p>
+
+  <PilotSteps />
 </div>
 
 <style>
@@ -58,7 +61,7 @@
     font-size: 1.0625rem;
     line-height: 1.65;
     color: var(--color-text-secondary, var(--palette-slate-600));
-    margin: 0;
-    max-width: 44ch;
+    margin: 0 0 2rem 0;
+    max-width: 46ch;
   }
 </style>

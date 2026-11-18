@@ -10,8 +10,12 @@
     </div>
 
     <h2 id="faq-heading" class="faq-heading">
-      Preguntas frecuentes.
+      Lo que nos suelen preguntar.
     </h2>
+
+    <p class="faq-contact">
+      ¿Otra duda? <a href="mailto:contacto@decalight.es" class="faq-contact-link">contacto@decalight.es</a>
+    </p>
   </div>
 </aside>
 
@@ -63,6 +67,24 @@
     font-weight: 700;
     letter-spacing: -0.03em;
     color: var(--color-text-primary, var(--palette-slate-900));
+    margin: 0 0 1rem 0;
+  }
+
+  .faq-contact {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary, var(--palette-slate-600));
     margin: 0;
+  }
+
+  .faq-contact-link {
+    color: var(--color-brand-primary, var(--palette-emerald-700));
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .faq-contact-link:hover {
+    color: var(--color-brand-hover, var(--palette-emerald-800));
   }
 </style>

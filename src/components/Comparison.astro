@@ -5,6 +5,10 @@
 <section class="comparison-section" aria-labelledby="comparison-title">
   <div class="container comparison-container" data-reveal="card">
     <header class="comparison-header">
+      <div class="eyebrow-wrap">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span class="eyebrow-text">COMPARATIVA</span>
+      </div>
       <h2 id="comparison-title" class="comparison-title">
         La misma mañana, de dos maneras.
       </h2>
@@ -25,18 +29,31 @@
         <tbody>
           <tr>
             <th scope="row">Formularios que rellenas</th>
-            <td class="val-manual font-mono">40</td>
-            <td class="val-deca font-mono">0</td>
+            <td class="val-manual">
+              <span class="big-num">40</span>
+            </td>
+            <td class="val-deca">
+              <span class="big-num">0</span>
+            </td>
           </tr>
           <tr>
             <th scope="row">Matrículas que tecleas</th>
-            <td class="val-manual font-mono">40</td>
-            <td class="val-deca font-mono">10</td>
+            <td class="val-manual">
+              <span class="big-num">40</span>
+            </td>
+            <td class="val-deca">
+              <span class="big-num">10</span>
+            </td>
           </tr>
           <tr>
             <th scope="row">Clics para emitir</th>
-            <td class="val-manual font-mono">40</td>
-            <td class="val-deca"><span class="font-mono">4</span>, uno por transportista</td>
+            <td class="val-manual">
+              <span class="big-num">40</span>
+            </td>
+            <td class="val-deca">
+              <span class="big-num">4</span>
+              <span class="num-sub">uno por transportista</span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -50,23 +67,40 @@
 
 <style>
   .comparison-section {
-    padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
     background-color: var(--color-bg-canvas, var(--palette-slate-50));
     border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
   }
 
-  .comparison-container {
-    max-width: 900px;
+  .comparison-header {
+    margin-bottom: 2.5rem;
   }
 
-  .comparison-header {
-    text-align: center;
-    margin-bottom: 2.25rem;
+  .eyebrow-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .eyebrow-line {
+    width: 1.5rem;
+    height: 2px;
+    background-color: var(--color-brand-primary, var(--palette-emerald-700));
+    border-radius: 9999px;
+  }
+
+  .eyebrow-text {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-brand-primary, var(--palette-emerald-700));
   }
 
   .comparison-title {
-    font-size: clamp(1.625rem, 3vw, 2.25rem);
+    font-size: clamp(1.875rem, 3.2vw, 2.5rem);
     font-weight: 700;
     letter-spacing: -0.03em;
     color: var(--color-text-primary, var(--palette-slate-900));
@@ -75,11 +109,8 @@
 
   .comparison-table-wrap {
     width: 100%;
-    background-color: var(--color-bg-surface, var(--palette-white));
-    border: 1px solid var(--color-border-subtle, var(--palette-slate-200));
-    border-radius: var(--radius-lg, 10px);
-    box-shadow: var(--shadow-card);
-    overflow-x: auto;
+    border-top: 2px solid var(--color-border-strong, var(--palette-slate-300));
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
   }
 
   .comparison-table {
@@ -89,15 +120,18 @@
   }
 
   .comparison-table thead th {
-    padding: 1rem 1.25rem;
+    padding: 1.125rem 1.25rem;
     font-size: 0.875rem;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
     border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
   }
 
   .col-metric {
-    width: 46%;
+    width: 48%;
     color: var(--color-text-muted, var(--palette-slate-500));
+    padding-left: 0 !important;
   }
 
   .col-manual {
@@ -106,15 +140,14 @@
   }
 
   .col-deca {
-    width: 30%;
+    width: 28%;
     color: var(--color-brand-primary, var(--palette-emerald-700));
-    background-color: var(--palette-emerald-50);
   }
 
   .comparison-table tbody th,
   .comparison-table tbody td {
-    padding: 1.125rem 1.25rem;
-    font-size: 0.9375rem;
+    padding: 1.5rem 1.25rem;
+    vertical-align: middle;
     border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
   }
 
@@ -124,29 +157,40 @@
   }
 
   .comparison-table tbody th {
+    padding-left: 0;
+    font-size: 1.0625rem;
     font-weight: 600;
     color: var(--color-text-primary, var(--palette-slate-900));
   }
 
-  .val-manual {
-    color: var(--color-text-secondary, var(--palette-slate-600));
-    font-weight: 600;
-  }
-
-  .val-deca {
-    background-color: rgba(236, 253, 245, 0.55);
-    color: var(--palette-emerald-900);
+  .big-num {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: clamp(2.25rem, 3.8vw, 3rem);
     font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
   }
 
-  .font-mono {
-    font-family: var(--font-mono);
-    font-variant-numeric: tabular-nums;
+  .val-manual .big-num {
+    color: var(--color-text-secondary, var(--palette-slate-600));
+  }
+
+  .val-deca .big-num {
+    color: var(--color-brand-primary, var(--palette-emerald-700));
+  }
+
+  .num-sub {
+    display: block;
+    margin-top: 0.25rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-brand-primary, var(--palette-emerald-700));
   }
 
   .comparison-note {
-    margin-top: 1rem;
-    text-align: center;
+    margin-top: 1.25rem;
     font-size: 0.875rem;
     color: var(--color-text-muted, var(--palette-slate-500));
   }
@@ -163,12 +207,30 @@
     border: 0;
   }
 
+  @media (max-width: 900px) {
+    .comparison-section {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
+  }
+
   @media (max-width: 639px) {
     .comparison-table thead th,
     .comparison-table tbody th,
     .comparison-table tbody td {
-      padding: 0.875rem 0.75rem;
-      font-size: 0.875rem;
+      padding: 1.125rem 0.5rem;
+    }
+
+    .comparison-table tbody th {
+      font-size: 0.9375rem;
+    }
+
+    .big-num {
+      font-size: 2rem;
+    }
+
+    .num-sub {
+      font-size: 0.75rem;
     }
   }
 </style>

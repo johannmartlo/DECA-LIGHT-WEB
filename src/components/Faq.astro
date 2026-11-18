@@ -1,29 +1,21 @@
 ---
 // src/components/Faq.astro - Sección «Preguntas frecuentes» de DECA Light
-// Reconstrucción visual de alta fidelidad basada en Google Stitch y la referencia aprobada
 import FaqEditorial from './FaqEditorial.astro';
 import FaqAcordeon from './FaqAcordeon.astro';
 ---
 
 <section id="preguntas" class="faq-section" aria-labelledby="faq-heading">
-  <!-- Anclas de navegación compatibles -->
   <div id="faq" class="anchor-target" aria-hidden="true"></div>
   <div id="preguntas-frecuentes" class="anchor-target" aria-hidden="true"></div>
 
-  <!-- Trama sutil decorativa de fondo -->
-  <div class="bg-pattern-dots" aria-hidden="true"></div>
-
-  <div class="faq-container">
-    <!-- Grid Principal: Columna Visual Izquierda + Acordeón Derecho -->
+  <div class="container faq-container">
     <div class="faq-main-grid">
       <FaqEditorial />
-
       <FaqAcordeon />
     </div>
   </div>
 </section>
 
-<!-- Fallback No-JS accesible: garantiza la lectura completa si JavaScript está deshabilitado -->
 <noscript>
   <style>
     .accordion-content {
@@ -40,9 +32,6 @@ import FaqAcordeon from './FaqAcordeon.astro';
   </style>
 </noscript>
 
-<!-- ==============================================
-     INTERACCIÓN DEL ACORDEÓN ACCESIBLE
-     ============================================== -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const accordion = document.getElementById('faq-accordion');
@@ -57,7 +46,6 @@ import FaqAcordeon from './FaqAcordeon.astro';
       toggleBtn.addEventListener('click', () => {
         const isOpen = item.getAttribute('data-open') === 'true';
 
-        // Cerrar todos los acordeones para mantener orden visual limpio
         items.forEach((other) => {
           if (other !== item) {
             other.setAttribute('data-open', 'false');
@@ -68,7 +56,6 @@ import FaqAcordeon from './FaqAcordeon.astro';
           }
         });
 
-        // Alternar el acordeón pulsado
         const nextState = !isOpen;
         item.setAttribute('data-open', nextState ? 'true' : 'false');
         toggleBtn.setAttribute('aria-expanded', nextState ? 'true' : 'false');
@@ -79,82 +66,47 @@ import FaqAcordeon from './FaqAcordeon.astro';
 
 <style>
   .faq-section {
-      position: relative;
-      width: 100%;
-      padding: 5rem 1.5rem;
-      background-color: var(--palette-slate-50);
-      border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
-      scroll-margin-top: 5rem;
-    }
-  @media (max-width: 640px) {
-    .faq-section {
-          padding: 3rem 1rem 4rem;
-        }
-  }
-  .anchor-target {
-      position: absolute;
-      top: -80px;
-      left: 0;
-      width: 1px;
-      height: 1px;
-      pointer-events: none;
-    }
-  .bg-pattern-dots {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background-image: radial-gradient(var(--palette-deca-800) 1px, transparent 1px);
-      background-size: 24px 24px;
-      opacity: 0.035;
-    }
-  .faq-container {
-      position: relative;
-      z-index: 1;
-      max-width: 80rem; 
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
-    }
-  .animate-stagger-1 {
-      animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
-    }
-  .animate-stagger-2 {
-      animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
-    }
-  .animate-stagger-3 {
-      animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
-    }
-  .faq-main-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-  @media (min-width: 1024px) {
-    .faq-main-grid {
-          grid-template-columns: 5fr 7fr;
-          gap: 3.5rem;
-        }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
-          animation-duration: 0.001ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.001ms !important;
-          scroll-behavior: auto !important;
-        }
+    position: relative;
+    width: 100%;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+    background-color: var(--palette-slate-50);
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    scroll-margin-top: 5rem;
   }
 
-  @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  @media (min-width: 1024px) {
+    .faq-section {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
     }
+  }
+
+  .anchor-target {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+  }
+
+  .faq-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .faq-main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .faq-main-grid {
+      grid-template-columns: 5fr 7fr;
+      gap: 2.5rem;
+    }
+  }
 </style>

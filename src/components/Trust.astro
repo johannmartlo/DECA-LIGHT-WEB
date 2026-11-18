@@ -1,63 +1,96 @@
 ---
-// src/components/Trust.astro - Sección «Normativa y confianza» (id="normativa")
+// src/components/Trust.astro - Sección «Normativa y datos» (id="normativa") sin cajas pesadas
 ---
 
 <section id="normativa" class="trust-section" aria-labelledby="trust-title">
   <div class="container trust-container">
     <header class="trust-header" data-reveal="editorial">
+      <div class="eyebrow-wrap">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span class="eyebrow-text">NORMATIVA Y DATOS</span>
+      </div>
       <h2 id="trust-title" class="trust-title">
         Lo que pide el DeCA electrónico, de serie.
       </h2>
     </header>
 
     <div class="trust-grid">
-      <article class="trust-card" data-reveal="card" data-reveal-delay="1">
+      <div class="trust-col" data-reveal="card" data-reveal-delay="1">
         <h3 class="trust-col-title">El documento</h3>
         <ul class="trust-list">
           <li>
-            <span class="trust-dot" aria-hidden="true"></span>
+            <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
             <span>PDF nativo con código QR</span>
           </li>
           <li>
-            <span class="trust-dot" aria-hidden="true"></span>
+            <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+              <path d="M14 14h7v7h-7z"></path>
+            </svg>
             <span>Descarga directa desde el QR, sin usuario ni contraseña</span>
           </li>
           <li>
-            <span class="trust-dot" aria-hidden="true"></span>
+            <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 11 12 14 22 4"></polyline>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg>
             <span>No se emite sin los datos mínimos (tampoco sin matrícula)</span>
           </li>
           <li>
-            <span class="trust-dot" aria-hidden="true"></span>
+            <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
             <span>Modificaciones con su motivo y su historial, con el mismo QR</span>
           </li>
           <li>
-            <span class="trust-dot" aria-hidden="true"></span>
+            <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <polyline points="12 7 12 12 15 15"></polyline>
+            </svg>
             <span>Enlace disponible durante el transporte y siete días después de terminarlo</span>
           </li>
         </ul>
-      </article>
+      </div>
 
-      <article class="trust-card" data-reveal="card" data-reveal-delay="2">
+      <div class="trust-col" data-reveal="card" data-reveal-delay="2">
         <h3 class="trust-col-title">Tus datos</h3>
         <ul class="trust-list">
           <li>
-            <span class="trust-dot" aria-hidden="true"></span>
+            <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
             <span>Servidores en la Unión Europea</span>
           </li>
           <li>
-            <span class="trust-dot" aria-hidden="true"></span>
+            <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
             <span>Copias de seguridad cifradas cada día</span>
           </li>
           <li>
-            <span class="trust-dot" aria-hidden="true"></span>
+            <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
             <span>Cada empresa ve solo sus cargas, transportistas y DeCA</span>
           </li>
           <li>
-            <span class="trust-dot" aria-hidden="true"></span>
+            <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+            </svg>
             <span>Cada persona entra con su usuario y todo queda registrado</span>
           </li>
         </ul>
-      </article>
+      </div>
     </div>
 
     <div class="trust-footer" data-reveal="card">
@@ -66,7 +99,7 @@
       </p>
       <a href="/guia-deca" class="trust-guide-link">
         <span>Lee la guía del DeCA</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
@@ -85,11 +118,33 @@
   }
 
   .trust-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .eyebrow-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .eyebrow-line {
+    width: 1.5rem;
+    height: 2px;
+    background-color: var(--color-brand-primary, var(--palette-emerald-700));
+    border-radius: 9999px;
+  }
+
+  .eyebrow-text {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-brand-primary, var(--palette-emerald-700));
   }
 
   .trust-title {
-    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    font-size: clamp(1.875rem, 3.2vw, 2.5rem);
     font-weight: 700;
     letter-spacing: -0.03em;
     color: var(--color-text-primary, var(--palette-slate-900));
@@ -99,31 +154,23 @@
   .trust-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2.5rem;
   }
 
   @media (min-width: 768px) {
     .trust-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      gap: 4rem;
     }
-  }
-
-  .trust-card {
-    background-color: var(--color-bg-canvas, var(--palette-slate-50));
-    border: 1px solid var(--color-border-subtle, var(--palette-slate-200));
-    border-radius: var(--radius-lg, 10px);
-    padding: 1.75rem;
-    box-shadow: var(--shadow-card);
   }
 
   .trust-col-title {
     font-size: 1.125rem;
     font-weight: 700;
     color: var(--color-text-primary, var(--palette-slate-900));
-    margin: 0 0 1.25rem 0;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    margin: 0 0 0.5rem 0;
+    padding-bottom: 0.875rem;
+    border-bottom: 2px solid var(--color-border-strong, var(--palette-slate-300));
   }
 
   .trust-list {
@@ -132,31 +179,27 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.875rem;
   }
 
   .trust-list li {
     display: flex;
     align-items: flex-start;
-    gap: 0.75rem;
+    gap: 0.875rem;
+    padding-block: 0.9375rem;
+    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
     font-size: 0.9375rem;
     line-height: 1.55;
     color: var(--color-text-secondary, var(--palette-slate-600));
   }
 
-  .trust-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 9999px;
-    background-color: var(--color-brand-primary, var(--palette-emerald-700));
+  .trust-icon {
+    color: var(--color-brand-primary, var(--palette-emerald-700));
     flex-shrink: 0;
-    margin-top: 0.5rem;
+    margin-top: 0.15rem;
   }
 
   .trust-footer {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--color-border-subtle, var(--palette-slate-200));
+    margin-top: 2.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
@@ -194,5 +237,12 @@
 
   .trust-guide-link:hover {
     color: var(--color-brand-hover, var(--palette-emerald-800));
+  }
+
+  @media (max-width: 900px) {
+    .trust-section {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
   }
 </style>
