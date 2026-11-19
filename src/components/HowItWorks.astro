@@ -1,5 +1,5 @@
 ---
-// src/components/HowItWorks.astro - Sección «Cómo funciona» de DECA Light (3 pasos en filas alternas)
+// src/components/HowItWorks.astro — Sección «Cómo funciona» con escenario sticky en escritorio y tarjetas en móvil (v3-premium)
 import HowItWorksIntro from './HowItWorksIntro.astro';
 import HowItWorksPaso1 from './HowItWorksPaso1.astro';
 import HowItWorksPaso2 from './HowItWorksPaso2.astro';
@@ -8,47 +8,482 @@ import HowItWorksBeneficios from './HowItWorksBeneficios.astro';
 ---
 
 <section id="como-funciona" class="how-it-works-section" aria-labelledby="how-it-works-title">
-  <div class="container how-it-works-container">
+  <div class="hiw-container">
     <HowItWorksIntro />
 
-    <div class="flow-steps-stack" role="list" aria-label="Proceso en 3 pasos">
-      <HowItWorksPaso1 />
-      <HowItWorksPaso2 />
-      <HowItWorksPaso3 />
+    <div class="hiw-grid">
+      <!-- Columna izquierda: 3 pasos -->
+      <div class="hiw-steps-column" role="list" aria-label="Proceso en 3 pasos">
+        <HowItWorksPaso1 />
+        <HowItWorksPaso2 />
+        <HowItWorksPaso3 />
+      </div>
+
+      <!-- Columna derecha (≥ 900 px): escenario fijo con 3 imágenes apiladas y puntos indicadores -->
+      <div class="hiw-stage-column">
+        <div class="hiw-sticky-stage">
+          <div class="hiw-images-stack">
+            <img
+              src="/img/paso-1.webp"
+              alt="Paso 1 — Pantalla Día: 40 cargas importadas, agrupadas por transportista y con su estado"
+              width="1904"
+              height="1132"
+              loading="lazy"
+              decoding="async"
+              class="hiw-stage-img is-active"
+              data-stage-img="1"
+            />
+            <img
+              src="/img/paso-2.webp"
+              alt="Paso 2 — Asignar camión a las pendientes: una tractora y un remolque para 4 cargas"
+              width="1850"
+              height="1199"
+              loading="lazy"
+              decoding="async"
+              class="hiw-stage-img"
+              data-stage-img="2"
+            />
+            <img
+              src="/img/paso-3.webp"
+              alt="Paso 3 — 4 DeCA emitidos en PDF con QR y botón Enviar al transportista"
+              width="1904"
+              height="891"
+              loading="lazy"
+              decoding="async"
+              class="hiw-stage-img"
+              data-stage-img="3"
+            />
+          </div>
+
+          <div class="hiw-dots" role="tablist" aria-label="Selector de pasos">
+            <button
+              type="button"
+              class="hiw-dot is-active"
+              data-step-dot="1"
+              role="tab"
+              aria-selected="true"
+              aria-label="Ver paso 1: Importa las cargas del día"
+            ></button>
+            <button
+              type="button"
+              class="hiw-dot"
+              data-step-dot="2"
+              role="tab"
+              aria-selected="false"
+              aria-label="Ver paso 2: Pon la matrícula una vez por camión"
+            ></button>
+            <button
+              type="button"
+              class="hiw-dot"
+              data-step-dot="3"
+              role="tab"
+              aria-selected="false"
+              aria-label="Ver paso 3: Emite y envía"
+            ></button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <HowItWorksBeneficios />
   </div>
 </section>
 
-<style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const steps = Array.from(document.querySelectorAll<HTMLElement>('.hiw-step[data-step]'));
+    const images = Array.from(document.querySelectorAll<HTMLElement>('.hiw-stage-img[data-stage-img]'));
+    const dots = Array.from(document.querySelectorAll<HTMLButtonElement>('.hiw-dot[data-step-dot]'));
+
+    if (steps.length === 0) return;
+
+    const setActiveStep = (stepNumber: string) => {
+      steps.forEach((step) => {
+        step.classList.toggle('is-active', step.dataset.step === stepNumber);
+      });
+
+      images.forEach((img) => {
+        img.classList.toggle('is-active', img.dataset.stageImg === stepNumber);
+      });
+
+      dots.forEach((dot) => {
+        const active = dot.dataset.stepDot === stepNumber;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', String(active));
+      });
+    };
+
+    // Cambio al hacer scroll mediante IntersectionObserver con rootMargin "-45% 0px -45% 0px"
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const target = entry.target as HTMLElement;
+              if (target.dataset.step) {
+                setActiveStep(target.dataset.step);
+              }
+            }
+          });
+        },
+        {
+          rootMargin: '-45% 0px -45% 0px',
+          threshold: 0
+        }
+      );
+
+      steps.forEach((step) => observer.observe(step));
+    }
+
+    // Activación al hacer clic o pulsar Enter/Espacio en el paso
+    steps.forEach((step) => {
+      const stepNum = step.dataset.step;
+      if (!stepNum) return;
+
+      step.addEventListener('click', () => {
+        setActiveStep(stepNum);
+      });
+
+      const card = step.querySelector<HTMLElement>('.hiw-step-card');
+      card?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setActiveStep(stepNum);
+        }
+      });
+    });
+
+    // Activación al hacer clic en los puntos indicadores
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const stepNum = dot.dataset.stepDot;
+        if (!stepNum) return;
+        setActiveStep(stepNum);
+      });
+    });
+  });
+</script>
+
+<style is:global>
   .how-it-works-section {
     position: relative;
-    padding-top: 0;
-    padding-bottom: 5rem;
-    background-color: var(--palette-white);
-    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
-    scroll-margin-top: 5rem;
+    background-color: #FFFFFF;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    border-bottom: 1px solid #E2E8F0;
   }
 
-  .flow-steps-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 3.5rem;
-    margin-bottom: 3rem;
+  .hiw-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
   }
 
-  @media (min-width: 900px) {
-    .flow-steps-stack {
-      gap: 4.5rem;
-      margin-bottom: 3.5rem;
+  /* ==========================================================================
+     MÓVIL (< 900 px): sin sticky ni estados. Número verde, texto oscuro e imagen
+     debajo en caja con fondo verde suave (radio 20 px, padding 20 px).
+     Separación entre pasos: 40 px.
+     ========================================================================== */
+  @media (max-width: 899px) {
+    .how-it-works-section {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .hiw-grid {
+      margin-top: 40px;
+    }
+
+    .hiw-steps-column {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .hiw-stage-column {
+      display: none;
+    }
+
+    .hiw-step {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hiw-step-card {
+      position: relative;
+      padding-left: 48px;
+    }
+
+    .hiw-step-circle {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background-color: #047857;
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hiw-step-line {
+      display: none;
+    }
+
+    .hiw-step-title {
+      margin: 0 0 8px 0;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: #0F172A;
+    }
+
+    .hiw-step-text {
+      margin: 0;
+      font-size: 16.5px;
+      line-height: 1.6;
+      color: #475569;
+    }
+
+    .hiw-step-mobile-stage {
+      border-radius: 20px;
+      padding: 20px;
+      background:
+        radial-gradient(600px 300px at 70% 0%, rgba(110, 231, 183, 0.35), transparent 70%),
+        linear-gradient(180deg, #F0FDF4, #ECFDF5);
+      box-shadow: inset 0 0 0 1px rgba(4, 120, 87, 0.12);
+    }
+
+    .hiw-step-mobile-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 16px 36px -12px rgba(2, 44, 34, 0.18);
     }
   }
 
-  @media (max-width: 900px) {
-    .how-it-works-section {
-      padding-top: 0;
-      padding-bottom: 3.5rem;
+  /* ==========================================================================
+     ORDENADOR (≥ 900 px): rejilla de 2 columnas 5fr / 7fr con 64 px de separación
+     y margin-top 64 px. Escenario sticky a la derecha.
+     ========================================================================== */
+  @media (min-width: 900px) {
+    .hiw-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 64px;
+      margin-top: 64px;
+      align-items: start;
+    }
+
+    .hiw-steps-column {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hiw-step-mobile-stage {
+      display: none;
+    }
+
+    /* Cada paso de la izquierda tiene al menos 60vh de alto para dar tiempo a leerlo */
+    .hiw-step {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .hiw-step-card {
+      position: relative;
+      padding: 28px 28px 28px 76px;
+      border-radius: 20px;
+      background-color: transparent;
+      transition:
+        background-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Círculo de 34 px a left 24 px, top 28 px */
+    .hiw-step-circle {
+      position: absolute;
+      left: 24px;
+      top: 28px;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid #E2E8F0;
+      background-color: #FFFFFF;
+      color: #94A3B8;
+      font-size: 15px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition:
+        background-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+        color 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Línea vertical de 2 px #E2E8F0 que une los círculos (salvo después del último) */
+    .hiw-step-line {
+      position: absolute;
+      left: 40px; /* centro del círculo: 24px + 17px - 1px */
+      top: calc(50% - 45px);
+      height: calc(100% + 8px);
+      width: 2px;
+      background-color: #E2E8F0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hiw-step--last .hiw-step-line {
+      display: none;
+    }
+
+    .hiw-step-title {
+      margin: 0 0 10px 0;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: #94A3B8;
+      transition: color 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hiw-step-text {
+      margin: 0;
+      font-size: 16.5px;
+      line-height: 1.6;
+      color: #94A3B8;
+      transition: color 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Estado activo del paso */
+    .hiw-step.is-active .hiw-step-card {
+      background-color: #F8FAFC;
+      box-shadow: inset 0 0 0 1px #E2E8F0;
+    }
+
+    .hiw-step.is-active .hiw-step-circle {
+      background-color: #047857;
+      border-color: #047857;
+      color: #FFFFFF;
+    }
+
+    .hiw-step.is-active .hiw-step-title {
+      color: #0F172A;
+    }
+
+    .hiw-step.is-active .hiw-step-text {
+      color: #475569;
+    }
+
+    /* Derecha: escenario fijo (sticky) */
+    .hiw-stage-column {
+      position: sticky;
+      top: 120px;
+    }
+
+    .hiw-sticky-stage {
+      border-radius: 28px;
+      padding: 56px 40px;
+      background:
+        radial-gradient(600px 300px at 70% 0%, rgba(110, 231, 183, 0.35), transparent 70%),
+        linear-gradient(180deg, #F0FDF4, #ECFDF5);
+      box-shadow: inset 0 0 0 1px rgba(4, 120, 87, 0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    /* 3 imágenes apiladas en la misma celda del grid */
+    .hiw-images-stack {
+      display: grid;
+      grid-template-areas: "stack";
+      align-items: center;
+      justify-items: center;
+      width: 100%;
+    }
+
+    .hiw-stage-img {
+      grid-area: stack;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow:
+        0 28px 60px -16px rgba(2, 44, 34, 0.22),
+        0 12px 24px -12px rgba(15, 23, 42, 0.12),
+        0 0 0 1px rgba(15, 23, 42, 0.06);
+      opacity: 0;
+      transform: translate3d(0, 12px, 0);
+      pointer-events: none;
+      transition:
+        opacity 400ms cubic-bezier(0.16, 1, 0.3, 1),
+        transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hiw-stage-img.is-active {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      pointer-events: auto;
+    }
+
+    /* Tres puntos indicadores debajo */
+    .hiw-dots {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .hiw-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: none;
+      border-radius: 999px;
+      background-color: rgba(4, 120, 87, 0.25);
+      cursor: pointer;
+      transition:
+        width 300ms cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hiw-dot.is-active {
+      width: 28px;
+      background-color: #047857;
+    }
+  }
+
+  /* ==========================================================================
+     prefers-reduced-motion: sin desplazamientos; cambio de imagen sin animación
+     ========================================================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .hiw-step-card,
+    .hiw-step-circle,
+    .hiw-step-title,
+    .hiw-step-text,
+    .hiw-dot {
+      transition: none !important;
+    }
+
+    .hiw-stage-img,
+    .hiw-stage-img.is-active {
+      transform: none !important;
+      transition: none !important;
     }
   }
 </style>

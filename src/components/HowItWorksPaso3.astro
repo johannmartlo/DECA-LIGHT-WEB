@@ -1,17 +1,18 @@
 ---
-// HowItWorksPaso3.astro — Paso 3 de Cómo funciona (Texto izquierda 40 %, imagen derecha 60 %)
+// HowItWorksPaso3.astro — Paso 3 de «Cómo funciona» (v3-premium)
 ---
 
-<article class="step-row" role="listitem" data-reveal="card">
-  <div class="step-copy">
-    <span class="step-num" aria-hidden="true">3</span>
-    <h3 class="step-title">Emite y envía.</h3>
-    <p class="step-text">
-      «Emitir DeCA» emite todas las cargas listas de ese transportista. Cada DeCA sale en PDF con su QR, y se lo envías al transportista por correo desde su ficha.
+<article class="hiw-step hiw-step--last" data-step="3" role="listitem">
+  <div class="hiw-step-card" tabindex="0">
+    <span class="hiw-step-circle" aria-hidden="true">3</span>
+    <h3 class="hiw-step-title">Emite y envía</h3>
+    <p class="hiw-step-text">
+      «Emitir DeCA» emite todas las cargas listas del transportista. Cada DeCA en PDF con su QR, listo para enviar.
     </p>
   </div>
 
-  <div class="step-media">
+  <!-- Imagen visible en móvil (< 900 px) debajo del texto -->
+  <div class="hiw-step-mobile-stage">
     <img
       src="/img/paso-3.webp"
       alt="4 DeCA emitidos en PDF con QR y botón Enviar al transportista"
@@ -19,72 +20,7 @@
       height="891"
       loading="lazy"
       decoding="async"
-      class="step-image"
+      class="hiw-step-mobile-img"
     />
   </div>
 </article>
-
-<style>
-  .step-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-    align-items: center;
-  }
-
-  @media (min-width: 900px) {
-    .step-row {
-      grid-template-columns: 4fr 6fr;
-      gap: 3.5rem;
-    }
-  }
-
-  .step-copy {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .step-num {
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 9999px;
-    background-color: var(--palette-emerald-50);
-    border: 1px solid var(--palette-emerald-200);
-    color: var(--color-brand-primary, var(--palette-emerald-700));
-    font-family: var(--font-sans);
-    font-size: 0.9375rem;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-
-  .step-title {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.3;
-    color: var(--color-text-primary, var(--palette-slate-900));
-    margin: 0 0 0.75rem 0;
-  }
-
-  .step-text {
-    font-size: 1rem;
-    line-height: 1.65;
-    color: var(--color-text-secondary, var(--palette-slate-600));
-    margin: 0;
-    max-width: 46ch;
-  }
-
-  .step-media {
-    width: 100%;
-  }
-
-  .step-image {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-</style>

@@ -166,9 +166,10 @@ img, svg {
   top: var(--space-4);
 }
 
-/* Margen de desplazamiento accesible para el anclaje de contenido principal */
-#contenido-principal {
-  scroll-margin-top: 5.5rem;
+/* Margen de desplazamiento accesible para el anclaje de contenido principal y secciones con id */
+#contenido-principal,
+main [id] {
+  scroll-margin-top: 96px;
 }
 
 /* Contenedores de diseño */

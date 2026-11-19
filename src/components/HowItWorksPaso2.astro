@@ -1,17 +1,19 @@
 ---
-// HowItWorksPaso2.astro — Paso 2 de Cómo funciona (Imagen izquierda 60 %, texto derecha 40 % en escritorio)
+// HowItWorksPaso2.astro — Paso 2 de «Cómo funciona» (v3-premium)
 ---
 
-<article class="step-row step-row--reverse" role="listitem" data-reveal="card">
-  <div class="step-copy">
-    <span class="step-num" aria-hidden="true">2</span>
-    <h3 class="step-title">Pon la matrícula una vez por camión.</h3>
-    <p class="step-text">
-      En cada transportista, «Asignar camión a las pendientes»: escribes la tractora y, si lleva, el remolque, y se aplica a todas sus cargas pendientes. Lo que no cuadra se queda en Revisión, con el motivo escrito.
+<article class="hiw-step" data-step="2" role="listitem">
+  <span class="hiw-step-line" aria-hidden="true"></span>
+  <div class="hiw-step-card" tabindex="0">
+    <span class="hiw-step-circle" aria-hidden="true">2</span>
+    <h3 class="hiw-step-title">Pon la matrícula una vez por camión</h3>
+    <p class="hiw-step-text">
+      «Asignar camión a las pendientes»: tractora y remolque, y se aplica a todas sus cargas. Lo que no cuadra queda en Revisión, con el motivo.
     </p>
   </div>
 
-  <div class="step-media">
+  <!-- Imagen visible en móvil (< 900 px) debajo del texto -->
+  <div class="hiw-step-mobile-stage">
     <img
       src="/img/paso-2.webp"
       alt="Asignar camión a las pendientes: una tractora y un remolque para 4 cargas"
@@ -19,76 +21,7 @@
       height="1199"
       loading="lazy"
       decoding="async"
-      class="step-image"
+      class="hiw-step-mobile-img"
     />
   </div>
 </article>
-
-<style>
-  .step-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-    align-items: center;
-  }
-
-  @media (min-width: 900px) {
-    .step-row--reverse {
-      grid-template-columns: 6fr 4fr;
-      gap: 3.5rem;
-    }
-
-    .step-row--reverse .step-media {
-      order: -1;
-    }
-  }
-
-  .step-copy {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .step-num {
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 9999px;
-    background-color: var(--palette-emerald-50);
-    border: 1px solid var(--palette-emerald-200);
-    color: var(--color-brand-primary, var(--palette-emerald-700));
-    font-family: var(--font-sans);
-    font-size: 0.9375rem;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-
-  .step-title {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.3;
-    color: var(--color-text-primary, var(--palette-slate-900));
-    margin: 0 0 0.75rem 0;
-  }
-
-  .step-text {
-    font-size: 1rem;
-    line-height: 1.65;
-    color: var(--color-text-secondary, var(--palette-slate-600));
-    margin: 0;
-    max-width: 46ch;
-  }
-
-  .step-media {
-    width: 100%;
-  }
-
-  .step-image {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-</style>
