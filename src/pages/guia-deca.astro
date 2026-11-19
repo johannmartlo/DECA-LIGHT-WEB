@@ -1,6 +1,11 @@
 ---
 // src/pages/guia-deca.astro - Guía práctica del DeCA (documento de control administrativo electrónico)
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+const articulos = (await getCollection('articulos')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
 ---
 
 <Layout
@@ -130,6 +135,22 @@ import Layout from '../layouts/Layout.astro';
             <li><a class="legal-link" href="https://transport.ec.europa.eu/transport-themes/logistics-and-multimodal-transport/efti-regulation_en" rel="noopener" target="_blank">Comisión Europea: Reglamento eFTI</a></li>
           </ul>
         </section>
+
+        {articulos.length > 0 && (
+          <section class="legal-section keep-reading">
+            <h2>Sigue leyendo</h2>
+            <ul class="legal-list">
+              {articulos.map((art) => (
+                <li>
+                  <a href={`/guia/${art.data.slug}`} class="legal-link">{art.data.title}</a>
+                </li>
+              ))}
+            </ul>
+            <p class="keep-reading-all">
+              <a href="/guia" class="legal-link">Ver todos los artículos →</a>
+            </p>
+          </section>
+        )}
       </div>
     </div>
   </div>

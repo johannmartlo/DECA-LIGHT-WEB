@@ -9,13 +9,15 @@ interface Props {
   description?: string;
   canonicalURL?: string;
   image?: string;
+  extraStructuredData?: Record<string, unknown>;
 }
 
 const {
-  title = "DECA Light · Todos tus DeCA del día, sin ir albarán por albarán",
+  title = "DeCA electrónico en bloque para almacenes hortofrutícolas · DECA Light",
   description = "Emite en bloque el DeCA de tus expediciones hortofrutícolas: importas albaranes o cartas de porte, pones una matrícula por camión y emites con QR. Primer mes gratis.",
   canonicalURL,
-  image = "/og-image.png"
+  image = "/og-image.png",
+  extraStructuredData
 } = Astro.props;
 
 const socialImageURL = image.startsWith("http")
@@ -77,6 +79,9 @@ const structuredData = {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    {extraStructuredData && (
+      <script type="application/ld+json" set:html={JSON.stringify(extraStructuredData)} />
+    )}
 
     <!-- Detección síncrona de JavaScript para mejora progresiva (No-JS fallback) -->
     <script is:inline>
