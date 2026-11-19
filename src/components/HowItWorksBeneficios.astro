@@ -4,11 +4,11 @@
 
 <footer class="keyboard-strip" aria-label="Atajos de teclado" data-reveal="card">
   <p class="keyboard-text">
-    Todo se puede hacer con el teclado:
+    <span class="keyboard-lead">Todo se puede hacer con el teclado:</span>
     <span class="shortcut-item"><kbd>I</kbd> importar</span>
-    <span aria-hidden="true">·</span>
+    <span class="shortcut-sep" aria-hidden="true">·</span>
     <span class="shortcut-item"><kbd>G</kbd> asignar camión</span>
-    <span aria-hidden="true">·</span>
+    <span class="shortcut-sep" aria-hidden="true">·</span>
     <span class="shortcut-item"><kbd>E</kbd> emitir.</span>
   </p>
 </footer>
@@ -26,7 +26,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.5rem 0.625rem;
     font-size: 0.875rem;
     color: var(--color-text-secondary, var(--palette-slate-600));
   }
@@ -35,6 +35,16 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
+  }
+
+  @media (max-width: 639px) {
+    .shortcut-sep {
+      display: none;
+    }
+
+    .keyboard-lead {
+      width: 100%;
+    }
   }
 
   kbd {

@@ -45,7 +45,7 @@ import Layout from '../layouts/Layout.astro';
           </p>
           <ul class="legal-list">
             <li><strong>Datos recabados:</strong> Nombre de la empresa o cooperativa, dirección de correo electrónico profesional y, de forma opcional, teléfono de contacto, volumen aproximado de cargas al día y ERP utilizado.</li>
-            <li><strong>Finalidad principal:</strong> Atender la solicitud de demostración, valorar el encaje operativo según su volumen de cargas y ERP, preparar la demostración y, si lo pides, el mes de prueba, y coordinar el contacto con el equipo de producto.</li>
+            <li><strong>Finalidad principal:</strong> Atender la solicitud de demostración, valorar el encaje operativo según su volumen de cargas y ERP, preparar la demostración y, si lo solicita, el mes de prueba, y coordinar el contacto con el equipo de producto.</li>
             <li><strong>Decisiones automatizadas:</strong> No se realizan perfiles automatizados ni toma de decisiones con impacto jurídico sobre el interesado sin intervención humana.</li>
           </ul>
         </section>
@@ -79,7 +79,7 @@ import Layout from '../layouts/Layout.astro';
           </p>
           <ul class="legal-list">
             <li>
-              <strong>Alojamiento web y base de datos (Cloudflare, Inc.):</strong> Servicio de computación en el Edge (Cloudflare Pages) y base de datos relacional serverless (Cloudflare D1, ubicada preferentemente en el Espacio Económico Europeo). Cloudflare opera bajo Cláusulas Contractuales Tipo de la Comisión Europea y el marco de privacidad de datos UE-EE. UU. (Data Privacy Framework). Las direcciones IP de conexión se anonimizan mediante una función criptográfica unidireccional (hash SHA-256 con sal) con fines exclusivos de prevención de abusos (rate limiting), sin almacenarse en texto plano.
+              <strong>Alojamiento web y base de datos (Cloudflare, Inc.):</strong> Servicio de computación en el Edge (Cloudflare Pages) y base de datos relacional serverless (Cloudflare D1, ubicada preferentemente en el Espacio Económico Europeo). Cloudflare opera bajo Cláusulas Contractuales Tipo de la Comisión Europea y el marco de privacidad de datos UE-EE. UU. (Data Privacy Framework). Las direcciones IP de conexión se seudonimizan mediante una función criptográfica unidireccional (hash SHA-256 con sal) y se usan para prevenir abusos y envíos masivos; la dirección IP nunca se guarda en claro.
             </li>
             <li>
               <strong>Notificaciones transaccionales (Resend, Inc.):</strong> Proveedor de servicio de correo electrónico utilizado exclusivamente para remitir la alerta interna de nueva solicitud recibida al equipo de DECA Light. La transmisión se realiza mediante canal cifrado (HTTPS/TLS) y bajo salvaguardas contractuales conformes con la normativa europea.
