@@ -358,7 +358,7 @@ import HowItWorksBeneficios from './HowItWorksBeneficios.astro';
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.25;
-      color: #94A3B8;
+      color: #64748B;
       transition: color 300ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -366,7 +366,7 @@ import HowItWorksBeneficios from './HowItWorksBeneficios.astro';
       margin: 0;
       font-size: 16.5px;
       line-height: 1.6;
-      color: #94A3B8;
+      color: #64748B;
       transition: color 300ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -438,28 +438,40 @@ import HowItWorksBeneficios from './HowItWorksBeneficios.astro';
       pointer-events: auto;
     }
 
-    /* Tres puntos indicadores debajo */
+    /* Tres puntos indicadores debajo (visualmente 8 px, zona de clic ≥ 24×24 px) */
     .hiw-dots {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 0;
     }
 
     .hiw-dot {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 24px;
+      height: 24px;
+      padding: 8px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .hiw-dot::before {
+      content: "";
+      display: block;
       width: 8px;
       height: 8px;
-      padding: 0;
-      border: none;
       border-radius: 999px;
       background-color: rgba(4, 120, 87, 0.25);
-      cursor: pointer;
       transition:
         width 300ms cubic-bezier(0.16, 1, 0.3, 1),
         background-color 300ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .hiw-dot.is-active {
+    .hiw-dot.is-active::before {
       width: 28px;
       background-color: #047857;
     }
