@@ -1,186 +1,290 @@
 ---
-// HeroContenido.astro — Columna editorial de portada
+// HeroContenido.astro — Contenido centrado de la portada (v3-premium)
 ---
 
 <div class="hero-content">
-  <div class="kicker-wrap">
-    <span class="kicker-line" aria-hidden="true"></span>
-    <span class="kicker-text">PARA ALMACENES HORTOFRUTÍCOLAS</span>
-  </div>
-
-  <h1 id="hero-title" class="hero-title">
-    Todos tus DeCA del día, sin ir albarán por albarán.
-  </h1>
-
-  <p class="hero-description">
-    Importas tus albaranes o tus cartas de porte, pones una matrícula por camión y emites todos los DeCA de cada transportista con un botón. Sin cambiar de ERP.
+  <p
+    class="hero-pill hero-enter hero-enter-1"
+    data-full-text="El DeCA electrónico es obligatorio desde el 5 de octubre de 2026"
+    data-short-text="DeCA obligatorio desde el 5 de octubre"
+  >
+    El DeCA electrónico es obligatorio desde el 5 de octubre de 2026
   </p>
 
-  <div class="hero-actions">
-    <a href="#demo" class="btn btn-primary hero-btn-primary">
+  <h1 id="hero-title" class="hero-title hero-enter hero-enter-2">
+    <span class="hero-title-line1">Todos tus DeCA del día,</span>{' '}
+    <span class="hero-title-gradient">sin ir albarán por albarán.</span>
+  </h1>
+
+  <p class="hero-subtitle hero-enter hero-enter-3">
+    Importas las cargas del día, pones la matrícula una vez por camión y emites todos los DeCA de cada transportista con un botón. Sin cambiar de ERP.
+  </p>
+
+  <div class="hero-actions hero-enter hero-enter-4">
+    <a href="#demo" class="hero-btn hero-btn-primary">
       <span>Pruébalo gratis un mes</span>
-      <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-        <polyline points="12 5 19 12 12 19"></polyline>
-      </svg>
+      <span class="hero-btn-arrow" aria-hidden="true">→</span>
     </a>
     <button
       type="button"
       id="open-video-modal"
-      class="btn btn-secondary hero-btn-secondary"
+      class="hero-btn hero-btn-secondary"
       aria-haspopup="dialog"
       aria-controls="hero-video-modal"
     >
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polygon points="6 4 20 12 6 20 6 4"></polygon>
-      </svg>
-      <span>Ver cómo funciona</span>
+      <span class="hero-btn-play" aria-hidden="true">▷</span>
+      <span>Ver cómo funciona · 1 min</span>
     </button>
   </div>
 
-  <p class="hero-footnote">
-    Primer mes gratis · Te lo dejamos configurado · Datos en la UE
+  <p class="hero-checks hero-enter hero-enter-4">
+    <span class="check-item"><span class="check-mark" aria-hidden="true">✓</span> Primer mes gratis</span>
+    <span class="check-sep" aria-hidden="true">·</span>
+    <span class="check-item"><span class="check-mark" aria-hidden="true">✓</span> Te lo dejamos configurado</span>
+    <span class="check-sep" aria-hidden="true">·</span>
+    <span class="check-item"><span class="check-mark" aria-hidden="true">✓</span> Datos en la UE</span>
   </p>
 </div>
+
+<script is:inline>
+  (function () {
+    var pill = document.querySelector('.hero-pill');
+    if (!pill || !window.matchMedia) return;
+    var mq = window.matchMedia('(max-width: 767px)');
+    var full = pill.getAttribute('data-full-text');
+    var shortText = pill.getAttribute('data-short-text');
+    function syncText(e) {
+      pill.textContent = e.matches ? shortText : full;
+    }
+    syncText(mq);
+    if (mq.addEventListener) {
+      mq.addEventListener('change', syncText);
+    }
+  })();
+</script>
 
 <style>
   .hero-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-inline: auto;
   }
 
-  .kicker-wrap {
+  /* 1. Píldora superior */
+  .hero-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
-    margin-bottom: 1.25rem;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.45rem 1rem;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 999px;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    line-height: 1.35;
+    color: #475569;
+    margin-bottom: 1.75rem;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
   }
 
-  .kicker-line {
-    width: 24px;
-    height: 2px;
-    background-color: var(--color-brand-primary, var(--palette-emerald-700));
-    border-radius: 1px;
+  .hero-pill::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background-color: #10b981;
     flex-shrink: 0;
   }
 
-  .kicker-text {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-brand-primary, var(--palette-emerald-700));
-  }
-
+  /* 2. H1 en dos líneas en escritorio, seguido en móvil */
   .hero-title {
-    font-size: clamp(2.125rem, 3.6vw, 3.25rem);
-    line-height: 1.12;
+    font-size: clamp(2.75rem, 6.2vw, 5.25rem);
+    line-height: 0.98;
+    letter-spacing: -0.052em;
     font-weight: 700;
-    color: var(--color-text-primary, var(--palette-slate-900));
-    letter-spacing: -0.03em;
-    margin-bottom: 1.25rem;
-    max-width: 18ch;
+    color: #0F172A;
+    margin-bottom: 1.5rem;
+    max-width: 19ch;
   }
 
-  .hero-description {
-    font-size: 1.125rem;
-    line-height: 1.65;
-    color: var(--color-text-secondary, var(--palette-slate-600));
-    margin-bottom: 2rem;
-    max-width: 52ch;
+  .hero-title-gradient {
+    background: linear-gradient(92deg, #047857, #10b981 70%, #34d399);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
+  @media (min-width: 768px) {
+    .hero-title {
+      max-width: none;
+    }
+
+    .hero-title-line1 {
+      display: block;
+    }
+
+    .hero-title-gradient {
+      display: block;
+      padding-bottom: 0.06em;
+    }
+  }
+
+  /* 3. Subtítulo */
+  .hero-subtitle {
+    font-size: 1.3125rem; /* 21px */
+    line-height: 1.55;
+    color: #475569;
+    max-width: 700px;
+    text-wrap: balance;
+    margin-bottom: 2.25rem;
+  }
+
+  @media (max-width: 767px) {
+    .hero-subtitle {
+      font-size: 1.09375rem; /* 17.5px */
+      margin-bottom: 1.875rem;
+    }
+  }
+
+  /* 4. Botones */
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    gap: 0.875rem;
+    width: 100%;
   }
 
-  .hero-footnote {
-    margin-top: 1.25rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-text-muted, var(--palette-slate-500));
-    line-height: 1.5;
-  }
-
-  .btn {
+  .hero-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    min-height: 48px;
-    padding: 0.8rem 1.5rem;
-    border-radius: 0.5rem;
+    gap: 0.55rem;
+    height: 56px;
+    padding-inline: 1.75rem;
+    border-radius: 999px;
     font-family: inherit;
-    font-size: 0.9375rem;
+    font-size: 1rem;
     font-weight: 600;
+    line-height: 1;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .hero-btn-primary {
-    background-color: var(--color-brand-primary, var(--palette-emerald-700));
-    color: var(--palette-white);
-    box-shadow: 0 4px 14px rgba(4, 120, 87, 0.22);
+    background-color: #047857;
+    color: #FFFFFF;
     border: 1px solid transparent;
+    box-shadow: 0 10px 30px -8px rgba(4, 120, 87, 0.55);
   }
 
   .hero-btn-primary:hover {
-    background-color: var(--color-brand-hover, var(--palette-emerald-800));
-    box-shadow: 0 6px 20px rgba(4, 120, 87, 0.32);
+    background-color: #065F46;
+    box-shadow: 0 14px 34px -8px rgba(4, 120, 87, 0.65);
     transform: translateY(-1px);
     text-decoration: none;
   }
 
-  .btn-arrow {
+  .hero-btn-arrow {
+    display: inline-block;
     transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .hero-btn-primary:hover .btn-arrow {
+  .hero-btn-primary:hover .hero-btn-arrow {
     transform: translateX(3px);
   }
 
   .hero-btn-secondary {
-    background-color: var(--palette-white);
-    color: var(--color-text-primary, var(--palette-slate-900));
-    border: 1px solid var(--color-border-strong, var(--palette-slate-300));
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    background-color: #FFFFFF;
+    color: #0F172A;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
   }
 
   .hero-btn-secondary:hover {
-    background-color: var(--color-bg-surface-subtle, var(--palette-slate-100));
-    border-color: var(--palette-slate-400);
+    background-color: #F8FAFC;
+    border-color: #CBD5E1;
     transform: translateY(-1px);
     text-decoration: none;
   }
 
-  @media (max-width: 580px) {
-    .hero-title {
-      font-size: 1.95rem;
-    }
+  .hero-btn-play {
+    font-size: 0.95em;
+    color: #047857;
+  }
 
+  @media (max-width: 767px) {
     .hero-actions {
       flex-direction: column;
-      align-items: stretch;
-      width: 100%;
+      max-width: 360px;
+      margin-inline: auto;
     }
 
-    .btn {
+    .hero-btn {
       width: 100%;
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .hero-btn-primary:hover,
-    .hero-btn-secondary:hover,
-    .btn-arrow {
-      transform: none !important;
-      transition: none !important;
+  /* 5. Línea de garantías debajo de los botones */
+  .hero-checks {
+    margin-top: 1.35rem;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    line-height: 1.5;
+    color: #64748B;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+  }
+
+  .check-mark {
+    color: #10b981;
+    font-weight: 700;
+  }
+
+  .check-sep {
+    color: #94A3B8;
+  }
+
+  /* 6. Entrada suave al cargar (CSS puro, sin ocultar si prefers-reduced-motion) */
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes heroFadeUp {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 16px, 0);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    .hero-enter {
+      animation: heroFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-enter-1 {
+      animation-delay: 0ms;
+    }
+
+    .hero-enter-2 {
+      animation-delay: 80ms;
+    }
+
+    .hero-enter-3 {
+      animation-delay: 160ms;
+    }
+
+    .hero-enter-4 {
+      animation-delay: 240ms;
     }
   }
 </style>
