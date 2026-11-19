@@ -14,12 +14,11 @@ import HeroContenido from './HeroContenido.astro';
           <img
             src="/img/muelle-amanecer.webp"
             srcset="/img/muelle-amanecer-960.webp 960w, /img/muelle-amanecer.webp 1920w"
-            sizes="(max-width: 1240px) 100vw, 1200px"
+            sizes="(max-width: 960px) 100vw, 1200px"
             alt="Muelle de expedición hortofrutícola al amanecer"
             width="1920"
             height="1080"
             loading="eager"
-            fetchpriority="high"
             decoding="async"
             class="hero-stage-bg"
           />
@@ -46,21 +45,29 @@ import HeroContenido from './HeroContenido.astro';
 
       <!-- Ventana de la app que sobresale por debajo del escenario -->
       <div class="hero-app-window">
+        <img
+          id="hero-stage-poster"
+          src="/video/hero-app-poster.jpg"
+          alt=""
+          aria-hidden="true"
+          width="1280"
+          height="800"
+          fetchpriority="high"
+          decoding="async"
+          class="hero-app-poster"
+        />
         <video
           id="hero-stage-video"
           class="hero-app-video"
-          autoplay
           muted
           loop
           playsinline
-          preload="auto"
-          poster="/video/hero-app-poster.jpg"
+          preload="none"
+          data-src="/video/hero-app.mp4"
           width="1280"
           height="800"
           aria-label="Demostración: el día agrupado por transportista, la matrícula una vez y todos los DeCA emitidos con su QR"
-        >
-          <source src="/video/hero-app.mp4" type="video/mp4" />
-        </video>
+        ></video>
       </div>
     </div>
   </div>
@@ -95,10 +102,9 @@ import HeroContenido from './HeroContenido.astro';
           loop
           playsinline
           preload="none"
-          poster="/video/demo-poster.jpg"
-        >
-          <source src="/video/demo.mp4" type="video/mp4" />
-        </video>
+          data-poster="/video/demo-poster.jpg"
+          data-src="/video/demo.mp4"
+        ></video>
       </div>
     </div>
   </dialog>
@@ -108,27 +114,65 @@ import HeroContenido from './HeroContenido.astro';
   document.addEventListener('DOMContentLoaded', () => {
     const stageVideo = document.getElementById('hero-stage-video') as HTMLVideoElement | null;
     const reducedQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+    let stageLoaded = false;
 
-    const handleStageMotion = () => {
+    const loadAndPlayStageVideo = () => {
       if (!stageVideo) return;
       if (reducedQuery && reducedQuery.matches) {
-        stageVideo.removeAttribute('autoplay');
         stageVideo.pause();
-        stageVideo.currentTime = 0;
-        stageVideo.load(); // Muestra solo el póster
+        return;
+      }
+      if (!stageLoaded) {
+        const src = stageVideo.dataset.src;
+        if (src) {
+          stageVideo.src = src;
+          stageLoaded = true;
+          stageVideo.addEventListener(
+            'playing',
+            () => {
+              stageVideo.classList.add('is-playing');
+            },
+            { once: true }
+          );
+        }
+      }
+      stageVideo.play().catch(() => {});
+    };
+
+    const scheduleStageVideo = () => {
+      if (reducedQuery && reducedQuery.matches) return;
+      if ('requestIdleCallback' in window) {
+        (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => void }).requestIdleCallback(
+          loadAndPlayStageVideo,
+          { timeout: 1500 }
+        );
       } else {
-        stageVideo.play().catch(() => {});
+        setTimeout(loadAndPlayStageVideo, 300);
       }
     };
 
-    handleStageMotion();
-    reducedQuery?.addEventListener?.('change', handleStageMotion);
+    if (document.readyState === 'complete') {
+      scheduleStageVideo();
+    } else {
+      window.addEventListener('load', scheduleStageVideo, { once: true });
+    }
+
+    reducedQuery?.addEventListener?.('change', () => {
+      if (!stageVideo) return;
+      if (reducedQuery.matches) {
+        stageVideo.pause();
+        stageVideo.classList.remove('is-playing');
+      } else {
+        loadAndPlayStageVideo();
+      }
+    });
 
     // Control del modal de vídeo («Ver cómo funciona · 1 min»)
     const openBtn = document.getElementById('open-video-modal') as HTMLButtonElement | null;
     const closeBtn = document.getElementById('close-video-modal') as HTMLButtonElement | null;
     const modal = document.getElementById('hero-video-modal') as HTMLDialogElement | null;
     const modalVideo = document.getElementById('hero-modal-video') as HTMLVideoElement | null;
+    let modalVideoLoaded = false;
 
     if (!openBtn || !modal) return;
 
@@ -143,6 +187,13 @@ import HeroContenido from './HeroContenido.astro';
     };
 
     openBtn.addEventListener('click', () => {
+      if (modalVideo && !modalVideoLoaded) {
+        const poster = modalVideo.dataset.poster;
+        const src = modalVideo.dataset.src;
+        if (poster) modalVideo.poster = poster;
+        if (src) modalVideo.src = src;
+        modalVideoLoaded = true;
+      }
       if (typeof modal.showModal === 'function') {
         modal.showModal();
       } else {
@@ -234,9 +285,10 @@ import HeroContenido from './HeroContenido.astro';
     transform: translateX(-50%);
     width: 780px;
     max-width: calc(100% - 40px);
+    aspect-ratio: 1280 / 800;
     border-radius: 18px;
     overflow: hidden;
-    background-color: #0F172A;
+    background-color: #FFFFFF;
     box-shadow:
       0 50px 100px -20px rgba(2, 44, 34, 0.45),
       0 30px 60px -30px rgba(0, 0, 0, 0.35),
@@ -244,11 +296,26 @@ import HeroContenido from './HeroContenido.astro';
     z-index: 3;
   }
 
-  .hero-app-video {
+  .hero-app-poster {
     display: block;
     width: 100%;
-    height: auto;
-    aspect-ratio: 1280 / 800;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-app-video {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 250ms ease;
+  }
+
+  .hero-app-video.is-playing {
+    opacity: 1;
   }
 
   /* Etiquetas flotantes (solo en ordenador >= 900px) */

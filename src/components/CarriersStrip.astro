@@ -169,7 +169,7 @@
   .phone {
     justify-self: center;
     width: 280px;
-    height: 500px;
+    height: 528px;
     border-radius: 44px;
     background: #0F172A;
     padding: 12px;
@@ -288,6 +288,30 @@
     font-size: 13.5px;
   }
 
+  /* Entre 901 y 1200 px: ajustamos el móvil y el QR para evitar solapes entre «Origen» y «Descargar PDF» */
+  @media (max-width: 1200px) and (min-width: 901px) {
+    .tr {
+      gap: 40px;
+      padding: 48px;
+    }
+
+    .phone {
+      width: 268px;
+      height: 520px;
+    }
+
+    .dq {
+      width: 128px;
+      height: 128px;
+      margin-top: 14px;
+    }
+
+    .dr {
+      padding-top: 14px;
+      gap: 8px;
+    }
+  }
+
   @media (max-width: 900px) {
     #transportistas {
       padding: 0 16px 80px;
@@ -307,7 +331,7 @@
     .phone {
       transform: none;
       width: 250px;
-      height: 480px;
+      height: 500px;
     }
 
     .dq {

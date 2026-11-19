@@ -2,4 +2,10 @@
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
-export default defineConfig({ build: { format: 'file' }, trailingSlash: 'never' });
+export default defineConfig({
+  build: {
+    format: 'file',
+    inlineStylesheets: 'always'
+  },
+  trailingSlash: 'never'
+});

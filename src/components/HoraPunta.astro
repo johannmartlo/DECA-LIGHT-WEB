@@ -27,19 +27,26 @@ const cards = [
 
 <section class="hora-punta-section" aria-labelledby="el-problema">
   <div class="hora-punta-band">
+    <img
+      src="/video/hora-punta-poster.jpg"
+      alt=""
+      aria-hidden="true"
+      width="1280"
+      height="720"
+      loading="lazy"
+      decoding="async"
+      class="hora-punta-bg-poster"
+    />
     <video
       id="hora-punta-video"
       class="hora-punta-bg-video"
-      autoplay
       muted
       loop
       playsinline
-      preload="metadata"
-      poster="/video/hora-punta-poster.jpg"
+      preload="none"
+      data-src="/video/hora-punta.mp4"
       aria-hidden="true"
-    >
-      <source src="/video/hora-punta.mp4" type="video/mp4" media="(min-width: 700px) and (prefers-reduced-motion: no-preference)" />
-    </video>
+    ></video>
     <div class="hora-punta-overlay" aria-hidden="true"></div>
 
     <div class="hora-punta-content">
@@ -85,24 +92,46 @@ const cards = [
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    const band = document.querySelector('.hora-punta-band');
     const video = document.getElementById('hora-punta-video') as HTMLVideoElement | null;
     const reducedMotionMQ = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
     const narrowMQ = window.matchMedia ? window.matchMedia('(max-width: 699px)') : null;
+    let videoLoaded = false;
 
-    const syncVideoPlayback = () => {
+    const loadAndSyncVideo = () => {
       if (!video) return;
       const shouldDisable = Boolean(reducedMotionMQ?.matches || narrowMQ?.matches);
       if (shouldDisable) {
-        video.removeAttribute('autoplay');
         video.pause();
-      } else {
-        video.play().catch(() => {});
+        return;
       }
+      if (!videoLoaded) {
+        const src = video.dataset.src;
+        if (src) {
+          video.src = src;
+          videoLoaded = true;
+        }
+      }
+      video.play().catch(() => {});
     };
 
-    syncVideoPlayback();
-    reducedMotionMQ?.addEventListener?.('change', syncVideoPlayback);
-    narrowMQ?.addEventListener?.('change', syncVideoPlayback);
+    if (band && video && 'IntersectionObserver' in window) {
+      const videoObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              loadAndSyncVideo();
+              videoObserver.disconnect();
+            }
+          });
+        },
+        { rootMargin: '250px 0px' }
+      );
+      videoObserver.observe(band);
+    }
+
+    reducedMotionMQ?.addEventListener?.('change', loadAndSyncVideo);
+    narrowMQ?.addEventListener?.('change', loadAndSyncVideo);
 
     // Animación de conteo desde 40 hasta el valor final en 0,9 s al entrar en pantalla
     const prefersNoPreference =
@@ -187,11 +216,9 @@ const cards = [
     padding: 120px 88px 96px;
     color: #FFFFFF;
     background-color: #022019;
-    background-image: url('/video/hora-punta-poster.jpg');
-    background-size: cover;
-    background-position: center;
   }
 
+  .hora-punta-bg-poster,
   .hora-punta-bg-video {
     position: absolute;
     inset: 0;
