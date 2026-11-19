@@ -64,7 +64,7 @@
         <div class="plan" id="rPlan">Almacén</div>
         <div class="price">
           <b id="rPrecio">67&nbsp;€</b>
-          <span id="rPer">/mes</span>
+          <span id="rPer">/mes&nbsp;+&nbsp;IVA</span>
           <s id="rLista">89&nbsp;€</s>
         </div>
         <div class="sub" id="rSub">Hasta 1.000 DeCA al mes</div>
@@ -83,7 +83,7 @@
         <p class="for">Hasta 15 cargas al día</p>
         <div class="p">
           <b>37&nbsp;€</b>
-          <span>/mes</span>
+          <span>/mes&nbsp;+&nbsp;IVA</span>
           <s>49&nbsp;€</s>
         </div>
         <p class="after-plan">12 meses de lanzamiento, luego 49&nbsp;€</p>
@@ -101,7 +101,7 @@
         <p class="for">Hasta 50 cargas al día</p>
         <div class="p">
           <b>67&nbsp;€</b>
-          <span>/mes</span>
+          <span>/mes&nbsp;+&nbsp;IVA</span>
           <s>89&nbsp;€</s>
         </div>
         <p class="after-plan">12 meses de lanzamiento, luego 89&nbsp;€</p>
@@ -119,7 +119,7 @@
         <p class="for">Hasta 100 cargas al día</p>
         <div class="p">
           <b>104&nbsp;€</b>
-          <span>/mes</span>
+          <span>/mes&nbsp;+&nbsp;IVA</span>
           <s>139&nbsp;€</s>
         </div>
         <p class="after-plan">12 meses de lanzamiento, luego 139&nbsp;€</p>
@@ -246,7 +246,7 @@
           </tbody>
         </table>
       </div>
-      <p class="foot">Precios sin IVA. Precio de lanzamiento (−25 %) durante los primeros 12 meses para los 10 primeros almacenes.</p>
+      <p class="foot">Precios sin IVA (21 % aparte). Servicio exclusivo para empresas y profesionales. Precio de lanzamiento (−25 %) durante los primeros 12 meses para los 10 primeros almacenes.</p>
     </div>
   </div>
 </section>
@@ -318,7 +318,7 @@
           rLista.textContent = '';
           rLista.style.display = 'none';
         }
-        if (rPer) rPer.textContent = '/mes';
+        if (rPer) rPer.textContent = '/mes\u00A0+\u00A0IVA';
         if (rSub) rSub.textContent = 'Más de 2.000 DeCA al mes';
         if (rDespues) rDespues.textContent = 'Presupuesto adaptado a tu volumen';
         if (nUnit) nUnit.textContent = '—';
@@ -331,7 +331,7 @@
           rLista.textContent = p.l + '\u00A0€';
           rLista.style.display = 'inline';
         }
-        if (rPer) rPer.textContent = '/mes';
+        if (rPer) rPer.textContent = '/mes\u00A0+\u00A0IVA';
         if (rSub) rSub.textContent = 'Hasta ' + mil(p.cap) + ' DeCA al mes';
         if (rDespues) rDespues.textContent = 'Después de 12 meses, ' + p.l + '\u00A0€';
         if (nUnit) nUnit.textContent = eur(Number((p.m / d).toFixed(2)));
