@@ -253,20 +253,20 @@ import HowItWorksBeneficios from './HowItWorksBeneficios.astro';
     }
 
     .hiw-step-mobile-stage {
-      border-radius: 20px;
-      padding: 20px;
-      background:
-        radial-gradient(600px 300px at 70% 0%, rgba(110, 231, 183, 0.35), transparent 70%),
-        linear-gradient(180deg, #F0FDF4, #ECFDF5);
-      box-shadow: inset 0 0 0 1px rgba(4, 120, 87, 0.12);
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .hiw-step-mobile-img {
       display: block;
       width: 100%;
       height: auto;
-      border-radius: 12px;
-      box-shadow: 0 16px 36px -12px rgba(2, 44, 34, 0.18);
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
     }
   }
 
@@ -397,16 +397,14 @@ import HowItWorksBeneficios from './HowItWorksBeneficios.astro';
     }
 
     .hiw-sticky-stage {
-      border-radius: 28px;
-      padding: 56px 40px;
-      background:
-        radial-gradient(600px 300px at 70% 0%, rgba(110, 231, 183, 0.35), transparent 70%),
-        linear-gradient(180deg, #F0FDF4, #ECFDF5);
-      box-shadow: inset 0 0 0 1px rgba(4, 120, 87, 0.12);
+      border-radius: 0;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 28px;
+      gap: 24px;
     }
 
     /* 3 imágenes apiladas en la misma celda del grid */
@@ -422,11 +420,10 @@ import HowItWorksBeneficios from './HowItWorksBeneficios.astro';
       grid-area: stack;
       width: 100%;
       height: auto;
-      border-radius: 16px;
-      box-shadow:
-        0 28px 60px -16px rgba(2, 44, 34, 0.22),
-        0 12px 24px -12px rgba(15, 23, 42, 0.12),
-        0 0 0 1px rgba(15, 23, 42, 0.06);
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
       opacity: 0;
       transform: translate3d(0, 12px, 0);
       pointer-events: none;
