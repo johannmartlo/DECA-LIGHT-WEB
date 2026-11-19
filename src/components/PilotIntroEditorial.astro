@@ -1,67 +1,118 @@
 ---
-// PilotIntroEditorial.astro — Oferta comercial «Primer mes gratis» y sus 3 pasos
-import PilotSteps from './PilotSteps.astro';
+// PilotIntroEditorial.astro — Columna izquierda de la sección «Primer mes gratis» (Tramo 5, v3-premium)
 ---
 
-<div class="editorial-col" data-reveal="editorial">
-  <div class="eyebrow-wrap">
-    <span class="eyebrow-line" aria-hidden="true"></span>
-    <span class="eyebrow-text">PRIMER MES GRATIS</span>
+<div class="mg-left">
+  <div class="eb">PRIMER MES GRATIS</div>
+  <h2 id="pilot-heading">Pruébalo un mes con tus cargas reales.</h2>
+  <p class="lead">Sin cambiar de ERP, sin instalar nada y sin tarjeta.</p>
+
+  <div class="steps">
+    <div class="st">
+      <em>1</em>
+      <div>
+        <b>Nos dejas tus datos</b>
+        <span>Te escribimos en un día laborable para conocer tu muelle.</span>
+      </div>
+    </div>
+    <div class="st">
+      <em>2</em>
+      <div>
+        <b>Nos mandas un informe de tu ERP</b>
+        <span>Tal como sale. Configuramos la importación contigo.</span>
+      </div>
+    </div>
+    <div class="st">
+      <em>3</em>
+      <div>
+        <b>Emites tus DeCA durante un mes</b>
+        <span>Si no te convence, no pagas nada.</span>
+      </div>
+    </div>
   </div>
-
-  <h2 id="pilot-heading" class="pilot-heading">
-    Pruébalo un mes con tus cargas reales.
-  </h2>
-
-  <p class="pilot-description">
-    Trabajas en paralelo con lo que usas hoy hasta que lo veas claro. Dejamos tu cuenta y tus transportistas configurados contigo. El precio depende de tu volumen: te lo damos en la demostración, sin compromiso.
-  </p>
-
-  <PilotSteps />
 </div>
 
 <style>
-  .editorial-col {
+  .eb {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: #047857;
+    text-align: left;
+  }
+
+  h2 {
+    margin: 16px 0 0;
+    font-size: 56px;
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+    font-weight: 700;
+    color: #0F172A;
+    text-align: left;
+  }
+
+  .lead {
+    margin: 22px 0 0;
+    max-width: 560px;
+    text-align: left;
+    font-size: 19px;
+    line-height: 1.5;
+    color: #475569;
+  }
+
+  .steps {
+    margin-top: 48px;
     display: flex;
     flex-direction: column;
   }
 
-  .eyebrow-wrap {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+  .st {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    padding: 22px 0;
+    border-top: 1px solid #F1F5F9;
   }
 
-  .eyebrow-line {
-    width: 1.5rem;
-    height: 2px;
-    background-color: var(--palette-deca-800);
-    border-radius: 9999px;
+  .st:last-child {
+    border-bottom: 1px solid #F1F5F9;
   }
 
-  .eyebrow-text {
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--palette-deca-800);
-  }
-
-  .pilot-heading {
-    font-size: clamp(1.875rem, 3.2vw, 2.75rem);
-    line-height: 1.15;
+  .st em {
+    font-style: normal;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: #ECFDF5;
+    color: #047857;
     font-weight: 700;
-    letter-spacing: -0.03em;
-    color: var(--color-text-primary, var(--palette-slate-900));
-    margin: 0 0 1.25rem 0;
+    display: grid;
+    place-items: center;
+    font-size: 16px;
   }
 
-  .pilot-description {
-    font-size: 1.0625rem;
-    line-height: 1.65;
-    color: var(--color-text-secondary, var(--palette-slate-600));
-    margin: 0 0 2rem 0;
-    max-width: 46ch;
+  .st b {
+    display: block;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    color: #0F172A;
+  }
+
+  .st span {
+    display: block;
+    margin-top: 4px;
+    color: #64748B;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    h2 {
+      font-size: 38px;
+    }
+
+    .lead {
+      font-size: 17px;
+    }
   }
 </style>

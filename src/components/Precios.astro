@@ -1,0 +1,1012 @@
+---
+// src/components/Precios.astro — Sección de precios con calculadora, planes de lanzamiento y tabla comparativa (Tramo 5, v3-premium)
+---
+
+<section id="precios" aria-labelledby="precios-t">
+  <div class="w">
+    <div class="eb">PRECIOS</div>
+    <h2 id="precios-t">
+      Pagas según lo que sale del muelle. <span>Y el primer mes, nada.</span>
+    </h2>
+    <p class="lead">
+      Cada mes se factura el tramo que has usado, sin permanencia y sin sorpresas.
+    </p>
+
+    <div class="launch-wrap">
+      <p class="launch-pill">
+        <span class="launch-badge">−25 %</span>
+        <span>Precio de lanzamiento durante <strong>12 meses</strong> para los <strong>10 primeros almacenes</strong></span>
+      </p>
+    </div>
+
+    <div class="calc">
+      <div class="calc-in">
+        <label class="q" for="cargas">¿Cuántas cargas salen al día?</label>
+        <div class="big">
+          <b id="nCargas">30</b>
+          <span>cargas al día</span>
+        </div>
+        <input
+          id="cargas"
+          type="range"
+          min="1"
+          max="120"
+          value="30"
+          aria-describedby="calc-nota"
+        />
+        <div class="ticks" aria-hidden="true">
+          <span>1</span>
+          <span>30</span>
+          <span>60</span>
+          <span>90</span>
+          <span>120+</span>
+        </div>
+        <div class="est">
+          <div>
+            <b id="nDeca">≈ 600</b>
+            DeCA al mes
+          </div>
+          <div>
+            <b id="nUnit">0,11 €</b>
+            por DeCA
+          </div>
+        </div>
+        <p class="note" id="calc-nota">
+          Estimación con unos 20 días de carga al mes. Solo cuentan los DeCA nuevos: modificar, sustituir o anular no suma.
+        </p>
+      </div>
+
+      <div class="res" aria-live="polite">
+        <div class="lbl">TU PLAN</div>
+        <div class="plan" id="rPlan">Almacén</div>
+        <div class="price">
+          <b id="rPrecio">67 €</b>
+          <s id="rLista">89 €</s>
+          <span id="rPer">/mes</span>
+        </div>
+        <div class="sub" id="rSub">Hasta 1.000 DeCA al mes</div>
+        <div class="after" id="rDespues">Después de 12 meses, 89 €</div>
+        <div class="cta">
+          <a class="btn" href="#demo">Empezar el mes gratis →</a>
+          <p>Sin tarjeta. Precios sin IVA.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="plans">
+      <article class="pc" data-plan="0">
+        <span class="tag">Tu plan</span>
+        <h3>Básico</h3>
+        <p class="for">Hasta 15 cargas al día</p>
+        <div class="p">
+          <b>37 €</b>
+          <s>49 €</s>
+          <span>/mes</span>
+        </div>
+        <p class="after-plan">12 meses de lanzamiento, luego 49 €</p>
+        <p class="cap">Hasta 300 DeCA al mes</p>
+        <ul>
+          <li>Todo el muelle: importar, agrupar, matrícula por camión y emitir en bloque</li>
+          <li>3 usuarios</li>
+          <li>Soporte por correo</li>
+        </ul>
+      </article>
+
+      <article class="pc on" data-plan="1">
+        <span class="tag">Tu plan</span>
+        <h3>Almacén</h3>
+        <p class="for">Hasta 50 cargas al día</p>
+        <div class="p">
+          <b>67 €</b>
+          <s>89 €</s>
+          <span>/mes</span>
+        </div>
+        <p class="after-plan">12 meses de lanzamiento, luego 89 €</p>
+        <p class="cap">Hasta 1.000 DeCA al mes</p>
+        <ul>
+          <li>Todo lo del Básico</li>
+          <li>Usuarios ilimitados</li>
+          <li>Soporte por correo y teléfono</li>
+        </ul>
+      </article>
+
+      <article class="pc" data-plan="2">
+        <span class="tag">Tu plan</span>
+        <h3>Campaña</h3>
+        <p class="for">Hasta 100 cargas al día</p>
+        <div class="p">
+          <b>104 €</b>
+          <s>139 €</s>
+          <span>/mes</span>
+        </div>
+        <p class="after-plan">12 meses de lanzamiento, luego 139 €</p>
+        <p class="cap">Hasta 2.000 DeCA al mes</p>
+        <ul>
+          <li>Todo lo del Almacén</li>
+          <li>2 empresas del grupo</li>
+          <li>Soporte prioritario en horario de muelle</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="medida">
+      <div>
+        <b>A medida · desde 199 €</b>
+        <span>Más de 2.000 DeCA, grupos de empresas o integración directa con tu ERP.</span>
+      </div>
+      <a href="#demo">Hablemos →</a>
+    </div>
+
+    <div class="trust">
+      <div>
+        <h4>Nunca se bloquea por volumen.</h4>
+        <p>Si un mes de campaña te pasas, sigues emitiendo. Te avisamos y se factura el tramo usado.</p>
+      </div>
+      <div>
+        <h4>Sin permanencia.</h4>
+        <p>Pagas mes a mes. Si lo dejas, tus DeCA y su historial siguen ahí para consultarlos y exportarlos.</p>
+      </div>
+      <div>
+        <h4>Puesta en marcha incluida.</h4>
+        <p>Nos mandas un informe de tu ERP tal como sale y lo dejamos importando contigo.</p>
+      </div>
+    </div>
+
+    <div class="tbl">
+      <h3>Todas las funciones</h3>
+      <div class="tbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Funciones</th>
+              <th scope="col">Básico<small>37 €/mes · luego 49 €</small></th>
+              <th scope="col">Almacén<small>67 €/mes · luego 89 €</small></th>
+              <th scope="col">Campaña<small>104 €/mes · luego 139 €</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DeCA al mes</td>
+              <td>300</td>
+              <td class="col-on">1.000</td>
+              <td>2.000</td>
+            </tr>
+            <tr>
+              <td>Importar el informe del ERP tal cual</td>
+              <td><span class="ck" role="img" aria-label="Incluido"></span></td>
+              <td class="col-on"><span class="ck" role="img" aria-label="Incluido"></span></td>
+              <td><span class="ck" role="img" aria-label="Incluido"></span></td>
+            </tr>
+            <tr>
+              <td>Día por transportista y matrícula una vez por camión</td>
+              <td><span class="ck" role="img" aria-label="Incluido"></span></td>
+              <td class="col-on"><span class="ck" role="img" aria-label="Incluido"></span></td>
+              <td><span class="ck" role="img" aria-label="Incluido"></span></td>
+            </tr>
+            <tr>
+              <td>Emitir en bloque, PDF y QR</td>
+              <td><span class="ck" role="img" aria-label="Incluido"></span></td>
+              <td class="col-on"><span class="ck" role="img" aria-label="Incluido"></span></td>
+              <td><span class="ck" role="img" aria-label="Incluido"></span></td>
+            </tr>
+            <tr>
+              <td>Modificar, sustituir y anular con registro</td>
+              <td><span class="ck" role="img" aria-label="Incluido"></span></td>
+              <td class="col-on"><span class="ck" role="img" aria-label="Incluido"></span></td>
+              <td><span class="ck" role="img" aria-label="Incluido"></span></td>
+            </tr>
+            <tr>
+              <td>Usuarios</td>
+              <td>3</td>
+              <td class="col-on">Ilimitados</td>
+              <td>Ilimitados</td>
+            </tr>
+            <tr>
+              <td>Empresas del grupo</td>
+              <td>1</td>
+              <td class="col-on">1</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Soporte</td>
+              <td>Correo</td>
+              <td class="col-on">Correo y teléfono</td>
+              <td>Prioritario</td>
+            </tr>
+            <tr class="grp">
+              <td colspan="4">PRÓXIMAMENTE</td>
+            </tr>
+            <tr>
+              <td>Envío en bloque al transportista<span class="soon">Pronto</span></td>
+              <td><span class="ck" role="img" aria-label="Incluido"></span></td>
+              <td class="col-on"><span class="ck" role="img" aria-label="Incluido"></span></td>
+              <td><span class="ck" role="img" aria-label="Incluido"></span></td>
+            </tr>
+            <tr>
+              <td>Enlace para que el transportista ponga la matrícula<span class="soon">Pronto</span></td>
+              <td><span class="dash" role="img" aria-label="No incluido">—</span></td>
+              <td class="col-on"><span class="ck" role="img" aria-label="Incluido"></span></td>
+              <td><span class="ck" role="img" aria-label="Incluido"></span></td>
+            </tr>
+            <tr>
+              <td>Lectura con IA de fotos y PDF escaneados<span class="soon">Pronto</span></td>
+              <td>20 al mes</td>
+              <td class="col-on">200 al mes</td>
+              <td>1.000 al mes</td>
+            </tr>
+            <tr>
+              <td>Informe mensual de uso y ahorro<span class="soon">Pronto</span></td>
+              <td><span class="dash" role="img" aria-label="No incluido">—</span></td>
+              <td class="col-on"><span class="ck" role="img" aria-label="Incluido"></span></td>
+              <td><span class="ck" role="img" aria-label="Incluido"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="foot">Precios sin IVA. Precio de lanzamiento (−25 %) durante los primeros 12 meses para los 10 primeros almacenes.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  interface PlanTier {
+    n: string;
+    m: number;
+    l: number;
+    cap: number;
+  }
+
+  const PL: PlanTier[] = [
+    { n: 'Básico', m: 37, l: 49, cap: 300 },
+    { n: 'Almacén', m: 67, l: 89, cap: 1000 },
+    { n: 'Campaña', m: 104, l: 139, cap: 2000 }
+  ];
+
+  const mil = (n: number): string => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const eur = (v: number): string => (v % 1 ? v.toFixed(2).replace('.', ',') : mil(v)) + ' €';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const r = document.getElementById('cargas') as HTMLInputElement | null;
+    if (!r) return;
+
+    const $ = (id: string): HTMLElement | null => document.getElementById(id);
+
+    const upd = (): void => {
+      const c = Number(r.value);
+      const d = c * 20;
+      const i = d <= 300 ? 0 : d <= 1000 ? 1 : d <= 2000 ? 2 : 3;
+
+      r.style.setProperty('--p', ((c - 1) / 119) * 100 + '%');
+
+      const nCargas = $('nCargas');
+      if (nCargas) nCargas.textContent = c >= 120 ? '120+' : String(c);
+
+      const nDeca = $('nDeca');
+      if (nDeca) nDeca.textContent = '≈ ' + mil(d);
+
+      document.querySelectorAll<HTMLElement>('#precios .pc').forEach((e, k) => {
+        e.classList.toggle('on', k === i);
+      });
+
+      document.querySelectorAll<HTMLElement>('#precios td.col-on').forEach((t) => {
+        t.classList.remove('col-on');
+      });
+
+      if (i < 3) {
+        document.querySelectorAll<HTMLTableRowElement>('#precios tbody tr:not(.grp)').forEach((tr) => {
+          const cell = tr.children[i + 1];
+          if (cell) cell.classList.add('col-on');
+        });
+      }
+
+      const rPlan = $('rPlan');
+      const rPrecio = $('rPrecio');
+      const rLista = $('rLista');
+      const rPer = $('rPer');
+      const rSub = $('rSub');
+      const rDespues = $('rDespues');
+      const nUnit = $('nUnit');
+      const fPlan = $('fPlan');
+
+      if (i === 3) {
+        if (rPlan) rPlan.textContent = 'A medida · desde 199 €';
+        if (rPrecio) rPrecio.textContent = 'desde 199 €';
+        if (rLista) {
+          rLista.textContent = '';
+          rLista.style.display = 'none';
+        }
+        if (rPer) rPer.textContent = '/mes';
+        if (rSub) rSub.textContent = 'Más de 2.000 DeCA al mes';
+        if (rDespues) rDespues.textContent = 'Presupuesto adaptado a tu volumen';
+        if (nUnit) nUnit.textContent = '—';
+        if (fPlan) fPlan.textContent = 'A medida · desde 199 €';
+      } else {
+        const p = PL[i];
+        if (rPlan) rPlan.textContent = p.n;
+        if (rPrecio) rPrecio.textContent = p.m + ' €';
+        if (rLista) {
+          rLista.textContent = p.l + ' €';
+          rLista.style.display = 'inline';
+        }
+        if (rPer) rPer.textContent = '/mes';
+        if (rSub) rSub.textContent = 'Hasta ' + mil(p.cap) + ' DeCA al mes';
+        if (rDespues) rDespues.textContent = 'Después de 12 meses, ' + p.l + ' €';
+        if (nUnit) nUnit.textContent = (p.m / d).toFixed(2).replace('.', ',') + ' €';
+        if (fPlan) fPlan.textContent = 'Plan ' + p.n + ' · ' + p.m + ' €';
+      }
+
+      const dailyLoads = document.getElementById('daily-loads') as HTMLSelectElement | null;
+      if (dailyLoads) {
+        dailyLoads.value = c < 20 ? '<20' : c <= 50 ? '20-50' : c <= 100 ? '50-100' : '>100';
+      }
+    };
+
+    r.addEventListener('input', upd);
+    r.addEventListener('change', upd);
+    upd();
+  });
+</script>
+
+<style>
+  #precios {
+    padding: 140px 24px 120px;
+    background: linear-gradient(180deg, #F6F8F7 0%, var(--palette-white, #FFFFFF) 100%);
+    font-family: var(--font-sans);
+    color: var(--palette-slate-900, #0F172A);
+  }
+
+  .w {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .eb {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: var(--palette-emerald-700, #047857);
+    text-align: center;
+  }
+
+  h2 {
+    margin: 18px auto 0;
+    font-size: 64px;
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+    font-weight: 700;
+    max-width: 920px;
+    text-align: center;
+    color: var(--palette-slate-900, #0F172A);
+  }
+
+  h2 span {
+    background: linear-gradient(0deg, var(--palette-slate-400, #94A3B8), var(--palette-slate-400, #94A3B8));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .lead {
+    margin: 22px auto 0;
+    max-width: 560px;
+    text-align: center;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--palette-slate-600, #475569);
+  }
+
+  /* Pastilla de lanzamiento bajo el subtítulo */
+  .launch-wrap {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .launch-pill {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 16px 8px 10px;
+    border-radius: 999px;
+    background: var(--palette-emerald-50, #ECFDF5);
+    border: 1px solid var(--palette-emerald-200, #A7F3D0);
+    font-size: 14.5px;
+    line-height: 1.4;
+    color: var(--palette-emerald-900, #064E3B);
+    text-align: center;
+  }
+
+  .launch-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--palette-emerald-700, #047857);
+    color: var(--palette-white, #FFFFFF);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  /* Calculadora */
+  .calc {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    border-radius: 32px;
+    background: var(--palette-white, #FFFFFF);
+    box-shadow: 0 0 0 1px var(--palette-slate-200, #E2E8F0), 0 30px 60px -30px rgba(15, 23, 42, 0.18);
+    overflow: hidden;
+  }
+
+  .calc-in {
+    padding: 52px 56px;
+  }
+
+  .q {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--palette-slate-900, #0F172A);
+  }
+
+  .big {
+    margin-top: 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+
+  .big b {
+    font-size: 112px;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--palette-slate-900, #0F172A);
+  }
+
+  .big span {
+    font-size: 22px;
+    color: var(--palette-slate-500, #64748B);
+    font-weight: 500;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    margin-top: 40px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, #047857 var(--p, 24%), #E2E8F0 var(--p, 24%));
+    outline: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 2px #047857, 0 6px 16px -4px rgba(4, 120, 87, 0.5);
+    cursor: grab;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 2px solid #047857;
+    cursor: grab;
+  }
+
+  input[type="range"]:focus-visible {
+    outline: 2px solid #047857;
+    outline-offset: 6px;
+  }
+
+  input[type="range"]:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 0 0 2px #047857, 0 0 0 8px rgba(4, 120, 87, 0.22);
+  }
+
+  .ticks {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--palette-slate-500, #64748B);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .est {
+    margin-top: 36px;
+    display: flex;
+    gap: 40px;
+  }
+
+  .est div {
+    font-size: 14px;
+    color: var(--palette-slate-500, #64748B);
+  }
+
+  .est b {
+    display: block;
+    font-size: 28px;
+    color: var(--palette-slate-900, #0F172A);
+    letter-spacing: -0.03em;
+    margin-bottom: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .note {
+    margin-top: 28px;
+    font-size: 13.5px;
+    color: var(--palette-slate-500, #64748B);
+    line-height: 1.5;
+  }
+
+  .res {
+    padding: 52px 48px;
+    background: linear-gradient(160deg, #ECFDF5 0%, #D1FAE5 100%);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .res .lbl {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    color: #047857;
+  }
+
+  .res .plan {
+    margin-top: 12px;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    color: var(--palette-slate-900, #0F172A);
+  }
+
+  .res .price {
+    margin-top: 22px;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .res .price b {
+    font-size: 84px;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--palette-slate-900, #0F172A);
+  }
+
+  .res .price s {
+    font-size: 28px;
+    font-weight: 600;
+    color: #065F46;
+    opacity: 0.65;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .res .price span {
+    font-size: 20px;
+    color: #065F46;
+    font-weight: 500;
+  }
+
+  .res .sub {
+    margin-top: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #065F46;
+    min-height: 22px;
+  }
+
+  .res .after {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #065F46;
+  }
+
+  .cta {
+    margin-top: auto;
+    padding-top: 32px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: 16px;
+    background: #047857;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 17px;
+    text-decoration: none;
+    box-shadow: 0 12px 24px -12px rgba(4, 120, 87, 0.7);
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .btn:hover {
+    background: #065F46;
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .cta p {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 13.5px;
+    color: #065F46;
+  }
+
+  /* Tarjetas de planes */
+  .plans {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .pc {
+    position: relative;
+    border-radius: 28px;
+    background: #FFFFFF;
+    padding: 36px;
+    box-shadow: 0 0 0 1px #E2E8F0;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+
+  .pc.on {
+    box-shadow: 0 0 0 2px #047857, 0 24px 48px -24px rgba(4, 120, 87, 0.35);
+    transform: translateY(-4px);
+  }
+
+  .pc .tag {
+    position: absolute;
+    top: -13px;
+    left: 36px;
+    padding: 5px 12px;
+    border-radius: 99px;
+    background: #047857;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .pc.on .tag {
+    opacity: 1;
+  }
+
+  .pc h3 {
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--palette-slate-900, #0F172A);
+  }
+
+  .pc .for {
+    margin-top: 6px;
+    font-size: 14.5px;
+    color: #64748B;
+  }
+
+  .pc .p {
+    margin-top: 26px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .pc .p b {
+    font-size: 52px;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    color: var(--palette-slate-900, #0F172A);
+  }
+
+  .pc .p s {
+    font-size: 22px;
+    font-weight: 600;
+    color: #64748B;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .pc .p span {
+    color: #64748B;
+    font-size: 16px;
+  }
+
+  .pc .after-plan {
+    margin-top: 8px;
+    font-size: 13.5px;
+    color: #64748B;
+  }
+
+  .pc .cap {
+    margin-top: 6px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #047857;
+  }
+
+  .pc ul {
+    list-style: none;
+    margin-top: 26px;
+    padding-top: 24px;
+    border-top: 1px solid #F1F5F9;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pc li {
+    display: flex;
+    gap: 10px;
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.4;
+  }
+
+  .pc li::before {
+    content: "";
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    border-radius: 50%;
+    background: #ECFDF5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23047857' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / 11px no-repeat;
+  }
+
+  .medida {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 26px 36px;
+    border-radius: 24px;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 1px #E2E8F0;
+  }
+
+  .medida b {
+    font-size: 17px;
+  }
+
+  .medida span {
+    color: #64748B;
+    font-size: 15px;
+    margin-left: 10px;
+  }
+
+  .medida a {
+    color: #047857;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .medida a:hover {
+    text-decoration: underline;
+  }
+
+  .trust {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .trust > div {
+    padding-top: 22px;
+    border-top: 2px solid #047857;
+  }
+
+  .trust h4 {
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    color: var(--palette-slate-900, #0F172A);
+  }
+
+  .trust p {
+    margin-top: 8px;
+    font-size: 15px;
+    color: #64748B;
+    line-height: 1.5;
+  }
+
+  /* Tabla «Todas las funciones» */
+  .tbl {
+    margin-top: 96px;
+  }
+
+  .tbl h3 {
+    font-size: 28px;
+    letter-spacing: -0.03em;
+    text-align: center;
+    color: var(--palette-slate-900, #0F172A);
+  }
+
+  .tbl-scroll {
+    margin-top: 36px;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15.5px;
+  }
+
+  th,
+  td {
+    padding: 18px 20px;
+    text-align: center;
+    border-bottom: 1px solid #F1F5F9;
+  }
+
+  th:first-child,
+  td:first-child {
+    text-align: left;
+    color: #334155;
+  }
+
+  thead th:first-child {
+    font-size: 0;
+    color: transparent;
+  }
+
+  thead th {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0F172A;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 20px;
+  }
+
+  thead th small {
+    display: block;
+    font-weight: 500;
+    color: #64748B;
+    margin-top: 4px;
+  }
+
+  td {
+    color: #0F172A;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .ck {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #ECFDF5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23047857' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / 13px no-repeat;
+    vertical-align: middle;
+  }
+
+  .dash {
+    color: #64748B;
+  }
+
+  tr.grp td {
+    padding-top: 40px;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    color: #64748B;
+    text-align: left;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .soon {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 3px 9px;
+    border-radius: 99px;
+    background: #F1F5F9;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 600;
+    vertical-align: 1px;
+  }
+
+  td.col-on {
+    background: rgba(236, 253, 245, 0.55);
+  }
+
+  .foot {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13.5px;
+    color: #64748B;
+  }
+
+  @media (max-width: 900px) {
+    #precios {
+      padding: 88px 16px;
+    }
+
+    h2 {
+      font-size: 38px;
+    }
+
+    .lead {
+      font-size: 17px;
+    }
+
+    .calc {
+      grid-template-columns: 1fr;
+      border-radius: 24px;
+    }
+
+    .calc-in,
+    .res {
+      padding: 28px;
+    }
+
+    .big b {
+      font-size: 84px;
+    }
+
+    .res .price b {
+      font-size: 64px;
+    }
+
+    .est {
+      gap: 28px;
+    }
+
+    .plans,
+    .trust {
+      grid-template-columns: 1fr;
+    }
+
+    .pc {
+      padding: 28px;
+    }
+
+    .medida {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px;
+    }
+
+    .medida span {
+      display: block;
+      margin: 6px 0 0;
+    }
+
+    table {
+      min-width: 640px;
+      font-size: 14px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition: none !important;
+    }
+  }
+</style>

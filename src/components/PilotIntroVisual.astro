@@ -1,303 +1,307 @@
 ---
-// PilotIntroVisual.astro — Formulario de solicitud de demostración
+// PilotIntroVisual.astro — Tarjeta del formulario del mes gratis (Tramo 5, v3-premium)
 ---
 
-<div class="visual-col" data-reveal="card">
-  <div id="form-piloto" class="interest-form-card">
-    <form
-      class="demo-form"
-      id="pilot-interest-form"
-      novalidate
-      action="/api/pilot"
-      data-endpoint="/api/pilot"
-      method="POST"
-    >
-      <!-- Campo Honeypot invisible para protección pasiva anti-bot -->
-      <input
-        type="text"
-        name="_gotcha"
-        tabindex="-1"
-        autocomplete="off"
-        aria-hidden="true"
-        style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"
-      />
+<div class="form" id="form-piloto">
+  <div class="top">
+    <b>Empieza tu mes gratis</b>
+    <span class="pill" id="fPlan">Plan Almacén · 67 €</span>
+  </div>
 
-      <!-- Clave de idempotencia única por sesión de formulario -->
-      <input type="hidden" name="idempotency_key" id="pilot-idempotency-key" value="" />
+  <form
+    id="pilot-interest-form"
+    novalidate
+    action="/api/pilot"
+    data-endpoint="/api/pilot"
+    method="POST"
+  >
+    <!-- Campo Honeypot invisible para protección pasiva anti-bot -->
+    <input
+      type="text"
+      name="_gotcha"
+      tabindex="-1"
+      autocomplete="off"
+      aria-hidden="true"
+      style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"
+    />
 
-      <div class="inputs-grid">
-        <div class="input-field-wrap">
-          <label for="company-name" class="input-label">Empresa</label>
-          <input
-            type="text"
-            id="company-name"
-            name="company"
-            class="form-text-input"
-            maxlength="120"
-            autocomplete="organization"
-            required
-          />
-        </div>
+    <!-- Clave de idempotencia única por sesión de formulario -->
+    <input type="hidden" name="idempotency_key" id="pilot-idempotency-key" value="" />
 
-        <div class="input-field-wrap">
-          <label for="company-email" class="input-label">Correo</label>
-          <input
-            type="email"
-            id="company-email"
-            name="email"
-            class="form-text-input"
-            maxlength="254"
-            autocomplete="email"
-            required
-          />
-        </div>
-
-        <div class="input-field-wrap">
-          <label for="company-phone" class="input-label">Teléfono (opcional)</label>
-          <input
-            type="tel"
-            id="company-phone"
-            name="phone"
-            class="form-text-input"
-            maxlength="30"
-            autocomplete="tel"
-          />
-        </div>
-
-        <div class="input-field-wrap">
-          <label for="daily-loads" class="input-label">Cargas al día</label>
-          <select id="daily-loads" name="daily_loads" class="form-text-input form-select">
-            <option value="">Selecciona una opción</option>
-            <option value="<20">Menos de 20</option>
-            <option value="20-50">20-50</option>
-            <option value="50-100">50-100</option>
-            <option value=">100">Más de 100</option>
-          </select>
-        </div>
-
-        <div class="input-field-wrap input-field-full">
-          <label for="company-erp" class="input-label">ERP que usáis (opcional)</label>
-          <input
-            type="text"
-            id="company-erp"
-            name="erp"
-            class="form-text-input"
-            maxlength="60"
-          />
-        </div>
+    <div class="grid">
+      <div>
+        <label for="company-name">Empresa</label>
+        <input
+          class="in"
+          type="text"
+          id="company-name"
+          name="company"
+          maxlength="120"
+          autocomplete="organization"
+          required
+        />
       </div>
 
-      <!-- Cláusula informativa de primera capa (RGPD art. 13 / LOPDGDD art. 11) -->
-      <p class="privacy-box-text">
-        <strong>Información de protección de datos:</strong> Responsable: Juan Alberto Martínez López. Finalidad: atender la solicitud de demostración y valorar el encaje operativo. Legitimación: medidas precontractuales a petición del interesado (art. 6.1.b RGPD) e interés legítimo en contactos profesionales (art. 19 LOPDGDD). Detalles completos en nuestra <a href="/politica-privacidad" class="privacy-link">Política de Privacidad</a>.
-      </p>
-
-      <div class="form-btn-wrap">
-        <button type="submit" class="cta-button btn-submit-pilot" id="btn-submit-pilot">
-          <span id="btn-pilot-text">Pedir demostración</span>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="btn-arrow-icon"
-            aria-hidden="true"
-          >
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </button>
+      <div>
+        <label for="company-email">Correo</label>
+        <input
+          class="in"
+          type="email"
+          id="company-email"
+          name="email"
+          maxlength="254"
+          autocomplete="email"
+          required
+        />
       </div>
-    </form>
 
-    <div id="feedback-note" class="feedback-notification hidden" role="status"></div>
+      <div>
+        <label for="company-phone">Teléfono <small>(opcional)</small></label>
+        <input
+          class="in"
+          type="tel"
+          id="company-phone"
+          name="phone"
+          maxlength="30"
+          autocomplete="tel"
+        />
+      </div>
 
-    <p class="form-disclaimer">
-      Sin compromiso. Te respondemos en un día laborable.
+      <div>
+        <label for="daily-loads">Cargas al día</label>
+        <select class="in" id="daily-loads" name="daily_loads">
+          <option value="">Selecciona</option>
+          <option value="<20">Menos de 20</option>
+          <option value="20-50" selected>20-50</option>
+          <option value="50-100">50-100</option>
+          <option value=">100">Más de 100</option>
+        </select>
+      </div>
+
+      <div class="full">
+        <label for="company-erp">ERP que usáis <small>(opcional)</small></label>
+        <input
+          class="in"
+          type="text"
+          id="company-erp"
+          name="erp"
+          maxlength="60"
+        />
+      </div>
+    </div>
+
+    <button type="submit" class="btn" id="btn-submit-pilot">
+      <span id="btn-pilot-text">Empezar el mes gratis</span>
+      <span aria-hidden="true">→</span>
+    </button>
+
+    <p class="legal">
+      <strong>Información de protección de datos:</strong> Responsable: Juan Alberto Martínez López. Finalidad: atender tu solicitud de prueba gratuita y valorar el encaje operativo. Legitimación: medidas precontractuales a petición del interesado (art. 6.1.b RGPD) e interés legítimo en contactos profesionales (art. 19 LOPDGDD). Detalles completos en nuestra <a href="/politica-privacidad">Política de Privacidad</a>.
     </p>
+  </form>
+
+  <div id="feedback-note" class="feedback-notification hidden" role="status"></div>
+
+  <div class="ok">
+    <span>Sin tarjeta</span>
+    <span>Sin permanencia</span>
+    <span>Respuesta en un día laborable</span>
   </div>
 </div>
 
 <style>
-  .visual-col {
-    position: relative;
-    width: 100%;
+  .form {
+    border-radius: 32px;
+    background: #FFFFFF;
+    padding: 44px;
+    box-shadow: 0 0 0 1px #E2E8F0, 0 40px 80px -40px rgba(15, 23, 42, 0.25);
   }
 
-  .interest-form-card {
-    background-color: var(--color-bg-canvas, var(--palette-slate-50));
-    border: 1px solid var(--color-border-subtle, var(--palette-slate-200));
-    border-radius: var(--radius-lg, 10px);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-card);
-  }
-
-  @media (min-width: 640px) {
-    .interest-form-card {
-      padding: 2rem;
-    }
-  }
-
-  .demo-form {
+  .form .top {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
   }
 
-  .inputs-grid {
+  .form .top b {
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: #0F172A;
+  }
+
+  .pill {
+    padding: 7px 14px;
+    border-radius: 99px;
+    background: #ECFDF5;
+    color: #047857;
+    font-size: 13.5px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .grid {
+    margin-top: 28px;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.875rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
-  @media (min-width: 640px) {
-    .inputs-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .input-field-full {
-      grid-column: 1 / -1;
-    }
+  .full {
+    grid-column: 1 / -1;
   }
 
-  .input-field-wrap {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .input-label {
-    font-size: 0.8125rem;
+  label {
+    display: block;
+    font-size: 14px;
     font-weight: 600;
-    color: var(--color-text-primary, var(--palette-slate-900));
-    margin-bottom: 0.375rem;
+    color: #334155;
+    margin-bottom: 8px;
   }
 
-  .form-text-input {
+  label small {
+    font-weight: 500;
+    color: #64748B;
+  }
+
+  .in {
     width: 100%;
-    min-height: 44px;
-    padding: 0.625rem 0.875rem;
-    font-family: inherit;
-    font-size: 0.9375rem;
-    border-radius: var(--radius-md, 6px);
-    background-color: var(--color-bg-surface, var(--palette-white));
-    border: 1px solid var(--color-border-strong, var(--palette-slate-300));
-    color: var(--color-text-primary, var(--palette-slate-900));
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    height: 54px;
+    padding: 0 16px;
+    border-radius: 14px;
+    border: 1px solid #E2E8F0;
+    background: #F8FAFC;
+    font: inherit;
+    font-size: 16px;
+    color: #0F172A;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
   }
 
-  .form-text-input:focus {
+  .in:focus {
     outline: none;
-    border-color: var(--color-brand-primary, var(--palette-emerald-700));
-    box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.14);
+    border-color: #047857;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 4px rgba(4, 120, 87, 0.12);
   }
 
-  .privacy-box-text {
-    font-size: 0.75rem;
-    color: var(--color-text-muted, var(--palette-slate-500));
-    line-height: 1.5;
-    margin: 0.25rem 0 0 0;
+  select.in {
+    appearance: none;
+    background: #F8FAFC url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2.4' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") right 16px center / 18px no-repeat;
   }
 
-  .privacy-box-text strong {
-    color: var(--color-text-primary, var(--palette-slate-900));
-  }
-
-  .privacy-link {
-    color: var(--color-brand-primary, var(--palette-emerald-700));
-    text-decoration: underline;
-    font-weight: 600;
-  }
-
-  .privacy-link:hover {
-    color: var(--color-brand-hover, var(--palette-emerald-800));
-  }
-
-  .form-btn-wrap {
-    padding-top: 0.25rem;
-  }
-
-  .btn-submit-pilot {
-    width: 100%;
-    min-height: 48px;
-    padding: 0.75rem 1.25rem;
-    border-radius: var(--radius-md, 6px);
-    background-color: var(--color-brand-primary, var(--palette-emerald-700));
-    color: var(--palette-white);
-    font-family: inherit;
-    font-size: 0.9375rem;
-    font-weight: 700;
-    border: 1px solid transparent;
-    cursor: pointer;
+  .btn {
+    margin-top: 28px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    transition: background-color 0.15s ease, transform 0.15s ease;
+    gap: 10px;
+    width: 100%;
+    padding: 18px 24px;
+    border: none;
+    border-radius: 16px;
+    background: #047857;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 12px 24px -12px rgba(4, 120, 87, 0.7);
+    transition: transform 0.2s, background 0.2s;
   }
 
-  .btn-submit-pilot:hover {
-    background-color: var(--color-brand-hover, var(--palette-emerald-800));
+  .btn:hover {
+    background: #065F46;
+    transform: translateY(-1px);
   }
 
-  .btn-submit-pilot:disabled {
+  .btn:disabled {
     opacity: 0.7;
     cursor: not-allowed;
   }
 
-  .btn-arrow-icon {
-    transition: transform 0.15s ease;
+  .legal {
+    margin-top: 20px;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: #64748B;
   }
 
-  .btn-submit-pilot:hover .btn-arrow-icon {
-    transform: translateX(3px);
+  .legal strong {
+    color: #334155;
+  }
+
+  .legal a {
+    color: #047857;
+    text-decoration: underline;
+    font-weight: 600;
   }
 
   .feedback-notification {
-    margin-top: 0.875rem;
-    padding: 0.875rem;
-    border-radius: var(--radius-md, 6px);
-    font-size: 0.875rem;
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 1.5;
   }
 
   .feedback-notification.is-unconfigured {
-    background-color: var(--palette-amber-100);
-    border: 1px solid var(--palette-amber-300);
-    color: var(--palette-amber-800);
+    background-color: var(--palette-amber-100, #FEF3C7);
+    border: 1px solid var(--palette-amber-300, #FCD34D);
+    color: var(--palette-amber-800, #92400E);
   }
 
   .feedback-notification.is-error {
-    background-color: var(--palette-red-100);
-    border: 1px solid var(--palette-red-300);
+    background-color: var(--palette-red-100, #FEE2E2);
+    border: 1px solid var(--palette-red-300, #FCA5A5);
     color: #991b1b;
   }
 
   .feedback-notification.is-success {
-    background-color: var(--palette-emerald-50);
-    border: 1px solid var(--palette-emerald-200);
-    color: var(--palette-emerald-900);
+    background-color: var(--palette-emerald-50, #ECFDF5);
+    border: 1px solid var(--palette-emerald-200, #A7F3D0);
+    color: var(--palette-emerald-900, #064E3B);
   }
 
   .hidden {
     display: none;
   }
 
-  .form-disclaimer {
-    font-size: 0.8125rem;
-    color: var(--color-text-muted, var(--palette-slate-500));
-    text-align: center;
-    margin: 0.875rem 0 0 0;
+  .ok {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    font-size: 13.5px;
+    color: #64748B;
+  }
+
+  .ok span::before {
+    content: "✓ ";
+    color: #047857;
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .form {
+      padding: 26px;
+      border-radius: 24px;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ok {
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .form-text-input,
-    .btn-submit-pilot,
-    .btn-arrow-icon {
+    .in,
+    .btn {
       transition: none !important;
       transform: none !important;
     }

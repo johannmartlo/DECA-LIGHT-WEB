@@ -1,54 +1,26 @@
 ---
-// PilotIntro.astro — extraído de Pilot.astro
+// PilotIntro.astro — Rejilla de 2 columnas de la sección «Primer mes gratis» (Tramo 5, v3-premium)
 import PilotIntroEditorial from './PilotIntroEditorial.astro';
 import PilotIntroVisual from './PilotIntroVisual.astro';
 ---
 
-<!-- ==============================================
-     BLOQUE 1: INTRODUCCIÓN Y CANVAS DE EXPEDICIÓN
-     ============================================== -->
-<div class="pilot-hero-grid">
+<div class="mg">
   <PilotIntroEditorial />
-
   <PilotIntroVisual />
 </div>
 
-
 <style>
-  .pilot-hero-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        align-items: start;
-      }
-  @media (min-width: 1024px) {
-    .pilot-hero-grid {
-              grid-template-columns: 5fr 7fr;
-              gap: 2.5rem;
-            }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
-              animation-duration: 0.001ms !important;
-              animation-iteration-count: 1 !important;
-              transition-duration: 0.001ms !important;
-              scroll-behavior: auto !important;
-            }
-    .badge-amber-pulse,
-            .flow-dash-anim,
-            .shimmer-active,
-            .badge-shimmer::after,
-            .ping-circle,
-            .cta-pulse-dot,
-            .pulse-dot-green {
-              animation: none !important;
-            }
+  .mg {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 72px;
+    align-items: start;
   }
 
-  @keyframes ping {
-        75%, 100% {
-          transform: scale(2.2);
-          opacity: 0;
-        }
-      }
+  @media (max-width: 900px) {
+    .mg {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
 </style>

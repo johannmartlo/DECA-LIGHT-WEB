@@ -1,5 +1,5 @@
 ---
-// src/components/Pilot.astro - Sección de oferta y formulario (id="demo")
+// src/components/Pilot.astro - Sección de oferta y formulario del mes gratis (id="demo")
 import PilotIntro from './PilotIntro.astro';
 ---
 
@@ -7,7 +7,7 @@ import PilotIntro from './PilotIntro.astro';
   <div id="piloto" class="anchor-target" aria-hidden="true"></div>
   <div id="programa-piloto" class="anchor-target" aria-hidden="true"></div>
 
-  <div class="container pilot-container">
+  <div class="w">
     <PilotIntro />
   </div>
 </section>
@@ -51,7 +51,7 @@ import PilotIntro from './PilotIntro.astro';
           return;
         }
 
-        const originalBtnText = btnText ? btnText.textContent : 'Pedir demostración';
+        const originalBtnText = btnText ? btnText.textContent : 'Empezar el mes gratis';
         if (submitBtn) {
           submitBtn.disabled = true;
           if (btnText) btnText.textContent = 'Enviando solicitud...';
@@ -115,18 +115,14 @@ import PilotIntro from './PilotIntro.astro';
   .pilot-section {
     position: relative;
     width: 100%;
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-    background-color: var(--palette-white);
+    padding: 130px 24px 140px;
+    background-color: #FFFFFF;
     border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
-    scroll-margin-top: 5rem;
   }
 
-  @media (min-width: 1024px) {
-    .pilot-section {
-      padding-top: 5rem;
-      padding-bottom: 5rem;
-    }
+  .w {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .anchor-target {
@@ -138,8 +134,9 @@ import PilotIntro from './PilotIntro.astro';
     pointer-events: none;
   }
 
-  .pilot-container {
-    display: flex;
-    flex-direction: column;
+  @media (max-width: 900px) {
+    .pilot-section {
+      padding: 88px 16px;
+    }
   }
 </style>
