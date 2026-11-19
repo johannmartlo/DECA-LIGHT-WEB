@@ -1,0 +1,388 @@
+---
+// src/components/HoraPunta.astro — Banda «LA HORA PUNTA» con fondo en vídeo y métricas comparativas (v3-premium)
+const cards = [
+  {
+    label: 'Formularios que rellenas',
+    oldValue: 40,
+    newValue: 0,
+    srText: 'de 40 a 0',
+    caption: 'Las cargas llegan del informe de tu ERP.'
+  },
+  {
+    label: 'Matrículas que tecleas',
+    oldValue: 40,
+    newValue: 10,
+    srText: 'de 40 a 10',
+    caption: 'Una por camión, no por albarán.'
+  },
+  {
+    label: 'Clics para emitir',
+    oldValue: 40,
+    newValue: 4,
+    srText: 'de 40 a 4',
+    caption: 'Uno por transportista.'
+  }
+];
+---
+
+<section class="hora-punta-section" aria-labelledby="el-problema">
+  <div class="hora-punta-band">
+    <video
+      id="hora-punta-video"
+      class="hora-punta-bg-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/video/hora-punta-poster.jpg"
+      aria-hidden="true"
+    >
+      <source src="/video/hora-punta.mp4" type="video/mp4" media="(min-width: 700px) and (prefers-reduced-motion: no-preference)" />
+    </video>
+    <div class="hora-punta-overlay" aria-hidden="true"></div>
+
+    <div class="hora-punta-content">
+      <p class="hora-punta-kicker">LA HORA PUNTA</p>
+
+      <h2 id="el-problema" class="hora-punta-title">
+        <span class="title-white">Cuarenta cargas.</span>{' '}
+        <span class="title-accent">La matrícula, en el último minuto.</span>
+      </h2>
+
+      <p class="hora-punta-description">
+        Los albaranes están listos por la mañana, pero el camión se confirma a última hora. Con un generador, toca un formulario por DeCA y la misma matrícula una y otra vez.
+      </p>
+
+      <div class="hora-punta-grid">
+        {cards.map((card) => (
+          <article class="hora-punta-card">
+            <h3 class="card-label">{card.label}</h3>
+            <p class="card-metrics">
+              <span class="sr-only">{card.srText}</span>
+              <span class="metric-old" aria-hidden="true">{card.oldValue}</span>
+              <span class="metric-arrow" aria-hidden="true">→</span>
+              <span
+                class="metric-new"
+                data-count-from={card.oldValue}
+                data-count-to={card.newValue}
+                aria-hidden="true"
+              >
+                {card.newValue}
+              </span>
+            </p>
+            <p class="card-caption">{card.caption}</p>
+          </article>
+        ))}
+      </div>
+
+      <p class="hora-punta-note">
+        Ejemplo: 40 cargas de 4 transportistas en 10 camiones.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('hora-punta-video') as HTMLVideoElement | null;
+    const reducedMotionMQ = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+    const narrowMQ = window.matchMedia ? window.matchMedia('(max-width: 699px)') : null;
+
+    const syncVideoPlayback = () => {
+      if (!video) return;
+      const shouldDisable = Boolean(reducedMotionMQ?.matches || narrowMQ?.matches);
+      if (shouldDisable) {
+        video.removeAttribute('autoplay');
+        video.pause();
+      } else {
+        video.play().catch(() => {});
+      }
+    };
+
+    syncVideoPlayback();
+    reducedMotionMQ?.addEventListener?.('change', syncVideoPlayback);
+    narrowMQ?.addEventListener?.('change', syncVideoPlayback);
+
+    // Animación de conteo desde 40 hasta el valor final en 0,9 s al entrar en pantalla
+    const prefersNoPreference =
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+
+    if (!prefersNoPreference || !('IntersectionObserver' in window)) {
+      return;
+    }
+
+    const counters = Array.from(document.querySelectorAll<HTMLElement>('.metric-new[data-count-to]'));
+    if (counters.length === 0) return;
+
+    const grid = document.querySelector('.hora-punta-grid');
+    if (!grid) return;
+
+    let hasAnimated = false;
+
+    const animateCounters = () => {
+      if (hasAnimated) return;
+      hasAnimated = true;
+
+      const durationMs = 900;
+      const startTime = performance.now();
+
+      const step = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / durationMs, 1);
+        // Curva easeOutCubic para deceleración limpia
+        const eased = 1 - Math.pow(1 - progress, 3);
+
+        counters.forEach((el) => {
+          const from = Number(el.dataset.countFrom ?? 40);
+          const to = Number(el.dataset.countTo ?? 0);
+          const current = Math.round(from + (to - from) * eased);
+          el.textContent = String(current);
+        });
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          counters.forEach((el) => {
+            el.textContent = String(el.dataset.countTo ?? '0');
+          });
+        }
+      };
+
+      requestAnimationFrame(step);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(grid);
+  });
+</script>
+
+<style>
+  .hora-punta-section {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 120px;
+    padding-inline: 32px;
+    background-color: #FFFFFF;
+  }
+
+  .hora-punta-band {
+    position: relative;
+    width: 100%;
+    max-width: 1376px;
+    margin-inline: auto;
+    border-radius: 32px;
+    overflow: hidden;
+    padding: 120px 88px 96px;
+    color: #FFFFFF;
+    background-color: #022019;
+    background-image: url('/video/hora-punta-poster.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hora-punta-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  @media (max-width: 699px), (prefers-reduced-motion: reduce) {
+    .hora-punta-bg-video {
+      display: none;
+    }
+  }
+
+  .hora-punta-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(2, 32, 25, 0.80) 0%,
+      rgba(2, 32, 25, 0.58) 45%,
+      rgba(2, 32, 25, 0.86) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hora-punta-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hora-punta-kicker {
+    margin: 0 0 1.25rem 0;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6ee7b7;
+    line-height: 1.3;
+  }
+
+  .hora-punta-title {
+    margin: 0 0 1.5rem 0;
+    font-size: 64px;
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    font-weight: 700;
+    color: #FFFFFF;
+    max-width: 900px;
+    scroll-margin-top: 6rem;
+  }
+
+  .title-white {
+    color: #FFFFFF;
+  }
+
+  .title-accent {
+    color: #6ee7b7;
+  }
+
+  .hora-punta-description {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 620px;
+  }
+
+  /* Tres tarjetas en fila */
+  .hora-punta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 64px;
+    width: 100%;
+  }
+
+  .hora-punta-card {
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 22px;
+    padding: 28px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-label {
+    margin: 0 0 0.75rem 0;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0;
+  }
+
+  .card-metrics {
+    margin: 0 0 0.75rem 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    line-height: 1;
+  }
+
+  .metric-old {
+    font-size: 44px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.38);
+    text-decoration-line: line-through;
+    text-decoration-thickness: 3px;
+    text-decoration-color: rgba(255, 255, 255, 0.45);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .metric-arrow {
+    font-size: 28px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .metric-new {
+    font-size: 76px;
+    font-weight: 700;
+    color: #6ee7b7;
+    letter-spacing: -0.05em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .card-caption {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hora-punta-note {
+    margin: 1.5rem 0 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  /* Texto accesible oculto visualmente para lectores de pantalla */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 960px) {
+    .hora-punta-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hora-punta-section {
+      padding-inline: 12px;
+    }
+
+    .hora-punta-band {
+      border-radius: 24px;
+      padding: 72px 24px 56px;
+    }
+
+    .hora-punta-title {
+      font-size: 38px;
+    }
+
+    .hora-punta-description {
+      font-size: 17px;
+    }
+
+    .hora-punta-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 40px;
+    }
+  }
+</style>
