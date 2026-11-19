@@ -1,86 +1,318 @@
 ---
-// src/components/CarriersStrip.astro - Franja para transportistas con antetítulo y sin caja interior
+// src/components/CarriersStrip.astro - Sección para transportistas con móvil DeCA en HTML/CSS (Tramo 6, v3-premium)
 ---
 
-<section class="carriers-strip" aria-labelledby="carriers-title">
-  <div class="container carriers-container" data-reveal="card">
-    <div class="eyebrow-wrap">
-      <span class="eyebrow-line" aria-hidden="true"></span>
-      <span class="eyebrow-text">TRANSPORTISTAS</span>
-    </div>
-    <div class="carriers-row">
-      <h2 id="carriers-title" class="carriers-title">¿Eres transportista?</h2>
-      <p class="carriers-text">
-        Recibes el DeCA por correo, con su enlace. Tu conductor lo abre en el móvil o lee el QR: sin registrarse ni instalar nada. Si trabajas con almacenes que todavía lo hacen uno a uno, cuéntales que existe DECA Light.
-      </p>
+<section id="transportistas" aria-labelledby="carriers-title">
+  <div class="w">
+    <div class="tr">
+      <div>
+        <div class="eb">TRANSPORTISTAS</div>
+        <h2 id="carriers-title">
+          ¿Eres transportista? <span>Tu conductor no tiene que hacer nada.</span>
+        </h2>
+        <p class="l">El almacén emite el DeCA y te llega con su enlace. Tú no pagas nada.</p>
+        <div class="pts">
+          <div>
+            <i>1</i>
+            Recibes el DeCA por correo, con su enlace.
+          </div>
+          <div>
+            <i>2</i>
+            El conductor lo abre en el móvil o enseña el QR.
+          </div>
+          <div>
+            <i>3</i>
+            Sin registrarse ni instalar nada.
+          </div>
+        </div>
+        <a
+          class="lnk"
+          href="mailto:?subject=DECA%20Light&body=Para%20emitir%20los%20DeCA%20de%20todas%20las%20cargas%20de%20golpe%3A%20https%3A%2F%2Fwww.decalight.es"
+        >
+          ¿Tus almacenes aún lo hacen uno a uno? Recomiéndanos →
+        </a>
+      </div>
+
+      <div class="phone" aria-hidden="true">
+        <div class="scr">
+          <div class="bar"><i></i></div>
+          <div class="dh">
+            <small>DeCA-2026-000412</small>
+            <b>Transportes Ejemplo</b>
+            <em>● Emitido · v2</em>
+          </div>
+          <div class="dq">
+            <i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i>
+            <i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i class="o"></i><i></i>
+            <i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i>
+            <i class="o"></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i>
+            <i></i><i class="o"></i><i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i>
+            <i class="o"></i><i></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i></i>
+            <i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i>
+            <i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i>
+            <i class="o"></i><i></i><i></i><i class="o"></i><i></i><i></i>
+          </div>
+          <div class="dr">
+            <div><span>Tractora</span><b>7390 KLM</b></div>
+            <div><span>Remolque</span><b>R-2741 BCD</b></div>
+            <div><span>Origen</span><b>Frío Demo · Almería</b></div>
+          </div>
+          <div class="dl">Descargar PDF</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .carriers-strip {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    background-color: var(--palette-emerald-50);
-    border-bottom: 1px solid var(--palette-emerald-200);
+  #transportistas {
+    padding: 0 24px 120px;
+    background: #FFFFFF;
+    font-family: var(--font-sans);
+    color: #0F172A;
   }
 
-  .eyebrow-wrap {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.625rem;
-    margin-bottom: 0.75rem;
+  .w {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  .eyebrow-line {
-    width: 1.5rem;
-    height: 2px;
-    background-color: var(--color-brand-primary, var(--palette-emerald-700));
-    border-radius: 9999px;
-  }
-
-  .eyebrow-text {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-brand-primary, var(--palette-emerald-700));
-  }
-
-  .carriers-row {
+  .tr {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-    align-items: baseline;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 64px;
+    padding: 64px;
+    border-radius: 32px;
+    background: #F6F8F7;
+    box-shadow: inset 0 0 0 1px #E2E8F0;
+    overflow: hidden;
   }
 
-  @media (min-width: 900px) {
-    .carriers-row {
-      grid-template-columns: 4fr 8fr;
-      gap: 3rem;
-    }
+  .eb {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: #047857;
   }
 
-  .carriers-title {
-    font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  .tr h2 {
+    margin-top: 14px;
+    font-size: 44px;
+    line-height: 1.02;
+    letter-spacing: -0.05em;
     font-weight: 700;
-    letter-spacing: -0.03em;
-    color: var(--color-text-primary, var(--palette-slate-900));
-    margin: 0;
+    color: #0F172A;
   }
 
-  .carriers-text {
-    font-size: 1rem;
-    line-height: 1.65;
-    color: var(--color-text-secondary, var(--palette-slate-600));
-    margin: 0;
-    max-width: 68ch;
+  .tr h2 span {
+    background: linear-gradient(0deg, #94A3B8, #94A3B8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .tr p.l {
+    margin-top: 18px;
+    font-size: 17.5px;
+    line-height: 1.55;
+    color: #475569;
+    max-width: 520px;
+  }
+
+  .pts {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .pts div {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 16px;
+    color: #334155;
+    line-height: 1.45;
+  }
+
+  .pts i {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 9px;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 1px #E2E8F0;
+    display: grid;
+    place-items: center;
+    font-style: normal;
+    font-size: 13px;
+    font-weight: 700;
+    color: #047857;
+  }
+
+  .tr .lnk {
+    margin-top: 30px;
+    display: inline-flex;
+    gap: 8px;
+    font-weight: 600;
+    color: #047857;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  .tr .lnk:hover {
+    text-decoration: underline;
+  }
+
+  /* Teléfono */
+  .phone {
+    justify-self: center;
+    width: 280px;
+    height: 500px;
+    border-radius: 44px;
+    background: #0F172A;
+    padding: 12px;
+    box-shadow: 0 40px 80px -30px rgba(15, 23, 42, 0.45);
+    transform: rotate(-3deg);
+  }
+
+  .scr {
+    height: 100%;
+    border-radius: 34px;
+    background: #FFFFFF;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bar {
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bar i {
+    width: 84px;
+    height: 22px;
+    border-radius: 12px;
+    background: #0F172A;
+    display: block;
+  }
+
+  .dh {
+    padding: 10px 20px 14px;
+    border-bottom: 1px solid #F1F5F9;
+  }
+
+  .dh small {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    background: linear-gradient(0deg, #94A3B8, #94A3B8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .dh b {
+    display: block;
+    margin-top: 4px;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+    color: #0F172A;
+  }
+
+  .dh em {
+    font-style: normal;
+    display: inline-flex;
+    margin-top: 8px;
+    padding: 4px 10px;
+    border-radius: 99px;
+    background: #DBEAFE;
+    color: #1D4ED8;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+
+  .dq {
+    margin: 18px auto 0;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    border-radius: 16px;
+    box-shadow: 0 0 0 1px #E2E8F0;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 3px;
+  }
+
+  .dq i {
+    background: #0F172A;
+    border-radius: 2px;
+    display: block;
+  }
+
+  .dq i.o {
+    background: transparent;
+  }
+
+  .dr {
+    padding: 18px 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    font-size: 12.5px;
+  }
+
+  .dr div {
+    display: flex;
+    justify-content: space-between;
+    color: #64748B;
+  }
+
+  .dr b {
+    color: #0F172A;
+    font-weight: 600;
+  }
+
+  .dl {
+    margin: auto 16px 18px;
+    padding: 13px;
+    border-radius: 14px;
+    background: #047857;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 600;
+    font-size: 13.5px;
   }
 
   @media (max-width: 900px) {
-    .carriers-strip {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
+    #transportistas {
+      padding: 0 16px 80px;
+    }
+
+    .tr {
+      grid-template-columns: 1fr;
+      padding: 32px 24px;
+      gap: 40px;
+      border-radius: 24px;
+    }
+
+    .tr h2 {
+      font-size: 32px;
+    }
+
+    .phone {
+      transform: none;
+      width: 250px;
+      height: 480px;
+    }
+
+    .dq {
+      width: 130px;
+      height: 130px;
     }
   }
 </style>

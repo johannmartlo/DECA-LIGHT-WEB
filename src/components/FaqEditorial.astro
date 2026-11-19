@@ -1,90 +1,101 @@
 ---
-// FaqEditorial.astro — Columna editorial de Preguntas frecuentes
+// FaqEditorial.astro — Columna izquierda sticky de Preguntas frecuentes (Tramo 6, v3-premium)
 ---
 
-<aside class="faq-editorial-col" data-reveal="editorial">
-  <div class="editorial-header">
-    <div class="eyebrow-wrap">
-      <span class="eyebrow-line" aria-hidden="true"></span>
-      <span class="eyebrow-text">PREGUNTAS FRECUENTES</span>
-    </div>
-
-    <h2 id="faq-heading" class="faq-heading">
-      Lo que nos suelen preguntar.
-    </h2>
-
-    <p class="faq-contact">
-      ¿Otra duda? <a href="mailto:contacto@decalight.es" class="faq-contact-link">contacto@decalight.es</a>
-    </p>
+<aside class="fq-aside">
+  <div class="eb">PREGUNTAS FRECUENTES</div>
+  <h2 id="faq-heading">
+    Sin letra <span>pequeña.</span>
+  </h2>
+  <p>
+    Lo que nos preguntan los almacenes antes de empezar. Y si te queda alguna duda, te contestamos nosotros.
+  </p>
+  <div class="contact">
+    <b>¿Otra duda?</b>
+    <span>Te respondemos en un día laborable.</span>
+    <a href="mailto:contacto@decalight.es">contacto@decalight.es →</a>
   </div>
 </aside>
 
 <style>
-  .faq-editorial-col {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    max-width: 100%;
+  .fq-aside {
+    position: sticky;
+    top: 120px;
   }
 
-  @media (min-width: 1024px) {
-    .faq-editorial-col {
-      position: sticky;
-      top: 6.5rem;
-    }
+  .eb {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: #047857;
   }
 
-  .editorial-header {
-    display: flex;
-    flex-direction: column;
+  h2 {
+    margin-top: 16px;
+    font-size: 56px;
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+    font-weight: 700;
+    color: #0F172A;
   }
 
-  .eyebrow-wrap {
+  h2 span {
+    background: linear-gradient(0deg, #94A3B8, #94A3B8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  p {
+    margin-top: 20px;
+    font-size: 17px;
+    line-height: 1.55;
+    color: #475569;
+  }
+
+  .contact {
+    margin-top: 36px;
+    padding: 24px;
+    border-radius: 24px;
+    background: #F6F8F7;
+    box-shadow: inset 0 0 0 1px #E2E8F0;
+  }
+
+  .contact b {
+    display: block;
+    font-size: 16px;
+    color: #0F172A;
+  }
+
+  .contact span {
+    display: block;
+    margin-top: 4px;
+    font-size: 14.5px;
+    color: #475569;
+  }
+
+  .contact a {
+    margin-top: 16px;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.875rem;
-  }
-
-  .eyebrow-line {
-    width: 1.5rem;
-    height: 2px;
-    background-color: var(--palette-deca-800);
-    border-radius: 9999px;
-  }
-
-  .eyebrow-text {
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--palette-deca-800);
-  }
-
-  .faq-heading {
-    font-size: clamp(1.875rem, 3.2vw, 2.625rem);
-    line-height: 1.15;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    color: var(--color-text-primary, var(--palette-slate-900));
-    margin: 0 0 1rem 0;
-  }
-
-  .faq-contact {
-    font-size: 0.9375rem;
-    line-height: 1.5;
-    color: var(--color-text-secondary, var(--palette-slate-600));
-    margin: 0;
-  }
-
-  .faq-contact-link {
-    color: var(--color-brand-primary, var(--palette-emerald-700));
+    gap: 8px;
     font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    color: #047857;
+    text-decoration: none;
+    font-size: 15.5px;
   }
 
-  .faq-contact-link:hover {
-    color: var(--color-brand-hover, var(--palette-emerald-800));
+  .contact a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 900px) {
+    .fq-aside {
+      position: static;
+    }
+
+    h2 {
+      font-size: 38px;
+    }
   }
 </style>

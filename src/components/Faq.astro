@@ -1,85 +1,38 @@
 ---
-// src/components/Faq.astro - Sección «Preguntas frecuentes» de DECA Light
+// src/components/Faq.astro - Sección «Preguntas frecuentes» de DECA Light (Tramo 6, v3-premium)
 import FaqEditorial from './FaqEditorial.astro';
 import FaqAcordeon from './FaqAcordeon.astro';
 ---
 
-<section id="preguntas" class="faq-section" aria-labelledby="faq-heading">
+<section id="preguntas" aria-labelledby="faq-heading">
   <div id="faq" class="anchor-target" aria-hidden="true"></div>
   <div id="preguntas-frecuentes" class="anchor-target" aria-hidden="true"></div>
 
-  <div class="container faq-container">
-    <div class="faq-main-grid">
-      <FaqEditorial />
-      <FaqAcordeon />
-    </div>
+  <div class="w fq">
+    <FaqEditorial />
+    <FaqAcordeon />
   </div>
 </section>
 
-<noscript>
-  <style>
-    .accordion-content {
-      grid-template-rows: 1fr !important;
-    }
-    .accordion-inner {
-      opacity: 1 !important;
-      transform: none !important;
-      overflow: visible !important;
-    }
-    .accordion-chevron {
-      display: none !important;
-    }
-  </style>
-</noscript>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const accordion = document.getElementById('faq-accordion');
-    if (!accordion) return;
-
-    const items = accordion.querySelectorAll<HTMLElement>('.accordion-item');
-
-    items.forEach((item) => {
-      const toggleBtn = item.querySelector<HTMLButtonElement>('.faq-toggle');
-      if (!toggleBtn) return;
-
-      toggleBtn.addEventListener('click', () => {
-        const isOpen = item.getAttribute('data-open') === 'true';
-
-        items.forEach((other) => {
-          if (other !== item) {
-            other.setAttribute('data-open', 'false');
-            const otherBtn = other.querySelector<HTMLButtonElement>('.faq-toggle');
-            if (otherBtn) {
-              otherBtn.setAttribute('aria-expanded', 'false');
-            }
-          }
-        });
-
-        const nextState = !isOpen;
-        item.setAttribute('data-open', nextState ? 'true' : 'false');
-        toggleBtn.setAttribute('aria-expanded', nextState ? 'true' : 'false');
-      });
-    });
-  });
-</script>
-
 <style>
-  .faq-section {
+  #preguntas {
     position: relative;
-    width: 100%;
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-    background-color: var(--palette-slate-50);
-    border-bottom: 1px solid var(--color-border-subtle, var(--palette-slate-200));
-    scroll-margin-top: 5rem;
+    padding: 140px 24px;
+    background: #FFFFFF;
+    font-family: var(--font-sans);
+    color: #0F172A;
   }
 
-  @media (min-width: 1024px) {
-    .faq-section {
-      padding-top: 5rem;
-      padding-bottom: 5rem;
-    }
+  .w {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .fq {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 96px;
+    align-items: start;
   }
 
   .anchor-target {
@@ -91,22 +44,14 @@ import FaqAcordeon from './FaqAcordeon.astro';
     pointer-events: none;
   }
 
-  .faq-container {
-    position: relative;
-    z-index: 1;
-  }
+  @media (max-width: 900px) {
+    #preguntas {
+      padding: 88px 16px;
+    }
 
-  .faq-main-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    align-items: start;
-  }
-
-  @media (min-width: 1024px) {
-    .faq-main-grid {
-      grid-template-columns: 5fr 7fr;
-      gap: 2.5rem;
+    .fq {
+      grid-template-columns: 1fr;
+      gap: 40px;
     }
   }
 </style>

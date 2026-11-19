@@ -1,276 +1,262 @@
 ---
-// FaqAcordeon.astro — Acordeón con las 12 preguntas frecuentes
-const faqs = [
-  {
-    q: '¿Tengo que cambiar de ERP?',
-    a: 'No. DECA Light trabaja con el informe de expediciones que ya sacas de tu ERP, o con tus cartas de porte.'
-  },
-  {
-    q: '¿Y si mi ERP saca un informe distinto?',
-    a: 'En la puesta en marcha lo dejamos funcionando con el informe de tu ERP.'
-  },
-  {
-    q: '¿Qué recibe el conductor?',
-    a: 'Su DeCA en PDF con un QR. Lo abre en el móvil, con el enlace que le pasa su empresa o leyendo el QR, sin registrarse.'
-  },
-  {
-    q: '¿Se puede emitir un DeCA sin matrícula?',
-    a: 'No. La carga se queda en «Falta matrícula» hasta que la pones.'
-  },
-  {
-    q: 'Si cambia el camión después de emitir, ¿hay que hacer otro DeCA?',
-    a: 'No. Se modifica el mismo con el motivo, y el QR que ya tiene el conductor sigue sirviendo. Solo hace falta uno nuevo si cambia la empresa transportista.'
-  },
-  {
-    q: '¿Y si el mismo transportista manda un camión por la mañana y otro por la tarde?',
-    a: 'Las cargas de la tarde llegan como pendientes y reciben su propia matrícula, sin tocar las de la mañana.'
-  },
-  {
-    q: '¿Qué pasa si importo el mismo informe dos veces?',
-    a: 'No se duplica nada. Una matrícula ya puesta no se pisa y un DeCA emitido no cambia.'
-  },
-  {
-    q: '¿Quién de mi empresa puede usarlo?',
-    a: 'Quien invites. Cada persona entra con su usuario y todo lo que hace queda registrado con su nombre.'
-  },
-  {
-    q: '¿Dónde están mis datos?',
-    a: 'En servidores de la Unión Europea, con copias de seguridad cifradas diarias. Cada empresa ve solo lo suyo.'
-  },
-  {
-    q: '¿Hay que instalar algo?',
-    a: 'No. Funciona en el navegador.'
-  },
-  {
-    q: '¿Cuánto cuesta?',
-    a: 'Depende de tu volumen de cargas. Te lo damos en la demostración. El primer mes es gratis.'
-  },
-  {
-    q: '¿Qué pasa al terminar el mes gratis?',
-    a: 'Decides tú. Si no sigues, no pagas nada.'
-  }
-];
+// FaqAcordeon.astro — Acordeón con las 12 preguntas frecuentes en 3 grupos (Tramo 6, v3-premium)
 ---
 
-<div class="faq-accordion-col" role="region" aria-label="Lista de preguntas frecuentes">
-  <div class="accordion-list" id="faq-accordion" data-reveal="card">
-    {faqs.map((item, idx) => {
-      const num = String(idx + 1).padStart(2, '0');
-      const isFirst = idx === 0;
-      const btnId = `faq-btn-${idx + 1}`;
-      const ansId = `faq-ans-${idx + 1}`;
-      return (
-        <article class="accordion-item" data-open={isFirst ? 'true' : 'false'}>
-          <div class="accordion-accent-bar" aria-hidden="true"></div>
-          <h3>
-            <button
-              type="button"
-              id={btnId}
-              class="faq-toggle"
-              aria-expanded={isFirst ? 'true' : 'false'}
-              aria-controls={ansId}
-            >
-              <span class="toggle-left">
-                <span class="faq-num">{num}</span>
-                <span class="faq-title">{item.q}</span>
-              </span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-chevron" aria-hidden="true">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-          </h3>
-          <div
-            id={ansId}
-            class="accordion-content"
-            role="region"
-            aria-labelledby={btnId}
-          >
-            <div class="accordion-inner">
-              <div class="answer-body">{item.a}</div>
-            </div>
-          </div>
-        </article>
-      );
-    })}
-  </div>
+<div class="list" id="faq-accordion">
+  <div class="grp">EMPEZAR</div>
+
+  <details open>
+    <summary>
+      ¿Tengo que cambiar de ERP?
+      <span class="pm" aria-hidden="true"></span>
+    </summary>
+    <p class="ans">
+      No. DECA Light trabaja con el informe de expediciones que ya sacas de tu ERP, o con tus cartas de porte.
+    </p>
+  </details>
+
+  <details>
+    <summary>
+      ¿Y si mi ERP saca un informe distinto?
+      <span class="pm" aria-hidden="true"></span>
+    </summary>
+    <p class="ans">
+      En la puesta en marcha lo dejamos funcionando con el informe de tu ERP, tal como sale.
+    </p>
+  </details>
+
+  <details>
+    <summary>
+      ¿Hay que instalar algo?
+      <span class="pm" aria-hidden="true"></span>
+    </summary>
+    <p class="ans">
+      No. Funciona en el navegador.
+    </p>
+  </details>
+
+  <details>
+    <summary>
+      ¿Quién de mi empresa puede usarlo?
+      <span class="pm" aria-hidden="true"></span>
+    </summary>
+    <p class="ans">
+      Quien invites: 3 usuarios en el plan Básico e ilimitados en Almacén y Campaña. Cada persona entra con su usuario y todo lo que hace queda registrado con su nombre.
+    </p>
+  </details>
+
+  <div class="grp">PRECIO</div>
+
+  <details>
+    <summary>
+      ¿Cuánto cuesta?
+      <span class="pm" aria-hidden="true"></span>
+    </summary>
+    <p class="ans">
+      Depende de los DeCA que emites al mes: <b>Básico 49 €</b>, <b>Almacén 89 €</b> y <b>Campaña 139 €</b>, sin IVA. Los 10 primeros almacenes tienen un 25 % de descuento durante 12 meses: 37, 67 y 104 €. <a href="#precios">Calcula el tuyo →</a>
+    </p>
+  </details>
+
+  <details>
+    <summary>
+      ¿Qué cuenta como un DeCA?
+      <span class="pm" aria-hidden="true"></span>
+    </summary>
+    <p class="ans">
+      Cada DeCA nuevo que emites en el mes. Modificar, sustituir, anular o volver a importar no cuenta.
+    </p>
+  </details>
+
+  <details>
+    <summary>
+      ¿Y si un mes de campaña me paso del tramo?
+      <span class="pm" aria-hidden="true"></span>
+    </summary>
+    <p class="ans">
+      Sigues emitiendo: nunca se bloquea por volumen. Te avisamos al 80 % y al 100 %, y ese mes se factura el tramo que has usado.
+    </p>
+  </details>
+
+  <details>
+    <summary>
+      ¿Qué pasa al terminar el mes gratis?
+      <span class="pm" aria-hidden="true"></span>
+    </summary>
+    <p class="ans">
+      Eliges un plan o lo dejas. Para la prueba no pedimos tarjeta, así que no se cobra nada sin que tú lo decidas.
+    </p>
+  </details>
+
+  <details>
+    <summary>
+      ¿Hay permanencia?
+      <span class="pm" aria-hidden="true"></span>
+    </summary>
+    <p class="ans">
+      No. Pagas mes a mes. Si lo dejas, tus DeCA y su historial siguen disponibles para consultarlos y exportarlos.
+    </p>
+  </details>
+
+  <div class="grp">EL DECA</div>
+
+  <details>
+    <summary>
+      ¿Qué recibe el conductor?
+      <span class="pm" aria-hidden="true"></span>
+    </summary>
+    <p class="ans">
+      Su DeCA en PDF con un QR. Lo abre en el móvil, con el enlace que le pasa su empresa o leyendo el QR, sin registrarse.
+    </p>
+  </details>
+
+  <details>
+    <summary>
+      ¿Se puede emitir un DeCA sin matrícula?
+      <span class="pm" aria-hidden="true"></span>
+    </summary>
+    <p class="ans">
+      No. La carga se queda en «Falta matrícula» hasta que la pones.
+    </p>
+  </details>
+
+  <details>
+    <summary>
+      ¿Dónde están mis datos?
+      <span class="pm" aria-hidden="true"></span>
+    </summary>
+    <p class="ans">
+      En servidores de la Unión Europea, con copias de seguridad cifradas diarias. Cada empresa ve solo lo suyo.
+    </p>
+  </details>
 </div>
 
 <style>
-  .faq-accordion-col {
-    width: 100%;
-    max-width: 100%;
+  .list {
+    border-top: 1px solid #E2E8F0;
   }
 
-  .accordion-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  details {
+    border-bottom: 1px solid #E2E8F0;
   }
 
-  .accordion-item {
-    position: relative;
-    background-color: var(--palette-white);
-    border: 1px solid var(--palette-slate-200);
-    border-radius: 0.875rem;
-    overflow: hidden;
-    transition: border-color 0.24s var(--ease-out), box-shadow 0.24s var(--ease-out);
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
-  }
-
-  .accordion-item:hover {
-    border-color: var(--palette-slate-300);
-  }
-
-  .accordion-accent-bar {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background-color: var(--palette-deca-800);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-
-  .accordion-item[data-open="true"] {
-    background-color: #FAFFFC;
-    border-color: var(--palette-emerald-200);
-    box-shadow: 0 4px 20px -2px rgba(8, 84, 62, 0.06);
-  }
-
-  .accordion-item[data-open="true"] .accordion-accent-bar {
-    opacity: 1;
-  }
-
-  .faq-toggle {
-    width: 100%;
-    min-height: 52px;
-    padding: 1rem 1.25rem;
+  summary {
+    list-style: none;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    text-align: left;
-    background: none;
-    border: none;
-    cursor: pointer;
-    gap: 1rem;
-    font-family: inherit;
+    gap: 24px;
+    padding: 26px 0;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: #0F172A;
   }
 
-  .faq-toggle:focus-visible {
-    outline: none;
-    box-shadow: inset 0 0 0 2px var(--color-focus-ring);
+  summary::-webkit-details-marker {
+    display: none;
   }
 
-  .toggle-left {
-    display: flex;
-    align-items: center;
-    gap: 0.875rem;
+  summary:focus-visible {
+    outline: 2px solid #047857;
+    outline-offset: 4px;
+    border-radius: 8px;
   }
 
-  .faq-num {
-    font-family: var(--font-sans);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    color: var(--palette-slate-600);
-    background-color: var(--palette-slate-100);
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+  .pm {
+    flex: none;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #F1F5F9;
+    transition: background 0.25s, transform 0.25s;
   }
 
-  .accordion-item[data-open="true"] .faq-num {
-    color: var(--palette-deca-800);
-    background-color: var(--palette-deca-50);
+  .pm::before,
+  .pm::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 12px;
+    height: 2px;
+    margin: -1px 0 0 -6px;
+    background: #0F172A;
+    border-radius: 2px;
+    transition: transform 0.25s;
   }
 
-  .faq-title {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    line-height: 1.35;
-    color: var(--palette-slate-900);
+  .pm::after {
+    transform: rotate(90deg);
   }
 
-  @media (min-width: 640px) {
-    .faq-title {
-      font-size: 1rem;
-    }
-  }
-
-  .accordion-chevron {
-    color: var(--palette-slate-500);
-    flex-shrink: 0;
-    transition: transform 0.3s var(--ease-out), color 0.2s ease;
-  }
-
-  .accordion-item[data-open="true"] .accordion-chevron {
+  details[open] .pm {
+    background: #047857;
     transform: rotate(180deg);
-    color: var(--palette-deca-800);
   }
 
-  .accordion-content {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 300ms var(--ease-out);
+  details[open] .pm::before,
+  details[open] .pm::after {
+    background: #FFFFFF;
   }
 
-  .accordion-item[data-open="true"] .accordion-content {
-    grid-template-rows: 1fr;
+  details[open] .pm::after {
+    transform: rotate(0);
   }
 
-  .accordion-inner {
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(-4px);
-    transition: opacity 240ms var(--ease-out), transform 240ms var(--ease-out);
+  .ans {
+    padding: 0 64px 28px 0;
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: #475569;
+    max-width: 680px;
   }
 
-  .accordion-item[data-open="true"] .accordion-inner {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 60ms;
+  .ans a {
+    color: #047857;
+    font-weight: 600;
+    text-decoration: none;
   }
 
-  :global(html:not(.js)) .accordion-content {
-    grid-template-rows: 1fr !important;
+  .ans a:hover {
+    text-decoration: underline;
   }
 
-  :global(html:not(.js)) .accordion-inner {
-    opacity: 1 !important;
-    transform: none !important;
-    overflow: visible !important;
+  .ans b {
+    color: #0F172A;
+    font-weight: 600;
   }
 
-  :global(html:not(.js)) .accordion-chevron {
-    display: none !important;
+  .grp {
+    padding: 36px 0 10px;
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: #64748B;
+    border-bottom: 1px solid #E2E8F0;
   }
 
-  .answer-body {
-    padding: 0.5rem 1.25rem 1.25rem;
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    color: var(--palette-slate-700);
-    border-top: 1px solid rgba(241, 245, 249, 0.9);
+  .grp:first-child {
+    padding-top: 0;
   }
 
-  @media (min-width: 640px) {
-    .answer-body {
-      padding-left: 4.125rem;
-      padding-right: 1.5rem;
+  @media (max-width: 900px) {
+    summary {
+      font-size: 17px;
+      padding: 22px 0;
+    }
+
+    .ans {
+      padding-right: 0;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .accordion-item,
-    .accordion-content,
-    .accordion-inner,
-    .accordion-chevron {
+    .pm,
+    .pm::before,
+    .pm::after {
       transition: none !important;
-      transform: none !important;
     }
   }
 </style>
