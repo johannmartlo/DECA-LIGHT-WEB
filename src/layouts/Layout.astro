@@ -84,8 +84,12 @@ const structuredData = {
     )}
 
     <!-- Detección síncrona de JavaScript para mejora progresiva (No-JS fallback) -->
+    <!-- TODO(semana 7-dic-2026): retirar código de la promoción Black Friday -->
     <script is:inline>
       document.documentElement.classList.add('js');
+      if (Date.now() < Date.parse('2026-12-01T00:00:00+01:00')) {
+        document.documentElement.classList.add('bf-2026');
+      }
     </script>
   </head>
   <body>

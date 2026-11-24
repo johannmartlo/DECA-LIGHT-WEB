@@ -453,3 +453,8 @@ html.reveal-ready [data-reveal]:focus-within {
     stroke-dashoffset: 0 !important;
   }
 }
+
+/* TODO(semana 7-dic-2026): retirar código de la promoción Black Friday */
+html:not(.bf-2026) [data-bf-promo] {
+  display: none !important;
+}

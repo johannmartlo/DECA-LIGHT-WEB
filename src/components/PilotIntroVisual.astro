@@ -7,6 +7,10 @@
     <b>Empieza tu mes gratis</b>
     <span class="pill" id="fPlan">Plan Almacén · 67&nbsp;€</span>
   </div>
+  <!-- TODO(semana 7-dic-2026): retirar código de la promoción Black Friday -->
+  <p class="bf-form-note" data-bf-promo>
+    <strong>Black Friday:</strong> 2 meses gratis si empiezas antes del 30-nov
+  </p>
 
   <form
     id="pilot-interest-form"
@@ -140,6 +144,22 @@
     font-size: 13.5px;
     font-weight: 600;
     white-space: nowrap;
+  }
+
+  /* TODO(semana 7-dic-2026): retirar código de la promoción Black Friday */
+  .bf-form-note {
+    margin-top: 8px;
+    font-size: 12.5px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: var(--palette-emerald-800, #065F46);
+    text-align: right;
+    text-wrap: balance;
+  }
+
+  .bf-form-note strong {
+    font-weight: 700;
+    color: var(--palette-emerald-900, #064E3B);
   }
 
   .grid {
@@ -287,6 +307,13 @@
     content: "✓ ";
     color: #047857;
     font-weight: 700;
+  }
+
+  @media (max-width: 1050px) {
+    /* TODO(semana 7-dic-2026): retirar código de la promoción Black Friday */
+    .bf-form-note {
+      text-align: left;
+    }
   }
 
   @media (max-width: 900px) {

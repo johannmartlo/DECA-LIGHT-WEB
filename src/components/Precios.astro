@@ -13,6 +13,10 @@
     </p>
 
     <div class="launch-wrap">
+      <!-- TODO(semana 7-dic-2026): retirar código de la promoción Black Friday -->
+      <p class="bf-pill" data-bf-promo>
+        <span class="bf-dot" aria-hidden="true"></span><strong class="bf-kicker">Black Friday:</strong> si empiezas antes del 30 de noviembre, <strong>los 2 primeros meses son gratis</strong>.
+      </p>
       <p class="launch-pill">
         <span class="launch-badge">−25 %</span>
         <span>Precio de lanzamiento durante <strong>12 meses</strong> para los <strong>primeros clientes</strong></span>
@@ -246,7 +250,8 @@
           </tbody>
         </table>
       </div>
-      <p class="foot">Precios sin IVA (21 % aparte). Servicio exclusivo para empresas y profesionales. Precio de lanzamiento (−25 %) durante los primeros 12 meses para los primeros clientes.</p>
+      <!-- TODO(semana 7-dic-2026): retirar código de la promoción Black Friday -->
+      <p class="foot">Precios sin IVA (21 % aparte). Servicio exclusivo para empresas y profesionales. Precio de lanzamiento (−25 %) durante los primeros 12 meses para los primeros clientes.<span data-bf-promo> Black Friday: 2 meses gratis para solicitudes recibidas entre el 24 y el 30 de noviembre de 2026 (hora peninsular). Después se aplica el precio de lanzamiento durante 12 meses desde el primer pago.</span></p>
     </div>
   </div>
 </section>
@@ -402,7 +407,47 @@
   .launch-wrap {
     margin-top: 24px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* TODO(semana 7-dic-2026): retirar código de la promoción Black Friday */
+  .bf-pill {
+    display: inline-block;
+    max-width: 100%;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: var(--palette-slate-900, #0F172A);
+    border: 1px solid var(--palette-emerald-700, #047857);
+    box-shadow: 0 10px 24px -14px rgba(4, 120, 87, 0.55);
+    font-size: 14.5px;
+    line-height: 1.4;
+    color: var(--palette-slate-100, #F1F5F9);
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .bf-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 9px;
+    vertical-align: middle;
+    transform: translateY(-1px);
+    border-radius: 50%;
+    background: var(--palette-emerald-400, #34D399);
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2);
+  }
+
+  .bf-pill .bf-kicker {
+    color: var(--palette-emerald-300, #6EE7B7);
+    font-weight: 700;
+  }
+
+  .bf-pill strong:not(.bf-kicker) {
+    color: var(--palette-white, #FFFFFF);
+    font-weight: 700;
   }
 
   .launch-pill {
@@ -990,6 +1035,14 @@
 
     .lead {
       font-size: 17px;
+    }
+
+    /* TODO(semana 7-dic-2026): retirar código de la promoción Black Friday */
+    .bf-pill {
+      padding: 10px 16px;
+      border-radius: 18px;
+      font-size: 13.5px;
+      line-height: 1.45;
     }
 
     .calc {
