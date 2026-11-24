@@ -3,6 +3,11 @@
 ---
 
 <div class="hero-content">
+  <!-- TODO(semana 7-dic-2026): retirar código de la promoción Black Friday -->
+  <a href="#demo" class="hero-bf-pill hero-enter hero-enter-1" data-bf-promo>
+    <strong>Black Friday</strong> <span class="hero-bf-sep" aria-hidden="true">·</span> 2 meses gratis si&nbsp;empiezas antes del 30-nov&nbsp;<span class="hero-bf-arrow" aria-hidden="true">→</span>
+  </a>
+
   <p
     class="hero-pill hero-enter hero-enter-1"
     data-full-text="El DeCA electrónico es obligatorio desde el 5 de octubre de 2026"
@@ -37,8 +42,10 @@
     </button>
   </div>
 
+  <!-- TODO(semana 7-dic-2026): retirar código de la promoción Black Friday -->
   <p class="hero-checks hero-enter hero-enter-4">
-    <span class="check-item"><span class="check-mark" aria-hidden="true">✓</span> Primer mes gratis</span>
+    <span class="check-item" data-bf-promo><span class="check-mark" aria-hidden="true">✓</span> 2 meses gratis hasta el 30-nov</span>
+    <span class="check-item" data-bf-fallback><span class="check-mark" aria-hidden="true">✓</span> Primer mes gratis</span>
     <span class="check-sep" aria-hidden="true">·</span>
     <span class="check-item"><span class="check-mark" aria-hidden="true">✓</span> Te lo dejamos configurado</span>
     <span class="check-sep" aria-hidden="true">·</span>
@@ -71,6 +78,66 @@
     text-align: center;
     width: 100%;
     margin-inline: auto;
+  }
+
+  /* TODO(semana 7-dic-2026): retirar código de la promoción Black Friday */
+  .hero-bf-pill {
+    display: inline-block;
+    max-width: 100%;
+    padding: 0.45rem 1.05rem;
+    margin-bottom: 0.75rem;
+    background-color: var(--palette-emerald-50, #ECFDF5);
+    border: 1px solid var(--palette-emerald-200, #A7F3D0);
+    border-radius: 999px;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--palette-emerald-900, #064E3B);
+    text-align: center;
+    text-decoration: none;
+    text-wrap: balance;
+    box-shadow: 0 2px 8px rgba(4, 120, 87, 0.08);
+    transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hero-bf-pill strong {
+    font-weight: 700;
+    color: var(--palette-emerald-900, #064E3B);
+  }
+
+  .hero-bf-sep {
+    color: var(--palette-emerald-700, #047857);
+  }
+
+  .hero-bf-arrow {
+    display: inline-block;
+    color: var(--palette-emerald-700, #047857);
+    font-weight: 600;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hero-bf-pill:hover {
+    background-color: var(--palette-emerald-100, #D1FAE5);
+    border-color: var(--palette-emerald-300, #6EE7B7);
+    text-decoration: none;
+  }
+
+  .hero-bf-pill:hover .hero-bf-arrow {
+    transform: translateX(2px);
+  }
+
+  .hero-bf-pill:focus-visible {
+    outline: 2px solid var(--color-brand-primary, #047857);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 767px) {
+    .hero-bf-pill {
+      padding: 0.45rem 0.9rem;
+      border-radius: 18px;
+      font-size: 0.8125rem; /* 13px */
+      line-height: 1.4;
+    }
   }
 
   /* 1. Píldora superior */

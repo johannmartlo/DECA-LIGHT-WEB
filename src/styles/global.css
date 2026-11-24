@@ -458,3 +458,7 @@ html.reveal-ready [data-reveal]:focus-within {
 html:not(.bf-2026) [data-bf-promo] {
   display: none !important;
 }
+
+html.bf-2026 [data-bf-fallback] {
+  display: none !important;
+}
